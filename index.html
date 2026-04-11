@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Scholar Graph</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+/* ===== Apple Design System Foundation ===== */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('.SFNSDisplay'), local('SFProDisplay-Regular'),
+       local('Helvetica Neue'), local('Helvetica');
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text'), local('.SFNSText'), local('SFProText-Regular'),
+       local('Helvetica Neue'), local('Helvetica');
+  font-weight: 100 900;
+}
+
+:root {
+  /* Apple Colors */
+  --apple-black: #000000;
+  --apple-white: #ffffff;
+  --apple-gray-bg: #f5f5f7;
+  --apple-near-black: #1d1d1f;
+  --apple-blue: #0071e3;
+  --apple-link-blue: #0066cc;
+  --apple-link-blue-dark: #2997ff;
+  --apple-text-secondary: rgba(255, 255, 255, 0.56);
+  --apple-text-tertiary: rgba(255, 255, 255, 0.32);
+  --apple-surface-dark-1: #161617;
+  --apple-surface-dark-2: #1c1c1e;
+  --apple-surface-dark-3: #2c2c2e;
+
+  /* Organization Colors — desaturated, Apple-refined */
+  --org-deepmind: #64d2ff;
+  --org-openai: #30d158;
+  --org-anthropic: #ff6482;
+  --org-meta: #5e9eff;
+  --org-stanford: #ff9f0a;
+  --org-university: #bf5af2;
+  --org-startup: #ffd60a;
+  --org-independent: #98989d;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--apple-black);
+  color: var(--apple-white);
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Navigation — Apple Glass ===== */
+#nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 1000;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+.nav-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.374px;
+  color: var(--apple-white);
+  white-space: nowrap;
+}
+.nav-separator {
+  width: 0.5px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 0 16px;
+}
+.nav-stats {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: var(--apple-text-secondary);
+}
+
+/* Search — Apple Style */
+.nav-search-wrapper {
+  margin-left: 24px;
+  position: relative;
+}
+#search-input {
+  width: 220px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: var(--apple-white);
+  padding: 0 12px 0 32px;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+#search-input::placeholder {
+  color: rgba(255, 255, 255, 0.32);
+}
+#search-input:focus {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--apple-blue);
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* Filter Pills — Apple Pill CTA */
+.filter-group {
+  display: flex;
+  gap: 6px;
+  margin-left: 20px;
+}
+.filter-pill {
+  padding: 5px 14px;
+  border-radius: 980px;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  line-height: 1.33;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.56);
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+}
+.filter-pill:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.8);
+}
+.filter-pill.active {
+  background: var(--apple-blue);
+  border-color: var(--apple-blue);
+  color: var(--apple-white);
+}
+.nav-spacer { flex: 1; }
+
+/* Language Toggle — Apple Segmented Control */
+.lang-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 0;
+  margin-left: 12px;
+}
+.lang-btn {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.12px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+}
+.lang-btn:hover {
+  color: rgba(255, 255, 255, 0.64);
+}
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--apple-white);
+}
+
+/* ===== Graph Canvas ===== */
+#graph-container {
+  position: fixed;
+  top: 48px; left: 0; right: 0; bottom: 0;
+}
+#graph-container svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===== Legend — Bottom Left ===== */
+#legend {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 100;
+  pointer-events: all;
+}
+.legend-card {
+  background: rgba(28, 28, 30, 0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 160px;
+}
+.legend-heading {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--apple-text-tertiary);
+  margin-bottom: 10px;
+}
+.legend-heading:not(:first-child) { margin-top: 14px; }
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  cursor: default;
+}
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-line-sample {
+  width: 16px;
+  height: 0;
+  flex-shrink: 0;
+}
+.legend-label {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+/* ===== Detail Panel — Apple Sidebar ===== */
+#detail-panel {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  width: 380px;
+  height: calc(100vh - 48px);
+  background: var(--apple-surface-dark-1);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.08);
+  z-index: 500;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#detail-panel.open {
+  transform: translateX(0);
+}
+#detail-panel::-webkit-scrollbar { width: 0; }
+
+.detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1;
+}
+.detail-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.detail-header {
+  padding: 40px 24px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.detail-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+.detail-avatar.loading {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 1.5s ease infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+.detail-avatar-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+}
+.detail-header-info {
+  flex: 1;
+  min-width: 0;
+}
+.detail-name {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.196px;
+  line-height: 1.14;
+  color: var(--apple-white);
+  margin-bottom: 6px;
+}
+.detail-title {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  line-height: 1.43;
+  color: var(--apple-text-secondary);
+}
+.detail-org-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 12px;
+  border-radius: 980px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.12px;
+}
+
+.detail-section {
+  padding: 20px 24px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+}
+.detail-section-title {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--apple-text-tertiary);
+  margin-bottom: 12px;
+}
+.detail-section p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Paper items */
+.paper-entry {
+  padding: 8px 0;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.paper-year {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  color: var(--apple-link-blue-dark);
+  flex-shrink: 0;
+  min-width: 36px;
+}
+.paper-title {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  line-height: 1.38;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+/* Connection items */
+.conn-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  transition: background 0.2s;
+}
+.conn-entry:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.conn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.conn-info {
+  flex: 1;
+  min-width: 0;
+}
+.conn-name {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  color: var(--apple-white);
+}
+.conn-relation {
+  font-size: 11px;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-tertiary);
+  margin-top: 1px;
+}
+.conn-type-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-tertiary);
+  padding: 2px 8px;
+  border-radius: 980px;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ===== SVG Styles ===== */
+.link-line {
+  transition: stroke-opacity 0.3s ease;
+}
+.node-group {
+  transition: opacity 0.3s ease;
+}
+.node-glow {
+  transition: opacity 0.3s ease;
+}
+.node-label {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.64);
+  text-anchor: middle;
+  pointer-events: none;
+  transition: fill 0.3s, font-size 0.3s;
+}
+
+/* Dim / Highlight states */
+.node-group.dimmed { opacity: 0.06; }
+.node-group.highlighted { opacity: 1; }
+.node-group.highlighted .node-label {
+  fill: var(--apple-white);
+  font-weight: 600;
+}
+.node-group.highlighted .node-glow { opacity: 0.5; }
+.link-line.dimmed { stroke-opacity: 0.02 !important; }
+.link-line.highlighted { stroke-opacity: 0.6 !important; stroke-width: 2px !important; }
+
+/* ===== Tooltip ===== */
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(28, 28, 30, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 8px 12px;
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 240px;
+}
+#tooltip.visible { opacity: 1; }
+.tooltip-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  color: var(--apple-white);
+}
+.tooltip-org {
+  font-size: 11px;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-secondary);
+  margin-top: 2px;
+}
+
+/* ===== Keyboard hint ===== */
+#keyboard-hint {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  gap: 12px;
+}
+.hint-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-tertiary);
+}
+.hint-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- Tooltip -->
+<div id="tooltip">
+  <div class="tooltip-name" id="tooltip-name"></div>
+  <div class="tooltip-org" id="tooltip-org"></div>
+</div>
+
+<!-- Navigation Bar — Apple Glass -->
+<nav id="nav-bar">
+  <span class="nav-title">AI Scholar Graph</span>
+  <span class="nav-separator"></span>
+  <span class="nav-stats" id="nav-stats"></span>
+
+  <div class="nav-search-wrapper">
+    <span class="search-icon">&#x2315;</span>
+    <input type="text" id="search-input" placeholder="Search scholars..." autocomplete="off" spellcheck="false">
+  </div>
+
+  <div class="filter-group">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="deep-learning">Deep Learning</button>
+    <button class="filter-pill" data-filter="nlp">NLP & LLM</button>
+    <button class="filter-pill" data-filter="rl">RL & Robotics</button>
+    <button class="filter-pill" data-filter="vision">Vision</button>
+    <button class="filter-pill" data-filter="safety">AI Safety</button>
+  </div>
+
+  <div class="nav-spacer"></div>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="zh">中文</button>
+  </div>
+</nav>
+
+<!-- Legend -->
+<div id="legend">
+  <div class="legend-card">
+    <div class="legend-heading">Organizations</div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-deepmind)"></div><span class="legend-label">Google DeepMind</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-openai)"></div><span class="legend-label">OpenAI</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-anthropic)"></div><span class="legend-label">Anthropic</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-meta)"></div><span class="legend-label">Meta AI</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-stanford)"></div><span class="legend-label">Stanford</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-university)"></div><span class="legend-label">Universities</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-startup)"></div><span class="legend-label">Startups</span></div>
+    <div class="legend-heading">Connections</div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1.5px solid var(--apple-link-blue-dark)"></div><span class="legend-label">Co-author</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1.5px dashed var(--org-deepmind)"></div><span class="legend-label">Advisor / Student</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1.5px solid var(--org-openai)"></div><span class="legend-label">Co-founder</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px solid rgba(255,255,255,0.12)"></div><span class="legend-label">Colleague</span></div>
+  </div>
+</div>
+
+<!-- Detail Panel -->
+<div id="detail-panel">
+  <button class="detail-close" id="detail-close">&#10005;</button>
+  <div class="detail-header">
+    <div class="detail-avatar-placeholder" id="detail-avatar"><span id="detail-avatar-initial"></span></div>
+    <div class="detail-header-info">
+      <div class="detail-name" id="detail-name"></div>
+      <div class="detail-title" id="detail-title"></div>
+      <div class="detail-org-badge" id="detail-org"></div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="detail-section-title">About</div>
+    <p id="detail-bio"></p>
+  </div>
+  <div class="detail-section" id="detail-papers-section">
+    <div class="detail-section-title">Key Contributions</div>
+    <div id="detail-papers"></div>
+  </div>
+  <div class="detail-section">
+    <div class="detail-section-title">Connections</div>
+    <div id="detail-connections"></div>
+  </div>
+</div>
+
+<!-- Keyboard Hints -->
+<div id="keyboard-hint">
+  <div class="hint-item"><span class="hint-key">Scroll</span> Zoom</div>
+  <div class="hint-item"><span class="hint-key">Drag</span> Pan</div>
+  <div class="hint-item"><span class="hint-key">Click</span> Details</div>
+  <div class="hint-item"><span class="hint-key">Esc</span> Close</div>
+</div>
+
+<!-- Graph -->
+<div id="graph-container">
+  <svg id="main-svg"></svg>
+</div>
+
+<script>
+// ===================================================================
+// DATA
+// ===================================================================
+const scholars = [
+  // Deep Learning Trio
+  { id:"hinton", name:"Geoffrey Hinton", org:"University of Toronto", title:"Godfather of Deep Learning · Turing Award 2018 · Nobel Prize 2024", field:["deep-learning"],
+    bio:"Born 1947 in London. Studied at Clifton College, then earned a BA in Experimental Psychology at King's College Cambridge (1970). After a year apprenticing as a carpenter, pursued a PhD in AI at the University of Edinburgh (1978) under Christopher Longuet-Higgins. Postdoc at Sussex, then joined Carnegie Mellon in the 1980s as part of the PDP (Parallel Distributed Processing) group. Moved to the University of Toronto in 1987 where he has remained ever since. Published the landmark backpropagation paper (1986, Nature) with Rumelhart & Williams. Introduced Boltzmann machines (1985), deep belief nets (2006), and co-authored AlexNet (2012) with Krizhevsky and Sutskever, which won ImageNet by a historic margin and ignited the deep learning revolution. Co-founded the Vector Institute (2017). Joined Google Brain in 2013, resigned in May 2023 to speak freely about AI risks. Shared the Turing Award (2018) with LeCun and Bengio. Awarded the Nobel Prize in Physics (2024) alongside John Hopfield.",
+    papers:[{y:"1986",t:"Learning representations by back-propagating errors"},{y:"2006",t:"A fast learning algorithm for deep belief nets"},{y:"2012",t:"ImageNet Classification with Deep CNNs (AlexNet)"}]},
+  { id:"lecun", name:"Yann LeCun", org:"AMI Labs", title:"Founder of AMI Labs · Turing Award 2018", field:["deep-learning","vision"],
+    bio:"Born 1960 near Paris, France. Earned an engineering degree from ESIEE Paris (1983), then a PhD in Computer Science from Universite Pierre et Marie Curie (1987). Did a postdoc with Geoffrey Hinton at the University of Toronto (1987-88), a pivotal experience. Joined AT&T Bell Labs (1988-1996) where he developed convolutional neural networks (CNNs) and LeNet for handwritten digit recognition -- one of the first practical deep learning systems deployed in banking. Became a professor at NYU (2003), founded the Center for Data Science (2012). Became the first director of Facebook AI Research / FAIR (2013) and rose to Chief AI Scientist at Meta. A vocal advocate for self-supervised learning and frequent critic of large language models' reasoning capabilities. Shared the Turing Award (2018). Left Meta in November 2025 after FAIR budget cuts and leadership changes. Founded Advanced Machine Intelligence Labs (AMI Labs) in Paris, targeting a $3.5B valuation before even launching -- focused on building 'world models': AI systems that understand physics, maintain persistent memory, and plan complex actions rather than simply predicting the next word.",
+    papers:[{y:"1989",t:"Backpropagation applied to handwritten zip code recognition"},{y:"1998",t:"Gradient-based learning applied to document recognition"},{y:"2015",t:"Deep Learning (Nature review with Hinton & Bengio)"}]},
+  { id:"bengio", name:"Yoshua Bengio", org:"Mila / U. Montreal", title:"Founder of Mila · Turing Award 2018", field:["deep-learning","nlp"],
+    bio:"Born 1964 in Paris, France, into a Sephardic Jewish family that emigrated from Morocco to Canada. Brother Samy Bengio is also an AI researcher (now at Apple). Earned BS in Electrical Engineering, MS and PhD in Computer Science all from McGill University (PhD 1991, advisor: Renato De Mori). Postdoc at MIT with Michael I. Jordan and at AT&T Bell Labs. Joined Universite de Montreal as faculty in 1993 and has remained since. Founded MILA (Montreal Institute for Learning Algorithms), now the world's largest academic deep learning lab. Pioneered neural probabilistic language models (2003), attention mechanisms for machine translation (2014, with Bahdanau), and supervised Ian Goodfellow's invention of GANs (2014). Co-founded Element AI (2016, sold to ServiceNow 2020). A leading voice on AI safety and governance. Shared the Turing Award (2018). Named Officer of the Order of Canada (2017).",
+    papers:[{y:"2003",t:"A Neural Probabilistic Language Model"},{y:"2014",t:"Generative Adversarial Nets (advisor)"},{y:"2014",t:"Neural Machine Translation by Jointly Learning to Align and Translate"}]},
+
+  // Transformer Authors
+  { id:"vaswani", name:"Ashish Vaswani", org:"Essential AI", title:"Co-inventor of the Transformer", field:["nlp"],
+    bio:"Born 1986 in India. Earned B.Tech in Computer Science from Birla Institute of Technology, Mesra (2002), then a PhD from the University of Southern California (2014) under advisors David Chiang and Liang Huang. Joined Google Brain in 2016 where he became the lead author of the landmark paper 'Attention Is All You Need' (2017), introducing the Transformer architecture that revolutionized all of AI -- from NLP to vision to protein folding. Later co-founded Adept AI, then departed to co-found Essential AI where he now serves as CEO.",
+    papers:[{y:"2017",t:"Attention Is All You Need"}]},
+  { id:"shazeer", name:"Noam Shazeer", org:"Google DeepMind", title:"Co-inventor of Transformer · Co-founded Character.ai", field:["nlp"],
+    bio:"Earned a BS in Mathematics and Computer Science from Duke University (1998). Joined Google in 2000 as one of the earliest engineers, where he significantly improved Google's search spelling corrector. Became one of the most prolific researchers in modern AI: co-authored the Transformer paper (2017), pioneered Mixture of Experts scaling (2017), and built the chatbot Meena. After Google declined to release Meena publicly, he left in 2021 to co-found Character.AI with Daniel de Freitas. In August 2024, Google licensed Character.AI's technology in a deal worth $2.7B, bringing Shazeer back to Google to co-lead Gemini development. Named to TIME 100 AI (2023) and elected to the National Academy of Engineering (2026).",
+    papers:[{y:"2017",t:"Attention Is All You Need"},{y:"2017",t:"Outrageously Large Neural Networks (MoE)"},{y:"2020",t:"GLaM: Efficient Scaling of Language Models"}]},
+  { id:"gomez", name:"Aidan Gomez", org:"Cohere", title:"Co-inventor of Transformer · CEO of Cohere", field:["nlp"],
+    bio:"As an undergraduate intern at Google Brain, Gomez became the youngest co-author of 'Attention Is All You Need' (2017). The experience of working on the Transformer inspired him to found Cohere in 2019, an enterprise-focused LLM company headquartered in Toronto. Under his leadership as CEO, Cohere has become a major player in enterprise AI, offering multilingual models with a focus on data privacy and on-premises deployment.",
+    papers:[{y:"2017",t:"Attention Is All You Need"}]},
+  { id:"jones", name:"Llion Jones", org:"Sakana AI", title:"Co-inventor of Transformer · Co-founded Sakana AI", field:["nlp"],
+    bio:"Welsh-born AI researcher. Co-author of the Transformer paper (2017) while at Google Brain. Spent years at Google working on language and sequence models. Left Google in 2023 to co-found Sakana AI in Tokyo with David Ha, exploring nature-inspired AI approaches such as evolutionary model merging. The company quickly became one of Japan's most prominent AI startups.",
+    papers:[{y:"2017",t:"Attention Is All You Need"}]},
+  { id:"kaiser", name:"Lukasz Kaiser", org:"OpenAI", title:"Co-inventor of Transformer", field:["nlp"],
+    bio:"Polish-born computer scientist. Co-author of the Transformer paper (2017) at Google Brain, where he also contributed to neural program synthesis and sequence-to-sequence models. Later joined OpenAI to work on reasoning, code generation, and next-generation language models.",
+    papers:[{y:"2017",t:"Attention Is All You Need"}]},
+  { id:"parmar", name:"Niki Parmar", org:"Essential AI", title:"Co-inventor of the Transformer", field:["nlp","vision"],
+    bio:"Co-author of 'Attention Is All You Need' (2017) at Google Brain. After the Transformer paper, pioneered applying Transformers to image generation with the Image Transformer (2018), helping bridge the gap between NLP and computer vision architectures. Co-founded Essential AI with Ashish Vaswani to build enterprise AI systems.",
+    papers:[{y:"2017",t:"Attention Is All You Need"},{y:"2018",t:"Image Transformer"}]},
+  { id:"uszkoreit", name:"Jakob Uszkoreit", org:"Inceptive", title:"Co-inventor of Transformer · Bio-AI Founder", field:["nlp"],
+    bio:"Son of renowned computational linguist Hans Uszkoreit. Co-author of the Transformer paper (2017) at Google. After seeing how Transformers could learn the grammar of language, had the insight that they could also learn the grammar of biology. Founded Inceptive to apply Transformer architectures to RNA molecule design for drug discovery, representing one of the most creative cross-domain applications of the architecture he helped create.",
+    papers:[{y:"2017",t:"Attention Is All You Need"}]},
+
+  // OpenAI / GPT
+  { id:"sutskever", name:"Ilya Sutskever", org:"SSI", title:"Co-founder of OpenAI · Founded SSI", field:["deep-learning","safety"],
+    bio:"Born 1986 in Nizhny Novgorod, Russia. Immigrated to Israel at age 5 (grew up in Jerusalem), attended the Open University of Israel. Moved to Canada at 16 and was so advanced that after only one month of Canadian high school, he was admitted to the University of Toronto as a third-year undergraduate. Earned BS in Mathematics (2005), MS (2007), and PhD (2013), all at U of T under Geoffrey Hinton. Co-authored AlexNet (2012) and the sequence-to-sequence paper (2014). Did a brief postdoc with Andrew Ng at Stanford (2012), then joined Google Brain via the DNNResearch acquisition (2013). Co-founded OpenAI in 2015, serving as Chief Scientist and key architect of the GPT series. Participated in the Sam Altman board ouster (Nov 2023) but later expressed regret. Departed OpenAI in May 2024 and co-founded Safe Superintelligence Inc. (SSI) in June 2024, raising $1B at a $32B valuation by early 2025.",
+    papers:[{y:"2012",t:"ImageNet Classification with Deep CNNs"},{y:"2014",t:"Sequence to Sequence Learning with Neural Networks"}]},
+  { id:"radford", name:"Alec Radford", org:"OpenAI", title:"Creator of GPT and CLIP", field:["nlp","vision"],
+    bio:"Born April 1993. Graduated from Olin College of Engineering, a small engineering school in Needham, Massachusetts. Joined OpenAI around 2016 and became one of the most impactful individual contributors in the history of AI. Lead author of GPT-1 (2018), which demonstrated that generative pre-training could produce strong language understanding. Followed with GPT-2 (2019), which was initially withheld due to concerns about misuse. Went on to lead DALL-E (text-to-image generation), CLIP (connecting vision and language), and Whisper (speech recognition). His work essentially created the foundation for the entire GPT era. Left OpenAI in December 2024 and became an advisor at Thinking Machines Lab (2025).",
+    papers:[{y:"2018",t:"Improving Language Understanding by Generative Pre-Training (GPT-1)"},{y:"2019",t:"Language Models are Unsupervised Multitask Learners (GPT-2)"},{y:"2021",t:"Learning Transferable Visual Models (CLIP)"}]},
+  { id:"schulman", name:"John Schulman", org:"Anthropic", title:"Creator of PPO · Co-founder of OpenAI", field:["rl","safety"],
+    bio:"Earned a BS in Physics from Caltech (2010), then pursued a PhD in EECS at UC Berkeley under Pieter Abbeel. Co-founded OpenAI in late 2015, shortly before completing his PhD. At OpenAI, he developed TRPO (2015) and PPO (Proximal Policy Optimization, 2017), which became the most widely used reinforcement learning algorithm -- and the core algorithm behind RLHF that makes ChatGPT work (23,000+ citations). Co-led OpenAI's post-training team (2022-2024), directly overseeing ChatGPT's development. Joined Anthropic in August 2024 to focus on AI safety. Later moved to Thinking Machines Lab as Chief Scientist (February 2025).",
+    papers:[{y:"2015",t:"Trust Region Policy Optimization (TRPO)"},{y:"2017",t:"Proximal Policy Optimization (PPO)"}]},
+  { id:"karpathy", name:"Andrej Karpathy", org:"Eureka Labs", title:"Former Tesla AI Director · OpenAI Founding Member", field:["deep-learning","vision"],
+    bio:"Born 1986 in Bratislava, Czechoslovakia (now Slovakia). Relocated to Toronto at age 15. Earned a BS in Computer Science and Physics from the University of Toronto (2009), MS from the University of British Columbia (2011), and PhD from Stanford (2015) under Fei-Fei Li, working at the intersection of NLP and computer vision. Created and taught Stanford's legendary CS 231n course, which grew from 150 to 750 students. Became a founding member of OpenAI (2015-2017), then joined Tesla as Director of AI and Autopilot Vision (2017-2022, reporting directly to Elon Musk). Returned briefly to OpenAI (2023-2024). Founded Eureka Labs (July 2024) to build AI-native education. Also known for his popular YouTube channel and Rubik's cube tutorials (9M+ views). Named MIT Tech Review Innovators Under 35 (2020).",
+    papers:[{y:"2015",t:"Deep Visual-Semantic Alignments"},{y:"2015",t:"Visualizing and Understanding Recurrent Networks"}]},
+  { id:"altman", name:"Sam Altman", org:"OpenAI", title:"CEO of OpenAI", field:["nlp"],
+    bio:"Born 1985 in Chicago, grew up in Clayton, Missouri. Attended John Burroughs School, then enrolled at Stanford for Computer Science but dropped out after two years (2005). Co-founded Loopt at age 19, a location-based social networking startup (raised $30M+, acquired by Green Dot for $43.4M in 2012). Joined Y Combinator as a partner (2011) and became its president in 2014, succeeding Paul Graham. Co-founded OpenAI in 2015 as a nonprofit AI research lab, became CEO in March 2019 and led its transformation into the company behind ChatGPT (launched Nov 2022) and GPT-4. Fired by the OpenAI board on November 17, 2023, but was reinstated just five days later after a dramatic employee revolt where over 700 of 770 staff threatened to leave.",
+    papers:[]},
+  { id:"brown", name:"Tom Brown", org:"OpenAI", title:"Lead author of GPT-3", field:["nlp"],
+    bio:"Lead author of the GPT-3 paper (2020), 'Language Models are Few-Shot Learners', which demonstrated that a 175-billion parameter model could perform tasks with just a few examples in context, without fine-tuning. This paper was a watershed moment that proved the scaling hypothesis and directly sparked the large language model revolution, leading to ChatGPT and the entire generative AI wave.",
+    papers:[{y:"2020",t:"Language Models are Few-Shot Learners (GPT-3)"}]},
+
+  // Anthropic
+  { id:"damodei", name:"Dario Amodei", org:"Anthropic", title:"CEO & Co-founder of Anthropic", field:["safety","nlp"],
+    bio:"Born 1983 in San Francisco. Father was an Italian-American leather craftsman from Tuscany; mother was Jewish American from Chicago. Attended Lowell High School in San Francisco, where he was a member of the USA Physics Olympiad team (2000). Earned a BS in Physics from Stanford, then a PhD in Biophysics from Princeton (2011) under Michael J. Berry and William Bialek, studying neural circuit electrophysiology. Did a postdoc at Stanford School of Medicine. Pivoted to AI: joined Baidu (2014-2015), then OpenAI as VP of Research (2016-2021), where he led the scaling laws research and GPT development. Co-founded Anthropic in 2021 with his sister Daniela and other ex-OpenAI members, citing directional differences on AI safety. Built Claude, now one of the leading AI assistants.",
+    papers:[{y:"2020",t:"Scaling Laws for Neural Language Models"},{y:"2022",t:"Constitutional AI: Harmlessness from AI Feedback"}]},
+  { id:"daniela", name:"Daniela Amodei", org:"Anthropic", title:"President & Co-founder of Anthropic", field:["safety"],
+    bio:"Dario's older sister. Before entering tech, worked in finance at Stripe. Joined OpenAI as VP of Operations, managing the business and organizational side. Co-founded Anthropic with Dario in 2021, serving as President. Leads all business operations, go-to-market strategy, and company culture.", papers:[]},
+  { id:"olah", name:"Chris Olah", org:"Anthropic", title:"Pioneer of Neural Network Interpretability", field:["safety","deep-learning"],
+    bio:"Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel Fellowship -- Peter Thiel's program paying young people $100K to skip college and build things. With no degree, gave a talk at Google that impressed Jeff Dean, who offered him an internship. Interned at Google Brain for 2 years, then stayed for 4 years total. Became known for his exceptionally clear blog posts on neural network visualization (colah.github.io), which are widely cited in the field. Led the interpretability team at OpenAI. Co-founded Anthropic (2021) where he now leads interpretability research, producing groundbreaking work on mechanistic interpretability -- mapping the internal features and circuits inside large language models. One of the most prominent self-taught researchers in AI.",
+    papers:[{y:"2017",t:"Feature Visualization"},{y:"2020",t:"Zoom In: An Introduction to Circuits"},{y:"2024",t:"Scaling Monosemanticity"}]},
+  { id:"clark", name:"Jack Clark", org:"Anthropic", title:"Co-founder of Anthropic", field:["safety"],
+    bio:"Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he helped shape the organization's approach to AI governance and public communication. Created the influential 'Import AI' newsletter, one of the most widely read weekly AI digests. Co-founded Anthropic in 2021, focusing on AI policy, safety research, and responsible deployment.", papers:[]},
+
+  // Google DeepMind
+  { id:"hassabis", name:"Demis Hassabis", org:"Google DeepMind", title:"CEO of Google DeepMind · Nobel Prize 2024", field:["rl","deep-learning"],
+    bio:"Born 1976 in London; father Greek Cypriot, mother Chinese Singaporean. A chess prodigy from age 4, achieving master standard (Elo 2300) by age 13 and captaining the England junior chess team. Attended Queen Elizabeth's School in Barnet. At 17, joined Bullfrog Productions where he co-designed the classic game Theme Park (1994) with Peter Molyneux. Became lead AI programmer on Black & White at Lionhead Studios (2001). Founded his own game studio Elixir Studios (1998-2005). Then pivoted to neuroscience: earned a PhD in Cognitive Neuroscience from University College London (2009) under Eleanor Maguire, studying memory and imagination in the hippocampus. Read at Queens' College Cambridge for his undergraduate degree (Computer Science, double first, 1997). Co-founded DeepMind in 2010 with Shane Legg and Mustafa Suleyman. Google acquired DeepMind for ~$500M in 2014. Led AlphaGo (defeated Lee Sedol, 2016), AlphaFold (solved protein folding, Science Breakthrough of the Year 2021), and Gemini. Awarded the Nobel Prize in Chemistry (2024) alongside John Jumper for AlphaFold's protein structure prediction.",
+    papers:[{y:"2016",t:"Mastering the game of Go (AlphaGo)"},{y:"2021",t:"Highly accurate protein structure prediction (AlphaFold2)"},{y:"2024",t:"Gemini: A Family of Highly Capable Multimodal Models"}]},
+  { id:"silver", name:"David Silver", org:"Google DeepMind", title:"Lead researcher of AlphaGo & AlphaZero", field:["rl"],
+    bio:"Earned a BA from Christ's College, Cambridge (1997). Completed a PhD at the University of Alberta (2009), with a thesis on reinforcement learning and simulation-based search in computer Go -- laying the theoretical groundwork for what would become AlphaGo. Consulted for DeepMind from 2010, joined full-time in 2013. Led the reinforcement learning research group and the AlphaGo project that defeated world champion Lee Sedol in 2016 (watched live by 200M+ people). Created AlphaGo Zero (learning from scratch) and AlphaZero (mastering chess, shogi, and Go from self-play alone). Won the ACM Prize in Computing (2019) and was elected Fellow of the Royal Society (2021). Left DeepMind in January 2026 and founded Ineffable Intelligence.",
+    papers:[{y:"2016",t:"Mastering the game of Go (AlphaGo)"},{y:"2017",t:"Mastering Chess and Shogi by Self-Play (AlphaZero)"}]},
+  { id:"legg", name:"Shane Legg", org:"Google DeepMind", title:"Co-founder of DeepMind · Chief AGI Scientist", field:["rl","safety"],
+    bio:"New Zealand-born AI researcher. Completed his PhD at IDSIA in Switzerland under Marcus Hutter. In his 2007 thesis, he formally defined and coined the term 'artificial general intelligence' (AGI), providing a mathematical framework for measuring machine intelligence. Co-founded DeepMind in 2010 with Demis Hassabis and Mustafa Suleyman. Now serves as Chief AGI Scientist at Google DeepMind, leading safety and AGI research.",
+    papers:[{y:"2007",t:"Universal Intelligence: A Definition of Machine Intelligence"}]},
+  { id:"suleyman", name:"Mustafa Suleyman", org:"Microsoft AI", title:"CEO of Microsoft AI · Co-founder of DeepMind", field:["rl"],
+    bio:"Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counseling service and worked as a policy officer at the Mayor of London's office. Co-founded DeepMind (2010) with Hassabis and Legg, leading the applied AI division. After DeepMind was acquired by Google, moved to a VP role at Google. Founded Inflection AI in 2022, creating the Pi chatbot. In 2024, Microsoft hired Suleyman and most of Inflection's team in a $650M deal, making him CEO of Microsoft AI. Published 'The Coming Wave' (2023), a book on AI risks.", papers:[]},
+  { id:"dean", name:"Jeff Dean", org:"Google DeepMind", title:"Chief Scientist at Google DeepMind", field:["deep-learning","nlp"],
+    bio:"Earned a BS from the University of Minnesota and a PhD from the University of Washington under Craig Chambers. Joined Google in 1999 as one of the earliest engineers. Built the foundational systems that enabled Google to scale: MapReduce, BigTable, Spanner, and later TensorFlow. Co-founded Google Brain in 2011 with Andrew Ng, Greg Corrado, and Rajat Monga -- the famous project that used 16,000 CPUs to train a network that learned to recognize cats from YouTube videos. Became SVP of Google AI and now serves as Chief Scientist at Google DeepMind, overseeing Gemini development. Known as one of the greatest systems engineers in computing history.",
+    papers:[{y:"2012",t:"Large Scale Distributed Deep Networks"},{y:"2016",t:"TensorFlow: A System for Large-Scale ML"}]},
+
+  // Stanford
+  { id:"feifei", name:"Fei-Fei Li", org:"Stanford", title:"Creator of ImageNet · Stanford HAI Co-Director", field:["vision"],
+    bio:"Born 1976 in Beijing, grew up in Chengdu, Sichuan, China. Immigrated to Parsippany, New Jersey at age 16 with her parents. Worked weekends at her family's dry-cleaning business while attending Parsippany High School. Earned a BA in Physics from Princeton University (1999, on a full scholarship), then an MS and PhD in Electrical Engineering from Caltech (2005) under Pietro Perona and Christof Koch. As an assistant professor at Princeton (2007), launched the ImageNet project, using Amazon Mechanical Turk to label 14M+ images across 22K categories. The ImageNet Large Scale Visual Recognition Challenge she created became the catalyst for the deep learning revolution when AlexNet won it in 2012. Joined Stanford as faculty (2009), tenured (2012), full professor (2018). Directed Stanford AI Lab (2013-2018), took a sabbatical as Chief Scientist of AI/ML at Google Cloud (2017-2018). Co-founded Stanford HAI (Human-Centered AI). Founded World Labs (2024). Won the Queen Elizabeth Prize for Engineering (2025).",
+    papers:[{y:"2009",t:"ImageNet: A Large-Scale Hierarchical Image Database"},{y:"2015",t:"Deep Visual-Semantic Alignments for Generating Image Descriptions"}]},
+  { id:"ng", name:"Andrew Ng", org:"Stanford / DeepLearning.AI", title:"Co-founder of Coursera & Google Brain", field:["deep-learning"],
+    bio:"Born 1976 in London to Hong Kong immigrant parents (father a hematologist, mother an arts administrator). Grew up in Singapore, attending the prestigious Raffles Institution. Earned a triple major in Computer Science, Statistics, and Economics from Carnegie Mellon (1997), an MS in EECS from MIT (1998), and a PhD in Computer Science from UC Berkeley (2002) under Michael I. Jordan. Joined Stanford as a professor (2002) where his CS229 Machine Learning course became the most popular class on campus (1000+ students). Co-founded Google Brain in 2011 with Jeff Dean -- their famous experiment trained a network on 16,000 CPUs that learned to recognize cats in YouTube videos. Co-founded Coursera (2012) with Daphne Koller, democratizing education for 8M+ students. Served as Chief Scientist at Baidu (2014-2017), leading 1,300 AI researchers. Founded DeepLearning.AI (2017), Landing AI (2018), and the AI Fund ($175M venture fund).",
+    papers:[{y:"2011",t:"Building High-level Features Using Large Scale Unsupervised Learning"},{y:"2012",t:"Large Scale Distributed Deep Networks"}]},
+  { id:"manning", name:"Christopher Manning", org:"Stanford", title:"Stanford NLP Group Director", field:["nlp"],
+    bio:"Australian-born computational linguist. Earned degrees from the Australian National University, then a PhD in Linguistics from Stanford (1994). Joined Stanford's faculty and became one of the most influential figures in NLP. Co-authored the foundational textbook 'Foundations of Statistical Natural Language Processing' (1999) and 'Introduction to Information Retrieval' (2008). Directed the Stanford NLP Group, producing tools (Stanford CoreNLP, Stanford Parser) used across the industry. Led the development of GloVe word embeddings (2014). Serves as Co-Director of Stanford HAI alongside Fei-Fei Li. His teaching and research have shaped multiple generations of NLP researchers.",
+    papers:[{y:"2014",t:"GloVe: Global Vectors for Word Representation"}]},
+  { id:"liang", name:"Percy Liang", org:"Stanford", title:"Creator of HELM benchmark · Founded Together AI", field:["nlp","safety"],
+    bio:"Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Models, 2022), the most comprehensive and standardized benchmark for evaluating large language models across multiple dimensions including accuracy, robustness, fairness, and toxicity. Led the Stanford Alpaca project (2023), demonstrating that a small model fine-tuned on GPT-generated data could match larger models. Co-founded Together AI to democratize access to open-source AI infrastructure.",
+    papers:[{y:"2022",t:"Holistic Evaluation of Language Models (HELM)"},{y:"2023",t:"Alpaca: A Strong Open-Source Instruction-Following Model"}]},
+
+  // Other Key Figures
+  { id:"goodfellow", name:"Ian Goodfellow", org:"Google DeepMind", title:"Inventor of GANs", field:["deep-learning","vision"],
+    bio:"Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng's group), then a PhD in Machine Learning from the Universite de Montreal (2015) under Yoshua Bengio and Aaron Courville. During his PhD, famously invented Generative Adversarial Networks (GANs) in 2014 -- the idea allegedly came to him during a conversation at a bar and he went home and coded the first version that night. Co-authored the definitive 'Deep Learning' textbook (2016) with Bengio and Courville. Career: Google Brain (post-PhD), OpenAI (2016-2017), Google Research (2017-2019), Apple Director of ML in Special Projects (2019-2022, resigned over return-to-office policy), then Google DeepMind (2022-present). Named MIT Tech Review 35 Under 35 (2017).",
+    papers:[{y:"2014",t:"Generative Adversarial Nets"},{y:"2016",t:"Deep Learning (textbook)"}]},
+  { id:"krizhevsky", name:"Alex Krizhevsky", org:"Independent", title:"Creator of AlexNet", field:["deep-learning","vision"],
+    bio:"Born in Ukraine, grew up in Canada. PhD student under Geoffrey Hinton at the University of Toronto. In 2012, built AlexNet with Hinton and Ilya Sutskever, a deep convolutional neural network that won the ImageNet competition by a massive margin (error rate of 15.3% vs. the runner-up's 26.2%). This result is widely considered the moment that ignited the modern deep learning era, proving that GPU-trained deep networks could dramatically outperform traditional computer vision. The three co-founded DNNresearch, which was acquired by Google in 2013. Has maintained a relatively low public profile since.",
+    papers:[{y:"2012",t:"ImageNet Classification with Deep CNNs (AlexNet)"}]},
+  { id:"abbeel", name:"Pieter Abbeel", org:"UC Berkeley / Covariant", title:"Robotics & RL Pioneer", field:["rl"],
+    bio:"Born in Belgium. Earned his PhD from Stanford under Andrew Ng (2008), with a thesis on apprenticeship learning and inverse reinforcement learning. Joined UC Berkeley as a professor where he became a leading figure in robot learning and deep reinforcement learning. His lab pioneered sim-to-real transfer (training robots in simulation and deploying in the real world) and domain randomization. Founded Covariant (AI for warehouse robot arms), bringing deep learning to industrial robotics. Advised John Schulman's PhD (the creator of PPO). Has trained numerous prominent AI researchers through his Berkeley lab.",
+    papers:[{y:"2004",t:"Apprenticeship Learning via Inverse RL"},{y:"2017",t:"Domain Randomization for Transfer"}]},
+  { id:"levine", name:"Sergey Levine", org:"UC Berkeley / Physical Intelligence", title:"Robot Learning Pioneer", field:["rl"],
+    bio:"UC Berkeley professor who pioneered end-to-end robot learning from raw pixels. His work demonstrated that robots could learn complex manipulation tasks directly from visual input using deep reinforcement learning, without hand-engineered features. Key contributor to offline RL (learning from pre-collected datasets rather than online interaction). Co-founded Physical Intelligence (pi), a company building foundation models for robotics. His research bridges the gap between the success of large language models and the physical world.",
+    papers:[{y:"2016",t:"End-to-End Training of Deep Visuomotor Policies"},{y:"2020",t:"Offline Reinforcement Learning"}]},
+  { id:"ho", name:"Jonathan Ho", org:"Google DeepMind", title:"Creator of Diffusion Models (DDPM)", field:["vision"],
+    bio:"Earned his PhD from UC Berkeley under Pieter Abbeel and Stefano Ermon. Created Denoising Diffusion Probabilistic Models (DDPM, 2020), which revived and dramatically improved the diffusion-based approach to generative modeling. DDPM became the foundational technology behind Stable Diffusion, DALL-E 2, Midjourney, Sora, and essentially all modern image and video generation systems. Joined Google Brain (now Google DeepMind) where he has continued advancing diffusion models and their applications to video generation.",
+    papers:[{y:"2020",t:"Denoising Diffusion Probabilistic Models (DDPM)"}]},
+  { id:"wei", name:"Jason Wei", org:"OpenAI", title:"Discoverer of Chain-of-Thought Prompting", field:["nlp"],
+    bio:"Researcher at Google Brain who made two of the most influential discoveries about large language models. First, chain-of-thought prompting (2022): showing that simply adding 'let's think step by step' to prompts dramatically improves LLM reasoning, a technique now used in virtually every AI application. Second, emergent abilities (2022): demonstrating that certain capabilities appear suddenly and unpredictably as models scale, fundamentally changing how the field thinks about scaling. Joined OpenAI to work on reasoning capabilities for next-generation models.",
+    papers:[{y:"2022",t:"Chain-of-Thought Prompting Elicits Reasoning"},{y:"2022",t:"Emergent Abilities of Large Language Models"}]},
+  { id:"anil", name:"Rohan Anil", org:"Google DeepMind", title:"Technical Lead of Gemini", field:["nlp"],
+    bio:"Indian-born AI researcher who rose to become the technical lead of Google's most important AI project. Led the development of PaLM 2 and then the Gemini model family, Google's flagship multimodal AI system designed to compete with GPT-4. His work spans efficient training at scale, multilingual capabilities, and multimodal reasoning.",
+    papers:[{y:"2023",t:"PaLM 2 Technical Report"},{y:"2024",t:"Gemini: Highly Capable Multimodal Models"}]},
+
+  // ===== xAI =====
+  { id:"musk", name:"Elon Musk", org:"xAI", title:"Founder of xAI · CEO of Tesla & SpaceX", field:["nlp"],
+    bio:"Born 1971 in Pretoria, South Africa. Attended Queen's University in Ontario, then transferred to the University of Pennsylvania (BS Economics, BS Physics). Briefly enrolled in a Stanford PhD program but dropped out after two days to co-found Zip2 (sold for $307M), then X.com which merged into PayPal (sold to eBay for $1.5B). Founded SpaceX (2002), co-founded Tesla (2004). Was an early co-founder and funder of OpenAI (2015) but departed the board in 2018 citing conflicts with Tesla's AI work. Grew increasingly critical of OpenAI's shift to a for-profit model. Founded xAI in July 2023 with a team recruited from DeepMind, OpenAI, and Google. xAI built Grok, integrated into X (Twitter). Despite raising billions and building massive compute infrastructure (Colossus cluster), xAI faced a co-founder exodus -- by early 2026 only 2 of 12 original founders remained.",
+    papers:[]},
+  { id:"jimmyba", name:"Jimmy Ba", org:"xAI", title:"Co-creator of Adam Optimizer · xAI Co-founder", field:["deep-learning"],
+    bio:"Born in China, raised in Canada. PhD from the University of Toronto under Geoffrey Hinton and Rich Zemel. Co-authored the Adam optimizer paper (2014) with Diederik Kingma -- the most-cited paper in all of AI with 95,000+ citations. Adam is used to train virtually every modern neural network. Became a professor at the University of Toronto. Joined xAI as a co-founder, credited for critical research influencing Grok 4's model quality. Departed xAI in February 2026.",
+    papers:[{y:"2014",t:"Adam: A Method for Stochastic Optimization"},{y:"2016",t:"Layer Normalization"}]},
+  { id:"szegedy", name:"Christian Szegedy", org:"xAI", title:"Creator of Inception/GoogLeNet · xAI Co-founder", field:["deep-learning","vision"],
+    bio:"Hungarian-born computer scientist. PhD from the University of Bonn. Joined Google Research where he created the Inception architecture (GoogLeNet), winner of ILSVRC 2014, and pioneered the study of adversarial examples in neural networks alongside Ian Goodfellow. Also developed Batch Normalization, a technique now used in virtually all deep networks. Left Google to co-found xAI in 2023. Departed xAI in February 2025.",
+    papers:[{y:"2014",t:"Going Deeper with Convolutions (GoogLeNet/Inception)"},{y:"2015",t:"Batch Normalization"},{y:"2013",t:"Intriguing properties of neural networks (adversarial examples)"}]},
+  { id:"gregyang", name:"Greg Yang", org:"xAI", title:"Tensor Programs / muP Creator · xAI Co-founder", field:["deep-learning"],
+    bio:"Chinese-American mathematician and AI researcher. Earned a BA in Mathematics from Harvard. Worked at Microsoft Research where he developed Tensor Programs theory and muP (Maximal Update Parametrization) -- a framework for optimal hyperparameter transfer across model scales that has become essential for training large language models efficiently. Co-founded xAI in 2023. Stepped back from xAI in January 2026 citing health issues.",
+    papers:[{y:"2021",t:"Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer (muP)"}]},
+
+  // ===== Chinese / Chinese-origin AI Leaders =====
+  { id:"kaiminghe", name:"Kaiming He", org:"MIT / Google DeepMind", title:"Creator of ResNet · Most-cited 21st Century Paper", field:["deep-learning","vision"],
+    bio:"Born 1984 in Guangzhou, Guangdong, China. Attended Guangzhou Zhixin High School, where he scored first place in the entire Guangdong province on the 2003 college entrance exam. Earned a BS from Tsinghua University (2007), then a PhD in Information Engineering from the Chinese University of Hong Kong (2011, Multimedia Lab), with a thesis on image dehazing. Joined Microsoft Research Asia (MSRA) as a research scientist, where he created ResNet (Residual Networks, 2015) -- the paper 'Deep Residual Learning for Image Recognition' is the most-cited paper of the 21st century. ResNet's skip connections solved the vanishing gradient problem and enabled training of networks with 100+ layers. Also co-created Mask R-CNN for instance segmentation. Moved to Facebook AI Research (FAIR). Joined MIT as associate professor (2024), appointed Douglas Ross Career Development Professor. In 2025, also joined Google DeepMind while retaining MIT tenure, pursuing a dual academia + industry path.",
+    papers:[{y:"2015",t:"Deep Residual Learning for Image Recognition (ResNet)"},{y:"2017",t:"Mask R-CNN"},{y:"2021",t:"Masked Autoencoders Are Scalable Vision Learners (MAE)"}]},
+  { id:"sainingxie", name:"Saining Xie", org:"AMI Labs", title:"Creator of DiT (Diffusion Transformers) · AMI Labs CSO", field:["vision"],
+    bio:"Chinese-born computer vision researcher. Earned his PhD from UC San Diego. Best known for creating ConvNeXt (modernizing CNNs to match Transformer performance) and Diffusion Transformers (DiT, 2023) -- the architecture that replaced U-Nets in diffusion models and became the foundation for OpenAI's Sora video generation. Previously a researcher at Facebook AI Research (FAIR) and assistant professor at NYU. In 2026, joined Yann LeCun's AMI Labs as Chief Science Officer, working on world models.",
+    papers:[{y:"2023",t:"Scalable Diffusion Models with Transformers (DiT)"},{y:"2022",t:"A ConvNet for the 2020s (ConvNeXt)"}]},
+  { id:"quocle", name:"Quoc V. Le", org:"Google DeepMind", title:"Google Fellow · Co-founder of Google Brain", field:["deep-learning","nlp"],
+    bio:"Born 1982 in Huong Thuy, Thua Thien Hue province, Vietnam. Grew up in rural Central Vietnam fascinated by machines and mathematics. Attended Quoc Hoc Hue High School. Moved to Australia in 2004, earning a Bachelor's degree from the Australian National University (working with Alex Smola on kernel methods). PhD at Stanford (2012) under Andrew Ng. Became a founding member of Google Brain in 2011 alongside Ng, Jeff Dean, and Greg Corrado -- led the famous experiment that trained a network on 16,000 CPUs to recognize cats in YouTube videos. Co-invented the sequence-to-sequence model (2014, with Sutskever and Vinyals), foundational for machine translation and later LLMs. Initiated and led AutoML/Neural Architecture Search at Google Brain (2017). Now a Google Fellow at Google DeepMind. Named MIT Technology Review Innovators Under 35 (2014).",
+    papers:[{y:"2014",t:"Sequence to Sequence Learning with Neural Networks"},{y:"2017",t:"Neural Architecture Search with Reinforcement Learning"},{y:"2011",t:"Building High-level Features Using Large Scale Unsupervised Learning"}]},
+  { id:"liangwenfeng", name:"Liang Wenfeng", org:"DeepSeek", title:"Founder of DeepSeek", field:["nlp","deep-learning"],
+    bio:"Born 1985 in Zhanjiang, Guangdong, China. Father was a school teacher who stressed the importance of learning. Earned a Bachelor's in Electronic Information Engineering from Zhejiang University (2007) and a Master's in Engineering (2010), researching target-tracking algorithms. Applied machine learning to quantitative finance: founded the hedge fund High-Flyer in 2015, which grew to over 100 billion yuan (~$14B) in assets by 2021. Through High-Flyer, built massive computing infrastructure that became the foundation for DeepSeek, launched in May 2023 with the goal of pursuing AGI. DeepSeek's R1 reasoning model (January 2025) shocked the world -- trained for ~$6M vs GPT-4's ~$100M, it matched frontier model performance and caused a brief $1 trillion market cap loss across US tech stocks. DeepSeek demonstrated that Chinese AI could compete at the frontier with a fraction of the resources.",
+    papers:[{y:"2024",t:"DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model"},{y:"2025",t:"DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"}]},
+  { id:"kaifulee", name:"Kai-Fu Lee", org:"01.AI / Sinovation", title:"Founder of 01.AI · Former Google China President", field:["nlp"],
+    bio:"Born 1961 in Taipei, Taiwan. Grew up in Tennessee, USA. Earned a BS in Computer Science from Columbia University (1983), then a PhD from Carnegie Mellon University (1988), where his thesis on speaker-independent continuous speech recognition using Hidden Markov Models was named the 'Most Important Innovation' by BusinessWeek. Career at the intersection of industry and China: Apple (1990-1996, led speech recognition), SGI VP, Microsoft VP (founded Microsoft Research China in Beijing, 1998). Became President of Google China (2005-2009), overseeing Google's expansion in China. Founded Sinovation Ventures (2009), one of China's top AI-focused VC firms. In 2023, founded 01.AI to build open-source large language models, quickly reaching unicorn status. Author of 'AI Superpowers: China, Silicon Valley, and the New World Order' (2018), one of the most influential books on AI geopolitics.",
+    papers:[]},
+  { id:"jietang", name:"Jie Tang", org:"Zhipu AI / Tsinghua", title:"Founder of Zhipu AI · Tsinghua Professor", field:["nlp"],
+    bio:"Professor at the Department of Computer Science at Tsinghua University. Founded and led the AMiner academic search system. Tasked by the Beijing Academy of Artificial Intelligence (BAAI) to build China's first super-scale natural language model, completed in 2021. Founded Zhipu AI to commercialize this work, creating the GLM (General Language Model) series that has become one of China's leading foundation models. Zhipu AI is now valued at over $3B and is considered one of the 'Big Four' Chinese AI foundation model companies alongside Baidu, Alibaba, and ByteDance's AI labs.",
+    papers:[{y:"2022",t:"GLM: General Language Model Pretraining"},{y:"2024",t:"ChatGLM: A Family of Large Language Models from GLM-130B"}]},
+];
+
+const connections = [
+  // Deep Learning Trio
+  {source:"hinton",target:"lecun",type:"coauthor",label:"2015 Nature paper, Turing Award trio"},
+  {source:"hinton",target:"bengio",type:"coauthor",label:"Turing Award trio, Deep Learning review"},
+  {source:"lecun",target:"bengio",type:"coauthor",label:"Turing Award trio"},
+  // Hinton's students
+  {source:"hinton",target:"sutskever",type:"advisor",label:"PhD advisor at U. Toronto"},
+  {source:"hinton",target:"krizhevsky",type:"advisor",label:"AlexNet co-author, PhD advisor"},
+  // AlexNet
+  {source:"sutskever",target:"krizhevsky",type:"coauthor",label:"AlexNet (2012)"},
+  // Bengio's students
+  {source:"bengio",target:"goodfellow",type:"advisor",label:"PhD advisor, supervised GANs"},
+  // Transformer
+  {source:"vaswani",target:"shazeer",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"vaswani",target:"parmar",type:"coauthor",label:"Attention Is All You Need + Essential AI"},
+  {source:"vaswani",target:"uszkoreit",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"vaswani",target:"gomez",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"vaswani",target:"jones",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"vaswani",target:"kaiser",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"shazeer",target:"gomez",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"shazeer",target:"jones",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"shazeer",target:"kaiser",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"parmar",target:"gomez",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"jones",target:"kaiser",type:"coauthor",label:"Attention Is All You Need (2017)"},
+  {source:"vaswani",target:"parmar",type:"cofounder",label:"Co-founded Essential AI"},
+  // Google Brain / DeepMind
+  {source:"dean",target:"shazeer",type:"colleague",label:"Google Brain colleagues"},
+  {source:"dean",target:"ng",type:"coauthor",label:"Co-founded Google Brain"},
+  {source:"shazeer",target:"anil",type:"colleague",label:"Google, Gemini/PaLM"},
+  {source:"dean",target:"anil",type:"colleague",label:"Google DeepMind leadership"},
+  // DeepMind founders
+  {source:"hassabis",target:"legg",type:"cofounder",label:"Co-founded DeepMind"},
+  {source:"hassabis",target:"suleyman",type:"cofounder",label:"Co-founded DeepMind"},
+  {source:"legg",target:"suleyman",type:"cofounder",label:"Co-founded DeepMind"},
+  {source:"hassabis",target:"silver",type:"coauthor",label:"AlphaGo, AlphaFold"},
+  {source:"silver",target:"legg",type:"colleague",label:"DeepMind RL research"},
+  // OpenAI
+  {source:"sutskever",target:"altman",type:"cofounder",label:"Co-founded OpenAI"},
+  {source:"sutskever",target:"schulman",type:"cofounder",label:"Co-founded OpenAI"},
+  {source:"sutskever",target:"radford",type:"colleague",label:"OpenAI, GPT architecture"},
+  {source:"sutskever",target:"karpathy",type:"colleague",label:"OpenAI founding team"},
+  {source:"radford",target:"brown",type:"coauthor",label:"GPT-2, GPT-3"},
+  {source:"radford",target:"kaiser",type:"colleague",label:"OpenAI colleagues"},
+  {source:"schulman",target:"altman",type:"colleague",label:"OpenAI leadership"},
+  {source:"altman",target:"karpathy",type:"colleague",label:"OpenAI"},
+  {source:"brown",target:"wei",type:"colleague",label:"OpenAI / LLM scaling"},
+  // Anthropic
+  {source:"damodei",target:"daniela",type:"cofounder",label:"Co-founded Anthropic (siblings)"},
+  {source:"damodei",target:"olah",type:"cofounder",label:"Co-founded Anthropic"},
+  {source:"damodei",target:"clark",type:"cofounder",label:"Co-founded Anthropic"},
+  {source:"damodei",target:"schulman",type:"colleague",label:"Both ex-OpenAI, now Anthropic"},
+  {source:"damodei",target:"sutskever",type:"colleague",label:"Former OpenAI colleagues"},
+  {source:"damodei",target:"altman",type:"colleague",label:"Former OpenAI VP → Anthropic"},
+  {source:"olah",target:"clark",type:"cofounder",label:"Co-founded Anthropic"},
+  // Stanford
+  {source:"feifei",target:"karpathy",type:"advisor",label:"PhD advisor at Stanford"},
+  {source:"feifei",target:"ng",type:"colleague",label:"Stanford AI Lab"},
+  {source:"ng",target:"abbeel",type:"advisor",label:"PhD advisor at Stanford"},
+  {source:"manning",target:"liang",type:"colleague",label:"Stanford NLP group"},
+  {source:"feifei",target:"manning",type:"colleague",label:"Stanford HAI co-directors"},
+  // Berkeley
+  {source:"abbeel",target:"levine",type:"colleague",label:"UC Berkeley robot learning"},
+  {source:"abbeel",target:"schulman",type:"advisor",label:"PhD advisor at UC Berkeley"},
+  {source:"levine",target:"ho",type:"colleague",label:"Berkeley, generative models"},
+  // Cross-org
+  {source:"goodfellow",target:"karpathy",type:"colleague",label:"Stanford contemporaries"},
+  {source:"goodfellow",target:"radford",type:"colleague",label:"GAN / generative lineage"},
+  {source:"wei",target:"dean",type:"colleague",label:"Google Brain, chain-of-thought"},
+  {source:"ho",target:"hassabis",type:"colleague",label:"Google DeepMind"},
+  // xAI
+  {source:"musk",target:"altman",type:"cofounder",label:"Co-founded OpenAI (2015), later split"},
+  {source:"musk",target:"jimmyba",type:"cofounder",label:"Co-founded xAI"},
+  {source:"musk",target:"szegedy",type:"cofounder",label:"Co-founded xAI"},
+  {source:"musk",target:"gregyang",type:"cofounder",label:"Co-founded xAI"},
+  {source:"jimmyba",target:"hinton",type:"advisor",label:"PhD under Hinton at U. Toronto"},
+  {source:"szegedy",target:"goodfellow",type:"coauthor",label:"Adversarial examples (2013), Google colleagues"},
+  // Chinese / Chinese-origin
+  {source:"kaiminghe",target:"feifei",type:"colleague",label:"FAIR / computer vision community"},
+  {source:"kaiminghe",target:"hassabis",type:"colleague",label:"Google DeepMind (2025-)"},
+  {source:"sainingxie",target:"lecun",type:"colleague",label:"AMI Labs, Chief Science Officer"},
+  {source:"sainingxie",target:"ho",type:"coauthor",label:"Diffusion Transformers lineage"},
+  {source:"quocle",target:"ng",type:"advisor",label:"PhD under Andrew Ng at Stanford"},
+  {source:"quocle",target:"dean",type:"cofounder",label:"Co-founded Google Brain"},
+  {source:"quocle",target:"sutskever",type:"coauthor",label:"Sequence-to-Sequence (2014)"},
+  {source:"kaifulee",target:"ng",type:"colleague",label:"AI leaders, China-US bridge"},
+  {source:"jietang",target:"kaiminghe",type:"colleague",label:"Tsinghua University"},
+];
+
+// ===================================================================
+// COLOR SYSTEM
+// ===================================================================
+const orgColorMap = {
+  "Google DeepMind":"var(--org-deepmind)","OpenAI":"var(--org-openai)","Anthropic":"var(--org-anthropic)",
+  "Meta AI":"var(--org-meta)","AMI Labs":"var(--org-startup)","Stanford":"var(--org-stanford)","UC Berkeley":"var(--org-university)",
+  "University of Toronto":"var(--org-university)","Mila / U. Montreal":"var(--org-university)",
+  "Microsoft AI":"var(--org-deepmind)","Microsoft Research":"var(--org-deepmind)",
+  "SSI":"var(--org-startup)","Essential AI":"var(--org-startup)","Cohere":"var(--org-startup)",
+  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
+  "Independent":"var(--org-independent)","Stanford / DeepLearning.AI":"var(--org-stanford)",
+  "UC Berkeley / Covariant":"var(--org-university)","UC Berkeley / Physical Intelligence":"var(--org-university)",
+};
+const orgRawColors = {
+  "Google DeepMind":"#64d2ff","OpenAI":"#30d158","Anthropic":"#ff6482",
+  "Meta AI":"#5e9eff","AMI Labs":"#ffd60a","Stanford":"#ff9f0a","UC Berkeley":"#bf5af2",
+  "University of Toronto":"#bf5af2","Mila / U. Montreal":"#bf5af2",
+  "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
+  "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
+  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
+  "Independent":"#98989d","Stanford / DeepLearning.AI":"#ff9f0a",
+  "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
+};
+const linkColorMap = {coauthor:"#2997ff",advisor:"#64d2ff",colleague:"rgba(255,255,255,0.1)",cofounder:"#30d158"};
+
+function getColor(org) { return orgRawColors[org] || "#98989d"; }
+
+// ===================================================================
+// D3 GRAPH
+// ===================================================================
+const W = window.innerWidth;
+const H = window.innerHeight - 48;
+
+const svg = d3.select("#main-svg");
+const g = svg.append("g");
+
+// Zoom
+const zoomBehavior = d3.zoom().scaleExtent([0.15, 5])
+  .on("zoom", ({transform}) => g.attr("transform", transform));
+svg.call(zoomBehavior);
+
+// Glow filter
+const defs = svg.append("defs");
+const glowFilter = defs.append("filter").attr("id","glow").attr("x","-50%").attr("y","-50%").attr("width","200%").attr("height","200%");
+glowFilter.append("feGaussianBlur").attr("stdDeviation","5").attr("result","blur");
+const glowMerge = glowFilter.append("feMerge");
+glowMerge.append("feMergeNode").attr("in","blur");
+glowMerge.append("feMergeNode").attr("in","SourceGraphic");
+
+// Force simulation
+const simulation = d3.forceSimulation(scholars)
+  .force("link", d3.forceLink(connections).id(d=>d.id).distance(d=>{
+    if(d.type==="cofounder")return 70;if(d.type==="coauthor")return 95;if(d.type==="advisor")return 110;return 140;
+  }).strength(d=>{
+    if(d.type==="cofounder")return 0.8;if(d.type==="coauthor")return 0.4;if(d.type==="advisor")return 0.5;return 0.12;
+  }))
+  .force("charge", d3.forceManyBody().strength(-380))
+  .force("center", d3.forceCenter(W/2, H/2))
+  .force("collision", d3.forceCollide().radius(36))
+  .force("x", d3.forceX(W/2).strength(0.03))
+  .force("y", d3.forceY(H/2).strength(0.03));
+
+// Links
+const linkG = g.append("g");
+const linkLines = linkG.selectAll("line").data(connections).join("line")
+  .attr("class","link-line")
+  .attr("stroke", d=>linkColorMap[d.type])
+  .attr("stroke-width", d=>d.type==="cofounder"?1.5:d.type==="coauthor"?1:0.5)
+  .attr("stroke-opacity", d=>d.type==="colleague"?0.1:0.2)
+  .attr("stroke-dasharray", d=>d.type==="advisor"?"6,4":d.type==="colleague"?"2,3":null);
+
+// Nodes
+const nodeG = g.append("g");
+const nodeGroups = nodeG.selectAll("g").data(scholars).join("g")
+  .attr("class","node-group")
+  .call(d3.drag().on("start",(e,d)=>{if(!e.active)simulation.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+    .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
+    .on("end",(e,d)=>{if(!e.active)simulation.alphaTarget(0);d.fx=null;d.fy=null;}));
+
+function nodeSize(d){
+  const c=connections.filter(c=>{
+    const s=typeof c.source==='object'?c.source.id:c.source;
+    const t=typeof c.target==='object'?c.target.id:c.target;
+    return s===d.id||t===d.id;
+  }).length;
+  return Math.min(Math.max(c*1.3+4,5),16);
+}
+
+// Glow
+nodeGroups.append("circle").attr("class","node-glow")
+  .attr("r",d=>nodeSize(d)+8)
+  .attr("fill",d=>getColor(d.org))
+  .attr("opacity",0.15)
+  .attr("filter","url(#glow)");
+
+// Circle
+nodeGroups.append("circle").attr("class","node-circle")
+  .attr("r",d=>nodeSize(d))
+  .attr("fill",d=>getColor(d.org))
+  .attr("stroke","rgba(255,255,255,0.08)")
+  .attr("stroke-width",0.5)
+  .style("cursor","pointer");
+
+// Labels
+nodeGroups.append("text").attr("class","node-label")
+  .attr("dy",d=>nodeSize(d)+13)
+  .attr("font-size","10px")
+  .attr("letter-spacing","-0.08px")
+  .text(d=>d.name);
+
+// Tick
+simulation.on("tick",()=>{
+  linkLines.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+    .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  nodeGroups.attr("transform",d=>`translate(${d.x},${d.y})`);
+});
+
+// ===================================================================
+// INTERACTIONS
+// ===================================================================
+const tooltip = document.getElementById("tooltip");
+
+// Hover highlight
+nodeGroups.on("mouseenter",(event,d)=>{
+  const connected = new Set([d.id]);
+  connections.forEach(c=>{
+    const s=typeof c.source==='object'?c.source.id:c.source;
+    const t=typeof c.target==='object'?c.target.id:c.target;
+    if(s===d.id)connected.add(t);if(t===d.id)connected.add(s);
+  });
+  nodeGroups.classed("dimmed",n=>!connected.has(n.id)).classed("highlighted",n=>connected.has(n.id));
+  linkLines.classed("dimmed",l=>{
+    const s=typeof l.source==='object'?l.source.id:l.source;
+    const t=typeof l.target==='object'?l.target.id:l.target;
+    return s!==d.id&&t!==d.id;
+  }).classed("highlighted",l=>{
+    const s=typeof l.source==='object'?l.source.id:l.source;
+    const t=typeof l.target==='object'?l.target.id:l.target;
+    return s===d.id||t===d.id;
+  });
+  // Tooltip
+  const zhTip = scholarZh[d.id];
+  document.getElementById("tooltip-name").textContent = (currentLang === "zh" && zhTip && zhTip.zhName) ? zhTip.zhName + "  " + d.name : d.name;
+  document.getElementById("tooltip-org").textContent=d.org;
+  tooltip.classList.add("visible");
+}).on("mousemove",(event)=>{
+  tooltip.style.left=(event.clientX+14)+"px";
+  tooltip.style.top=(event.clientY-10)+"px";
+}).on("mouseleave",()=>{
+  nodeGroups.classed("dimmed",false).classed("highlighted",false);
+  linkLines.classed("dimmed",false).classed("highlighted",false);
+  tooltip.classList.remove("visible");
+});
+
+// Click → Detail Panel (openDetail defined later in i18n section)
+nodeGroups.on("click",(event,d)=>{
+  event.stopPropagation();
+  openDetail(d);
+});
+svg.on("click",()=>closeDetail());
+
+function closeDetail(){
+  document.getElementById("detail-panel").classList.remove("open");
+}
+document.getElementById("detail-close").addEventListener("click",e=>{e.stopPropagation();closeDetail();});
+
+// ===================================================================
+// SEARCH
+// ===================================================================
+document.getElementById("search-input").addEventListener("input",e=>{
+  const q=e.target.value.toLowerCase().trim();
+  if(!q){
+    nodeGroups.style("opacity",null);linkLines.style("opacity",null);return;
+  }
+  const match=new Set();
+  scholars.forEach(s=>{
+    if(s.name.toLowerCase().includes(q)||s.org.toLowerCase().includes(q)||s.title.toLowerCase().includes(q))match.add(s.id);
+  });
+  const expanded=new Set(match);
+  connections.forEach(c=>{
+    const s=typeof c.source==='object'?c.source.id:c.source;
+    const t=typeof c.target==='object'?c.target.id:c.target;
+    if(match.has(s))expanded.add(t);if(match.has(t))expanded.add(s);
+  });
+  nodeGroups.style("opacity",d=>match.has(d.id)?1:expanded.has(d.id)?0.4:0.04);
+  linkLines.style("opacity",l=>{
+    const s=typeof l.source==='object'?l.source.id:l.source;
+    const t=typeof l.target==='object'?l.target.id:l.target;
+    return(match.has(s)||match.has(t))?0.5:0.02;
+  });
+});
+
+// ===================================================================
+// FILTER PILLS
+// ===================================================================
+document.querySelectorAll(".filter-pill").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-pill").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const f=btn.dataset.filter;
+    if(f==="all"){nodeGroups.style("opacity",null);linkLines.style("opacity",null);return;}
+    const match=new Set();
+    scholars.forEach(s=>{if(s.field&&s.field.includes(f))match.add(s.id);});
+    nodeGroups.style("opacity",d=>match.has(d.id)?1:0.04);
+    linkLines.style("opacity",l=>{
+      const s=typeof l.source==='object'?l.source.id:l.source;
+      const t=typeof l.target==='object'?l.target.id:l.target;
+      return(match.has(s)&&match.has(t))?0.5:0.02;
+    });
+  });
+});
+
+// ===================================================================
+// KEYBOARD
+// ===================================================================
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeDetail();
+  if(e.key==="/"&&document.activeElement!==document.getElementById("search-input")){
+    e.preventDefault();document.getElementById("search-input").focus();
+  }
+});
+
+// ===================================================================
+// I18N — LANGUAGE SYSTEM
+// ===================================================================
+let currentLang = "en";
+
+const i18n = {
+  en: {
+    navTitle: "AI Scholar Graph",
+    searchPlaceholder: "Search scholars...",
+    filterAll: "All",
+    filterDL: "Deep Learning",
+    filterNLP: "NLP & LLM",
+    filterRL: "RL & Robotics",
+    filterVision: "Vision",
+    filterSafety: "AI Safety",
+    stats: (s, c) => `${s} scholars · ${c} connections`,
+    legendOrgs: "Organizations",
+    legendConns: "Connections",
+    legendDeepMind: "Google DeepMind",
+    legendOpenAI: "OpenAI",
+    legendAnthropic: "Anthropic",
+    legendMeta: "Meta AI",
+    legendStanford: "Stanford",
+    legendUniversity: "Universities",
+    legendStartup: "Startups",
+    legendCoauthor: "Co-author",
+    legendAdvisor: "Advisor / Student",
+    legendCofounder: "Co-founder",
+    legendColleague: "Colleague",
+    sectionAbout: "About",
+    sectionPapers: "Key Contributions",
+    sectionConnections: "Connections",
+    hintZoom: "Zoom",
+    hintPan: "Pan",
+    hintDetails: "Details",
+    hintClose: "Close",
+    typeLabels: { coauthor: "Co-author", advisor: "Advisor", colleague: "Colleague", cofounder: "Co-founder" },
+  },
+  zh: {
+    navTitle: "AI 学术大神图谱",
+    searchPlaceholder: "搜索学者...",
+    filterAll: "全部",
+    filterDL: "深度学习",
+    filterNLP: "NLP & 大模型",
+    filterRL: "强化学习",
+    filterVision: "计算机视觉",
+    filterSafety: "AI 安全",
+    stats: (s, c) => `${s} 位学者 · ${c} 条关系`,
+    legendOrgs: "所属机构",
+    legendConns: "关系类型",
+    legendDeepMind: "Google DeepMind",
+    legendOpenAI: "OpenAI",
+    legendAnthropic: "Anthropic",
+    legendMeta: "Meta AI",
+    legendStanford: "斯坦福大学",
+    legendUniversity: "高校",
+    legendStartup: "创业公司",
+    legendCoauthor: "论文合著",
+    legendAdvisor: "师生关系",
+    legendCofounder: "联合创始",
+    legendColleague: "同事",
+    sectionAbout: "简介",
+    sectionPapers: "代表性贡献",
+    sectionConnections: "关系网络",
+    hintZoom: "缩放",
+    hintPan: "平移",
+    hintDetails: "详情",
+    hintClose: "关闭",
+    typeLabels: { coauthor: "合著者", advisor: "导师", colleague: "同事", cofounder: "联合创始人" },
+  }
+};
+
+// Chinese scholar data
+const scholarZh = {
+  hinton: { title: "深度学习之父 · 2018 图灵奖 · 2024 诺贝尔物理学奖", bio: "1947年生于伦敦温布尔登。就读于布里斯托尔的 Clifton College，后在剑桥大学国王学院获实验心理学学士（1970）。曾中断学业一年去当木匠学徒。在爱丁堡大学获得 AI 方向博士（1978），导师 Christopher Longuet-Higgins。先后在苏塞克斯大学做博后、在卡内基梅隆大学参与 PDP 小组（1980年代）。1987年加入多伦多大学至今。发表了具有里程碑意义的反向传播论文（1986, Nature，与 Rumelhart & Williams 合著），提出玻尔兹曼机（1985）、深度信念网络（2006），并与 Krizhevsky 和 Sutskever 合著 AlexNet（2012），以历史性优势赢得 ImageNet 竞赛，引爆深度学习革命。2017年联合创办 Vector Institute。2013年加入 Google Brain，2023年5月辞职以自由发声警示 AI 风险。与 LeCun 和 Bengio 共享2018图灵奖。2024年与 Hopfield 共获诺贝尔物理学奖。" },
+  lecun: { title: "AMI Labs 创始人 · 2018 图灵奖", bio: "1960年生于巴黎近郊。获 ESIEE Paris 工程师文凭（1983），巴黎第六大学计算机科学博士（1987）。1987-88年在多伦多大学跟随 Hinton 做博后，这段经历对他影响深远。加入 AT&T 贝尔实验室（1988-1996），在此发明了卷积神经网络（CNN）和 LeNet，用于手写数字识别——最早在银行业实际部署的深度学习系统之一。2003年任 NYU 教授，2012年创办 NYU 数据科学中心。2013年成为 Facebook AI Research (FAIR) 首任主任，后升任 Meta 首席 AI 科学家。倡导自监督学习，对大语言模型推理能力持批评态度。2018图灵奖。2025年11月因 FAIR 预算削减和管理层变动离开 Meta。在巴黎创办 AMI Labs（Advanced Machine Intelligence Labs），尚未正式发布产品即以 35 亿美元估值融资——专注于构建「世界模型」：能理解物理规律、维持持续记忆、规划复杂行为的 AI 系统，而非仅仅预测下一个词。" },
+  bengio: { title: "Mila 创始人 · 2018 图灵奖", bio: "1964年生于巴黎，塞法迪犹太家庭，父母从摩洛哥移民至法国后定居加拿大。兄弟 Samy Bengio 也是 AI 研究者（现在 Apple）。在麦吉尔大学获电气工程学士、计算机科学硕士和博士（1991，导师 Renato De Mori）。在 MIT 跟随 Michael I. Jordan 做博后，也曾在 AT&T 贝尔实验室工作。1993年加入蒙特利尔大学至今。创办 MILA（蒙特利尔学习算法研究所），现为全球最大的学术深度学习实验室。开创了神经概率语言模型（2003）、注意力机制用于机器翻译（2014，与 Bahdanau 合作），并指导了 Ian Goodfellow 发明 GAN（2014）。2016年联合创办 Element AI（2020年被 ServiceNow 收购）。AI 安全与治理的领军人物。2018图灵奖。2017年获加拿大勋章。" },
+  vaswani: { title: "Transformer 联合发明人", bio: "1986年生于印度。在 Birla Institute of Technology (Mesra) 获计算机科学本科（2002），后在南加州大学获博士（2014，导师 David Chiang 和 Liang Huang）。2016年加入 Google Brain，成为划时代论文《Attention Is All You Need》（2017）的第一作者，提出了 Transformer 架构，彻底革命了 AI 的所有领域——从 NLP 到视觉到蛋白质折叠。后联合创办 Adept AI，又离开创办 Essential AI 并担任 CEO。" },
+  shazeer: { title: "Transformer 联合发明人 · Character.ai 联合创始人", bio: "杜克大学数学与计算机科学学士（1998）。2000年作为最早期工程师之一加入 Google，大幅改进了 Google 搜索的拼写纠错系统。成为现代 AI 最高产的研究者之一：合著 Transformer 论文（2017）、开创混合专家模型（MoE）扩展（2017）、构建聊天机器人 Meena。Google 拒绝公开发布 Meena 后，2021年离开联合创办 Character.AI。2024年8月，Google 以 27 亿美元许可 Character.AI 技术，Shazeer 回归 Google 联合领导 Gemini 开发。入选 TIME 100 AI（2023），当选美国国家工程院院士（2026）。" },
+  gomez: { title: "Transformer 联合发明人 · Cohere CEO", bio: "以本科实习生身份在 Google Brain 工作期间，成为《Attention Is All You Need》（2017）最年轻的合著者。这段参与 Transformer 研究的经历启发他于2019年创办 Cohere——一家专注企业级大语言模型的公司，总部位于多伦多。在他领导下，Cohere 成为企业 AI 的重要玩家，提供多语言模型，强调数据隐私和本地化部署。" },
+  jones: { title: "Transformer 联合发明人 · Sakana AI 联合创始人", bio: "威尔士裔 AI 研究者。在 Google Brain 期间合著了 Transformer 论文（2017）。在 Google 工作多年从事语言和序列模型研究。2023年离开 Google，与 David Ha 在东京联合创办 Sakana AI，探索自然启发式 AI 方法（如进化模型融合）。公司迅速成为日本最知名的 AI 创业公司之一。" },
+  kaiser: { title: "Transformer 联合发明人", bio: "波兰裔计算机科学家。在 Google Brain 合著了 Transformer 论文（2017），同时也对神经程序合成和序列到序列模型有重要贡献。后加入 OpenAI，从事推理、代码生成和下一代语言模型研究。" },
+  parmar: { title: "Transformer 联合发明人", bio: "在 Google Brain 合著了《Attention Is All You Need》（2017）。在 Transformer 论文之后，率先将 Transformer 应用于图像生成（Image Transformer, 2018），帮助打通了 NLP 和计算机视觉架构的桥梁。与 Ashish Vaswani 联合创办 Essential AI，构建企业 AI 系统。" },
+  uszkoreit: { title: "Transformer 联合发明人 · 生物AI创业者", bio: "父亲 Hans Uszkoreit 是著名计算语言学家。在 Google 合著了 Transformer 论文（2017）。在看到 Transformer 能够学习语言的语法后，他产生了一个洞见：Transformer 同样可以学习生物学的语法。创办 Inceptive，将 Transformer 架构应用于 RNA 分子设计和药物发现，这是他参与创造的架构最具创意的跨领域应用之一。" },
+  sutskever: { title: "OpenAI 联合创始人 · SSI 创始人", bio: "1986年生于俄罗斯下诺夫哥罗德。5岁随家人移民以色列（在耶路撒冷长大），就读以色列开放大学。16岁移居加拿大，仅上了一个月高中就凭实力直接以大三身份进入多伦多大学。获数学学士（2005）、计算机科学硕士（2007）和博士（2013），导师均为 Geoffrey Hinton。合著了 AlexNet（2012）和 Seq2Seq 论文（2014）。2012年在斯坦福跟随 Andrew Ng 短期做博后。2013年通过 DNNresearch 被收购加入 Google Brain。2015年联合创办 OpenAI 并担任首席科学家，是 GPT 系列的核心架构师。2023年11月参与了 Sam Altman 的董事会罢免事件，后表示后悔。2024年5月离开 OpenAI，同年6月创办安全超级智能公司 SSI，估值迅速达 320 亿美元。" },
+  radford: { title: "GPT 和 CLIP 的创造者", bio: "1993年4月生。毕业于 Olin College of Engineering（马萨诸塞州 Needham 的一所小型工程学院）。约2016年加入 OpenAI，成为 AI 史上个人影响力最大的贡献者之一。GPT-1（2018）第一作者，证明了生成式预训练能产生强大的语言理解能力。随后推出 GPT-2（2019，因担心滥用风险曾暂缓发布）。又主导了 DALL-E（文生图）、CLIP（视觉-语言连接）和 Whisper（语音识别）。他的工作本质上创造了整个 GPT 时代的基础。2024年12月离开 OpenAI，2025年成为 Thinking Machines Lab 顾问。" },
+  schulman: { title: "PPO 算法创造者 · OpenAI 联合创始人", bio: "加州理工学院物理学学士（2010），后在 UC Berkeley 攻读 EECS 博士，导师 Pieter Abbeel。2015年底联合创办 OpenAI（博士尚未完成）。在 OpenAI 开发了 TRPO（2015）和 PPO（近端策略优化，2017），PPO 成为使用最广泛的强化学习算法——也是 RLHF 背后让 ChatGPT 成为可能的核心算法（引用 23000+）。2022-2024年联合领导 OpenAI 后训练团队，直接负责 ChatGPT 的开发。2024年8月加入 Anthropic 专注 AI 安全。2025年2月转任 Thinking Machines Lab 首席科学家。" },
+  karpathy: { title: "前特斯拉 AI 总监 · OpenAI 创始成员", bio: "1986年生于捷克斯洛伐克布拉迪斯拉发（现斯洛伐克）。15岁移居多伦多。多伦多大学计算机科学与物理学学士（2009），UBC 硕士（2011），斯坦福博士（2015，导师 Fei-Fei Li，研究 NLP 与计算机视觉的交叉领域）。创建并教授了斯坦福传奇课程 CS 231n，从 150 人增长到 750 人。OpenAI 创始成员（2015-2017），后加入特斯拉担任 AI 和 Autopilot 视觉总监（2017-2022，直接向 Elon Musk 汇报）。短暂回归 OpenAI（2023-2024）。2024年7月创办 Eureka Labs，专注 AI 原生教育。也以 YouTube 频道和魔方教程闻名（900 万+观看）。入选 MIT 科技评论 35 岁以下创新者（2020）。" },
+  altman: { title: "OpenAI CEO", bio: "1985年生于芝加哥，在密苏里州 Clayton 长大。就读 John Burroughs School，后进入斯坦福大学计算机科学专业，但两年后辍学（2005）。19岁联合创办 Loopt（基于位置的社交网络创业公司，融资超 3000 万美元，2012年以 4340 万美元被 Green Dot 收购）。2011年加入 Y Combinator 任合伙人，2014年接替 Paul Graham 出任总裁。2015年联合创办 OpenAI（最初为非营利 AI 研究实验室），2019年3月出任 CEO，带领其转型为 ChatGPT（2022年11月发布）和 GPT-4 背后的公司。2023年11月17日被 OpenAI 董事会解雇，但仅5天后在一场戏剧性的员工反叛中复职——770名员工中超过700人威胁离职。" },
+  brown: { title: "GPT-3 第一作者", bio: "GPT-3 论文（2020）《Language Models are Few-Shot Learners》的第一作者。该论文展示了一个 1750 亿参数的模型可以仅凭上下文中的少量示例就完成任务，无需微调。这篇论文是一个分水岭时刻，证实了 Scaling 假说，直接引发了大语言模型革命，催生了 ChatGPT 和整个生成式 AI 浪潮。" },
+  damodei: { title: "Anthropic CEO 兼联合创始人", bio: "1983年生于旧金山。父亲是来自托斯卡纳的意大利裔美国皮革工匠，母亲是犹太裔美国人。就读旧金山 Lowell 高中，是2000年美国物理奥林匹克队成员。斯坦福大学物理学学士，普林斯顿大学生物物理学博士（2011，导师 Michael J. Berry 和 William Bialek，研究神经回路电生理学）。在斯坦福医学院做博后。后转向 AI：加入百度（2014-2015），然后进入 OpenAI 任研究副总裁（2016-2021），领导了 Scaling Laws 研究和 GPT 开发。2021年与姐姐 Daniela 及其他前 OpenAI 成员联合创办 Anthropic，理由是在 AI 安全方向上的分歧。打造了 Claude，现为领先的 AI 助手之一。" },
+  daniela: { title: "Anthropic 总裁兼联合创始人", bio: "Dario 的姐姐。进入科技行业前曾在 Stripe 从事金融工作。加入 OpenAI 担任运营副总裁，管理业务和组织运营。2021年与 Dario 联合创办 Anthropic，担任总裁，负责所有业务运营、市场策略和企业文化。" },
+  olah: { title: "神经网络可解释性先驱", bio: "约1991年生于多伦多。毕业于 The Abelard School（2010年获 National AP Scholar）。18岁时从大学辍学，获得 Thiel Fellowship——Peter Thiel 设立的项目，给年轻人10万美元让他们跳过大学去创造。没有学位的他在 Google 做了一次演讲，Jeff Dean 印象深刻，给了他实习机会。在 Google Brain 实习2年，后共工作4年。因其在 colah.github.io 上发表的关于神经网络可视化的极其清晰的博客文章而闻名，被学术界广泛引用。后在 OpenAI 领导可解释性团队。2021年联合创办 Anthropic，现领导可解释性研究，在机械可解释性方面取得突破——绘制大语言模型内部的特征和电路图谱。AI 领域最知名的自学成才研究者之一。" },
+  clark: { title: "Anthropic 联合创始人", bio: "曾是覆盖 AI 领域的记者，在 Bloomberg 和 The Register 工作，后转入行业。加入 OpenAI 担任政策总监，帮助塑造了该组织的 AI 治理和公共沟通方式。创办了极具影响力的 Import AI 周报，是最广泛阅读的 AI 资讯之一。2021年联合创办 Anthropic，专注 AI 政策、安全研究和负责任部署。" },
+  hassabis: { title: "Google DeepMind CEO · 2024 诺贝尔化学奖", bio: "1976年生于伦敦，父亲希腊-塞浦路斯裔，母亲新加坡华裔。4岁起的国际象棋神童，13岁达到大师水平（Elo 2300），曾担任英格兰青少年国际象棋队队长。就读于 Barnet 的 Queen Elizabeth's School。17岁加入 Bullfrog Productions，与 Peter Molyneux 联合设计了经典游戏《主题公园》（1994）。在 Lionhead Studios 担任《黑与白》首席 AI 程序员（2001）。创办自己的游戏工作室 Elixir Studios（1998-2005）。后转向神经科学：在剑桥大学女王学院获计算机科学本科（一等荣誉，1997），在伦敦大学学院获认知神经科学博士（2009，导师 Eleanor Maguire，研究海马体中的记忆与想象）。2010年与 Shane Legg 和 Mustafa Suleyman 联合创办 DeepMind。2014年 Google 以约5亿美元收购 DeepMind。领导了 AlphaGo（2016年击败李世石）、AlphaFold（解决蛋白质折叠，2021年 Science 年度突破）和 Gemini。2024年因 AlphaFold 蛋白质结构预测与 John Jumper 共获诺贝尔化学奖。" },
+  silver: { title: "AlphaGo 和 AlphaZero 首席研究员", bio: "剑桥大学基督学院学士（1997）。在阿尔伯塔大学获博士（2009），论文主题为强化学习和基于模拟的计算机围棋搜索——为后来的 AlphaGo 奠定了理论基础。2010年起为 DeepMind 做顾问，2013年全职加入。领导强化学习研究组和 AlphaGo 项目，2016年击败世界冠军李世石（全球超过2亿人在线观看）。创造了 AlphaGo Zero（从零开始学习）和 AlphaZero（通过自我对弈精通国际象棋、将棋和围棋）。获 ACM 计算奖（2019），当选英国皇家学会院士（2021）。2026年1月离开 DeepMind，创办 Ineffable Intelligence。" },
+  legg: { title: "DeepMind 联合创始人 · 首席 AGI 科学家", bio: "新西兰裔 AI 研究者。在瑞士 IDSIA 跟随 Marcus Hutter 完成博士学位。在2007年的博士论文中，正式定义并创造了「通用人工智能」（AGI）这一术语，提供了衡量机器智能的数学框架。2010年与 Demis Hassabis 和 Mustafa Suleyman 联合创办 DeepMind。现任 Google DeepMind 首席 AGI 科学家，领导安全和 AGI 研究。" },
+  suleyman: { title: "微软 AI CEO · DeepMind 联合创始人", bio: "1984年生于伦敦，父亲是叙利亚裔出租车司机，母亲是英国护士。19岁从牛津辍学。在进入 AI 之前，联合创办了一个电话咨询服务，还在伦敦市长办公室担任政策官员。2010年与 Hassabis 和 Legg 联合创办 DeepMind，领导应用 AI 部门。DeepMind 被 Google 收购后，担任 Google 副总裁。2022年创办 Inflection AI，推出 Pi 聊天机器人。2024年微软以6.5亿美元的交易雇佣 Suleyman 和 Inflection 大部分团队，使他成为微软 AI CEO。2023年出版《即将到来的浪潮》一书，讨论 AI 风险。" },
+  dean: { title: "Google DeepMind 首席科学家", bio: "明尼苏达大学学士，华盛顿大学博士（导师 Craig Chambers）。1999年作为最早期工程师之一加入 Google。构建了使 Google 能够扩展的基础系统：MapReduce、BigTable、Spanner，后来还有 TensorFlow。2011年与 Andrew Ng、Greg Corrado 和 Rajat Monga 联合创办 Google Brain——那个著名的项目用 16000 个 CPU 训练了一个网络，学会了从 YouTube 视频中识别猫。历任 Google AI 高级副总裁，现为 Google DeepMind 首席科学家，负责 Gemini 开发。被公认为计算史上最伟大的系统工程师之一。" },
+  feifei: { zhName: "李飞飞", title: "ImageNet 创造者 · 斯坦福 HAI 联合主任", bio: "1976年生于北京，在四川成都长大。16岁时随父母移民美国新泽西州 Parsippany。就读 Parsippany 高中期间，周末在家人的干洗店帮忙工作。获普林斯顿大学物理学学士（1999，全额奖学金），加州理工学院电气工程硕士和博士（2005，导师 Pietro Perona 和 Christof Koch）。2007年在普林斯顿任助理教授时启动了 ImageNet 项目，利用 Amazon Mechanical Turk 标注了 1400 万+张图片、覆盖 22000 个类别。她创办的 ImageNet 大规模视觉识别挑战赛在 AlexNet 2012年获胜后成为深度学习革命的催化剂。加入斯坦福任教（2009），获终身教职（2012），正教授（2018）。曾任斯坦福 AI 实验室主任（2013-2018），兼任 Google Cloud AI/ML 首席科学家（2017-2018）。联合创办斯坦福 HAI。2024年创办 World Labs。2025年获伊丽莎白女王工程奖��" },
+  ng: { title: "Coursera 和 Google Brain 联合创始人", bio: "1976年生于伦敦，父母为香港移民（父亲是血液学家，母亲是艺术行政人员）。1984年随家人移居新加坡，就读精英学校莱佛士书院。在卡内基梅隆大学获计算机科学、统计学和经济学三重学士（1997），MIT 获 EECS 硕士（1998），UC Berkeley 获计算机科学博士（2002，导师 Michael I. Jordan）。2002年加入斯坦福任教，其 CS229 机器学习课程成为校内最受欢迎的课程（1000+学生）。2011年与 Jeff Dean 联合创办 Google Brain——那个著名实验用 16000 个 CPU 训练出了能从 YouTube 视频中识别猫的网络。2012年与 Daphne Koller 联合创办 Coursera，为 800 万+学生普及教育。担任百度首席科学家（2014-2017），领导 1300 名 AI 研究员。创办 DeepLearning.AI（2017）、Landing AI（2018）和 AI Fund（1.75 亿美元风险基金）。" },
+  manning: { title: "斯坦福 NLP 组主任", bio: "澳大利亚裔计算语言学家。在澳大利亚国立大学获学位，后在斯坦福获语言学博士（1994）。加入斯坦福任教，成为 NLP 领域最具影响力的人物之一。合著了经典教科书《统计自然语言处理基础》（1999）和《信息检索导论》（2008）。领导斯坦福 NLP 组，产出了业界广泛使用的工具（Stanford CoreNLP、Stanford Parser）。主导开发了 GloVe 词向量（2014）。与 Fei-Fei Li 共同担任斯坦福 HAI 联合主任。他的教学和研究培养了多代 NLP 研究者。" },
+  liang: { title: "HELM 基准创造者 · Together AI 创始人", bio: "斯坦福教授，在大语言模型评估和问责方面成为最重要的声音之一。创建了 HELM（大语言模型整体评估，2022），这是评估大语言模型最全面、最标准化的基准，涵盖准确性、鲁棒性、公平性和毒性等多个维度。领导了斯坦福 Alpaca 项目（2023），证明了用 GPT 生成的数据微调的小模型可以匹敌更大的模型。联合创办 Together AI，致力于开源 AI 基础设施的民主化。" },
+  goodfellow: { title: "GAN 发明人", bio: "1987年生，在旧金山湾区长大。斯坦福大学计算机科学学士和硕士（在 Andrew Ng 的组里），蒙特利尔大学机器学习博士（2015，导师 Yoshua Bengio 和 Aaron Courville）。博士期间发明了生成对抗网络（GAN，2014）——据说这个想法是在酒吧聊天时产生的，他回家当晚就编写了第一个版本。与 Bengio 和 Courville 合著了权威教科书《深度学习》（2016）。职业轨迹：Google Brain（博士后）、OpenAI（2016-2017）、Google Research（2017-2019）、Apple 特别项目组 ML 总监（2019-2022，因返回办公室政策辞职）、Google DeepMind（2022至今）。入选 MIT 科技评论 35 岁以下创新者（2017）���" },
+  krizhevsky: { title: "AlexNet 创造者", bio: "生于乌克兰，在加拿大长大。多伦多大学 Geoffrey Hinton 门下的博士生。2012年与 Hinton 和 Ilya Sutskever 共同构建了 AlexNet——一个深度卷积神经网络，以压倒性优势赢得 ImageNet 竞赛（错误率 15.3%，第二名 26.2%）。这一结果被普遍认为是引爆现代深度学习时代的时刻，证明了 GPU 训练的深度网络可以大幅超越传统计算机视觉方法。三人联合创办 DNNresearch，2013年被 Google 收购。此后保持相对低调。" },
+  abbeel: { title: "机器人学与强化学习先驱", bio: "生于比利时。斯坦福大学博士（2008，导师 Andrew Ng），论文研究学徒学习和逆强化学习。加入 UC Berkeley 任教，成为机器人学习和深度强化学习领域的领军人物。实验室开创了 Sim-to-Real 迁移（在模拟中训练机器人、在真实世界中部署）和域随机化技术。创办 Covariant（仓库机器人 AI），将深度学习带入工业机器人领域。指导了 John Schulman 的博士研究（PPO 的创造者）。通过 Berkeley 实验室培养了大量杰出 AI 研究者。" },
+  levine: { title: "机器人学习先驱", bio: "UC Berkeley 教授，开创了从原始像素进行端到端机器人学习。他的工作证明了机器人可以直接从视觉输入学习复杂的操作任务，使用深度强化学习而无需手工设计特征。离线强化学习（从预先收集的数据集学习而非在线交互）的核心贡献者。联合创办 Physical Intelligence (pi)，构建机器人基础模型。他的研究架起了大语言模型的成功与物理世界之间的桥梁。" },
+  ho: { title: "扩散模型（DDPM）创造者", bio: "在 UC Berkeley 获博士（导师 Pieter Abbeel 和 Stefano Ermon）。创造了去噪扩散概率模型（DDPM，2020），复兴并极大改进了基于扩散的生成建模方法。DDPM 成为 Stable Diffusion、DALL-E 2、Midjourney、Sora 以及几乎所有现代图像和视频生成系统的基础技术。加入 Google Brain（现 Google DeepMind），继续推进扩散模型及其在视频生成中的应用。" },
+  wei: { title: "思维链提示的发现者", bio: "Google Brain 研究者，做出了关于大语言模型的两个最具影响力的发现。第一，思维链提示（2022）：发现仅仅在提示中加入「让我们一步步思考」就能大幅提升 LLM 的推理能力，这一技术现在几乎被所有 AI 应用所采用。第二，涌现能力（2022）：证明某些能力会随着模型规模的增大而突然、不可预测地出现，从根本上改变了该领域对 Scaling 的思考方式。后加入 OpenAI，从事下一代模型的推理能力研究。" },
+  anil: { title: "Gemini 技术负责人", bio: "印度裔 AI 研究者，成长为 Google 最重要 AI 项目的技术负责人。领导了 PaLM 2 和 Gemini 模型家族的开发——Google 的旗舰多模态 AI 系统，旨在与 GPT-4 竞争。他的工作涵盖大规模高效训练、多语言能力和多模态推理。" },
+  musk: { title: "xAI 创始人 · 特斯拉 & SpaceX CEO", bio: "1971年生于南非。宾大经济学+物理学双学士。创办 Zip2、PayPal、SpaceX、Tesla。2015年联合创办 OpenAI，2018年退出董事会。2023年7月创办 xAI，构建 Grok。到2026年初12位创始人仅剩2位。" },
+  jimmyba: { zhName: "巴吉铭", title: "Adam 优化器联合创造者 · xAI 联合创始人", bio: "生于中国，在加拿大长大。多伦多大学博士（导师 Hinton）。Adam 优化器（2014）合著者——AI 领域引用最多的论文（95000+次）。多伦多大学教授。xAI 联合创始人，2026年2月离开。" },
+  szegedy: { title: "Inception/GoogLeNet 创造者 · xAI 联合创始人", bio: "匈牙利裔。波恩大学博士。在 Google 创造 Inception 架构（GoogLeNet）并与 Goodfellow 开创对抗样本研究。开发 Batch Normalization。2023年联合创办 xAI，2025年2月离开。" },
+  gregyang: { zhName: "杨格", title: "Tensor Programs / muP 创造者 · xAI 联合创始人", bio: "华裔美国数学家。哈佛数学学士。在微软研究院开发 Tensor Programs 理论和 muP——高效训练大模型的必备技术。2023年联合创办 xAI，2026年1月因健康原因退出。" },
+  kaiminghe: { zhName: "何恺明", title: "ResNet 创造者 · 21世纪引用最多的论文", bio: "1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研创造 ResNet（2015）——21世纪引用最多的论文。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。" },
+  sainingxie: { zhName: "谢赛宁", title: "DiT（扩散Transformer）创造者 · AMI Labs CSO", bio: "华裔视觉研究者。UCSD 博士。创造 ConvNeXt 和 DiT（2023），DiT 成为 OpenAI Sora 的基础架构。2026年加入 LeCun 的 AMI Labs 任首席科学官。" },
+  quocle: { title: "Google Fellow · Google Brain 联合创始人", bio: "1982年生于越南。顺化国学高中。澳大利亚国立大学学士，斯坦福博士（导师 Andrew Ng）。Google Brain 创始成员（2011）。与 Sutskever 共同发明 Seq2Seq（2014）。发起 AutoML。现为 Google Fellow。" },
+  liangwenfeng: { zhName: "梁文锋", title: "DeepSeek 创始人", bio: "1985年生于广东湛江。浙大学士和硕士。2015年创办幻方量化，资管超千亿。2023年创办 DeepSeek 追求 AGI。R1 模型（2025年1月）以 600 万美元训练成本匹敌 GPT-4，震动全球。" },
+  kaifulee: { zhName: "李开复", title: "01.AI 创始人 · 前 Google 中国总裁", bio: "1961年生于台北。哥伦比亚大学学士，CMU 博士（语音识别）。历任 Apple、SGI、微软副总裁。创办微软中国研究院。Google 中国总裁（2005-2009）。创办创新工场。2023年创办 01.AI。著有《AI 超级大国》。" },
+  jietang: { zhName: "唐杰", title: "智谱 AI 创始人 · 清华大学教授", bio: "清华大学计算机系教授。创办 AMiner 学术搜索。受智源研究院委托建设中国首个超大规模自然语言模型。创办智谱 AI，打造 GLM 系列，估值超 30 亿美元。" },
+};
+
+// Chinese connection labels
+const connLabelZh = {
+  "2015 Nature paper, Turing Award trio": "2015 Nature 论文，图灵奖三巨头",
+  "Turing Award trio, Deep Learning review": "图灵奖三巨头，深度学习综述",
+  "Turing Award trio": "图灵奖三巨头",
+  "PhD advisor at U. Toronto": "多伦多大学博士导师",
+  "AlexNet co-author, PhD advisor": "AlexNet 合著者，博士导师",
+  "AlexNet (2012)": "AlexNet (2012)",
+  "PhD advisor, supervised GANs": "博士导师，指导 GAN 研究",
+  "Attention Is All You Need (2017)": "Attention Is All You Need (2017)",
+  "Attention Is All You Need + Essential AI": "Transformer 论文 + 联合创办 Essential AI",
+  "Co-founded Essential AI": "联合创办 Essential AI",
+  "Google Brain colleagues": "Google Brain 同事",
+  "Co-founded Google Brain": "联合创办 Google Brain",
+  "Google, Gemini/PaLM": "Google Gemini/PaLM 协作",
+  "Google DeepMind leadership": "Google DeepMind 管理层",
+  "Co-founded DeepMind": "联合创办 DeepMind",
+  "AlphaGo, AlphaFold": "AlphaGo、AlphaFold",
+  "DeepMind RL research": "DeepMind 强化学习研究",
+  "Co-founded OpenAI": "联合创办 OpenAI",
+  "OpenAI, GPT architecture": "OpenAI，GPT 架构",
+  "OpenAI founding team": "OpenAI 创始团队",
+  "GPT-2, GPT-3": "GPT-2、GPT-3",
+  "OpenAI colleagues": "OpenAI 同事",
+  "OpenAI leadership": "OpenAI 管理层",
+  "OpenAI": "OpenAI",
+  "OpenAI / LLM scaling": "OpenAI / 大模型 Scaling",
+  "Co-founded Anthropic (siblings)": "联合创办 Anthropic（兄妹）",
+  "Co-founded Anthropic": "联合创办 Anthropic",
+  "Both ex-OpenAI, now Anthropic": "均为前 OpenAI，现 Anthropic",
+  "Former OpenAI colleagues": "前 OpenAI 同事",
+  "Former OpenAI VP → Anthropic": "前 OpenAI 副总裁 → 创办 Anthropic",
+  "PhD advisor at Stanford": "斯坦福博士导师",
+  "Stanford AI Lab": "斯坦福 AI 实验室",
+  "Stanford NLP group": "斯坦福 NLP 组",
+  "Stanford HAI co-directors": "斯坦福 HAI 联合主任",
+  "UC Berkeley robot learning": "UC Berkeley 机器人学习",
+  "PhD advisor at UC Berkeley": "UC Berkeley 博士导师",
+  "Berkeley, generative models": "Berkeley，生成模型",
+  "Stanford contemporaries": "斯坦福同期",
+  "GAN / generative lineage": "GAN / 生成模型传承",
+  "Google Brain, chain-of-thought": "Google Brain，思维链",
+  "Google DeepMind": "Google DeepMind",
+  "Co-founded OpenAI (2015), later split": "联合创办 OpenAI（2015），后分道扬镳",
+  "Co-founded xAI": "联合创办 xAI",
+  "PhD under Hinton at U. Toronto": "多伦多大学 Hinton 门下博士",
+  "Adversarial examples (2013), Google colleagues": "对抗样本研究（2013），Google 同事",
+  "FAIR / computer vision community": "FAIR / 计算机视觉社区",
+  "Google DeepMind (2025-)": "Google DeepMind（2025年起）",
+  "AMI Labs, Chief Science Officer": "AMI Labs 首席科学官",
+  "Diffusion Transformers lineage": "扩散 Transformer 技术传承",
+  "PhD under Andrew Ng at Stanford": "斯坦福 Andrew Ng 门下博士",
+  "Sequence-to-Sequence (2014)": "Seq2Seq 模型（2014）",
+  "AI leaders, China-US bridge": "AI 领袖，中美桥梁",
+  "Tsinghua University": "清华大学",
+};
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  const t = i18n[lang];
+
+  // Nav
+  document.querySelector(".nav-title").textContent = t.navTitle;
+  document.getElementById("search-input").placeholder = t.searchPlaceholder;
+  document.getElementById("nav-stats").textContent = t.stats(scholars.length, connections.length);
+
+  // Filter pills
+  const pillMap = { all: t.filterAll, "deep-learning": t.filterDL, nlp: t.filterNLP, rl: t.filterRL, vision: t.filterVision, safety: t.filterSafety };
+  document.querySelectorAll(".filter-pill").forEach(btn => {
+    btn.textContent = pillMap[btn.dataset.filter] || btn.textContent;
+  });
+
+  // Legend
+  const legendLabels = document.querySelectorAll("#legend .legend-label");
+  const legendTexts = [t.legendDeepMind, t.legendOpenAI, t.legendAnthropic, t.legendMeta, t.legendStanford, t.legendUniversity, t.legendStartup, t.legendCoauthor, t.legendAdvisor, t.legendCofounder, t.legendColleague];
+  legendLabels.forEach((el, i) => { if (legendTexts[i]) el.textContent = legendTexts[i]; });
+
+  const legendHeadings = document.querySelectorAll("#legend .legend-heading");
+  if (legendHeadings[0]) legendHeadings[0].textContent = t.legendOrgs;
+  if (legendHeadings[1]) legendHeadings[1].textContent = t.legendConns;
+
+  // Detail panel section titles
+  const sectionTitles = document.querySelectorAll(".detail-section-title");
+  if (sectionTitles[0]) sectionTitles[0].textContent = t.sectionAbout;
+  if (sectionTitles[1]) sectionTitles[1].textContent = t.sectionPapers;
+  if (sectionTitles[2]) sectionTitles[2].textContent = t.sectionConnections;
+
+  // Keyboard hints
+  const hints = document.querySelectorAll(".hint-item");
+  const hintTexts = [t.hintZoom, t.hintPan, t.hintDetails, t.hintClose];
+  hints.forEach((el, i) => {
+    const key = el.querySelector(".hint-key");
+    if (key && hintTexts[i]) {
+      el.innerHTML = "";
+      el.appendChild(key);
+      el.append(" " + hintTexts[i]);
+    }
+  });
+
+  // Update graph node labels with Chinese names
+  nodeGroups.selectAll(".node-label").text(d => {
+    const zhData = scholarZh[d.id];
+    if (lang === "zh" && zhData && zhData.zhName) return zhData.zhName;
+    return d.name;
+  });
+
+  // If detail panel is open, refresh it
+  if (document.getElementById("detail-panel").classList.contains("open") && window._currentDetailScholar) {
+    openDetail(window._currentDetailScholar);
+  }
+
+  // Toggle buttons
+  document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+}
+
+// Wikipedia article title mapping for avatar fetching
+const wikiTitles = {
+  hinton: "Geoffrey_Hinton", lecun: "Yann_LeCun", bengio: "Yoshua_Bengio",
+  vaswani: "Ashish_Vaswani", shazeer: "Noam_Shazeer", gomez: "Aidan_Gomez",
+  jones: "Llion_Jones", kaiser: "Lukasz_Kaiser", parmar: "Niki_Parmar",
+  uszkoreit: "Jakob_Uszkoreit",
+  sutskever: "Ilya_Sutskever", radford: "Alec_Radford", schulman: "John_Schulman_(computer_scientist)",
+  karpathy: "Andrej_Karpathy", altman: "Sam_Altman", brown: "Tom_Brown_(researcher)",
+  damodei: "Dario_Amodei", daniela: "Daniela_Amodei", olah: "Chris_Olah", clark: "Jack_Clark_(AI_researcher)",
+  hassabis: "Demis_Hassabis", silver: "David_Silver_(computer_scientist)", legg: "Shane_Legg",
+  suleyman: "Mustafa_Suleyman", dean: "Jeff_Dean",
+  feifei: "Fei-Fei_Li", ng: "Andrew_Ng", manning: "Christopher_Manning_(computational_linguist)",
+  liang: "Percy_Liang",
+  goodfellow: "Ian_Goodfellow", krizhevsky: "Alex_Krizhevsky",
+  abbeel: "Pieter_Abbeel", levine: "Sergey_Levine", ho: "Jonathan_Ho_(computer_scientist)",
+  wei: "Jason_Wei_(computer_scientist)", anil: "Rohan_Anil",
+  musk: "Elon_Musk", jimmyba: "Jimmy_Ba", szegedy: "Christian_Szegedy", gregyang: "Greg_Yang_(mathematician)",
+  kaiminghe: "Kaiming_He", sainingxie: "Saining_Xie", quocle: "Quoc_Viet_Le",
+  liangwenfeng: "Liang_Wenfeng", kaifulee: "Kai-Fu_Lee", jietang: "Tang_Jie_(computer_scientist)",
+};
+
+// Photo cache
+const photoCache = {};
+
+async function fetchPhoto(scholarId) {
+  if (photoCache[scholarId]) return photoCache[scholarId];
+  const wiki = wikiTitles[scholarId];
+  if (!wiki) return null;
+  try {
+    const resp = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wiki)}`);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    const url = data.thumbnail?.source || null;
+    if (url) photoCache[scholarId] = url;
+    return url;
+  } catch(e) { return null; }
+}
+
+// openDetail with i18n support
+function openDetail(d) {
+  const panel = document.getElementById("detail-panel");
+  panel.classList.add("open");
+  window._currentDetailScholar = d;
+
+  // Avatar — always reset to placeholder first
+  const initials = d.name.split(" ").map(w => w[0]).join("").slice(0, 2);
+  const oldAvatar = document.getElementById("detail-avatar");
+  const placeholder = document.createElement("div");
+  placeholder.className = "detail-avatar-placeholder";
+  placeholder.id = "detail-avatar";
+  placeholder.innerHTML = `<span>${initials}</span>`;
+  oldAvatar.replaceWith(placeholder);
+
+  // Load photo
+  const currentId = d.id;
+  if (photoCache[d.id]) {
+    const img = document.createElement("img");
+    img.className = "detail-avatar";
+    img.id = "detail-avatar";
+    img.alt = d.name;
+    img.src = photoCache[d.id];
+    placeholder.replaceWith(img);
+  } else {
+    fetchPhoto(d.id).then(url => {
+      // Only update if panel still shows same person
+      const nameEl = document.getElementById("detail-name");
+      if (!nameEl || nameEl.textContent !== d.name) return;
+      const el = document.getElementById("detail-avatar");
+      if (el && url) {
+        const img = document.createElement("img");
+        img.className = "detail-avatar";
+        img.id = "detail-avatar";
+        img.alt = d.name;
+        img.src = url;
+        el.replaceWith(img);
+      }
+    });
+  }
+
+  const t = i18n[currentLang];
+  const zh = scholarZh[d.id];
+  const displayName = (currentLang === "zh" && zh && zh.zhName) ? zh.zhName + "  " + d.name : d.name;
+
+  document.getElementById("detail-name").textContent = displayName;
+
+  if (currentLang === "zh" && zh) {
+    document.getElementById("detail-title").textContent = zh.title;
+    document.getElementById("detail-bio").textContent = zh.bio;
+  } else {
+    document.getElementById("detail-title").textContent = d.title;
+    document.getElementById("detail-bio").textContent = d.bio;
+  }
+
+  const orgEl = document.getElementById("detail-org");
+  const c = getColor(d.org);
+  orgEl.textContent = d.org;
+  orgEl.style.background = c + "18";
+  orgEl.style.color = c;
+  orgEl.style.border = `0.5px solid ${c}32`;
+
+  // Papers
+  const papersEl = document.getElementById("detail-papers");
+  const papersSection = document.getElementById("detail-papers-section");
+  if (d.papers && d.papers.length) {
+    papersSection.style.display = "block";
+    papersEl.innerHTML = d.papers.map(p => `<div class="paper-entry"><span class="paper-year">${p.y}</span><span class="paper-title">${p.t}</span></div>`).join("");
+  } else {
+    papersSection.style.display = "none";
+  }
+
+  // Section titles
+  const sectionTitles = document.querySelectorAll(".detail-section-title");
+  if (sectionTitles[0]) sectionTitles[0].textContent = t.sectionAbout;
+  if (sectionTitles[1]) sectionTitles[1].textContent = t.sectionPapers;
+  if (sectionTitles[2]) sectionTitles[2].textContent = t.sectionConnections;
+
+  // Connections
+  const connsEl = document.getElementById("detail-connections");
+  const related = connections.filter(c => {
+    const s = typeof c.source === 'object' ? c.source.id : c.source;
+    const tt = typeof c.target === 'object' ? c.target.id : c.target;
+    return s === d.id || tt === d.id;
+  });
+  connsEl.innerHTML = related.map(c => {
+    const s = typeof c.source === 'object' ? c.source.id : c.source;
+    const tt = typeof c.target === 'object' ? c.target.id : c.target;
+    const oid = s === d.id ? tt : s;
+    const o = scholars.find(sc => sc.id === oid);
+    if (!o) return '';
+    const label = currentLang === "zh" ? (connLabelZh[c.label] || c.label) : c.label;
+    const typeBadge = t.typeLabels[c.type];
+    return `<div class="conn-entry" data-id="${o.id}">
+      <div class="conn-dot" style="background:${getColor(o.org)}"></div>
+      <div class="conn-info"><div class="conn-name">${(currentLang === "zh" && scholarZh[o.id] && scholarZh[o.id].zhName) ? scholarZh[o.id].zhName + "  " + o.name : o.name}</div><div class="conn-relation">${label}</div></div>
+      <span class="conn-type-badge">${typeBadge}</span>
+    </div>`;
+  }).join("");
+
+  connsEl.querySelectorAll(".conn-entry").forEach(el => {
+    el.addEventListener("click", () => {
+      const target = scholars.find(s => s.id === el.dataset.id);
+      if (target) {
+        openDetail(target);
+        const tr = d3.zoomTransform(svg.node());
+        svg.transition().duration(600).ease(d3.easeCubicInOut).call(
+          zoomBehavior.transform,
+          d3.zoomIdentity.translate(W / 2 - target.x * tr.k, H / 2 - target.y * tr.k).scale(tr.k)
+        );
+      }
+    });
+  });
+};
+
+// Language toggle event
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+});
+
+// ===================================================================
+// STATS
+// ===================================================================
+document.getElementById("nav-stats").textContent = i18n[currentLang].stats(scholars.length, connections.length);
+
+// Initial position
+setTimeout(()=>{
+  svg.transition().duration(1200).ease(d3.easeCubicInOut).call(
+    zoomBehavior.transform,
+    d3.zoomIdentity.translate(W*0.08,H*0.02).scale(0.88)
+  );
+},1800);
+
+// Resize
+window.addEventListener("resize",()=>{
+  const w=window.innerWidth,h=window.innerHeight-48;
+  simulation.force("center",d3.forceCenter(w/2,h/2));
+  simulation.force("x",d3.forceX(w/2).strength(0.03));
+  simulation.force("y",d3.forceY(h/2).strength(0.03));
+  simulation.alpha(0.3).restart();
+});
+</script>
+</body>
+</html>
