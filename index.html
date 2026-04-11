@@ -801,6 +801,32 @@ const scholars = [
   { id:"jietang", name:"Jie Tang", org:"Zhipu AI / Tsinghua", title:"Founder of Zhipu AI · Tsinghua Professor", field:["nlp"],
     bio:"Professor at the Department of Computer Science at Tsinghua University. Founded and led the AMiner academic search system. Tasked by the Beijing Academy of Artificial Intelligence (BAAI) to build China's first super-scale natural language model, completed in 2021. Founded Zhipu AI to commercialize this work, creating the GLM (General Language Model) series that has become one of China's leading foundation models. Zhipu AI is now valued at over $3B and is considered one of the 'Big Four' Chinese AI foundation model companies alongside Baidu, Alibaba, and ByteDance's AI labs.",
     papers:[{y:"2022",t:"GLM: General Language Model Pretraining"},{y:"2024",t:"ChatGLM: A Family of Large Language Models from GLM-130B"}]},
+
+  // ===== MiniMax =====
+  { id:"yanjunjie", name:"Yan Junjie", org:"MiniMax", title:"Founder & CEO of MiniMax", field:["nlp","vision"],
+    bio:"Born ~1989. Taught himself advanced calculus in high school after finding the standard curriculum too slow. Earned a degree in Mathematics from Southeast University (2006), then a PhD from the Institute of Automation, Chinese Academy of Sciences (2015). Conducted postdoctoral research at Tsinghua University. Spent 6+ years at SenseTime, rising to deputy head of its research institute. Became captivated by OpenAI after its bots defeated elite human teams in Dota 2 (2019), prompting a career pivot from computer vision to NLP. Founded MiniMax in December 2021. The company developed Hailuo AI (video generation) and a suite of multimodal models. MiniMax IPO'd on the Hong Kong Stock Exchange in January 2026, making Yan a billionaire at age 36 with a net worth of $3.2B.",
+    papers:[]},
+
+  // ===== Moonshot AI / Kimi =====
+  { id:"yangzhilin", name:"Yang Zhilin", org:"Moonshot AI", title:"Founder & CEO of Moonshot AI (Kimi)", field:["nlp"],
+    bio:"Born 1992 in Shantou, Guangdong. Attended Shantou Jinshan Middle School. With no prior programming background, was selected for the informatics Olympiad training program and won first prize in the Guangdong division of the National Olympiad in Informatics, earning guaranteed admission to Tsinghua University. Initially admitted to Thermal Energy Engineering, transferred to Computer Science in his sophomore year and studied under Professor Jie Tang. Graduated top of his class with a BSc (2015). Earned a PhD from Carnegie Mellon University in just 4 years (standard is 6), completed 2019, under Ruslan Salakhutdinov (later Apple's head of AI) and William Cohen (Google DeepMind). During his PhD, interned at Meta and Google Brain. Co-developed Transformer-XL and XLNet, extending Transformers to handle much longer sequences. Founded Moonshot AI in March 2023 with Tsinghua classmates Zhou Xinyu and Wu Yuxin. Created Kimi, one of China's most popular AI assistants, known for its industry-leading long-context capability (200K+ tokens from the start). Also an assistant professor at Tsinghua and PI at Shanghai Qizhi Research Institute.",
+    papers:[{y:"2019",t:"Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context"},{y:"2019",t:"XLNet: Generalized Autoregressive Pretraining for Language Understanding"}]},
+
+  // ===== ByteDance / Doubao =====
+  { id:"wuyonghui", name:"Wu Yonghui", org:"ByteDance Seed", title:"Head of ByteDance AI Research · Former Google Fellow", field:["nlp","deep-learning"],
+    bio:"Graduated from Nanjing University, then earned a Master's in Statistics and PhD in Computer Science from the University of California, Riverside (2008). Joined Google in 2008, spending his first 7 years as a software engineer on core search ranking. From 2014-2023 at Google Brain, working on machine learning, genomics, and NLP. Promoted to Google Fellow in September 2023 -- a senior-level position equivalent to VP. Best known as the first author of Google's Neural Machine Translation System (GNMT, 2016), which transformed Google Translate from phrase-based to neural. Joined ByteDance in February 2025 as head of foundational research for the Seed team (Doubao large model), reporting directly to CEO Liang Rubo. Also created Seedance 2.0, ByteDance's breakthrough video generation model.",
+    papers:[{y:"2016",t:"Google's Neural Machine Translation System: Bridging the Gap Between Human and Machine Translation"}]},
+  { id:"zhuwenjia", name:"Zhu Wenjia", org:"ByteDance Seed", title:"Head of ByteDance Seed · Former TikTok R&D Chief", field:["nlp"],
+    bio:"Joined ByteDance in 2015 as an early employee. Served as global TikTok research and development chief and CEO of Toutiao (ByteDance's news platform). In 2023, led the creation of ByteDance's first large language model team, Seed, which developed the Doubao series of models. Now co-leads Seed alongside Wu Yonghui, focusing on model application and productization while Wu handles foundational research.",
+    papers:[]},
+
+  // ===== Alibaba / Qwen =====
+  { id:"zhoujingren", name:"Zhou Jingren", org:"Alibaba Cloud", title:"CTO of Alibaba Cloud · Head of Tongyi Lab", field:["nlp","deep-learning"],
+    bio:"PhD in Computer Science from Columbia University. Previously worked at Microsoft Research. Joined Alibaba in 2015, serving as Chief Scientist at Alibaba Cloud and Deputy Director of DAMO Academy. Now CTO of Alibaba Cloud and head of Tongyi Lab, overseeing the Qwen (Tongyi Qianwen) model family -- China's most influential open-source LLM series. After the departure of tech lead Lin Junyang in March 2026, took direct supervision of the Qwen team. Co-leads Alibaba's Foundation Model Task Force alongside CEO Eddie Wu.",
+    papers:[{y:"2023",t:"Qwen Technical Report"},{y:"2024",t:"Qwen2 Technical Report"}]},
+  { id:"linjunyang", name:"Lin Junyang", org:"Independent", title:"Former Qwen Tech Lead · Youngest P10 at Alibaba", field:["nlp"],
+    bio:"Born 1993. Studied computer science and linguistics at Peking University, earning a Master's degree in linguistics. Joined Alibaba's DAMO Academy in 2019 as a Senior Algorithm Engineer working on NLP and multimodal research. Played central roles in Alibaba's M6 (extreme-scale MoE model), OFA (ICML 2022), and Chinese-CLIP. His defining achievement was turning Qwen from an unknown side project into the world's most influential open-source LLM series. Became the youngest P10-level tech lead at Alibaba (2025) -- an extraordinarily senior technical position. Resigned in March 2026 over disagreements with organizational restructuring that would fragment the vertically integrated Qwen team structure he had built.",
+    papers:[{y:"2022",t:"OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework"},{y:"2023",t:"Qwen Technical Report"},{y:"2025",t:"Qwen2.5 Technical Report"}]},
 ];
 
 const connections = [
@@ -889,6 +915,21 @@ const connections = [
   {source:"quocle",target:"sutskever",type:"coauthor",label:"Sequence-to-Sequence (2014)"},
   {source:"kaifulee",target:"ng",type:"colleague",label:"AI leaders, China-US bridge"},
   {source:"jietang",target:"kaiminghe",type:"colleague",label:"Tsinghua University"},
+  // Moonshot / Kimi
+  {source:"yangzhilin",target:"jietang",type:"advisor",label:"Tsinghua undergraduate advisor"},
+  {source:"yangzhilin",target:"bengio",type:"colleague",label:"Transformer-XL extends Transformer lineage"},
+  // MiniMax
+  {source:"yanjunjie",target:"kaiminghe",type:"colleague",label:"Both from Chinese CV community, CAS/SenseTime era"},
+  // ByteDance
+  {source:"wuyonghui",target:"dean",type:"colleague",label:"Google Brain/DeepMind colleagues"},
+  {source:"wuyonghui",target:"quocle",type:"colleague",label:"Google Brain colleagues"},
+  {source:"zhuwenjia",target:"wuyonghui",type:"colleague",label:"ByteDance Seed co-leads"},
+  // Alibaba
+  {source:"zhoujingren",target:"linjunyang",type:"colleague",label:"Alibaba Tongyi Lab, Qwen team"},
+  {source:"linjunyang",target:"liangwenfeng",type:"colleague",label:"Chinese open-source LLM leaders"},
+  // Cross-company
+  {source:"yangzhilin",target:"liangwenfeng",type:"colleague",label:"Chinese AGI startup founders"},
+  {source:"yanjunjie",target:"yangzhilin",type:"colleague",label:"Chinese AI startup founders"},
 ];
 
 // ===================================================================
@@ -900,7 +941,7 @@ const orgColorMap = {
   "University of Toronto":"var(--org-university)","Mila / U. Montreal":"var(--org-university)",
   "Microsoft AI":"var(--org-deepmind)","Microsoft Research":"var(--org-deepmind)",
   "SSI":"var(--org-startup)","Essential AI":"var(--org-startup)","Cohere":"var(--org-startup)",
-  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
+  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
   "Independent":"var(--org-independent)","Stanford / DeepLearning.AI":"var(--org-stanford)",
   "UC Berkeley / Covariant":"var(--org-university)","UC Berkeley / Physical Intelligence":"var(--org-university)",
 };
@@ -910,7 +951,7 @@ const orgRawColors = {
   "University of Toronto":"#bf5af2","Mila / U. Montreal":"#bf5af2",
   "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
   "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
-  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
+  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
   "Independent":"#98989d","Stanford / DeepLearning.AI":"#ff9f0a",
   "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
 };
@@ -1233,6 +1274,12 @@ const scholarZh = {
   liangwenfeng: { zhName: "梁文锋", title: "DeepSeek 创始人", bio: "1985年生于广东湛江。浙大学士和硕士。2015年创办幻方量化，资管超千亿。2023年创办 DeepSeek 追求 AGI。R1 模型（2025年1月）以 600 万美元训练成本匹敌 GPT-4，震动全球。" },
   kaifulee: { zhName: "李开复", title: "01.AI 创始人 · 前 Google 中国总裁", bio: "1961年生于台北。哥伦比亚大学学士，CMU 博士（语音识别）。历任 Apple、SGI、微软副总裁。创办微软中国研究院。Google 中国总裁（2005-2009）。创办创新工场。2023年创办 01.AI。著有《AI 超级大国》。" },
   jietang: { zhName: "唐杰", title: "智谱 AI 创始人 · 清华大学教授", bio: "清华大学计算机系教授。创办 AMiner 学术搜索。受智源研究院委托建设中国首个超大规模自然语言模型。创办智谱 AI，打造 GLM 系列，估值超 30 亿美元。" },
+  yanjunjie: { zhName: "闫俊杰", title: "MiniMax 创始人兼 CEO", bio: "约1989年生。高中时自学高等微积分。东南大学数学学士（2006），中科院自动化所博士（2015），清华大学博后。在商汤科技工作6年+，任研究院副院长。2019年因 OpenAI 的 Dota 2 AI 击败人类而着迷，从计算机视觉转向 NLP。2021年12月创办 MiniMax，开发海螺 AI（视频生成）和多模态模型套件。2026年1月在港交所 IPO，36岁成为亿万富翁，身家 32 亿美元。" },
+  yangzhilin: { zhName: "杨植麟", title: "月之暗面创始人兼 CEO（Kimi）", bio: "1992年生于广东汕头。就读汕头金山中学，无编程背景被选入信息学奥赛训练队，获 NOIP 广东省一等奖，保送清华大学。初入热能工程系，大二转入计算机系，师从唐杰教授。2015年以全班第一毕业。赴卡内基梅隆大学读博，仅用4年完成（标准6年），2019年毕业，导师 Ruslan Salakhutdinov（后任 Apple AI 负责人）和 William Cohen（Google DeepMind）。读博期间在 Meta 和 Google Brain 实习。共同开发了 Transformer-XL 和 XLNet。2023年3月与清华同学周昕宇、吴育昕联合创办月之暗面。创造了 Kimi，中国最受欢迎的 AI 助手之一，以业界领先的长上下文能力著称（起步即 20万+ token）。同时兼任清华助理教授和上海期智研究院 PI。" },
+  wuyonghui: { zhName: "吴永辉", title: "字节跳动 AI 研究负责人 · 前 Google Fellow", bio: "南京大学毕业，后在加州大学河滨分校获统计学硕士和计算机科学博士（2008）。2008年加入 Google，前7年做搜索排序，2014-2023年在 Google Brain 从事机器学习、基因组学和 NLP。2023年9月晋升 Google Fellow（相当于副总裁级别）。最知名成就是作为 Google 神经机器翻译系统（GNMT, 2016）第一作者，将 Google 翻译从短语级翻译升级为神经翻译。2025年2月加入字节跳动任 Seed 团队基础研究负责人，直接向 CEO 梁汝波汇报。还创造了 Seedance 2.0 视频生成模型。" },
+  zhuwenjia: { zhName: "朱文佳", title: "字节跳动 Seed 负责人 · 前 TikTok 研发总裁", bio: "2015年作为早期员工加入字节跳动。历任全球 TikTok 研发负责人和今日头条 CEO。2023年主导创建字节首个大语言模型团队 Seed，开发豆包系列模型。现与吴永辉共同领导 Seed，负责模型应用和产品化。" },
+  zhoujingren: { zhName: "周靖人", title: "阿里云 CTO · 通义实验室负责人", bio: "哥伦比亚大学计算机科学博士。曾在微软研究院工作。2015年加入阿里巴巴，历任阿里云首席科学家、达摩院副院长。现任阿里云 CTO 兼通义实验室负责人，统管通义千问（Qwen）模型家族——中国最具影响力的开源大模型系列。2026年3月林骏扬离职后直接接管 Qwen 团队。与 CEO 吴泳铭共同领导阿里基础模型特别工作组。" },
+  linjunyang: { zhName: "林骏扬", title: "前 Qwen 技术负责人 · 阿里最年轻 P10", bio: "1993年生。北京大学计算机和语言学专业，语言学硕士。2019年加入阿里达摩院任高级算法工程师。主导了阿里 M6（超大规模 MoE 模型）、OFA（ICML 2022）和 Chinese-CLIP。最核心成就是将 Qwen 从一个不知名的副项目打造成全球最有影响力的开源大模型系列。2025年成为阿里最年轻的 P10 级技术负责人。2026年3月因不认同将 Qwen 团队垂直整合结构拆散的组织重组方案而辞职。" },
 };
 
 // Chinese connection labels
@@ -1290,6 +1337,16 @@ const connLabelZh = {
   "Sequence-to-Sequence (2014)": "Seq2Seq 模型（2014）",
   "AI leaders, China-US bridge": "AI 领袖，中美桥梁",
   "Tsinghua University": "清华大学",
+  "Tsinghua undergraduate advisor": "清华本科导师",
+  "Transformer-XL extends Transformer lineage": "Transformer-XL 延伸了 Transformer 技术线",
+  "Both from Chinese CV community, CAS/SenseTime era": "均来自中国 CV 社区，中科院/商汤时期",
+  "Google Brain/DeepMind colleagues": "Google Brain/DeepMind 同事",
+  "Google Brain colleagues": "Google Brain 同事",
+  "ByteDance Seed co-leads": "字节跳动 Seed 团队联合负责人",
+  "Alibaba Tongyi Lab, Qwen team": "阿里通义实验室，Qwen 团队",
+  "Chinese open-source LLM leaders": "中国开源大模型领军者",
+  "Chinese AGI startup founders": "中国 AGI 创业公司创始人",
+  "Chinese AI startup founders": "中国 AI 创业公司创始人",
 };
 
 function applyLanguage(lang) {
@@ -1369,6 +1426,8 @@ const wikiTitles = {
   musk: "Elon_Musk", jimmyba: "Jimmy_Ba", szegedy: "Christian_Szegedy", gregyang: "Greg_Yang_(mathematician)",
   kaiminghe: "Kaiming_He", sainingxie: "Saining_Xie", quocle: "Quoc_Viet_Le",
   liangwenfeng: "Liang_Wenfeng", kaifulee: "Kai-Fu_Lee", jietang: "Tang_Jie_(computer_scientist)",
+  yanjunjie: "Yan_Junjie", yangzhilin: "Yang_Zhilin",
+  wuyonghui: "Yonghui_Wu", linjunyang: "Junyang_Lin",
 };
 
 // Photo cache
