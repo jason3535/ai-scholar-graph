@@ -827,6 +827,39 @@ const scholars = [
   { id:"linjunyang", name:"Lin Junyang", org:"Independent", title:"Former Qwen Tech Lead · Youngest P10 at Alibaba", field:["nlp"],
     bio:"Born 1993. Studied computer science and linguistics at Peking University, earning a Master's degree in linguistics. Joined Alibaba's DAMO Academy in 2019 as a Senior Algorithm Engineer working on NLP and multimodal research. Played central roles in Alibaba's M6 (extreme-scale MoE model), OFA (ICML 2022), and Chinese-CLIP. His defining achievement was turning Qwen from an unknown side project into the world's most influential open-source LLM series. Became the youngest P10-level tech lead at Alibaba (2025) -- an extraordinarily senior technical position. Resigned in March 2026 over disagreements with organizational restructuring that would fragment the vertically integrated Qwen team structure he had built.",
     papers:[{y:"2022",t:"OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework"},{y:"2023",t:"Qwen Technical Report"},{y:"2025",t:"Qwen2.5 Technical Report"}]},
+
+  // ===== RL / LSTM Pioneers =====
+  { id:"sutton", name:"Richard Sutton", org:"University of Alberta", title:"Father of Reinforcement Learning", field:["rl"],
+    bio:"Born 1956 in the USA. Earned a BA in Psychology from Stanford (1978), then a PhD in Computer Science from the University of Massachusetts Amherst (1984) under Andrew Barto -- together they founded the field of reinforcement learning. Joined the University of Alberta (2003) where he became a Distinguished Research Professor and iCORE Chair. Co-authored 'Reinforcement Learning: An Introduction' (1998, 2nd ed. 2018) with Barto -- THE standard textbook that trained virtually every RL researcher alive. Invented temporal-difference (TD) learning, policy gradient methods, and the Dyna architecture. Served as Distinguished Research Scientist at DeepMind Alberta. His 2019 essay 'The Bitter Lesson' -- arguing that general methods leveraging computation always win over hand-crafted approaches -- became one of the most cited philosophical pieces in modern AI.",
+    papers:[{y:"1998",t:"Reinforcement Learning: An Introduction (textbook)"},{y:"1988",t:"Learning to Predict by the Methods of Temporal Differences"},{y:"2019",t:"The Bitter Lesson"}]},
+  { id:"schmidhuber", name:"Juergen Schmidhuber", org:"KAUST / IDSIA", title:"Co-inventor of LSTM · AI Pioneer", field:["deep-learning","rl"],
+    bio:"Born 1963 in Munich, Germany. Earned his PhD from the Technical University of Munich (1991). Co-director of the Swiss AI Lab IDSIA in Lugano. Co-invented Long Short-Term Memory (LSTM) networks with Sepp Hochreiter (1997) -- the architecture that powered Google Translate, Siri, Alexa, and most sequence modeling before Transformers. Also pioneered work on meta-learning, neural network compression, and formal theories of curiosity-driven learning. Founded NNAISENSE (2014) for industrial AI. Moved to KAUST in Saudi Arabia (2021) to lead the AI Initiative. Known for being vocal about credit attribution in deep learning history, frequently reminding the community of pre-2012 contributions.",
+    papers:[{y:"1997",t:"Long Short-Term Memory (LSTM)"},{y:"2015",t:"Deep Learning in Neural Networks: An Overview"}]},
+  { id:"hochreiter", name:"Sepp Hochreiter", org:"JKU Linz / ELLIS", title:"Co-inventor of LSTM", field:["deep-learning"],
+    bio:"Austrian computer scientist. Studied computer science at the Technical University of Munich, completing his diploma thesis under Juergen Schmidhuber in 1991 -- in which he first identified the vanishing gradient problem in recurrent neural networks. This led to the invention of LSTM (1997, with Schmidhuber), which solved the problem and became the dominant architecture for sequence modeling for two decades. Professor at Johannes Kepler University Linz (Austria). Founded the ELLIS Unit Linz and the Institute for Machine Learning at JKU. Also contributed to bioinformatics with DeepTox.",
+    papers:[{y:"1997",t:"Long Short-Term Memory (LSTM)"},{y:"1991",t:"Untersuchungen zu dynamischen neuronalen Netzen (vanishing gradient problem)"}]},
+
+  // ===== Key Missing Global Figures =====
+  { id:"kingma", name:"Diederik Kingma", org:"Anthropic", title:"Creator of VAE and Adam Optimizer", field:["deep-learning"],
+    bio:"Dutch computer scientist. PhD cum laude from the University of Amsterdam (2017) under Max Welling. Created two of the most fundamental building blocks of modern AI: the Variational Autoencoder (VAE, 2013) -- bridging probabilistic modeling and deep learning, enabling generative models to learn latent structure -- and the Adam optimizer (2014, with Jimmy Ba) -- the most widely used optimization algorithm in deep learning with 95,000+ citations. Part of the founding team of OpenAI (2015). Worked at Google Brain on large-scale optimization and generative models. Joined Anthropic in October 2024. Won the ICLR Test of Time Award in 2024 (VAE) and 2025 (Adam) -- two consecutive years.",
+    papers:[{y:"2013",t:"Auto-Encoding Variational Bayes (VAE)"},{y:"2014",t:"Adam: A Method for Stochastic Optimization"}]},
+  { id:"vinyals", name:"Oriol Vinyals", org:"Google DeepMind", title:"VP of Research · Seq2Seq Co-creator", field:["nlp","rl"],
+    bio:"Born in Chile, raised in Catalonia, Spain. Earned a BS from UC Berkeley, MS from UC San Diego, and PhD from UC Berkeley (2016) under Nelson Morgan. Joined Google Brain and later DeepMind. Co-invented the sequence-to-sequence model (2014, with Sutskever and Quoc Le) -- one of the foundational architectures leading to modern LLMs. Led AlphaStar (2019), the AI that defeated top StarCraft II players. Now VP of Research at Google DeepMind, co-leading Gemini development. One of the most prolific researchers in modern AI with contributions spanning NLP, computer vision, and game AI.",
+    papers:[{y:"2014",t:"Sequence to Sequence Learning with Neural Networks"},{y:"2019",t:"Grandmaster level in StarCraft II using multi-agent RL (AlphaStar)"},{y:"2015",t:"Show and Tell: A Neural Image Caption Generator"}]},
+  { id:"rombach", name:"Robin Rombach", org:"Black Forest Labs", title:"Creator of Stable Diffusion / Latent Diffusion", field:["vision"],
+    bio:"German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-authored the Latent Diffusion paper (2022) which introduced the breakthrough idea of running diffusion in compressed latent space rather than pixel space -- reducing compute cost by 10-100x while maintaining quality. This became Stable Diffusion, the most widely used open-source image generation model. Joined Stability AI as research director. In 2024, left to co-found Black Forest Labs with the original latent diffusion team (Blattmann, Esser, Lorenz), creating the FLUX family of models that quickly became industry-leading image generators.",
+    papers:[{y:"2022",t:"High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion)"}]},
+  { id:"mensch", name:"Arthur Mensch", org:"Mistral AI", title:"Co-founder & CEO of Mistral AI", field:["nlp"],
+    bio:"Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Mathematics and Computer Science, 2011-2015), and Ecole Normale Superieure Paris-Saclay (MS Mathematics, Vision and Learning, 2015). PhD in machine learning and functional MRI, followed by a 2-year postdoc in mathematics. Joined DeepMind Paris in late 2020, working on large language models, multimodal systems, and retrieval-augmented architectures. Left in May 2023 to co-found Mistral AI with Guillaume Lample and Timothee Lacroix (both ex-Meta FAIR). Mistral became Europe's AI champion, reaching a multi-billion dollar valuation within a year. Known for open-weight models (Mixtral, Mistral Large) and strategic partnerships with Microsoft, Salesforce, and Nvidia.",
+    papers:[{y:"2024",t:"Mixtral of Experts"}]},
+
+  // ===== Chinese Industry Leaders =====
+  { id:"robinli", name:"Robin Li", org:"Baidu", title:"Founder & CEO of Baidu · ERNIE", field:["nlp"],
+    bio:"Born 1968 as Li Yanhong in Yangquan, Shanxi Province, China. Studied Information Management at Peking University, then earned an MS in Computer Science from the University at Buffalo, New York. While in the US, created RankDex (1996), an early search engine that used hyperlink analysis for page ranking -- predating Google's PageRank. Founded Baidu in 2000 with Eric Xu, growing it into China's dominant search engine. Has been CEO since 2004. Pivoted Baidu heavily toward AI: developed autonomous driving platform Apollo Go (20M+ rides by 2025), launched ERNIE (Wenxin) large language model series, and ERNIE Bot which reached 202M monthly active users by December 2025. Named to TIME 100 AI (2023). One of the earliest advocates for AI in China, betting on AI for over a decade before it became mainstream.",
+    papers:[]},
+  { id:"luqi", name:"Lu Qi", org:"MiraclePlus", title:"Founder of MiraclePlus · Former Baidu COO & Microsoft EVP", field:["nlp"],
+    bio:"Born 1961. Earned a PhD in Computer Science from Carnegie Mellon University. One of the most accomplished Chinese tech executives in Silicon Valley. Career: IBM Research, Yahoo (VP of Engineering), Microsoft (Executive Vice President of Applications and Services, 2013-2016, one of the highest-ranking Chinese executives in US tech). Recruited by Robin Li to serve as Baidu COO and Group President (2017-2018), where he accelerated Baidu's AI transformation. Personally recruited by Sam Altman to lead Y Combinator's China office (2018-2019). Founded MiraclePlus (formerly YC China, then renamed) in Beijing, a startup accelerator that has backed 340+ companies including many AI firms. Known as a bridge between Silicon Valley and Chinese tech ecosystems.",
+    papers:[]},
 ];
 
 const connections = [
@@ -930,6 +963,27 @@ const connections = [
   // Cross-company
   {source:"yangzhilin",target:"liangwenfeng",type:"colleague",label:"Chinese AGI startup founders"},
   {source:"yanjunjie",target:"yangzhilin",type:"colleague",label:"Chinese AI startup founders"},
+  // RL / LSTM pioneers
+  {source:"sutton",target:"silver",type:"advisor",label:"Influenced RL foundations, Alberta"},
+  {source:"sutton",target:"hassabis",type:"colleague",label:"DeepMind Alberta, RL foundations"},
+  {source:"schmidhuber",target:"hochreiter",type:"advisor",label:"Diploma thesis advisor, co-invented LSTM"},
+  {source:"schmidhuber",target:"legg",type:"advisor",label:"PhD at IDSIA under Hutter (Schmidhuber's lab)"},
+  // Kingma
+  {source:"kingma",target:"jimmyba",type:"coauthor",label:"Co-authored Adam optimizer (2014)"},
+  {source:"kingma",target:"damodei",type:"colleague",label:"OpenAI founding team, now Anthropic"},
+  // Vinyals
+  {source:"vinyals",target:"sutskever",type:"coauthor",label:"Co-invented Seq2Seq (2014)"},
+  {source:"vinyals",target:"quocle",type:"coauthor",label:"Co-invented Seq2Seq (2014)"},
+  {source:"vinyals",target:"hassabis",type:"colleague",label:"DeepMind, AlphaStar, Gemini"},
+  // Rombach
+  {source:"rombach",target:"ho",type:"coauthor",label:"Latent Diffusion builds on DDPM"},
+  // Mensch
+  {source:"mensch",target:"hassabis",type:"colleague",label:"DeepMind Paris (2020-2023)"},
+  {source:"mensch",target:"lecun",type:"colleague",label:"French AI leaders"},
+  // Chinese industry
+  {source:"robinli",target:"luqi",type:"colleague",label:"Baidu CEO recruited Lu Qi as COO"},
+  {source:"luqi",target:"altman",type:"colleague",label:"Y Combinator China, recruited by Altman"},
+  {source:"robinli",target:"kaifulee",type:"colleague",label:"Chinese AI industry leaders"},
 ];
 
 // ===================================================================
@@ -941,7 +995,7 @@ const orgColorMap = {
   "University of Toronto":"var(--org-university)","Mila / U. Montreal":"var(--org-university)",
   "Microsoft AI":"var(--org-deepmind)","Microsoft Research":"var(--org-deepmind)",
   "SSI":"var(--org-startup)","Essential AI":"var(--org-startup)","Cohere":"var(--org-startup)",
-  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
+  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","Baidu":"var(--org-startup)","MiraclePlus":"var(--org-startup)","University of Alberta":"var(--org-university)","KAUST / IDSIA":"var(--org-university)","JKU Linz / ELLIS":"var(--org-university)","Mistral AI":"var(--org-startup)","Black Forest Labs":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
   "Independent":"var(--org-independent)","Stanford / DeepLearning.AI":"var(--org-stanford)",
   "UC Berkeley / Covariant":"var(--org-university)","UC Berkeley / Physical Intelligence":"var(--org-university)",
 };
@@ -951,7 +1005,7 @@ const orgRawColors = {
   "University of Toronto":"#bf5af2","Mila / U. Montreal":"#bf5af2",
   "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
   "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
-  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
+  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
   "Independent":"#98989d","Stanford / DeepLearning.AI":"#ff9f0a",
   "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
 };
@@ -1279,6 +1333,15 @@ const scholarZh = {
   wuyonghui: { zhName: "吴永辉", title: "字节跳动 AI 研究负责人 · 前 Google Fellow", bio: "南京大学毕业，后在加州大学河滨分校获统计学硕士和计算机科学博士（2008）。2008年加入 Google，前7年做搜索排序，2014-2023年在 Google Brain 从事机器学习、基因组学和 NLP。2023年9月晋升 Google Fellow（相当于副总裁级别）。最知名成就是作为 Google 神经机器翻译系统（GNMT, 2016）第一作者，将 Google 翻译从短语级翻译升级为神经翻译。2025年2月加入字节跳动任 Seed 团队基础研究负责人，直接向 CEO 梁汝波汇报。还创造了 Seedance 2.0 视频生成模型。" },
   zhuwenjia: { zhName: "朱文佳", title: "字节跳动 Seed 负责人 · 前 TikTok 研发总裁", bio: "2015年作为早期员工加入字节跳动。历任全球 TikTok 研发负责人和今日头条 CEO。2023年主导创建字节首个大语言模型团队 Seed，开发豆包系列模型。现与吴永辉共同领导 Seed，负责模型应用和产品化。" },
   zhoujingren: { zhName: "周靖人", title: "阿里云 CTO · 通义实验室负责人", bio: "哥伦比亚大学计算机科学博士。曾在微软研究院工作。2015年加入阿里巴巴，历任阿里云首席科学家、达摩院副院长。现任阿里云 CTO 兼通义实验室负责人，统管通义千问（Qwen）模型家族——中国最具影响力的开源大模型系列。2026年3月林骏扬离职后直接接管 Qwen 团队。与 CEO 吴泳铭共同领导阿里基础模型特别工作组。" },
+  sutton: { title: "强化学习之父", bio: "1956年生于美国。斯坦福心理学学士（1978），马萨诸塞大学计算机科学博士（1984，导师 Andrew Barto，两人共同奠基了强化学习领域）。2003年加入阿尔伯塔大学。与 Barto 合著了《强化学习导论》（1998）——训练了几乎所有在世 RL 研究者的标准教科书。发明了时间差分（TD）学习、策略梯度方法和 Dyna 架构。曾任 DeepMind Alberta 杰出研究科学家。2019年发表的《The Bitter Lesson》成为现代 AI 最常被引用的哲学文章之一。" },
+  schmidhuber: { title: "LSTM 联合发明人 · AI 先驱", bio: "1963年生于慕尼黑。慕尼黑工业大学博士（1991）。瑞士 AI 实验室 IDSIA 联合主任。与 Sepp Hochreiter 联合发明了 LSTM（1997）——在 Transformer 之前驱动了 Google 翻译、Siri、Alexa 和大多数序列建模。还开创了元学习、神经网络压缩和好奇心驱动学习。创办 NNAISENSE（2014）。2021年赴沙特 KAUST 领导 AI 计划。以在深度学习归功问题上的直言不讳著称。" },
+  hochreiter: { title: "LSTM 联合发明人", bio: "奥地利计算机科学家。慕尼黑工业大学，1991年在 Schmidhuber 指导下完成毕业论文——首次发现了循环神经网络中的梯度消失问题。这直接催生了 LSTM（1997）。林茨约翰·开普勒大学教授，创办了 ELLIS Linz 单元和 JKU 机器学习研究所。" },
+  kingma: { title: "VAE 和 Adam 优化器创造者", bio: "荷兰计算机科学家。阿姆斯特丹大学博士（2017，导师 Max Welling，最优等毕业）。创造了现代 AI 两大基础构件：VAE（2013，连接概率建模与深度学习）和 Adam 优化器（2014，与 Jimmy Ba 合著，95000+引用）。OpenAI 创始团队成员（2015）。Google Brain 研究员。2024年10月加入 Anthropic。连续获得 ICLR 时间检验奖（2024 VAE、2025 Adam）。" },
+  vinyals: { title: "Google DeepMind 研究副总裁 · Seq2Seq 联合创造者", bio: "生于智利，在西班牙加泰罗尼亚长大。UC Berkeley 博士。加入 Google Brain 和 DeepMind。与 Sutskever 和 Quoc Le 联合发明了 Seq2Seq 模型（2014）——通往现代 LLM 的基础架构之一。领导了 AlphaStar（2019，击败星际争霸 II 顶级玩家）。现任 Google DeepMind 研究副总裁，联合领导 Gemini 开发。" },
+  rombach: { title: "Stable Diffusion / Latent Diffusion 创造者", bio: "德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），突破性地在压缩潜空间而非像素空间运行扩散——将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability AI 研究总监。2024年与原始团队联合创办 Black Forest Labs，推出 FLUX 系列模型。" },
+  mensch: { title: "Mistral AI 联合创始人兼 CEO", bio: "1992年生于巴黎。父亲数学家，母亲计算机科学家。Ecole Polytechnique 应用数学和计算机科学硕士，ENS Paris-Saclay 数学视觉学习硕士。机器学习和功能性磁共振成像博士，之后做了2年数学博后。2020年底加入 DeepMind 巴黎，从事大语言模型、多模态和检索增强架构。2023年5月与 Guillaume Lample 和 Timothee Lacroix（均为前 Meta FAIR）联合创办 Mistral AI。一年内达到数十亿美元估值，成为欧洲 AI 冠军。以开源权重模型（Mixtral、Mistral Large）闻名。" },
+  robinli: { zhName: "李彦宏", title: "百度创始人兼 CEO · ERNIE", bio: "1968年生于山西阳泉。北京大学信息管理学士，纽约州立大学布法罗分校计算机科学硕士。在美国创造了 RankDex（1996），一个使用超链接分析进行网页排名的早期搜索引擎——早于 Google 的 PageRank。2000年与徐勇联合创办百度。将百度大力转向 AI：自动驾驶平台 Apollo Go（累计超 2000 万次出行）、文心大模型（ERNIE）系列、文心一言（月活 2.02 亿）。入选 TIME 100 AI（2023）。" },
+  luqi: { zhName: "陆奇", title: "MiraclePlus 创始人 · 前百度 COO & 微软 EVP", bio: "1961年生。卡内基梅隆大学计算机科学博士。硅谷最成功的华人高管之一。职业轨迹：IBM 研究院→Yahoo 工程副总裁→微软执行副总裁（2013-2016，美国科技界最高级别华人高管之一）。被李彦宏招募任百度 COO（2017-2018），加速百度 AI 转型。被 Sam Altman 亲自招募领导 Y Combinator 中国（2018-2019）。在北京创办 MiraclePlus（前身 YC 中国），已投资 340+ 家公司。硅谷和中国科技生态之间的桥梁人物。" },
   linjunyang: { zhName: "林骏扬", title: "前 Qwen 技术负责人 · 阿里最年轻 P10", bio: "1993年生。北京大学计算机和语言学专业，语言学硕士。2019年加入阿里达摩院任高级算法工程师。主导了阿里 M6（超大规模 MoE 模型）、OFA（ICML 2022）和 Chinese-CLIP。最核心成就是将 Qwen 从一个不知名的副项目打造成全球最有影响力的开源大模型系列。2025年成为阿里最年轻的 P10 级技术负责人。2026年3月因不认同将 Qwen 团队垂直整合结构拆散的组织重组方案而辞职。" },
 };
 
@@ -1347,6 +1410,20 @@ const connLabelZh = {
   "Chinese open-source LLM leaders": "中国开源大模型领军者",
   "Chinese AGI startup founders": "中国 AGI 创业公司创始人",
   "Chinese AI startup founders": "中国 AI 创业公司创始人",
+  "Influenced RL foundations, Alberta": "RL 理论奠基，阿尔伯塔",
+  "DeepMind Alberta, RL foundations": "DeepMind Alberta，RL 基础",
+  "Diploma thesis advisor, co-invented LSTM": "毕业论文导师，联合发明 LSTM",
+  "PhD at IDSIA under Hutter (Schmidhuber's lab)": "在 IDSIA Hutter 门下读博（Schmidhuber 的实验室）",
+  "Co-authored Adam optimizer (2014)": "联合发表 Adam 优化器（2014）",
+  "OpenAI founding team, now Anthropic": "OpenAI 创始团队，现 Anthropic",
+  "Co-invented Seq2Seq (2014)": "联合发明 Seq2Seq（2014）",
+  "DeepMind, AlphaStar, Gemini": "DeepMind，AlphaStar，Gemini",
+  "Latent Diffusion builds on DDPM": "Latent Diffusion 基于 DDPM 构建",
+  "DeepMind Paris (2020-2023)": "DeepMind 巴黎（2020-2023）",
+  "French AI leaders": "法国 AI 领袖",
+  "Baidu CEO recruited Lu Qi as COO": "百度 CEO 招募陆奇任 COO",
+  "Y Combinator China, recruited by Altman": "Y Combinator 中国，被 Altman 招募",
+  "Chinese AI industry leaders": "中国 AI 产业领袖",
 };
 
 function applyLanguage(lang) {
@@ -1428,6 +1505,9 @@ const wikiTitles = {
   liangwenfeng: "Liang_Wenfeng", kaifulee: "Kai-Fu_Lee", jietang: "Tang_Jie_(computer_scientist)",
   yanjunjie: "Yan_Junjie", yangzhilin: "Yang_Zhilin",
   wuyonghui: "Yonghui_Wu", linjunyang: "Junyang_Lin",
+  sutton: "Richard_S._Sutton", schmidhuber: "J%C3%BCrgen_Schmidhuber", hochreiter: "Sepp_Hochreiter",
+  kingma: "Diederik_P._Kingma", vinyals: "Oriol_Vinyals", rombach: "Robin_Rombach",
+  mensch: "Arthur_Mensch", robinli: "Robin_Li", luqi: "Qi_Lu",
 };
 
 // Photo cache
