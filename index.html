@@ -462,9 +462,39 @@ body {
 }
 
 /* ===== SVG Styles ===== */
+
+/* Links — 4 tiers of visual weight */
 .link-line {
-  transition: stroke-opacity 0.3s ease;
+  transition: stroke-opacity 0.35s ease, stroke-width 0.35s ease;
+  stroke-linecap: round;
 }
+/* Cofounder: strongest bond, solid bright green */
+.link-line.type-cofounder {
+  stroke: #30d158;
+  stroke-width: 2.5;
+  stroke-opacity: 0.5;
+}
+/* Coauthor: strong academic tie, solid blue */
+.link-line.type-coauthor {
+  stroke: #2997ff;
+  stroke-width: 1.8;
+  stroke-opacity: 0.35;
+}
+/* Advisor: mentor line, dashed cyan */
+.link-line.type-advisor {
+  stroke: #64d2ff;
+  stroke-width: 1.8;
+  stroke-opacity: 0.4;
+  stroke-dasharray: 8 5;
+}
+/* Colleague: weakest, subtle dotted */
+.link-line.type-colleague {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 0.8;
+  stroke-opacity: 0.15;
+  stroke-dasharray: 2 6;
+}
+
 .node-group {
   transition: opacity 0.3s ease;
 }
@@ -488,8 +518,12 @@ body {
   font-weight: 600;
 }
 .node-group.highlighted .node-glow { opacity: 0.5; }
-.link-line.dimmed { stroke-opacity: 0.02 !important; }
-.link-line.highlighted { stroke-opacity: 0.6 !important; stroke-width: 2px !important; }
+
+.link-line.dimmed { stroke-opacity: 0.015 !important; }
+.link-line.highlighted.type-cofounder { stroke-opacity: 0.85 !important; stroke-width: 3.5px !important; }
+.link-line.highlighted.type-coauthor { stroke-opacity: 0.75 !important; stroke-width: 3px !important; }
+.link-line.highlighted.type-advisor { stroke-opacity: 0.7 !important; stroke-width: 2.5px !important; }
+.link-line.highlighted.type-colleague { stroke-opacity: 0.5 !important; stroke-width: 1.5px !important; stroke-dasharray: none !important; }
 
 /* ===== Tooltip ===== */
 #tooltip {
@@ -599,10 +633,10 @@ body {
     <div class="legend-row"><div class="legend-dot" style="background:var(--org-university)"></div><span class="legend-label">Universities</span></div>
     <div class="legend-row"><div class="legend-dot" style="background:var(--org-startup)"></div><span class="legend-label">Startups</span></div>
     <div class="legend-heading">Connections</div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:1.5px solid var(--apple-link-blue-dark)"></div><span class="legend-label">Co-author</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:1.5px dashed var(--org-deepmind)"></div><span class="legend-label">Advisor / Student</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:1.5px solid var(--org-openai)"></div><span class="legend-label">Co-founder</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px solid rgba(255,255,255,0.12)"></div><span class="legend-label">Colleague</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2.5px solid #30d158; opacity:0.7"></div><span class="legend-label">Co-founder</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px solid #2997ff; opacity:0.6"></div><span class="legend-label">Co-author</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px dashed #64d2ff; opacity:0.6"></div><span class="legend-label">Advisor / Student</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px dotted rgba(255,255,255,0.5); opacity:0.5"></div><span class="legend-label">Colleague</span></div>
   </div>
 </div>
 
@@ -816,9 +850,14 @@ const scholars = [
   { id:"wuyonghui", name:"Wu Yonghui", org:"ByteDance Seed", title:"Head of ByteDance AI Research · Former Google Fellow", field:["nlp","deep-learning"],
     bio:"Graduated from Nanjing University, then earned a Master's in Statistics and PhD in Computer Science from the University of California, Riverside (2008). Joined Google in 2008, spending his first 7 years as a software engineer on core search ranking. From 2014-2023 at Google Brain, working on machine learning, genomics, and NLP. Promoted to Google Fellow in September 2023 -- a senior-level position equivalent to VP. Best known as the first author of Google's Neural Machine Translation System (GNMT, 2016), which transformed Google Translate from phrase-based to neural. Joined ByteDance in February 2025 as head of foundational research for the Seed team (Doubao large model), reporting directly to CEO Liang Rubo. Also created Seedance 2.0, ByteDance's breakthrough video generation model.",
     papers:[{y:"2016",t:"Google's Neural Machine Translation System: Bridging the Gap Between Human and Machine Translation"}]},
-  { id:"zhuwenjia", name:"Zhu Wenjia", org:"ByteDance Seed", title:"Head of ByteDance Seed · Former TikTok R&D Chief", field:["nlp"],
-    bio:"Joined ByteDance in 2015 as an early employee. Served as global TikTok research and development chief and CEO of Toutiao (ByteDance's news platform). In 2023, led the creation of ByteDance's first large language model team, Seed, which developed the Doubao series of models. Now co-leads Seed alongside Wu Yonghui, focusing on model application and productization while Wu handles foundational research.",
-    papers:[]},
+
+  // ===== Tencent =====
+  { id:"zhangzhengyou", name:"Zhang Zhengyou", org:"Tencent", title:"Tencent Chief Scientist · Inventor of Zhang's Method", field:["vision"],
+    bio:"Born 1965 in Hubei, China. BS from Huazhong University of Science and Technology, MS from University of Nancy (France), PhD in Computer Science from University of Paris XI (1990) under Olivier Faugeras. Joined Microsoft Research in 1998, becoming a Principal Researcher. Invented the Zhang camera calibration method (1998) -- universally known as 'Zhang's Method', used in virtually every computer vision application worldwide from autonomous vehicles to AR. Elected IEEE Fellow and ACM Fellow. Joined Tencent in 2018 as Chief Scientist, heading both the Robotics X Lab and the Futian Lab. Leads Tencent's research in computer vision, robotics, and embodied AI.",
+    papers:[{y:"1998",t:"A Flexible New Technique for Camera Calibration (Zhang's Method)"},{y:"2000",t:"Determining the Epipolar Geometry and its Uncertainty"}]},
+  { id:"yudong", name:"Yu Dong", org:"Tencent", title:"Former Tencent AI Lab VP · Speech AI Pioneer", field:["nlp","deep-learning"],
+    bio:"Zhejiang University Electrical Engineering BS, Chinese Academy of Sciences Institute of Automation MS (Pattern Recognition), Indiana University Bloomington CS MS, University of Idaho CS PhD. Pioneered applying deep learning to speech recognition at Microsoft Research, where he worked for 16+ years and became a Principal Researcher. His work on DNN-based speech recognition (2011, with Hinton, Deng Li et al.) was a landmark result that started the deep learning revolution in speech. Joined Tencent AI Lab as VP in 2017. Led research in speech processing, multimodal interaction, and LLM-based NLP. Co-authored 200+ papers and several books on speech recognition. Left Tencent at end of January 2026.",
+    papers:[{y:"2011",t:"Context-Dependent Pre-Trained Deep Neural Networks for Large-Vocabulary Speech Recognition"},{y:"2014",t:"Automatic Speech Recognition: A Deep Learning Approach (book)"}]},
 
   // ===== Alibaba / Qwen =====
   { id:"zhoujingren", name:"Zhou Jingren", org:"Alibaba Cloud", title:"CTO of Alibaba Cloud · Head of Tongyi Lab", field:["nlp","deep-learning"],
@@ -956,7 +995,10 @@ const connections = [
   // ByteDance
   {source:"wuyonghui",target:"dean",type:"colleague",label:"Google Brain/DeepMind colleagues"},
   {source:"wuyonghui",target:"quocle",type:"colleague",label:"Google Brain colleagues"},
-  {source:"zhuwenjia",target:"wuyonghui",type:"colleague",label:"ByteDance Seed co-leads"},
+  // Tencent
+  {source:"zhangzhengyou",target:"kaiminghe",type:"colleague",label:"Chinese CV community leaders"},
+  {source:"yudong",target:"hinton",type:"coauthor",label:"DNN speech recognition (2011)"},
+  {source:"zhangzhengyou",target:"yudong",type:"colleague",label:"Tencent AI leadership"},
   // Alibaba
   {source:"zhoujingren",target:"linjunyang",type:"colleague",label:"Alibaba Tongyi Lab, Qwen team"},
   {source:"linjunyang",target:"liangwenfeng",type:"colleague",label:"Chinese open-source LLM leaders"},
@@ -995,7 +1037,7 @@ const orgColorMap = {
   "University of Toronto":"var(--org-university)","Mila / U. Montreal":"var(--org-university)",
   "Microsoft AI":"var(--org-deepmind)","Microsoft Research":"var(--org-deepmind)",
   "SSI":"var(--org-startup)","Essential AI":"var(--org-startup)","Cohere":"var(--org-startup)",
-  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","Baidu":"var(--org-startup)","MiraclePlus":"var(--org-startup)","University of Alberta":"var(--org-university)","KAUST / IDSIA":"var(--org-university)","JKU Linz / ELLIS":"var(--org-university)","Mistral AI":"var(--org-startup)","Black Forest Labs":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
+  "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","Tencent":"var(--org-startup)","Baidu":"var(--org-startup)","MiraclePlus":"var(--org-startup)","University of Alberta":"var(--org-university)","KAUST / IDSIA":"var(--org-university)","JKU Linz / ELLIS":"var(--org-university)","Mistral AI":"var(--org-startup)","Black Forest Labs":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
   "Independent":"var(--org-independent)","Stanford / DeepLearning.AI":"var(--org-stanford)",
   "UC Berkeley / Covariant":"var(--org-university)","UC Berkeley / Physical Intelligence":"var(--org-university)",
 };
@@ -1005,7 +1047,7 @@ const orgRawColors = {
   "University of Toronto":"#bf5af2","Mila / U. Montreal":"#bf5af2",
   "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
   "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
-  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
+  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Tencent":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
   "Independent":"#98989d","Stanford / DeepLearning.AI":"#ff9f0a",
   "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
 };
@@ -1048,14 +1090,11 @@ const simulation = d3.forceSimulation(scholars)
   .force("x", d3.forceX(W/2).strength(0.03))
   .force("y", d3.forceY(H/2).strength(0.03));
 
-// Links
+// Links — use <path> for curved lines
 const linkG = g.append("g");
-const linkLines = linkG.selectAll("line").data(connections).join("line")
-  .attr("class","link-line")
-  .attr("stroke", d=>linkColorMap[d.type])
-  .attr("stroke-width", d=>d.type==="cofounder"?1.5:d.type==="coauthor"?1:0.5)
-  .attr("stroke-opacity", d=>d.type==="colleague"?0.1:0.2)
-  .attr("stroke-dasharray", d=>d.type==="advisor"?"6,4":d.type==="colleague"?"2,3":null);
+const linkLines = linkG.selectAll("path").data(connections).join("path")
+  .attr("class", d => `link-line type-${d.type}`)
+  .attr("fill", "none");
 
 // Nodes
 const nodeG = g.append("g");
@@ -1096,10 +1135,9 @@ nodeGroups.append("text").attr("class","node-label")
   .attr("letter-spacing","-0.08px")
   .text(d=>d.name);
 
-// Tick
+// Tick — straight lines
 simulation.on("tick",()=>{
-  linkLines.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
-    .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  linkLines.attr("d", d => `M${d.source.x},${d.source.y} L${d.target.x},${d.target.y}`);
   nodeGroups.attr("transform",d=>`translate(${d.x},${d.y})`);
 });
 
@@ -1331,7 +1369,8 @@ const scholarZh = {
   yanjunjie: { zhName: "闫俊杰", title: "MiniMax 创始人兼 CEO", bio: "约1989年生。高中时自学高等微积分。东南大学数学学士（2006），中科院自动化所博士（2015），清华大学博后。在商汤科技工作6年+，任研究院副院长。2019年因 OpenAI 的 Dota 2 AI 击败人类而着迷，从计算机视觉转向 NLP。2021年12月创办 MiniMax，开发海螺 AI（视频生成）和多模态模型套件。2026年1月在港交所 IPO，36岁成为亿万富翁，身家 32 亿美元。" },
   yangzhilin: { zhName: "杨植麟", title: "月之暗面创始人兼 CEO（Kimi）", bio: "1992年生于广东汕头。就读汕头金山中学，无编程背景被选入信息学奥赛训练队，获 NOIP 广东省一等奖，保送清华大学。初入热能工程系，大二转入计算机系，师从唐杰教授。2015年以全班第一毕业。赴卡内基梅隆大学读博，仅用4年完成（标准6年），2019年毕业，导师 Ruslan Salakhutdinov（后任 Apple AI 负责人）和 William Cohen（Google DeepMind）。读博期间在 Meta 和 Google Brain 实习。共同开发了 Transformer-XL 和 XLNet。2023年3月与清华同学周昕宇、吴育昕联合创办月之暗面。创造了 Kimi，中国最受欢迎的 AI 助手之一，以业界领先的长上下文能力著称（起步即 20万+ token）。同时兼任清华助理教授和上海期智研究院 PI。" },
   wuyonghui: { zhName: "吴永辉", title: "字节跳动 AI 研究负责人 · 前 Google Fellow", bio: "南京大学毕业，后在加州大学河滨分校获统计学硕士和计算机科学博士（2008）。2008年加入 Google，前7年做搜索排序，2014-2023年在 Google Brain 从事机器学习、基因组学和 NLP。2023年9月晋升 Google Fellow（相当于副总裁级别）。最知名成就是作为 Google 神经机器翻译系统（GNMT, 2016）第一作者，将 Google 翻译从短语级翻译升级为神经翻译。2025年2月加入字节跳动任 Seed 团队基础研究负责人，直接向 CEO 梁汝波汇报。还创造了 Seedance 2.0 视频生成模型。" },
-  zhuwenjia: { zhName: "朱文佳", title: "字节跳动 Seed 负责人 · 前 TikTok 研发总裁", bio: "2015年作为早期员工加入字节跳动。历任全球 TikTok 研发负责人和今日头条 CEO。2023年主导创建字节首个大语言模型团队 Seed，开发豆包系列模型。现与吴永辉共同领导 Seed，负责模型应用和产品化。" },
+  zhangzhengyou: { zhName: "张正友", title: "腾讯首席科学家 · 张氏标定法发明人", bio: "1965年生于湖北。华中科技大学学士，法国南锡大学硕士，巴黎第十一大学计算机科学博士（1990）。1998年加入微软研究院任首席研究员。发明了张氏相机标定法（1998）——全球计算机视觉应用的通用标准，从自动驾驶到 AR 无处不在。IEEE Fellow、ACM Fellow。2018年加入腾讯任首席科学家，领导 Robotics X 实验室和犀牛鸟实验室。" },
+  yudong: { zhName: "俞栋", title: "前腾讯 AI Lab 副主任 · 语音 AI 先驱", bio: "浙江大学电气工程学士，中科院自动化所模式识别硕士，印第安纳大学计算机硕士，爱达荷大学计算机博士。在微软研究院工作 16 年+，率先将深度学习应用于语音识别。与 Hinton、邓力等合著的 DNN 语音识别论文（2011）开启了语音领域的深度学习革命。2017年加入腾讯 AI Lab 任副主任。发表 200+ 论文，多部语音识别专著。2026年1月底离开腾讯。" },
   zhoujingren: { zhName: "周靖人", title: "阿里云 CTO · 通义实验室负责人", bio: "哥伦比亚大学计算机科学博士。曾在微软研究院工作。2015年加入阿里巴巴，历任阿里云首席科学家、达摩院副院长。现任阿里云 CTO 兼通义实验室负责人，统管通义千问（Qwen）模型家族——中国最具影响力的开源大模型系列。2026年3月林骏扬离职后直接接管 Qwen 团队。与 CEO 吴泳铭共同领导阿里基础模型特别工作组。" },
   sutton: { title: "强化学习之父", bio: "1956年生于美国。斯坦福心理学学士（1978），马萨诸塞大学计算机科学博士（1984，导师 Andrew Barto，两人共同奠基了强化学习领域）。2003年加入阿尔伯塔大学。与 Barto 合著了《强化学习导论》（1998）——训练了几乎所有在世 RL 研究者的标准教科书。发明了时间差分（TD）学习、策略梯度方法和 Dyna 架构。曾任 DeepMind Alberta 杰出研究科学家。2019年发表的《The Bitter Lesson》成为现代 AI 最常被引用的哲学文章之一。" },
   schmidhuber: { title: "LSTM 联合发明人 · AI 先驱", bio: "1963年生于慕尼黑。慕尼黑工业大学博士（1991）。瑞士 AI 实验室 IDSIA 联合主任。与 Sepp Hochreiter 联合发明了 LSTM（1997）——在 Transformer 之前驱动了 Google 翻译、Siri、Alexa 和大多数序列建模。还开创了元学习、神经网络压缩和好奇心驱动学习。创办 NNAISENSE（2014）。2021年赴沙特 KAUST 领导 AI 计划。以在深度学习归功问题上的直言不讳著称。" },
@@ -1424,6 +1463,9 @@ const connLabelZh = {
   "Baidu CEO recruited Lu Qi as COO": "百度 CEO 招募陆奇任 COO",
   "Y Combinator China, recruited by Altman": "Y Combinator 中国，被 Altman 招募",
   "Chinese AI industry leaders": "中国 AI 产业领袖",
+  "Chinese CV community leaders": "中国计算机视觉社区领袖",
+  "DNN speech recognition (2011)": "DNN 语音识别（2011）",
+  "Tencent AI leadership": "腾讯 AI 管理层",
 };
 
 function applyLanguage(lang) {
@@ -1505,6 +1547,7 @@ const wikiTitles = {
   liangwenfeng: "Liang_Wenfeng", kaifulee: "Kai-Fu_Lee", jietang: "Tang_Jie_(computer_scientist)",
   yanjunjie: "Yan_Junjie", yangzhilin: "Yang_Zhilin",
   wuyonghui: "Yonghui_Wu", linjunyang: "Junyang_Lin",
+  zhangzhengyou: "Zhang_Zhengyou", yudong: "Dong_Yu_(scientist)",
   sutton: "Richard_S._Sutton", schmidhuber: "J%C3%BCrgen_Schmidhuber", hochreiter: "Sepp_Hochreiter",
   kingma: "Diederik_P._Kingma", vinyals: "Oriol_Vinyals", rombach: "Robin_Rombach",
   mensch: "Arthur_Mensch", robinli: "Robin_Li", luqi: "Qi_Lu",
