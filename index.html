@@ -631,6 +631,33 @@ body {
 }
 
 /* ===== Mobile Responsive ===== */
+/* ===== Mini Geo Map ===== */
+#geo-map {
+  position: fixed;
+  bottom: 44px;
+  right: 24px;
+  z-index: 100;
+  width: 260px;
+  pointer-events: none;
+}
+.geo-card {
+  background: rgba(28, 28, 30, 0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 12px;
+  padding: 12px 14px 8px;
+}
+.geo-heading {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--apple-text-tertiary); margin-bottom: 8px;
+}
+.geo-svg { width: 100%; display: block; }
+.geo-bubble { fill: var(--apple-blue); fill-opacity: 0.45; stroke: var(--apple-blue); stroke-width: 1; stroke-opacity: 0.7; }
+.geo-label { font-family: 'SF Pro Text', -apple-system, sans-serif; font-size: 7px; fill: rgba(255,255,255,0.55); text-anchor: middle; pointer-events: none; }
+.geo-count { font-family: 'SF Pro Text', -apple-system, sans-serif; font-size: 7px; fill: rgba(255,255,255,0.9); text-anchor: middle; font-weight: 600; pointer-events: none; }
+.geo-outline { fill: rgba(255,255,255,0.02); stroke: rgba(255,255,255,0.06); stroke-width: 0.5; }
+
 @media (max-width: 768px) {
   /* Nav bar: stack into two rows */
   #nav-bar {
@@ -662,6 +689,7 @@ body {
 
   /* Legend: hide by default on mobile, show on tap */
   #legend { display: none; }
+  #geo-map { display: none; }
 
   /* Detail panel: full width on mobile */
   #detail-panel {
@@ -786,6 +814,14 @@ body {
 </div>
 
 <!-- Keyboard Hints -->
+
+<!-- Geo Map -->
+<div id="geo-map">
+  <div class="geo-card">
+    <div class="geo-heading" id="geo-heading">Location Distribution</div>
+    <svg class="geo-svg" id="geo-svg" viewBox="0 0 280 140"></svg>
+  </div>
+</div>
 
 <!-- Quick Links -->
 <div id="quick-links">
@@ -1834,6 +1870,87 @@ window.addEventListener("resize",()=>{
   simulation.force("y",d3.forceY(h/2).strength(0.03));
   simulation.alpha(0.3).restart();
 });
+
+// ===================================================================
+// GEO MAP — World distribution (US cities + countries)
+// ===================================================================
+const cityMap = {
+  // San Francisco Bay Area
+  hinton:"toronto",lecun:"nyc",bengio:"montreal",
+  vaswani:"sf",shazeer:"sf",gomez:"toronto",jones:"tokyo",kaiser:"sf",parmar:"sf",uszkoreit:"sf",
+  sutskever:"sf",radford:"sf",schulman:"sf",karpathy:"sf",altman:"sf",brown:"sf",
+  damodei:"sf",daniela:"sf",olah:"sf",clark:"sf",
+  hassabis:"london",silver:"london",legg:"london",suleyman:"london",dean:"sf",
+  feifei:"sf",ng:"sf",manning:"sf",liang:"sf",
+  goodfellow:"sf",krizhevsky:"toronto",abbeel:"sf",levine:"sf",ho:"sf",wei:"sf",anil:"sf",
+  musk:"sf",jimmyba:"toronto",szegedy:"sf",gregyang:"sf",
+  kaiminghe:"boston",sainingxie:"paris",quocle:"sf",
+  liangwenfeng:"hangzhou",kaifulee:"beijing",jietang:"beijing",
+  yanjunjie:"shanghai",yangzhilin:"beijing",
+  wuyonghui:"beijing",
+  zhoujingren:"hangzhou",linjunyang:"hangzhou",
+  zhangzhengyou:"shenzhen",yudong:"shenzhen",
+  sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
+  kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
+  robinli:"beijing",luqi:"beijing",
+};
+
+// World map positions (viewBox 0 0 280 140)
+const geoPositions = {
+  sf:       {x:35, y:52, label:"旧金山", labelEn:"San Francisco"},
+  nyc:      {x:65, y:45, label:"纽约", labelEn:"New York"},
+  boston:    {x:70, y:40, label:"波士顿", labelEn:"Boston"},
+  toronto:  {x:60, y:35, label:"多伦多", labelEn:"Toronto"},
+  montreal: {x:68, y:30, label:"蒙特利尔", labelEn:"Montreal"},
+  edmonton: {x:40, y:25, label:"埃德蒙顿", labelEn:"Edmonton"},
+  london:   {x:130, y:32, label:"伦敦", labelEn:"London"},
+  paris:    {x:133, y:38, label:"巴黎", labelEn:"Paris"},
+  freiburg: {x:138, y:37, label:"弗莱堡", labelEn:"Freiburg"},
+  linz:     {x:142, y:36, label:"林茨", labelEn:"Linz"},
+  riyadh:   {x:160, y:60, label:"利雅得", labelEn:"Riyadh"},
+  tokyo:    {x:250, y:50, label:"东京", labelEn:"Tokyo"},
+  beijing:  {x:220, y:42, label:"北京", labelEn:"Beijing"},
+  shanghai: {x:230, y:55, label:"上海", labelEn:"Shanghai"},
+  hangzhou: {x:228, y:58, label:"杭州", labelEn:"Hangzhou"},
+  shenzhen: {x:222, y:68, label:"深圳", labelEn:"Shenzhen"},
+};
+
+function renderGeoMap() {
+  const svg = document.getElementById("geo-svg");
+  if (!svg) return;
+  const counts = {};
+  Object.values(cityMap).forEach(city => { counts[city] = (counts[city] || 0) + 1; });
+
+  // Simplified world landmasses
+  let html = '';
+  // North America
+  html += '<path class="geo-outline" d="M15,15 L75,12 L80,25 L85,45 L75,60 L60,70 L40,65 L25,55 L15,40 Z"/>';
+  // Europe
+  html += '<path class="geo-outline" d="M120,18 L150,15 L155,30 L148,42 L135,45 L122,40 L118,28 Z"/>';
+  // Asia
+  html += '<path class="geo-outline" d="M155,25 L200,20 L240,25 L260,35 L255,55 L240,70 L220,75 L200,72 L180,65 L165,55 L158,42 Z"/>';
+  // Japan
+  html += '<path class="geo-outline" d="M248,40 L255,38 L258,48 L252,55 L248,48 Z"/>';
+
+  Object.entries(geoPositions).forEach(([city, pos]) => {
+    const count = counts[city] || 0;
+    if (count === 0) return;
+    const r = Math.max(Math.min(Math.sqrt(count) * 4.5, 20), 5);
+    html += `<circle class="geo-bubble" cx="${pos.x}" cy="${pos.y}" r="${r}"/>`;
+    html += `<text class="geo-count" x="${pos.x}" y="${pos.y + 2.5}">${count}</text>`;
+    const labelY = pos.y + r + 8;
+    const label = currentLang === "zh" ? pos.label : pos.labelEn;
+    html += `<text class="geo-label" x="${pos.x}" y="${labelY}">${label}</text>`;
+  });
+
+  svg.innerHTML = html;
+  const heading = document.getElementById("geo-heading");
+  if (heading) heading.textContent = currentLang === "zh" ? "学者地域分布" : "Location Distribution";
+}
+
+renderGeoMap();
+const _origApplyLang = applyLanguage;
+applyLanguage = function(lang) { _origApplyLang(lang); renderGeoMap(); };
 </script>
 </body>
 </html>
