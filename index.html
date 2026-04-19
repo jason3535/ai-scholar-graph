@@ -1060,6 +1060,16 @@ const scholars = [
   { id:"luqi", name:"Lu Qi", org:"MiraclePlus", title:"Founder of MiraclePlus · Former Baidu COO & Microsoft EVP", field:["nlp"],
     bio:"Born 1961. Earned a PhD in Computer Science from Carnegie Mellon University. One of the most accomplished Chinese tech executives in Silicon Valley. Career: IBM Research, Yahoo (VP of Engineering), Microsoft (Executive Vice President of Applications and Services, 2013-2016, one of the highest-ranking Chinese executives in US tech). Recruited by Robin Li to serve as Baidu COO and Group President (2017-2018), where he accelerated Baidu's AI transformation. Personally recruited by Sam Altman to lead Y Combinator's China office (2018-2019). Founded MiraclePlus (formerly YC China, then renamed) in Beijing, a startup accelerator that has backed 340+ companies including many AI firms. Known as a bridge between Silicon Valley and Chinese tech ecosystems.",
     papers:[]},
+  {id:"yaoqizhi",name:"Andrew Yao",org:"Tsinghua IIIS",title:"Turing Award 2000 · Yao Class Founder",field:["deep-learning","safety"],bio:"Born 1946 Shanghai. NTU Physics, Harvard PhD CS 1972. Turing Award 2000. Left Princeton for Tsinghua 2004. Founded Yao Class 2005 and IIIS. Alumni: Yang Zhilin, Chen Jianyu, Chen Danqi, Ma Tengyu. Most important CS educator in China.",papers:[{y:"2000",t:"Turing Award"},{y:"2005",t:"Founded Yao Class"}]},
+  {id:"tangxiaoou",name:"Tang Xiaoou",org:"SenseTime / CUHK",title:"SenseTime Founder · Vision Godfather (1968-2023)",field:["vision","deep-learning"],bio:"Born 1968. USTC BS, MIT PhD. Founded MMLab at CUHK 2001. Students: He Kaiming, Lin Dahua, Wang Xiaogang. Co-founded SenseTime 2014 ($12B+). Passed away Dec 2023.",papers:[{y:"2001",t:"Founded CUHK MMLab"},{y:"2014",t:"Co-founded SenseTime"}]},
+  {id:"zhusongchun",name:"Zhu Songchun",org:"PKU / BIGAI",title:"3x Marr Prize · AGI Pioneer",field:["vision","rl"],bio:"Born 1968. USTC, Harvard PhD 1996. UCLA Prof. 3x Marr Prize, 2x CVPR chair. Returned China 2020. Built Tong Tong AGI prototype. Published AGI standards 2025.",papers:[{y:"2024",t:"Tong Tong AGI"},{y:"2025",t:"AGI Standards"}]},
+  {id:"lindahua",name:"Lin Dahua",org:"SenseTime / CUHK",title:"OpenMMLab Founder",field:["vision"],bio:"USTC, MIT PhD. NIPS 2010 Best Student Paper. Founded OpenMMLab 2018 (20K+ stars). SenseTime co-founder.",papers:[{y:"2018",t:"OpenMMLab 20K+ stars"}]},
+  {id:"wangxiaogang",name:"Wang Xiaogang",org:"SenseTime",title:"SenseTime Co-founder",field:["vision"],bio:"CUHK MMLab under Tang Xiaoou. SenseTime co-founder + Research Director.",papers:[{y:"2014",t:"SenseTime co-founder"}]},
+  {id:"chendanqi",name:"Chen Danqi",org:"Princeton",title:"Yao Class 2008 · NLP",field:["nlp"],bio:"Yao Class 2008. Stanford PhD 2018. Princeton professor. Sloan 2022.",papers:[{y:"2022",t:"Sloan Award"}]},
+  {id:"matengyu",name:"Ma Tengyu",org:"Stanford",title:"Yao Class 2008 · ML Theory",field:["deep-learning"],bio:"Yao Class 2008. Princeton PhD 2017. Stanford professor. Sloan 2021.",papers:[{y:"2021",t:"Sloan Award"}]},
+  {id:"huangminlie",name:"Huang Minlie",org:"Tsinghua CoAI",title:"Dialogue AI Pioneer",field:["nlp"],bio:"Tsinghua professor, CoAI group. DeepSeek members from his lab. Pioneered Chinese dialogue systems.",papers:[]},
+  {id:"luofuli",name:"Luo Fuli",org:"Xiaomi (ex-DeepSeek)",title:"Ex-DeepSeek · Poached by Lei Jun",field:["nlp"],bio:"PKU linguistics MS. DAMO Academy. DeepSeek core 2022. Poached by Lei Jun 2025 with 10M+ package.",papers:[{y:"2025",t:"Poached by Xiaomi"}]},
+  {id:"wangbingxuan",name:"Wang Bingxuan",org:"Tencent (ex-DeepSeek)",title:"DeepSeek V1 Core → Tencent",field:["nlp"],bio:"DeepSeek first-gen LLM core author. Left for Tencent 2025. Part of 5+ core exodus. 2-3x salary offers.",papers:[{y:"2025",t:"Left for Tencent"}]},
 ];
 
 const connections = [
@@ -1187,6 +1197,19 @@ const connections = [
   {source:"robinli",target:"luqi",type:"colleague",label:"Baidu CEO recruited Lu Qi as COO"},
   {source:"luqi",target:"altman",type:"colleague",label:"Y Combinator China, recruited by Altman"},
   {source:"robinli",target:"kaifulee",type:"colleague",label:"Chinese AI industry leaders"},
+  {source:"yaoqizhi",target:"yangzhilin",type:"advisor",label:"Yao Class mentor network"},
+  {source:"yaoqizhi",target:"yangzhilin",type:"advisor",label:"Yang Zhilin Yao Class"},
+  {source:"yaoqizhi",target:"chendanqi",type:"advisor",label:"Chen Danqi Yao Class 2008"},
+  {source:"yaoqizhi",target:"matengyu",type:"advisor",label:"Ma Tengyu Yao Class 2008"},
+  {source:"tangxiaoou",target:"kaiminghe",type:"advisor",label:"PhD advisor CUHK MMLab"},
+  {source:"tangxiaoou",target:"lindahua",type:"advisor",label:"MMLab professor"},
+  {source:"tangxiaoou",target:"wangxiaogang",type:"advisor",label:"SenseTime co-founder mentor"},
+  {source:"lindahua",target:"wangxiaogang",type:"colleague",label:"SenseTime co-founders"},
+  {source:"zhusongchun",target:"feifei",type:"colleague",label:"Both CV pioneers"},
+  {source:"chendanqi",target:"matengyu",type:"colleague",label:"Yao Class 2008 classmates"},
+  {source:"huangminlie",target:"liangwenfeng",type:"colleague",label:"DeepSeek members from CoAI lab"},
+  {source:"luofuli",target:"liangwenfeng",type:"colleague",label:"DeepSeek core, poached by Xiaomi"},
+  {source:"wangbingxuan",target:"liangwenfeng",type:"colleague",label:"DeepSeek V1 author, left for Tencent"},
 ];
 
 // ===================================================================
@@ -1199,7 +1222,7 @@ const orgColorMap = {
   "Microsoft AI":"var(--org-deepmind)","Microsoft Research":"var(--org-deepmind)",
   "SSI":"var(--org-startup)","Essential AI":"var(--org-startup)","Cohere":"var(--org-startup)",
   "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","Tencent":"var(--org-startup)","Baidu":"var(--org-startup)","MiraclePlus":"var(--org-startup)","University of Alberta":"var(--org-university)","KAUST / IDSIA":"var(--org-university)","JKU Linz / ELLIS":"var(--org-university)","Mistral AI":"var(--org-startup)","Black Forest Labs":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
-  "Independent":"var(--org-independent)","Stanford / DeepLearning.AI":"var(--org-stanford)",
+  "Independent":"var(--org-independent)","Tsinghua IIIS":"var(--org-university)","SenseTime / CUHK":"var(--org-university)","PKU / BIGAI":"var(--org-university)","SenseTime":"var(--org-university)","Princeton":"var(--org-university)","Tsinghua CoAI":"var(--org-university)","Xiaomi (ex-DeepSeek)":"var(--org-startup)","Tencent (ex-DeepSeek)":"var(--org-startup)","Stanford / DeepLearning.AI":"var(--org-stanford)",
   "UC Berkeley / Covariant":"var(--org-university)","UC Berkeley / Physical Intelligence":"var(--org-university)",
 };
 const orgRawColors = {
@@ -1209,7 +1232,7 @@ const orgRawColors = {
   "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
   "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
   "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Tencent":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
-  "Independent":"#98989d","Stanford / DeepLearning.AI":"#ff9f0a",
+  "Independent":"#98989d","Tsinghua IIIS":"#bf5af2","SenseTime / CUHK":"#bf5af2","PKU / BIGAI":"#bf5af2","SenseTime":"#bf5af2","Princeton":"#bf5af2","Tsinghua CoAI":"#bf5af2","Xiaomi (ex-DeepSeek)":"#ffd60a","Tencent (ex-DeepSeek)":"#ffd60a","Stanford / DeepLearning.AI":"#ff9f0a",
   "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
 };
 const linkColorMap = {coauthor:"#2997ff",advisor:"#64d2ff",colleague:"rgba(255,255,255,0.1)",cofounder:"#30d158"};
@@ -1599,6 +1622,7 @@ const connLabelZh = {
   "PhD under Andrew Ng at Stanford": "斯坦福 Andrew Ng 门下博士",
   "Sequence-to-Sequence (2014)": "Seq2Seq 模型（2014）",
   "AI leaders, China-US bridge": "AI 领袖，中美桥梁",
+  "Recruited to Tsinghua IIIS at 28":"28岁招入清华叉院","Yang Zhilin Yao Class":"杨植麟姚班","Chen Danqi Yao Class 2008":"陈丹琦姚班2008","Ma Tengyu Yao Class 2008":"马腾宇姚班2008","PhD advisor CUHK MMLab":"港中文MMLab博导","MMLab professor":"MMLab教授","SenseTime co-founder mentor":"商汤联创导师","SenseTime co-founders":"商汤联创同门","Both CV pioneers":"CV先驱","Yao Class 2008 classmates":"姚班2008同学","DeepSeek members from CoAI lab":"DeepSeek成员出自CoAI","DeepSeek core, poached by Xiaomi":"DeepSeek核心被小米挖","DeepSeek V1 author, left for Tencent":"DeepSeek V1作者转腾讯",
   "Tsinghua University": "清华大学",
   "Tsinghua undergraduate advisor": "清华本科导师",
   "Transformer-XL extends Transformer lineage": "Transformer-XL 延伸了 Transformer 技术线",
@@ -1711,7 +1735,7 @@ const wikiTitles = {
   zhangzhengyou: "Zhang_Zhengyou", yudong: "Dong_Yu_(scientist)",
   sutton: "Richard_S._Sutton", schmidhuber: "J%C3%BCrgen_Schmidhuber", hochreiter: "Sepp_Hochreiter",
   kingma: "Diederik_P._Kingma", vinyals: "Oriol_Vinyals", rombach: "Robin_Rombach",
-  mensch: "Arthur_Mensch", robinli: "Robin_Li", luqi: "Qi_Lu",
+  mensch: "Arthur_Mensch", robinli: "Robin_Li", luqi: "Qi_Lu", yaoqizhi: "Andrew_Yao", tangxiaoou: "Tang_Xiaoou", zhusongchun: "Zhu_Song-Chun",
 };
 
 // Photo cache
@@ -1894,7 +1918,7 @@ const cityMap = {
   zhangzhengyou:"shenzhen",yudong:"shenzhen",
   sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
   kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
-  robinli:"beijing",luqi:"beijing",
+  robinli:"beijing",luqi:"beijing",yaoqizhi:"beijing",tangxiaoou:"hongkong",zhusongchun:"beijing",lindahua:"hongkong",wangxiaogang:"hongkong",chendanqi:"sf",matengyu:"sf",huangminlie:"beijing",luofuli:"beijing",wangbingxuan:"shenzhen",
 };
 
 // World map positions (viewBox 0 0 280 140)
@@ -1910,6 +1934,7 @@ const geoPositions = {
   freiburg: {x:138, y:37, label:"弗莱堡", labelEn:"Freiburg"},
   linz:     {x:142, y:36, label:"林茨", labelEn:"Linz"},
   riyadh:   {x:160, y:60, label:"利雅得", labelEn:"Riyadh"},
+  hongkong: {x:225, y:65, label:"\u9999\u6e2f", labelEn:"Hong Kong"},
   tokyo:    {x:250, y:50, label:"东京", labelEn:"Tokyo"},
   beijing:  {x:220, y:42, label:"北京", labelEn:"Beijing"},
   shanghai: {x:230, y:55, label:"上海", labelEn:"Shanghai"},
