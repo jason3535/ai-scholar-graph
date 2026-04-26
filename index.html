@@ -1121,6 +1121,13 @@ const scholars = [
   {id:"huangminlie",name:"Huang Minlie",org:"Tsinghua CoAI",title:"Dialogue AI Pioneer",field:["nlp"],bio:"Tsinghua professor, CoAI group. DeepSeek members from his lab. Pioneered Chinese dialogue systems.",papers:[]},
   {id:"luofuli",name:"Luo Fuli",org:"Xiaomi (ex-DeepSeek)",title:"Ex-DeepSeek · Poached by Lei Jun",field:["nlp"],bio:"PKU linguistics MS. DAMO Academy. DeepSeek core 2022. Poached by Lei Jun 2025 with 10M+ package.",papers:[{y:"2025",t:"Poached by Xiaomi"}]},
   {id:"wangbingxuan",name:"Wang Bingxuan",org:"Tencent (ex-DeepSeek)",title:"DeepSeek V1 Core → Tencent",field:["nlp"],bio:"DeepSeek first-gen LLM core author. Left for Tencent 2025. Part of 5+ core exodus. 2-3x salary offers.",papers:[{y:"2025",t:"Left for Tencent"}]},
+  {id:"pachocki",name:"Jakub Pachocki",org:"OpenAI",title:"Chief Scientist (post-Sutskever)",field:["deep-learning","rl"],bio:"Polish-born. MIT PhD in theoretical CS. Joined OpenAI 2017 as research scientist. Led alignment and reasoning research. Became Head of Alignment, then promoted to Chief Scientist in mid-2024 after Ilya Sutskever's departure. Key architect behind o1 and o3 reasoning models. Works alongside Mark Chen as co-leader of OpenAI research.",papers:[{y:"2024",t:"OpenAI Chief Scientist",url:"https://openai.com/index/jakub-pachocki/"},{y:"2024",t:"o1 reasoning model"},{y:"2025",t:"o3 reasoning model"}]},
+  {id:"markchen",name:"Mark Chen",org:"OpenAI",title:"CRO · DALL-E/Codex/GPT-4V/o1 Lead",field:["deep-learning","vision"],bio:"MIT mathematics and CS. Joined OpenAI early. Led development of DALL-E, Codex (GitHub Copilot foundation), GPT-4 vision capabilities, and o1 reasoning. Elevated to Chief Research Officer (CRO) in March 2025. Described as 'twin head of research' alongside Pachocki. One of OpenAI's most prolific research leaders.",papers:[{y:"2021",t:"DALL-E: Zero-Shot Text-to-Image Generation",url:"https://arxiv.org/abs/2102.12092"},{y:"2021",t:"Codex: Evaluating Large Language Models Trained on Code",url:"https://arxiv.org/abs/2107.03374",cite:"6.8K"},{y:"2023",t:"GPT-4 Technical Report (co-lead)",url:"https://arxiv.org/abs/2303.08774",cite:"19K"}]},
+  {id:"noambrown",name:"Noam Brown",org:"OpenAI",title:"Reasoning · Poker AI → o1",field:["rl","deep-learning"],bio:"CMU PhD. Created Libratus (2017) and Pluribus (2019) — first AI systems to beat top poker professionals in both heads-up and multiplayer no-limit Texas Hold'em. Joined Meta AI Research (FAIR). Recruited by OpenAI in 2023, became key contributor to o1 reasoning model — applying game-theoretic search and planning to LLM inference. His work on 'test-time compute' (letting models think longer) is central to OpenAI's reasoning breakthrough.",papers:[{y:"2017",t:"Superhuman AI for heads-up no-limit poker: Libratus (Science)",url:"https://www.science.org/doi/10.1126/science.aao1733",cite:"1.5K"},{y:"2019",t:"Superhuman AI for multiplayer poker (Science)",url:"https://www.science.org/doi/10.1126/science.aay2400",cite:"1.2K"},{y:"2024",t:"o1 reasoning (key contributor)"}]},
+  {id:"jaredkaplan",name:"Jared Kaplan",org:"Anthropic",title:"Co-founder · Scaling Laws Pioneer",field:["deep-learning","safety"],bio:"Theoretical physicist turned AI researcher. Johns Hopkins University professor. Co-authored the landmark 'Scaling Laws for Neural Language Models' (2020) paper that showed power-law relationships between model size, data, compute and performance — foundational insight that guided GPT-3/4 development. Co-founded Anthropic in 2021 with Dario Amodei and other ex-OpenAI researchers. Leads core research on scaling and alignment.",papers:[{y:"2020",t:"Scaling Laws for Neural Language Models",url:"https://arxiv.org/abs/2001.08361",cite:"4.5K"},{y:"2022",t:"Training Compute-Optimal LLMs (Chinchilla, co-inspiration)",cite:"3K"},{y:"2023",t:"Constitutional AI (co-author)",url:"https://arxiv.org/abs/2212.08073",cite:"1.8K"}]},
+  {id:"sammccandlish",name:"Sam McCandlish",org:"Anthropic",title:"Co-founder · Constitutional AI",field:["deep-learning","safety"],bio:"Physics PhD (Johns Hopkins, collaborator with Jared Kaplan). Joined OpenAI as research scientist, worked on scaling behavior of neural networks. Co-authored key papers on scaling laws. Left OpenAI in 2021 to co-found Anthropic with Dario Amodei, Daniela Amodei, Tom Brown, Chris Olah, Jack Clark, and Jared Kaplan. Co-author of Constitutional AI and Claude model development.",papers:[{y:"2020",t:"Scaling Laws for Neural Language Models (co-author)",url:"https://arxiv.org/abs/2001.08361",cite:"4.5K"},{y:"2023",t:"Constitutional AI: Harmlessness from AI Feedback",url:"https://arxiv.org/abs/2212.08073",cite:"1.8K"}]},
+  {id:"pushmeetkohli",name:"Pushmeet Kohli",org:"Google DeepMind",title:"VP Research · AlphaFold/AlphaEvolve",field:["deep-learning","vision"],bio:"IIT Bombay BTech, Oxford DPhil. Joined Microsoft Research Cambridge, became Principal Researcher. Moved to DeepMind in 2017, rose to VP of Research. Led teams behind AlphaFold (protein structure prediction, revolutionized biology), AlphaEvolve (mathematical optimization), SynthID (AI watermarking), and AI co-scientist. Named to TIME 100 AI (2023). One of DeepMind's most impactful research leaders, bridging AI and science.",papers:[{y:"2021",t:"AlphaFold: Highly accurate protein structure prediction (Nature)",url:"https://www.nature.com/articles/s41586-021-03819-2",cite:"25K"},{y:"2024",t:"AlphaEvolve",cite:"—"},{y:"2023",t:"SynthID: AI watermarking"}]},
+  {id:"dayaguo",name:"Daya Guo",org:"DeepSeek",title:"DeepSeek-R1 First Author",field:["nlp"],bio:"Chinese University of Hong Kong (Shenzhen) PhD. Core researcher at DeepSeek. First author of DeepSeek-R1 (2025), the breakthrough reasoning model that demonstrated reinforcement learning could teach LLMs to reason without supervised fine-tuning — achieving performance competitive with OpenAI o1 at a fraction of the cost. Also key contributor to DeepSeek-Coder and DeepSeek-V2/V3.",papers:[{y:"2025",t:"DeepSeek-R1: Incentivizing Reasoning in LLMs via RL",url:"https://arxiv.org/abs/2501.12948",cite:"2K+"},{y:"2024",t:"DeepSeek-V2: A Strong, Economical MoE LLM",url:"https://arxiv.org/abs/2405.04434",cite:"500+"},{y:"2024",t:"DeepSeek-Coder-V2",url:"https://arxiv.org/abs/2406.11931",cite:"300+"}]},
 ];
 
 const connections = [
@@ -1259,6 +1266,26 @@ const connections = [
   {source:"huangminlie",target:"liangwenfeng",type:"colleague",label:"DeepSeek members from CoAI lab"},
   {source:"luofuli",target:"liangwenfeng",type:"colleague",label:"DeepSeek core, poached by Xiaomi"},
   {source:"wangbingxuan",target:"liangwenfeng",type:"colleague",label:"DeepSeek V1 author, left for Tencent"},
+  // New: Pachocki, Mark Chen, Noam Brown (OpenAI)
+  {source:"pachocki",target:"sutskever",type:"colleague",label:"Succeeded Sutskever as OpenAI Chief Scientist"},
+  {source:"pachocki",target:"markchen",type:"colleague",label:"OpenAI co-research leaders (Chief Scientist + CRO)"},
+  {source:"pachocki",target:"altman",type:"colleague",label:"OpenAI Chief Scientist under Altman"},
+  {source:"markchen",target:"altman",type:"colleague",label:"OpenAI CRO under Altman"},
+  {source:"markchen",target:"radford",type:"coauthor",label:"Co-led DALL-E and GPT-4 at OpenAI"},
+  {source:"noambrown",target:"pachocki",type:"colleague",label:"o1 reasoning model co-architects"},
+  {source:"noambrown",target:"altman",type:"colleague",label:"Recruited to OpenAI for reasoning research"},
+  // New: Kaplan, McCandlish (Anthropic)
+  {source:"jaredkaplan",target:"damodei",type:"cofounder",label:"Anthropic co-founders, both ex-OpenAI"},
+  {source:"jaredkaplan",target:"sammccandlish",type:"coauthor",label:"Scaling Laws co-authors, JHU physics colleagues"},
+  {source:"sammccandlish",target:"damodei",type:"cofounder",label:"Anthropic co-founders"},
+  {source:"sammccandlish",target:"brown",type:"cofounder",label:"Anthropic co-founders, both ex-OpenAI"},
+  {source:"sammccandlish",target:"olah",type:"cofounder",label:"Anthropic co-founders"},
+  {source:"jaredkaplan",target:"brown",type:"cofounder",label:"Anthropic co-founders"},
+  // New: Kohli (DeepMind)
+  {source:"pushmeetkohli",target:"hassabis",type:"colleague",label:"DeepMind VP Research under Hassabis"},
+  {source:"pushmeetkohli",target:"silver",type:"colleague",label:"DeepMind research leadership"},
+  // New: Daya Guo (DeepSeek)
+  {source:"dayaguo",target:"liangwenfeng",type:"colleague",label:"DeepSeek-R1 first author under Liang Wenfeng"},
 ];
 
 // ===================================================================
@@ -1273,6 +1300,7 @@ const orgColorMap = {
   "Sakana AI":"var(--org-startup)","Inceptive":"var(--org-startup)","Eureka Labs":"var(--org-startup)","xAI":"var(--org-startup)","DeepSeek":"var(--org-startup)","01.AI / Sinovation":"var(--org-startup)","Zhipu AI / Tsinghua":"var(--org-startup)","MiniMax":"var(--org-startup)","Moonshot AI":"var(--org-startup)","ByteDance Seed":"var(--org-startup)","Alibaba Cloud":"var(--org-startup)","Tencent":"var(--org-startup)","Baidu":"var(--org-startup)","MiraclePlus":"var(--org-startup)","University of Alberta":"var(--org-university)","KAUST / IDSIA":"var(--org-university)","JKU Linz / ELLIS":"var(--org-university)","Mistral AI":"var(--org-startup)","Black Forest Labs":"var(--org-startup)","MIT / Google DeepMind":"var(--org-deepmind)",
   "Independent":"var(--org-independent)","Tsinghua IIIS":"var(--org-university)","SenseTime / CUHK":"var(--org-university)","PKU / BIGAI":"var(--org-university)","SenseTime":"var(--org-university)","Princeton":"var(--org-university)","Tsinghua CoAI":"var(--org-university)","Xiaomi (ex-DeepSeek)":"var(--org-startup)","Tencent (ex-DeepSeek)":"var(--org-startup)","Stanford / DeepLearning.AI":"var(--org-stanford)",
   "UC Berkeley / Covariant":"var(--org-university)","UC Berkeley / Physical Intelligence":"var(--org-university)",
+  "CUHK (Shenzhen)":"var(--org-university)",
 };
 const orgRawColors = {
   "Google DeepMind":"#64d2ff","OpenAI":"#30d158","Anthropic":"#ff6482",
@@ -1283,6 +1311,7 @@ const orgRawColors = {
   "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Tencent":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
   "Independent":"#98989d","Tsinghua IIIS":"#bf5af2","SenseTime / CUHK":"#bf5af2","PKU / BIGAI":"#bf5af2","SenseTime":"#bf5af2","Princeton":"#bf5af2","Tsinghua CoAI":"#bf5af2","Xiaomi (ex-DeepSeek)":"#ffd60a","Tencent (ex-DeepSeek)":"#ffd60a","Stanford / DeepLearning.AI":"#ff9f0a",
   "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
+  "CUHK (Shenzhen)":"#bf5af2",
 };
 const linkColorMap = {coauthor:"#2997ff",advisor:"#64d2ff",colleague:"rgba(255,255,255,0.1)",cofounder:"#30d158"};
 
@@ -1621,6 +1650,13 @@ const scholarZh = {
   robinli: { zhName: "李彦宏", title: "百度创始人兼 CEO · ERNIE", bio: "1968年生于山西阳泉。北京大学信息管理学士，纽约州立大学布法罗分校计算机科学硕士。在美国创造了 RankDex（1996），一个使用超链接分析进行网页排名的早期搜索引擎——早于 Google 的 PageRank。2000年与徐勇联合创办百度。将百度大力转向 AI：自动驾驶平台 Apollo Go（累计超 2000 万次出行）、文心大模型（ERNIE）系列、文心一言（月活 2.02 亿）。入选 TIME 100 AI（2023）。" },
   luqi: { zhName: "陆奇", title: "MiraclePlus 创始人 · 前百度 COO & 微软 EVP", bio: "1961年生。卡内基梅隆大学计算机科学博士。硅谷最成功的华人高管之一。职业轨迹：IBM 研究院→Yahoo 工程副总裁→微软执行副总裁（2013-2016，美国科技界最高级别华人高管之一）。被李彦宏招募任百度 COO（2017-2018），加速百度 AI 转型。被 Sam Altman 亲自招募领导 Y Combinator 中国（2018-2019）。在北京创办 MiraclePlus（前身 YC 中国），已投资 340+ 家公司。硅谷和中国科技生态之间的桥梁人物。" },
   linjunyang: { zhName: "林骏扬", title: "前 Qwen 技术负责人 · 阿里最年轻 P10", bio: "1993年生。北京大学计算机和语言学专业，语言学硕士。2019年加入阿里达摩院任高级算法工程师。主导了阿里 M6（超大规模 MoE 模型）、OFA（ICML 2022）和 Chinese-CLIP。最核心成就是将 Qwen 从一个不知名的副项目打造成全球最有影响力的开源大模型系列。2025年成为阿里最年轻的 P10 级技术负责人。2026年3月因不认同将 Qwen 团队垂直整合结构拆散的组织重组方案而辞职。" },
+  pachocki: { title: "OpenAI 首席科学家（接替 Sutskever）", bio: "波兰裔。MIT 理论计算机科学博士。2017年加入 OpenAI 任研究科学家。领导对齐和推理研究。2024年 Ilya Sutskever 离职后晋升为首席科学家。o1 和 o3 推理模型的核心架构师。与 Mark Chen 并称 OpenAI 研究双核。" },
+  markchen: { zhName: "陈麻克", title: "OpenAI CRO · DALL-E/Codex/GPT-4V/o1 负责人", bio: "MIT 数学与计算机科学。早期加入 OpenAI。先后主导了 DALL-E、Codex（GitHub Copilot 基础）、GPT-4 视觉能力和 o1 推理模型。2025年3月晋升为首席研究官（CRO）。与 Pachocki 并称「研究双头」。OpenAI 最多产的研究领导者之一。" },
+  noambrown: { zhName: "诺姆·布朗", title: "推理研究 · 扑克 AI → o1", bio: "CMU 博士。创造了 Libratus（2017）和 Pluribus（2019）——首个在单挑和多人无限注德州扑克中击败顶级职业选手的 AI 系统。先在 Meta AI Research (FAIR) 工作。2023年被 OpenAI 招募，成为 o1 推理模型的关键贡献者——将博弈论搜索和规划方法应用于 LLM 推理。他的「测试时计算」（让模型思考更久）工作是 OpenAI 推理突破的核心。" },
+  jaredkaplan: { zhName: "贾里德·卡普兰", title: "Anthropic 联合创始人 · Scaling Laws 先驱", bio: "理论物理学家转 AI 研究。约翰霍普金斯大学教授。联合发表了里程碑论文《神经语言模型的缩放定律》（2020），揭示了模型规模、数据、算力与性能之间的幂律关系——这一洞察指导了 GPT-3/4 的开发。2021年与 Dario Amodei 等前 OpenAI 研究者共同创办 Anthropic。领导缩放和对齐核心研究。" },
+  sammccandlish: { zhName: "萨姆·麦坎德利什", title: "Anthropic 联合创始人 · Constitutional AI", bio: "物理学博士（约翰霍普金斯大学，与 Jared Kaplan 合作）。加入 OpenAI 任研究科学家，研究神经网络缩放行为。联合发表缩放定律关键论文。2021年离开 OpenAI，与 Dario Amodei、Daniela Amodei、Tom Brown、Chris Olah、Jack Clark 和 Jared Kaplan 共同创办 Anthropic。Constitutional AI 和 Claude 模型开发的核心贡献者。" },
+  pushmeetkohli: { zhName: "普什米特·科利", title: "Google DeepMind 研究副总裁 · AlphaFold/AlphaEvolve", bio: "IIT 孟买本科，牛津大学博士。先在微软剑桥研究院任首席研究员。2017年加入 DeepMind，升任研究副总裁。领导了 AlphaFold（蛋白质结构预测，革命性地改变了生物学）、AlphaEvolve（数学优化）、SynthID（AI 水印）和 AI 联合科学家等项目。入选 TIME 100 AI（2023）。DeepMind 最具影响力的研究领导者之一，架起 AI 与科学之间的桥梁。" },
+  dayaguo: { zhName: "郭大亚", title: "DeepSeek-R1 第一作者", bio: "香港中文大学（深圳）博士。DeepSeek 核心研究员。DeepSeek-R1（2025）第一作者——这一突破性推理模型证明了强化学习可以在无需监督微调的情况下教会 LLM 推理，以极低成本达到与 OpenAI o1 竞争的性能。同时是 DeepSeek-Coder 和 DeepSeek-V2/V3 的关键贡献者。" },
 };
 
 // Chinese connection labels
@@ -1706,6 +1742,19 @@ const connLabelZh = {
   "Chinese CV community leaders": "中国计算机视觉社区领袖",
   "DNN speech recognition (2011)": "DNN 语音识别（2011）",
   "Tencent AI leadership": "腾讯 AI 管理层",
+  "Succeeded Sutskever as OpenAI Chief Scientist": "接替 Sutskever 任 OpenAI 首席科学家",
+  "OpenAI co-research leaders (Chief Scientist + CRO)": "OpenAI 研究双核（首席科学家 + CRO）",
+  "OpenAI Chief Scientist under Altman": "Altman 麾下 OpenAI 首席科学家",
+  "OpenAI CRO under Altman": "Altman 麾下 OpenAI CRO",
+  "Co-led DALL-E and GPT-4 at OpenAI": "在 OpenAI 联合主导 DALL-E 和 GPT-4",
+  "o1 reasoning model co-architects": "o1 推理模型联合架构师",
+  "Recruited to OpenAI for reasoning research": "被招入 OpenAI 从事推理研究",
+  "Anthropic co-founders, both ex-OpenAI": "Anthropic 联合创始人，均来自 OpenAI",
+  "Scaling Laws co-authors, JHU physics colleagues": "Scaling Laws 合著者，JHU 物理同门",
+  "Anthropic co-founders": "Anthropic 联合创始人",
+  "DeepMind VP Research under Hassabis": "Hassabis 麾下 DeepMind 研究副总裁",
+  "DeepMind research leadership": "DeepMind 研究管理层",
+  "DeepSeek-R1 first author under Liang Wenfeng": "梁文锋麾下 DeepSeek-R1 第一作者",
 };
 
 function applyLanguage(lang) {
@@ -1791,6 +1840,7 @@ const wikiTitles = {
   sutton: "Richard_S._Sutton", schmidhuber: "J%C3%BCrgen_Schmidhuber", hochreiter: "Sepp_Hochreiter",
   kingma: "Diederik_P._Kingma", vinyals: "Oriol_Vinyals", rombach: "Robin_Rombach",
   mensch: "Arthur_Mensch", robinli: "Robin_Li", luqi: "Qi_Lu", yaoqizhi: "Andrew_Yao", tangxiaoou: "Tang_Xiaoou", zhusongchun: "Zhu_Song-Chun",
+  noambrown: "Noam_Brown_(computer_scientist)", pushmeetkohli: "Pushmeet_Kohli",
 };
 
 // Photo cache
@@ -1977,6 +2027,7 @@ const cityMap = {
   sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
   kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
   robinli:"beijing",luqi:"beijing",yaoqizhi:"beijing",tangxiaoou:"hongkong",zhusongchun:"beijing",lindahua:"hongkong",wangxiaogang:"hongkong",chendanqi:"sf",matengyu:"sf",huangminlie:"beijing",luofuli:"beijing",wangbingxuan:"shenzhen",
+  pachocki:"sf",markchen:"sf",noambrown:"sf",jaredkaplan:"sf",sammccandlish:"sf",pushmeetkohli:"london",dayaguo:"hangzhou",
 };
 
 // World map positions (viewBox 0 0 280 140)
