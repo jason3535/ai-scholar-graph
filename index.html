@@ -3,7 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Scholar Graph</title>
+<title>AI 牛人图谱 · AI Scholar Graph</title>
+<meta name="description" content="全球 AI 研究界关键人物图谱 — Hinton/LeCun/Bengio 三巨头、Transformer 8 作者、OpenAI 离职潮、DeepMind 三联创、中国 AI 学者(梁文锋、陈丹琦、姚期智)。每周更新非共识洞察。">
+<meta name="author" content="Jason Lin">
+<meta name="keywords" content="AI 学者, AI 牛人, Hinton, LeCun, Bengio, Transformer, OpenAI, Anthropic, DeepMind, 梁文锋, DeepSeek, 姚期智">
+<link rel="canonical" href="https://ai.jasonlin.tech/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai.jasonlin.tech/">
+<meta property="og:title" content="AI 牛人图谱 · AI Scholar Graph">
+<meta property="og:description" content="全球 AI 研究界关键人物图谱。每周更新非共识洞察。">
+<meta property="og:site_name" content="Jason's Graphs">
+<meta property="og:locale" content="zh_CN">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://ai.jasonlin.tech/">
+<meta name="twitter:title" content="AI 牛人图谱">
+<meta name="twitter:description" content="全球 AI 研究界关键人物图谱。每周更新非共识洞察。">
+<meta name="twitter:creator" content="@jasonlin">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AI 牛人图谱",
+  "alternateName": "AI Scholar Graph",
+  "url": "https://ai.jasonlin.tech/",
+  "description": "全球 AI 研究界关键人物图谱。每周更新非共识洞察。",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "Jason Lin",
+    "url": "https://jasonlin.tech"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://ai.jasonlin.tech/?node={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 <script defer src="https://cloud.umami.is/script.js" data-website-id="d325eb73-0d8f-4529-aa76-f32ebfd92226"></script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="d325eb73-0d8f-4529-aa76-f32ebfd92226"></script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -1549,13 +1595,24 @@ nodeGroups.on("mouseenter",(event,d)=>{
 // Click → Detail Panel (openDetail defined later in i18n section)
 nodeGroups.on("click",(event,d)=>{
   event.stopPropagation();
+  history.replaceState(null,'',`?node=${encodeURIComponent(d.id)}`);
   openDetail(d);
 });
 svg.on("click",()=>closeDetail());
 
 function closeDetail(){
   document.getElementById("detail-panel").classList.remove("open");
+  if(location.search) history.replaceState(null,'',location.pathname);
 }
+
+// Deep link: focus node from ?node=X URL param on load
+(function(){
+  const id=new URLSearchParams(location.search).get('node');
+  if(!id) return;
+  const target=scholars.find(s=>s.id===id);
+  if(!target) return;
+  setTimeout(()=>openDetail(target),700);
+})();
 document.getElementById("detail-close").addEventListener("click",e=>{e.stopPropagation();closeDetail();});
 
 // ===================================================================
