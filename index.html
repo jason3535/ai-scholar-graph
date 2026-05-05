@@ -571,12 +571,17 @@ body.no-insights #graph-container {
   stroke-opacity: 0.4;
   stroke-dasharray: 8 5;
 }
-/* Colleague: weakest, subtle dotted */
+/* Colleague: weakest, subtle dotted — 默认隐藏,hover 时显示 */
 .link-line.type-colleague {
   stroke: rgba(255, 255, 255, 0.5);
   stroke-width: 0.8;
-  stroke-opacity: 0.15;
+  stroke-opacity: 0;
   stroke-dasharray: 2 6;
+  pointer-events: none;
+}
+.link-line.type-colleague.highlighted {
+  stroke-opacity: 0.55 !important;
+  pointer-events: auto;
 }
 
 .node-group {
