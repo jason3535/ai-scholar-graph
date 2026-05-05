@@ -1221,6 +1221,9 @@ const scholars = [
   { id:"yudong", name:"Yu Dong", org:"Tencent", title:"Former Tencent AI Lab VP · Speech AI Pioneer", field:["nlp","deep-learning"],
     bio:"Zhejiang University Electrical Engineering BS, Chinese Academy of Sciences Institute of Automation MS (Pattern Recognition), Indiana University Bloomington CS MS, University of Idaho CS PhD. Pioneered applying deep learning to speech recognition at Microsoft Research, where he worked for 16+ years and became a Principal Researcher. His work on DNN-based speech recognition (2011, with Hinton, Deng Li et al.) was a landmark result that started the deep learning revolution in speech. Joined Tencent AI Lab as VP in 2017. Led research in speech processing, multimodal interaction, and LLM-based NLP. Co-authored 200+ papers and several books on speech recognition. Left Tencent at end of January 2026.",
     papers:[{y:"2011",t:"Context-Dependent Pre-Trained Deep Neural Networks for Large-Vocabulary Speech Recognition [6K]",url:"https://ieeexplore.ieee.org/document/5947401"},{y:"2014",t:"Automatic Speech Recognition: A Deep Learning Approach (book)"}]},
+  { id:"yaoshunyu", name:"Yao Shunyu", org:"Tencent", title:"Tencent Chief AI Scientist · ReAct + ToT 提出者", field:["nlp","rl"],
+    bio:"1998 年生,安徽理科探花。2015 入清华姚班 (Yao Class)。2019 赴 Princeton 读 CS PhD,导师 Karthik Narasimhan(NLP+RL 方向);2024.6 博士毕业。在校期间已是 Agent 范式奠基人:提出 ReAct (推理-行动融合,2022)、Tree of Thoughts (ToT 思维树,2023)、CoALA 模块化认知架构。2024.8 加入 OpenAI 研究团队,主导 Operator (浏览器 agent) + Deep Research 产品。2025.12 加入腾讯任首席 AI 科学家,27 岁直接汇报总裁刘炽平,主导混元大模型与智能体技术融合。因姓名「姚顺雨」谐音「尧舜禹」被业内戏称腾讯尧舜禹。除学术外是地下 rapper,有作品在网易云音乐发表。",
+    papers:[{y:"2022",t:"ReAct: Synergizing Reasoning and Acting in Language Models [3K]",url:"https://arxiv.org/abs/2210.03629"},{y:"2023",t:"Tree of Thoughts: Deliberate Problem Solving with LLMs [5K]",url:"https://arxiv.org/abs/2305.10601"},{y:"2024",t:"CoALA: Cognitive Architectures for Language Agents",url:"https://arxiv.org/abs/2309.02427"}]},
 
   // ===== Alibaba / Qwen =====
   { id:"zhoujingren", name:"Zhou Jingren", org:"Alibaba Cloud", title:"CTO of Alibaba Cloud · Head of Tongyi Lab", field:["nlp","deep-learning"],
@@ -1463,6 +1466,16 @@ const connections = [
   {source:"kaiminghe",target:"sainingxie",type:"coauthor",label:"MSRA 2016 ResNeXt 共著"},
   // DeepMind 内部
   {source:"mensch",target:"hassabis",type:"colleague",label:"DeepMind 2018-2022(Mistral 创始前)"},
+  // 姚顺雨(腾讯尧舜禹) — 姚班 + Princeton + OpenAI Agent 团队 + 腾讯首席 AI 科学家
+  {source:"yaoqizhi",target:"yaoshunyu",type:"advisor",label:"姚班 2015 级"},
+  {source:"yaoshunyu",target:"chendanqi",type:"colleague",label:"Princeton CS 校友(陈丹琦师姐) + 都是姚班出身"},
+  {source:"yaoshunyu",target:"yangzhilin",type:"colleague",label:"姚班同门 + 都做大模型 Agent"},
+  {source:"yaoshunyu",target:"matengyu",type:"colleague",label:"姚班 + Princeton 校友"},
+  {source:"yaoshunyu",target:"altman",type:"colleague",label:"OpenAI 2024.8-2025.9(Operator + Deep Research)"},
+  {source:"yaoshunyu",target:"pachocki",type:"colleague",label:"OpenAI 共事 13 个月"},
+  {source:"yaoshunyu",target:"markchen",type:"colleague",label:"OpenAI Research 团队"},
+  {source:"yaoshunyu",target:"noambrown",type:"colleague",label:"OpenAI Agent + 推理研究"},
+  {source:"yaoshunyu",target:"zhangzhengyou",type:"colleague",label:"Tencent 双首席科学家"},
 ];
 
 // ===================================================================
@@ -1865,6 +1878,7 @@ const scholarZh = {
   wuyonghui: { zhName: "吴永辉", title: "字节跳动 AI 研究负责人 · 前 Google Fellow", bio: "南京大学毕业，后在加州大学河滨分校获统计学硕士和计算机科学博士（2008）。2008年加入 Google，前7年做搜索排序，2014-2023年在 Google Brain 从事机器学习、基因组学和 NLP。2023年9月晋升 Google Fellow（相当于副总裁级别）。最知名成就是作为 Google 神经机器翻译系统（GNMT, 2016）第一作者，将 Google 翻译从短语级翻译升级为神经翻译。2025年2月加入字节跳动任 Seed 团队基础研究负责人，直接向 CEO 梁汝波汇报。还创造了 Seedance 2.0 视频生成模型。" },
   zhangzhengyou: { zhName: "张正友", title: "腾讯首席科学家 · 张氏标定法发明人", bio: "1965年生于湖北。华中科技大学学士，法国南锡大学硕士，巴黎第十一大学计算机科学博士（1990）。1998年加入微软研究院任首席研究员。发明了张氏相机标定法（1998）——全球计算机视觉应用的通用标准，从自动驾驶到 AR 无处不在。IEEE Fellow、ACM Fellow。2018年加入腾讯任首席科学家，领导 Robotics X 实验室和犀牛鸟实验室。" },
   yudong: { zhName: "俞栋", title: "前腾讯 AI Lab 副主任 · 语音 AI 先驱", bio: "浙江大学电气工程学士，中科院自动化所模式识别硕士，印第安纳大学计算机硕士，爱达荷大学计算机博士。在微软研究院工作 16 年+，率先将深度学习应用于语音识别。与 Hinton、邓力等合著的 DNN 语音识别论文（2011）开启了语音领域的深度学习革命。2017年加入腾讯 AI Lab 任副主任。发表 200+ 论文，多部语音识别专著。2026年1月底离开腾讯。" },
+  yaoshunyu: { zhName: "姚顺雨（绰号：腾讯尧舜禹）", title: "腾讯首席 AI 科学家 · ReAct + 思维树作者", bio: "1998年生，安徽省理科探花。2015年保送清华姚班（Yao Class）。2019年赴普林斯顿读 CS 博士，导师 Karthik Narasimhan（NLP + 强化学习）；2024年6月毕业。在校期间已是 Agent 研究范式奠基人：提出 ReAct（推理-行动融合，2022）、Tree of Thoughts（思维树，2023）、CoALA 模块化认知架构。2024年8月加入 OpenAI 研究团队，主导 Operator（浏览器 Agent）和 Deep Research 产品研发。2025年12月跳槽腾讯任首席 AI 科学家，27 岁直接汇报总裁刘炽平，主导混元大模型与 Agent 技术融合。因姓名「姚顺雨」谐音「尧舜禹」被业内戏称腾讯尧舜禹。学术之外是地下 rapper，有作品在网易云音乐发表。" },
   zhoujingren: { zhName: "周靖人", title: "阿里云 CTO · 通义实验室负责人", bio: "哥伦比亚大学计算机科学博士。曾在微软研究院工作。2015年加入阿里巴巴，历任阿里云首席科学家、达摩院副院长。现任阿里云 CTO 兼通义实验室负责人，统管通义千问（Qwen）模型家族——中国最具影响力的开源大模型系列。2026年3月林骏扬离职后直接接管 Qwen 团队。与 CEO 吴泳铭共同领导阿里基础模型特别工作组。" },
   sutton: { title: "强化学习之父", bio: "1956年生于美国。斯坦福心理学学士（1978），马萨诸塞大学计算机科学博士（1984，导师 Andrew Barto，两人共同奠基了强化学习领域）。2003年加入阿尔伯塔大学。与 Barto 合著了《强化学习导论》（1998）——训练了几乎所有在世 RL 研究者的标准教科书。发明了时间差分（TD）学习、策略梯度方法和 Dyna 架构。曾任 DeepMind Alberta 杰出研究科学家。2019年发表的《The Bitter Lesson》成为现代 AI 最常被引用的哲学文章之一。" },
   schmidhuber: { title: "LSTM 联合发明人 · AI 先驱", bio: "1963年生于慕尼黑。慕尼黑工业大学博士（1991）。瑞士 AI 实验室 IDSIA 联合主任。与 Sepp Hochreiter 联合发明了 LSTM（1997）——在 Transformer 之前驱动了 Google 翻译、Siri、Alexa 和大多数序列建模。还开创了元学习、神经网络压缩和好奇心驱动学习。创办 NNAISENSE（2014）。2021年赴沙特 KAUST 领导 AI 计划。以在深度学习归功问题上的直言不讳著称。" },
@@ -2249,7 +2263,7 @@ const cityMap = {
   yanjunjie:"shanghai",yangzhilin:"beijing",
   wuyonghui:"beijing",
   zhoujingren:"hangzhou",linjunyang:"hangzhou",
-  zhangzhengyou:"shenzhen",yudong:"shenzhen",
+  zhangzhengyou:"shenzhen",yudong:"shenzhen",yaoshunyu:"shenzhen",
   sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
   kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
   robinli:"beijing",luqi:"beijing",yaoqizhi:"beijing",tangxiaoou:"hongkong",zhusongchun:"beijing",lindahua:"hongkong",wangxiaogang:"hongkong",chendanqi:"sf",matengyu:"sf",huangminlie:"beijing",luofuli:"beijing",wangbingxuan:"shenzhen",
