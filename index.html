@@ -1282,6 +1282,18 @@ const scholars = [
   {id:"sammccandlish",name:"Sam McCandlish",org:"Anthropic",title:"Co-founder · Constitutional AI",field:["deep-learning","safety"],bio:"Physics PhD (Johns Hopkins, collaborator with Jared Kaplan). Joined OpenAI as research scientist, worked on scaling behavior of neural networks. Co-authored key papers on scaling laws. Left OpenAI in 2021 to co-found Anthropic with Dario Amodei, Daniela Amodei, Tom Brown, Chris Olah, Jack Clark, and Jared Kaplan. Co-author of Constitutional AI and Claude model development.",papers:[{y:"2020",t:"Scaling Laws for Neural Language Models (co-author)",url:"https://arxiv.org/abs/2001.08361",cite:"4.5K"},{y:"2023",t:"Constitutional AI: Harmlessness from AI Feedback",url:"https://arxiv.org/abs/2212.08073",cite:"1.8K"}]},
   {id:"pushmeetkohli",name:"Pushmeet Kohli",org:"Google DeepMind",title:"VP Research · AlphaFold/AlphaEvolve",field:["deep-learning","vision"],bio:"IIT Bombay BTech, Oxford DPhil. Joined Microsoft Research Cambridge, became Principal Researcher. Moved to DeepMind in 2017, rose to VP of Research. Led teams behind AlphaFold (protein structure prediction, revolutionized biology), AlphaEvolve (mathematical optimization), SynthID (AI watermarking), and AI co-scientist. Named to TIME 100 AI (2023). One of DeepMind's most impactful research leaders, bridging AI and science.",papers:[{y:"2021",t:"AlphaFold: Highly accurate protein structure prediction (Nature)",url:"https://www.nature.com/articles/s41586-021-03819-2",cite:"25K"},{y:"2024",t:"AlphaEvolve",cite:"—"},{y:"2023",t:"SynthID: AI watermarking"}]},
   {id:"dayaguo",name:"Daya Guo",org:"DeepSeek",title:"DeepSeek-R1 First Author",field:["nlp"],bio:"Chinese University of Hong Kong (Shenzhen) PhD. Core researcher at DeepSeek. First author of DeepSeek-R1 (2025), the breakthrough reasoning model that demonstrated reinforcement learning could teach LLMs to reason without supervised fine-tuning — achieving performance competitive with OpenAI o1 at a fraction of the cost. Also key contributor to DeepSeek-Coder and DeepSeek-V2/V3.",papers:[{y:"2025",t:"DeepSeek-R1: Incentivizing Reasoning in LLMs via RL",url:"https://arxiv.org/abs/2501.12948",cite:"2K+"},{y:"2024",t:"DeepSeek-V2: A Strong, Economical MoE LLM",url:"https://arxiv.org/abs/2405.04434",cite:"500+"},{y:"2024",t:"DeepSeek-Coder-V2",url:"https://arxiv.org/abs/2406.11931",cite:"300+"}]},
+  // ===== OpenAI 关键遗漏:Greg Brockman =====
+  {id:"gregbrockman",name:"Greg Brockman",org:"OpenAI",title:"President & Co-founder · OpenAI 第一任 CTO",field:["deep-learning","nlp"],bio:"1987 年生 North Dakota。Harvard 数学退学,转 MIT 也退学。加入 Stripe 2010 任第 4 号员工,2013 升任 CTO 至 2015 离开。2015 与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任 CTO。后转任 President+董事长。2024.8-11 短暂离岗 sabbatical,11 月底回归。2026.4-5 在 Musk vs OpenAI 法庭作证披露:个人持股价值近 $30B(他从未投入资金),仅次于 Sam Altman。技术上深度参与 GPT-3/4/o1 的工程实现,被认为是 OpenAI 把研究变成产品的核心人。",papers:[{y:"2020",t:"GPT-3: Language Models are Few-Shot Learners (co-author)",url:"https://arxiv.org/abs/2005.14165",cite:"40K"},{y:"2023",t:"GPT-4 Technical Report",url:"https://arxiv.org/abs/2303.08774",cite:"19K"}]},
+  // ===== Mira Murati =====
+  {id:"miramurati",name:"Mira Murati",org:"Thinking Machines Lab",title:"Founder & CEO · 前 OpenAI CTO",field:["deep-learning","nlp"],bio:"1988 年生于阿尔巴尼亚 Vlorë。16 岁通过 UWC 项目去加拿大,Dartmouth 机械工程本科。Tesla Model X 工程项目经理(2013-2016),Leap Motion 产品 VP。2018 加入 OpenAI 任 VP of Applied AI,2022 升 CTO,主导 ChatGPT/DALL-E/Sora 产品研发。2024.9 离职。2025.2 创办 Thinking Machines Lab,7 月 a16z 领投种子轮 $20 亿估值 $120 亿(Nvidia/AMD/Cisco/Jane Street 跟投)。2026.4 估值飙升至 $500-600 亿融资谈判中,Google 多次大额合作。联创团队:Barret Zoph(前 OpenAI VP Post-training)+ Lilian Weng(前 OpenAI VP)+ John Schulman(从 Anthropic 跳来)。",papers:[{y:"2022",t:"ChatGPT (product lead)"},{y:"2024",t:"Sora video generation (product lead)"}]},
+  // ===== Jan Leike (Anthropic) =====
+  {id:"janleike",name:"Jan Leike",org:"Anthropic",title:"Alignment Lead · 前 OpenAI Superalignment 共同负责人",field:["safety","rl"],bio:"德国哲学家+ML 研究者,Cambridge 哲学硕士,ANU 博士(机器学习)。DeepMind Alignment 团队 2018-2021。OpenAI 2021-2024 任 Superalignment 团队共同负责人(与 Sutskever 合作),团队目标是 4 年内解决超级智能对齐。2024.5 在 Sutskever 之后立刻辞职,公开声明 OpenAI 安全文化和流程已经被产品压倒。2024.5 加入 Anthropic 担任 Alignment Lead,带走数名核心成员。在 AI 安全社区是与 Yudkowsky/Stuart Russell 并列的代表人物。",papers:[{y:"2018",t:"Scalable agent alignment via reward modeling",url:"https://arxiv.org/abs/1811.07871",cite:"600+"},{y:"2022",t:"Constitutional AI (co-author)",url:"https://arxiv.org/abs/2212.08073",cite:"1.8K"}]},
+  // ===== Aravind Srinivas (Perplexity) =====
+  {id:"aravindsrinivas",name:"Aravind Srinivas",org:"Perplexity",title:"CEO & Co-founder · Berkeley 博士",field:["nlp","rl"],bio:"印度泰米尔纳德邦人,IIT Madras 电气工程学士。UC Berkeley CS PhD 在 Pieter Abbeel 名下(2021),研究表征学习+强化学习。OpenAI/DeepMind/Google 实习。2022.8 与 Andy Konwinski、Denis Yarats、Johnny Ho 联创 Perplexity AI(对标 Google Search 的 AI 答题搜索)。Nvidia/Jeff Bezos/Yann LeCun 早期投资。2025 估值约 $90 亿,日活用户超 5000 万。Comet 浏览器/Perplexity Finance/Pro 订阅都是后续产品扩张。被视为 AI Search 这条赛道的代表创始人。",papers:[{y:"2020",t:"CURL: Contrastive Unsupervised Representations for RL",url:"https://arxiv.org/abs/2004.04136",cite:"2K+"},{y:"2021",t:"Decision Transformer",url:"https://arxiv.org/abs/2106.01345",cite:"3.5K"}]},
+  // ===== 王小川 (Baichuan) =====
+  {id:"wangxiaochuan",name:"Wang Xiaochuan",org:"Baichuan AI",title:"创始人 CEO · 前搜狗 CEO",field:["nlp"],bio:"1978 生于成都。1996 NOI 全国信息学奥赛金牌保送清华计算机。2003 清华硕士,加入搜狐。2010 主导搜狗输入法+搜狗搜索独立分拆,2013 任搜狗 CEO,2017 带搜狗赴美 IPO(NYSE: SOGO)。2021 搜狗被腾讯私有化。2023.4 创办百川智能,首轮 CMC/腾讯/小米/3 家美元基金,5 个月内连续发布 Baichuan-7B/13B/53B/Baichuan2 等系列开源大模型。2024 转向 toC 医疗 AI 大模型 Baichuan-M3(HealthBench 全球第一)。账上现金 30 亿,2027 计划 IPO。",papers:[{y:"2023",t:"Baichuan 2: Open Large-scale Language Models",url:"https://arxiv.org/abs/2309.10305",cite:"800+"},{y:"2025",t:"Baichuan-M3 medical LLM"}]},
+  // ===== 刘知远 (面壁智能) =====
+  {id:"liuzhiyuan",name:"Liu Zhiyuan",org:"ModelBest / Tsinghua",title:"面壁智能联创 · 清华副教授 · MiniCPM 主导者",field:["nlp"],bio:"清华 CS 本博(2011 PhD,导师孙茂松),专注 NLP+知识图谱+表征学习。AAAI/IJCAI/ACL 论文 200+。2021.6 「悟道 2.0」万亿模型发布后,与导师孙茂松+学生曾国洋等联创面壁智能(ModelBest),走端侧 AI 路线。2024.2 发布 MiniCPM 仅 24 亿参数性能赶超百亿模型,被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications,8B 多模态超越 GPT-4V。2024 斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。中国端侧大模型代表人物。",papers:[{y:"2024",t:"MiniCPM: Unveiling the Potential of Small LLMs",url:"https://arxiv.org/abs/2404.06395",cite:"500+"},{y:"2025",t:"MiniCPM-V (Nature Communications)",cite:"300+"}]},
 ];
 
 const connections = [
@@ -1476,6 +1488,41 @@ const connections = [
   {source:"yaoshunyu",target:"markchen",type:"colleague",label:"OpenAI Research 团队"},
   {source:"yaoshunyu",target:"noambrown",type:"colleague",label:"OpenAI Agent + 推理研究"},
   {source:"yaoshunyu",target:"zhangzhengyou",type:"colleague",label:"Tencent 双首席科学家"},
+  // Greg Brockman — OpenAI 联合创始人兼 President(此前漏掉)
+  {source:"gregbrockman",target:"altman",type:"cofounder",label:"OpenAI 2015 联合创始人"},
+  {source:"gregbrockman",target:"musk",type:"cofounder",label:"OpenAI 2015 联合创始人"},
+  {source:"gregbrockman",target:"sutskever",type:"cofounder",label:"OpenAI 2015 联合创始人"},
+  {source:"gregbrockman",target:"schulman",type:"cofounder",label:"OpenAI 2015 联合创始人"},
+  {source:"gregbrockman",target:"karpathy",type:"cofounder",label:"OpenAI 2015 founding 团队"},
+  {source:"gregbrockman",target:"damodei",type:"colleague",label:"OpenAI 2016-2021"},
+  {source:"gregbrockman",target:"pachocki",type:"colleague",label:"OpenAI"},
+  {source:"gregbrockman",target:"markchen",type:"colleague",label:"OpenAI"},
+  // Mira Murati — Thinking Machines Lab 创始人,前 OpenAI CTO
+  {source:"miramurati",target:"altman",type:"colleague",label:"OpenAI CTO 2022-2024 直接汇报 Altman"},
+  {source:"miramurati",target:"schulman",type:"cofounder",label:"Schulman 2025 从 Anthropic 加入 Thinking Machines"},
+  {source:"miramurati",target:"gregbrockman",type:"colleague",label:"OpenAI 2018-2024"},
+  {source:"miramurati",target:"sutskever",type:"colleague",label:"OpenAI 2018-2024"},
+  {source:"miramurati",target:"damodei",type:"colleague",label:"OpenAI 2018-2021(Damodei 离职前)"},
+  // Jan Leike — Superalignment 共同负责人,DeepMind 出身,跟随 Sutskever 从 OpenAI 出走至 Anthropic
+  {source:"janleike",target:"sutskever",type:"colleague",label:"OpenAI Superalignment 共同负责人(2023-2024)"},
+  {source:"janleike",target:"damodei",type:"colleague",label:"OpenAI 安全 → Anthropic 出走潮"},
+  {source:"janleike",target:"altman",type:"colleague",label:"OpenAI 2021-2024(Leike 公开批评安全文化)"},
+  {source:"janleike",target:"daniela",type:"colleague",label:"Anthropic 2024.5+"},
+  {source:"janleike",target:"hassabis",type:"colleague",label:"DeepMind Alignment 2018-2021"},
+  // Aravind Srinivas — Perplexity CEO,Abbeel 学生
+  {source:"aravindsrinivas",target:"abbeel",type:"advisor",label:"Berkeley PhD 导师 2017-2021"},
+  {source:"aravindsrinivas",target:"lecun",type:"colleague",label:"LeCun 是 Perplexity 早期投资人/支持者"},
+  {source:"aravindsrinivas",target:"altman",type:"colleague",label:"OpenAI 实习/合作"},
+  // 王小川 — 百川智能 CEO,前搜狗 CEO
+  {source:"wangxiaochuan",target:"robinli",type:"colleague",label:"中国互联网 AI 时代同辈(搜狗 vs 百度)"},
+  {source:"wangxiaochuan",target:"kaifulee",type:"colleague",label:"中国 AI 产业领袖"},
+  {source:"wangxiaochuan",target:"yangzhilin",type:"colleague",label:"清华校友 + 都做 LLM 创业"},
+  {source:"wangxiaochuan",target:"liangwenfeng",type:"colleague",label:"中国开源 LLM 创业同辈"},
+  // 刘知远 — 面壁智能联创,清华 NLP
+  {source:"liuzhiyuan",target:"jietang",type:"colleague",label:"清华 CS NLP 教师同事"},
+  {source:"liuzhiyuan",target:"huangminlie",type:"colleague",label:"清华 CoAI 同事"},
+  {source:"liuzhiyuan",target:"yangzhilin",type:"colleague",label:"清华校友 + LLM 创业"},
+  {source:"liuzhiyuan",target:"liangwenfeng",type:"colleague",label:"开源 LLM 创业同辈"},
 ];
 
 // ===================================================================
@@ -1879,6 +1926,12 @@ const scholarZh = {
   zhangzhengyou: { zhName: "张正友", title: "腾讯首席科学家 · 张氏标定法发明人", bio: "1965年生于湖北。华中科技大学学士，法国南锡大学硕士，巴黎第十一大学计算机科学博士（1990）。1998年加入微软研究院任首席研究员。发明了张氏相机标定法（1998）——全球计算机视觉应用的通用标准，从自动驾驶到 AR 无处不在。IEEE Fellow、ACM Fellow。2018年加入腾讯任首席科学家，领导 Robotics X 实验室和犀牛鸟实验室。" },
   yudong: { zhName: "俞栋", title: "前腾讯 AI Lab 副主任 · 语音 AI 先驱", bio: "浙江大学电气工程学士，中科院自动化所模式识别硕士，印第安纳大学计算机硕士，爱达荷大学计算机博士。在微软研究院工作 16 年+，率先将深度学习应用于语音识别。与 Hinton、邓力等合著的 DNN 语音识别论文（2011）开启了语音领域的深度学习革命。2017年加入腾讯 AI Lab 任副主任。发表 200+ 论文，多部语音识别专著。2026年1月底离开腾讯。" },
   yaoshunyu: { zhName: "姚顺雨（绰号：腾讯尧舜禹）", title: "腾讯首席 AI 科学家 · ReAct + 思维树作者", bio: "1998年生，安徽省理科探花。2015年保送清华姚班（Yao Class）。2019年赴普林斯顿读 CS 博士，导师 Karthik Narasimhan（NLP + 强化学习）；2024年6月毕业。在校期间已是 Agent 研究范式奠基人：提出 ReAct（推理-行动融合，2022）、Tree of Thoughts（思维树，2023）、CoALA 模块化认知架构。2024年8月加入 OpenAI 研究团队，主导 Operator（浏览器 Agent）和 Deep Research 产品研发。2025年12月跳槽腾讯任首席 AI 科学家，27 岁直接汇报总裁刘炽平，主导混元大模型与 Agent 技术融合。因姓名「姚顺雨」谐音「尧舜禹」被业内戏称腾讯尧舜禹。学术之外是地下 rapper，有作品在网易云音乐发表。" },
+  gregbrockman: { zhName: "Greg Brockman", title: "OpenAI 总裁兼联合创始人 · 第一任 CTO", bio: "1987年生于北达科他州。Harvard 数学退学，转 MIT 后再退学。2010 年加入 Stripe 成为第 4 号员工，2013-2015 年任 CTO。2015 年与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任首任 CTO，后转任总裁兼董事长。2024 年 8-11 月短暂离岗 sabbatical 后回归。2026 年 4-5 月在 Musk 起诉 OpenAI 案中作证披露：个人持股价值近 $300 亿（从未投入资金），仅次于 Sam Altman。被认为是 OpenAI 把研究变成产品的核心工程负责人。" },
+  miramurati: { zhName: "Mira Murati", title: "Thinking Machines Lab 创始人兼 CEO · 前 OpenAI CTO", bio: "1988 年生于阿尔巴尼亚 Vlorë。16 岁通过 UWC 项目去加拿大，Dartmouth 机械工程本科。Tesla Model X 工程项目经理（2013-2016），Leap Motion 产品 VP。2018 年加入 OpenAI 任 VP of Applied AI，2022 年升 CTO，主导 ChatGPT/DALL-E/Sora 产品研发。2024 年 9 月离职。2025 年 2 月创办 Thinking Machines Lab，7 月 a16z 领投种子轮 $20 亿，估值 $120 亿。2026 年 4 月新一轮估值 $500-600 亿融资中，Google 多次大额合作。联创团队均为前 OpenAI VP：Barret Zoph、Lilian Weng，加上从 Anthropic 跳过来的 OpenAI 联创 John Schulman。" },
+  janleike: { zhName: "Jan Leike", title: "Anthropic Alignment 负责人 · 前 OpenAI Superalignment 共同负责人", bio: "德国哲学家与 ML 研究者。Cambridge 哲学硕士，澳大利亚国立大学（ANU）机器学习博士。DeepMind Alignment 团队 2018-2021。OpenAI 2021-2024 与 Sutskever 共同负责 Superalignment 团队，目标 4 年内解决超级智能对齐。2024 年 5 月在 Sutskever 离职后立刻辞职，公开声明「OpenAI 的安全文化和流程已被光鲜的产品所取代」。2024 年 5 月加入 Anthropic 任 Alignment Lead，带走数名核心成员。在 AI 安全社区是与 Yudkowsky、Stuart Russell 并列的代表人物。" },
+  aravindsrinivas: { zhName: "Aravind Srinivas", title: "Perplexity AI 创始人兼 CEO · Berkeley 博士", bio: "印度泰米尔纳德邦人，IIT Madras 电气工程学士。UC Berkeley CS 博士在 Pieter Abbeel 名下（2021），研究表征学习+强化学习。OpenAI/DeepMind/Google 实习。2022 年 8 月与 Andy Konwinski、Denis Yarats、Johnny Ho 联创 Perplexity AI——对标 Google Search 的 AI 答题搜索。Nvidia、Jeff Bezos、Yann LeCun 早期投资。2025 年估值约 $90 亿，日活用户超 5000 万。Comet 浏览器、Perplexity Finance、Pro 订阅都是后续产品扩张。被视为 AI Search 这条赛道的代表创始人。" },
+  wangxiaochuan: { zhName: "王小川", title: "百川智能创始人兼 CEO · 前搜狗 CEO", bio: "1978 年生于成都。1996 年 NOI 全国信息学奥赛金牌保送清华计算机系。2003 年清华硕士毕业加入搜狐。2010 年主导搜狗输入法和搜狗搜索独立分拆，2013 年任搜狗 CEO，2017 年带搜狗赴美 IPO（NYSE: SOGO）。2021 年搜狗被腾讯私有化。2023 年 4 月创办百川智能，首轮 CMC、腾讯、小米、3 家美元基金参投。5 个月内连续发布 Baichuan-7B/13B/53B/Baichuan2 等系列开源大模型。2024 年转向 toC 医疗 AI 大模型 Baichuan-M3（HealthBench 全球第一）。账上现金 30 亿，2027 年计划 IPO。" },
+  liuzhiyuan: { zhName: "刘知远", title: "面壁智能联创 · 清华副教授 · MiniCPM 主导者", bio: "清华 CS 本博（2011 博士，导师孙茂松），专注 NLP、知识图谱、表征学习。AAAI/IJCAI/ACL 等顶会论文 200+。2021 年 6 月「悟道 2.0」万亿参数模型发布后，与导师孙茂松、学生曾国洋等联合创办面壁智能（ModelBest），走端侧 AI 路线。2024 年 2 月发布 MiniCPM 仅 24 亿参数性能赶超百亿模型，被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications，8B 多模态综合性能超越 GPT-4V 和 Gemini Pro。2024 年斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。是中国端侧大模型代表人物。" },
   zhoujingren: { zhName: "周靖人", title: "阿里云 CTO · 通义实验室负责人", bio: "哥伦比亚大学计算机科学博士。曾在微软研究院工作。2015年加入阿里巴巴，历任阿里云首席科学家、达摩院副院长。现任阿里云 CTO 兼通义实验室负责人，统管通义千问（Qwen）模型家族——中国最具影响力的开源大模型系列。2026年3月林骏扬离职后直接接管 Qwen 团队。与 CEO 吴泳铭共同领导阿里基础模型特别工作组。" },
   sutton: { title: "强化学习之父", bio: "1956年生于美国。斯坦福心理学学士（1978），马萨诸塞大学计算机科学博士（1984，导师 Andrew Barto，两人共同奠基了强化学习领域）。2003年加入阿尔伯塔大学。与 Barto 合著了《强化学习导论》（1998）——训练了几乎所有在世 RL 研究者的标准教科书。发明了时间差分（TD）学习、策略梯度方法和 Dyna 架构。曾任 DeepMind Alberta 杰出研究科学家。2019年发表的《The Bitter Lesson》成为现代 AI 最常被引用的哲学文章之一。" },
   schmidhuber: { title: "LSTM 联合发明人 · AI 先驱", bio: "1963年生于慕尼黑。慕尼黑工业大学博士（1991）。瑞士 AI 实验室 IDSIA 联合主任。与 Sepp Hochreiter 联合发明了 LSTM（1997）——在 Transformer 之前驱动了 Google 翻译、Siri、Alexa 和大多数序列建模。还开创了元学习、神经网络压缩和好奇心驱动学习。创办 NNAISENSE（2014）。2021年赴沙特 KAUST 领导 AI 计划。以在深度学习归功问题上的直言不讳著称。" },
@@ -2264,6 +2317,8 @@ const cityMap = {
   wuyonghui:"beijing",
   zhoujingren:"hangzhou",linjunyang:"hangzhou",
   zhangzhengyou:"shenzhen",yudong:"shenzhen",yaoshunyu:"shenzhen",
+  gregbrockman:"sf",miramurati:"sf",janleike:"sf",aravindsrinivas:"sf",
+  wangxiaochuan:"beijing",liuzhiyuan:"beijing",
   sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
   kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
   robinli:"beijing",luqi:"beijing",yaoqizhi:"beijing",tangxiaoou:"hongkong",zhusongchun:"beijing",lindahua:"hongkong",wangxiaogang:"hongkong",chendanqi:"sf",matengyu:"sf",huangminlie:"beijing",luofuli:"beijing",wangbingxuan:"shenzhen",
