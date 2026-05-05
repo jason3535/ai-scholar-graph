@@ -1631,6 +1631,34 @@ document.getElementById("detail-close").addEventListener("click",e=>{e.stopPropa
 // ===================================================================
 // SEARCH
 // ===================================================================
+// 实验室/学校中英文别名:搜「清华」也能找到 Tsinghua / 北大 → PKU 等
+const orgAlias = {
+  "OpenAI":"OpenAI","Anthropic":"Anthropic","Google DeepMind":"Google DeepMind 谷歌深度思维 谷歌",
+  "MIT / Google DeepMind":"MIT 麻省理工 DeepMind","Microsoft AI":"微软 Microsoft",
+  "Cohere":"Cohere","Mistral AI":"Mistral","Sakana AI":"Sakana 坂井",
+  "xAI":"xAI 马斯克","SSI":"SSI Safe Superintelligence Sutskever",
+  "Black Forest Labs":"Black Forest Labs Flux","Inceptive":"Inceptive",
+  "Eureka Labs":"Eureka Labs Karpathy","Essential AI":"Essential AI",
+  "01.AI / Sinovation":"零一万物 01.AI 创新工场 李开复",
+  "DeepSeek":"深度求索 DeepSeek 梁文锋","Moonshot AI":"月之暗面 Moonshot Kimi 杨植麟",
+  "Zhipu AI / Tsinghua":"智谱 AI 清华 Zhipu","Tsinghua CoAI":"清华 CoAI",
+  "Tsinghua IIIS":"清华叉院 清华交叉信息研究院 姚班 Tsinghua",
+  "PKU / BIGAI":"北大 北京大学 BIGAI 通研院 朱松纯",
+  "MiniMax":"MiniMax 海螺","ByteDance Seed":"字节 字节跳动 Seed ByteDance",
+  "Tencent":"腾讯 Tencent","Tencent (ex-DeepSeek)":"腾讯 前 DeepSeek",
+  "Alibaba Cloud":"阿里云 通义千问 Qwen Alibaba",
+  "Baidu":"百度 文心 ERNIE Baidu","Xiaomi (ex-DeepSeek)":"小米 前 DeepSeek",
+  "SenseTime":"商汤 SenseTime","SenseTime / CUHK":"商汤 香港中文大学 CUHK",
+  "Stanford":"斯坦福 Stanford","Stanford / DeepLearning.AI":"斯坦福 吴恩达 Andrew Ng",
+  "Princeton":"普林斯顿 Princeton","UC Berkeley / Covariant":"伯克利 Berkeley Covariant",
+  "UC Berkeley / Physical Intelligence":"伯克利 Berkeley Physical Intelligence pi",
+  "University of Toronto":"多伦多大学 Toronto Hinton",
+  "University of Alberta":"阿尔伯塔大学 Alberta Sutton",
+  "Mila / U. Montreal":"Mila 蒙特利尔 Montreal Bengio",
+  "JKU Linz / ELLIS":"JKU Linz Schmidhuber Hochreiter",
+  "KAUST / IDSIA":"KAUST IDSIA Schmidhuber","AMI Labs":"AMI Labs",
+  "MiraclePlus":"奇绩创坛"
+};
 document.getElementById("search-input").addEventListener("input",e=>{
   const q=e.target.value.toLowerCase().trim();
   if(!q){
@@ -1642,6 +1670,7 @@ document.getElementById("search-input").addEventListener("input",e=>{
     const haystack = [
       s.name, s.org, s.title, s.bio, s.id,
       zh.zhName, zh.title, zh.bio,
+      orgAlias[s.org] || '',
       ...((s.papers||[]).map(p => p.t || ''))
     ].filter(Boolean).join(' \n ').toLowerCase();
     if(haystack.includes(q)) match.add(s.id);
