@@ -571,17 +571,12 @@ body.no-insights #graph-container {
   stroke-opacity: 0.4;
   stroke-dasharray: 8 5;
 }
-/* Colleague: weakest, subtle dotted — 默认隐藏,hover 时显示 */
+/* Colleague: weakest, subtle dotted — 学者圈 colleague 多是师徒/前同事/校友等有意义关系,保留默认弱可见 */
 .link-line.type-colleague {
   stroke: rgba(255, 255, 255, 0.5);
   stroke-width: 0.8;
-  stroke-opacity: 0;
+  stroke-opacity: 0.15;
   stroke-dasharray: 2 6;
-  pointer-events: none;
-}
-.link-line.type-colleague.highlighted {
-  stroke-opacity: 0.55 !important;
-  pointer-events: auto;
 }
 
 .node-group {
@@ -1107,7 +1102,7 @@ const scholars = [
 
   // Anthropic
   { id:"damodei", name:"Dario Amodei", org:"Anthropic", title:"CEO & Co-founder of Anthropic", field:["safety","nlp"],
-    bio:"Born 1983 in San Francisco. Father was an Italian-American leather craftsman from Tuscany; mother was Jewish American from Chicago. Attended Lowell High School in San Francisco, where he was a member of the USA Physics Olympiad team (2000). Earned a BS in Physics from Stanford, then a PhD in Biophysics from Princeton (2011) under Michael J. Berry and William Bialek, studying neural circuit electrophysiology. Did a postdoc at Stanford School of Medicine. Pivoted to AI: joined Baidu (2014-2015), then OpenAI as VP of Research (2016-2021), where he led the scaling laws research and GPT development. Co-founded Anthropic in 2021 with his sister Daniela and other ex-OpenAI members, citing directional differences on AI safety. Built Claude, now one of the leading AI assistants.",
+    bio:"Born 1983 in San Francisco. Father was an Italian-American leather craftsman from Tuscany; mother was Jewish American from Chicago. Attended Lowell High School in San Francisco, USA Physics Olympiad team (2000). BS Physics Stanford, PhD Biophysics Princeton (2011) under Michael J. Berry and William Bialek. Postdoc Stanford School of Medicine. Pivoted to AI: joined Baidu Silicon Valley AI Lab (SVAIL) Nov 2014–Oct 2015 under Andrew Ng, co-led Deep Speech 2 (English+Mandarin end-to-end speech recognition, MIT TR Top 10 Breakthrough 2015) — formative experience that revealed scaling laws empirically. Then OpenAI VP Research (2016-2021) leading scaling+GPT. Co-founded Anthropic Jan 2021 with sister Daniela and other ex-OpenAI members on safety divergence. 2026.4 Anthropic ARR $30B reportedly overtook OpenAI's $25B.",
     papers:[{y:"2020",t:"Scaling Laws for Neural Language Models [4K]",url:"https://arxiv.org/abs/2001.08361"},{y:"2022",t:"Constitutional AI: Harmlessness from AI Feedback [2K]",url:"https://arxiv.org/abs/2212.08073"}]},
   { id:"daniela", name:"Daniela Amodei", org:"Anthropic", title:"President & Co-founder of Anthropic", field:["safety"],
     bio:"Dario's older sister. Before entering tech, worked in finance at Stripe. Joined OpenAI as VP of Operations, managing the business and organizational side. Co-founded Anthropic with Dario in 2021, serving as President. Leads all business operations, go-to-market strategy, and company culture.", papers:[]},
@@ -1442,6 +1437,11 @@ const connections = [
   {source:"pushmeetkohli",target:"silver",type:"colleague",label:"DeepMind research leadership"},
   // New: Daya Guo (DeepSeek)
   {source:"dayaguo",target:"liangwenfeng",type:"colleague",label:"DeepSeek-R1 first author under Liang Wenfeng"},
+  // Baidu SVAIL alumni network — Robin Li hired Andrew Ng, who in turn brought Dario Amodei
+  {source:"damodei",target:"ng",type:"coauthor",label:"Baidu SVAIL 2014-2015, co-led Deep Speech 2"},
+  {source:"robinli",target:"ng",type:"colleague",label:"Baidu Chief Scientist 2014-2017 under Robin Li"},
+  {source:"robinli",target:"damodei",type:"colleague",label:"Baidu SVAIL research scientist 2014-2015"},
+  {source:"luqi",target:"ng",type:"colleague",label:"Baidu Jan-Mar 2017 overlap (COO + Chief Scientist)"},
 ];
 
 // ===================================================================
