@@ -578,19 +578,6 @@ body.no-insights #graph-container {
   stroke-opacity: 0.18;
   stroke-dasharray: 2 6;
 }
-/* Industry-peer: 同行(同行业但不同公司,如六小虎之间) — 默认隐藏,hover 才显示 */
-.link-line.type-industry-peer {
-  stroke: rgba(255, 255, 255, 0.4);
-  stroke-width: 0.6;
-  stroke-opacity: 0;
-  stroke-dasharray: 1 8;
-  pointer-events: none;
-}
-.link-line.type-industry-peer.highlighted {
-  stroke-opacity: 0.5 !important;
-  stroke-width: 1px !important;
-  pointer-events: auto;
-}
 
 .node-group {
   transition: opacity 0.3s ease;
@@ -621,7 +608,6 @@ body.no-insights #graph-container {
 .link-line.highlighted.type-coauthor { stroke-opacity: 0.75 !important; stroke-width: 3px !important; }
 .link-line.highlighted.type-advisor { stroke-opacity: 0.7 !important; stroke-width: 2.5px !important; }
 .link-line.highlighted.type-colleague { stroke-opacity: 0.5 !important; stroke-width: 1.5px !important; stroke-dasharray: none !important; }
-.link-line.dimmed.type-industry-peer { stroke-opacity: 0 !important; }
 
 /* ===== Tooltip ===== */
 #tooltip {
@@ -1004,7 +990,6 @@ body.no-insights #graph-container {
     <div class="legend-row"><div class="legend-line-sample" style="border-top:2px solid #2997ff; opacity:0.6"></div><span class="legend-label">Co-author</span></div>
     <div class="legend-row"><div class="legend-line-sample" style="border-top:2px dashed #64d2ff; opacity:0.6"></div><span class="legend-label">Advisor / Student</span></div>
     <div class="legend-row"><div class="legend-line-sample" style="border-top:1px dotted rgba(255,255,255,0.5); opacity:0.5"></div><span class="legend-label">Colleague(同事)</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px dotted rgba(255,255,255,0.4); opacity:0.3"></div><span class="legend-label">Industry Peer(同行 · hover 显示)</span></div>
   </div>
 </div>
 
