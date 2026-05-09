@@ -1380,7 +1380,6 @@ const connections = [
   {source:"abbeel",target:"schulman",type:"advisor",label:"PhD advisor at UC Berkeley"},
   {source:"levine",target:"ho",type:"colleague",label:"Berkeley, generative models"},
   // Cross-org
-  {source:"goodfellow",target:"karpathy",type:"industry-peer",label:"Stanford contemporaries"},
   {source:"goodfellow",target:"radford",type:"colleague",label:"GAN / generative lineage"},
   {source:"wei",target:"dean",type:"colleague",label:"Google Brain, chain-of-thought"},
   {source:"ho",target:"hassabis",type:"colleague",label:"Google DeepMind"},
@@ -1392,20 +1391,15 @@ const connections = [
   {source:"jimmyba",target:"hinton",type:"advisor",label:"PhD under Hinton at U. Toronto"},
   {source:"szegedy",target:"goodfellow",type:"coauthor",label:"Adversarial examples (2013), Google colleagues"},
   // Chinese / Chinese-origin
-  {source:"kaiminghe",target:"feifei",type:"industry-peer",label:"FAIR / computer vision community"},
   {source:"kaiminghe",target:"hassabis",type:"colleague",label:"Google DeepMind (2025-)"},
   {source:"sainingxie",target:"lecun",type:"colleague",label:"AMI Labs, Chief Science Officer"},
   {source:"sainingxie",target:"ho",type:"coauthor",label:"Diffusion Transformers lineage"},
   {source:"quocle",target:"ng",type:"advisor",label:"PhD under Andrew Ng at Stanford"},
   {source:"quocle",target:"dean",type:"cofounder",label:"Co-founded Google Brain"},
   {source:"quocle",target:"sutskever",type:"coauthor",label:"Sequence-to-Sequence (2014)"},
-  {source:"kaifulee",target:"ng",type:"industry-peer",label:"AI leaders, China-US bridge"},
-  {source:"jietang",target:"kaiminghe",type:"industry-peer",label:"Tsinghua University"},
   // Moonshot / Kimi
   {source:"yangzhilin",target:"jietang",type:"advisor",label:"Tsinghua undergraduate advisor"},
-  {source:"yangzhilin",target:"bengio",type:"industry-peer",label:"Transformer-XL extends Transformer lineage"},
   // MiniMax
-  {source:"yanjunjie",target:"kaiminghe",type:"industry-peer",label:"Both from Chinese CV community, CAS/SenseTime era"},
   // ByteDance
   {source:"wuyonghui",target:"dean",type:"colleague",label:"Google Brain/DeepMind colleagues"},
   {source:"wuyonghui",target:"quocle",type:"colleague",label:"Google Brain colleagues"},
@@ -1415,10 +1409,7 @@ const connections = [
   {source:"zhangzhengyou",target:"yudong",type:"colleague",label:"Tencent AI leadership"},
   // Alibaba
   {source:"zhoujingren",target:"linjunyang",type:"colleague",label:"Alibaba Tongyi Lab, Qwen team"},
-  {source:"linjunyang",target:"liangwenfeng",type:"industry-peer",label:"Chinese open-source LLM leaders"},
   // Cross-company
-  {source:"yangzhilin",target:"liangwenfeng",type:"industry-peer",label:"Chinese AGI startup founders"},
-  {source:"yanjunjie",target:"yangzhilin",type:"industry-peer",label:"Chinese AI startup founders"},
   // RL / LSTM pioneers
   {source:"sutton",target:"silver",type:"advisor",label:"Influenced RL foundations, Alberta"},
   {source:"sutton",target:"hassabis",type:"colleague",label:"DeepMind Alberta, RL foundations"},
@@ -1435,11 +1426,9 @@ const connections = [
   {source:"rombach",target:"ho",type:"coauthor",label:"Latent Diffusion builds on DDPM"},
   // Mensch
   {source:"mensch",target:"hassabis",type:"colleague",label:"DeepMind Paris (2020-2023)"},
-  {source:"mensch",target:"lecun",type:"industry-peer",label:"French AI leaders"},
   // Chinese industry
   {source:"robinli",target:"luqi",type:"colleague",label:"Baidu CEO recruited Lu Qi as COO"},
   {source:"luqi",target:"altman",type:"colleague",label:"Y Combinator China, recruited by Altman"},
-  {source:"robinli",target:"kaifulee",type:"industry-peer",label:"Chinese AI industry leaders"},
   {source:"yaoqizhi",target:"yangzhilin",type:"advisor",label:"Yang Zhilin Yao Class"},
   {source:"yaoqizhi",target:"chendanqi",type:"advisor",label:"Chen Danqi Yao Class 2008"},
   {source:"yaoqizhi",target:"matengyu",type:"advisor",label:"Ma Tengyu Yao Class 2008"},
@@ -1447,9 +1436,7 @@ const connections = [
   {source:"tangxiaoou",target:"lindahua",type:"advisor",label:"MMLab professor"},
   {source:"tangxiaoou",target:"wangxiaogang",type:"advisor",label:"SenseTime co-founder mentor"},
   {source:"lindahua",target:"wangxiaogang",type:"colleague",label:"SenseTime co-founders"},
-  {source:"zhusongchun",target:"feifei",type:"industry-peer",label:"Both CV pioneers"},
   {source:"chendanqi",target:"matengyu",type:"colleague",label:"Yao Class 2008 classmates"},
-  {source:"huangminlie",target:"liangwenfeng",type:"industry-peer",label:"DeepSeek members from CoAI lab"},
   {source:"luofuli",target:"liangwenfeng",type:"colleague",label:"DeepSeek core, poached by Xiaomi"},
   {source:"wangbingxuan",target:"liangwenfeng",type:"colleague",label:"DeepSeek V1 author, left for Tencent"},
   // New: Pachocki, Mark Chen, Noam Brown (OpenAI)
@@ -1501,8 +1488,6 @@ const connections = [
   // 姚顺雨(腾讯尧舜禹) — 姚班 + Princeton + OpenAI Agent 团队 + 腾讯首席 AI 科学家
   {source:"yaoqizhi",target:"yaoshunyu",type:"advisor",label:"姚班 2015 级"},
   {source:"yaoshunyu",target:"chendanqi",type:"colleague",label:"Princeton CS 校友(陈丹琦师姐) + 都是姚班出身"},
-  {source:"yaoshunyu",target:"yangzhilin",type:"industry-peer",label:"姚班同门 + 都做大模型 Agent"},
-  {source:"yaoshunyu",target:"matengyu",type:"industry-peer",label:"姚班 + Princeton 校友"},
   {source:"yaoshunyu",target:"altman",type:"colleague",label:"OpenAI 2024.8-2025.9(Operator + Deep Research)"},
   {source:"yaoshunyu",target:"pachocki",type:"colleague",label:"OpenAI 共事 13 个月"},
   {source:"yaoshunyu",target:"markchen",type:"colleague",label:"OpenAI Research 团队"},
@@ -1531,35 +1516,17 @@ const connections = [
   {source:"janleike",target:"hassabis",type:"colleague",label:"DeepMind Alignment 2018-2021"},
   // Aravind Srinivas — Perplexity CEO,Abbeel 学生
   {source:"aravindsrinivas",target:"abbeel",type:"advisor",label:"Berkeley PhD 导师 2017-2021"},
-  {source:"aravindsrinivas",target:"lecun",type:"industry-peer",label:"LeCun 是 Perplexity 早期投资人/支持者"},
   {source:"aravindsrinivas",target:"altman",type:"colleague",label:"OpenAI 实习/合作"},
   // 王小川 — 百川智能 CEO,前搜狗 CEO
-  {source:"wangxiaochuan",target:"robinli",type:"industry-peer",label:"中国互联网 AI 时代同辈(搜狗 vs 百度)"},
-  {source:"wangxiaochuan",target:"kaifulee",type:"industry-peer",label:"中国 AI 产业领袖"},
-  {source:"wangxiaochuan",target:"yangzhilin",type:"industry-peer",label:"清华校友 + 都做 LLM 创业"},
-  {source:"wangxiaochuan",target:"liangwenfeng",type:"industry-peer",label:"中国开源 LLM 创业同辈"},
   // 刘知远 — 面壁智能联创,清华 NLP
   {source:"liuzhiyuan",target:"jietang",type:"colleague",label:"清华 CS NLP 教师同事"},
   {source:"liuzhiyuan",target:"huangminlie",type:"colleague",label:"清华 CoAI 同事"},
-  {source:"liuzhiyuan",target:"yangzhilin",type:"industry-peer",label:"清华校友 + LLM 创业"},
-  {source:"liuzhiyuan",target:"liangwenfeng",type:"industry-peer",label:"开源 LLM 创业同辈"},
   // 「AI 六小虎」cluster — 中国 LLM 一线创业 6 家(智谱/月之暗面/MiniMax/百川/01.AI/阶跃星辰)
   // 姜大昕(阶跃星辰)— 微软 16 年 + 六小虎之一
   {source:"jiangdaxin",target:"yudong",type:"colleague",label:"微软亚洲研究院 16 年同事(2007-2023)"},
   {source:"jiangdaxin",target:"zhangzhengyou",type:"colleague",label:"微软亚洲研究院同事"},
   {source:"jiangdaxin",target:"kaiminghe",type:"colleague",label:"MSRA 时期(2011-2016)"},
-  {source:"jiangdaxin",target:"yangzhilin",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"jiangdaxin",target:"jietang",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"jiangdaxin",target:"yanjunjie",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"jiangdaxin",target:"wangxiaochuan",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"jiangdaxin",target:"kaifulee",type:"industry-peer",label:"AI 六小虎之一"},
   // 六小虎其他缺失的对偶连线
-  {source:"jietang",target:"kaifulee",type:"industry-peer",label:"中国 AI 产业代表 · 六小虎"},
-  {source:"jietang",target:"yanjunjie",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"jietang",target:"wangxiaochuan",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"yangzhilin",target:"kaifulee",type:"industry-peer",label:"AI 六小虎之一(月之暗面 vs 01.AI)"},
-  {source:"yanjunjie",target:"kaifulee",type:"industry-peer",label:"AI 六小虎之一"},
-  {source:"yanjunjie",target:"wangxiaochuan",type:"industry-peer",label:"AI 六小虎之一"},
   // Boris Cherny — Claude Code 创建者
   {source:"bcherny",target:"catwu",type:"cofounder",label:"Claude Code 联创团队 · 创始工程师 + 创始 PM"},
   {source:"bcherny",target:"damodei",type:"colleague",label:"Anthropic 同事"},
