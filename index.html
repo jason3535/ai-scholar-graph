@@ -2145,11 +2145,12 @@ const wikiTitles = {
 // Twitter handles 兜底(很多 AI 大佬没 Wikipedia 但活跃在 X/Twitter)
 const twitterHandles = {
   miramurati: "miramurati", janleike: "janleike", aravindsrinivas: "AravSrinivas",
-  yaoshunyu: "ShunyuYao12", bcherny: "bcherny",
+  yaoshunyu: "ShunyuYao12", bcherny: "bcherny", catwu: "catnotonfire",
   pachocki: "merettmm", markchen: "markchen90", noambrown: "polynoamial",
   jaredkaplan: "jaredkaplan", sammccandlish: "sammccandlish",
   matengyu: "tengyuma", chendanqi: "danqi_chen",
   liangwenfeng: "deepseek_ai", dayaguo: "dayaguoyao",
+  luofuli: "luofuli", wangbingxuan: "wangbingxuan",
 };
 
 // 中文 Wikipedia 备用(只有中文条目的人物)
@@ -2207,7 +2208,6 @@ async function fetchPhoto(scholarId) {
   const tw = twitterHandles[scholarId];
   if (tw) {
     const url = `https://unavatar.io/twitter/${tw}?fallback=false`;
-    // 预加载验证(404/无头像的 handle 不返回 URL,避免破图)
     const ok = await new Promise(resolve => {
       const img = new Image();
       img.onload = () => resolve(true);
@@ -2215,6 +2215,16 @@ async function fetchPhoto(scholarId) {
       img.src = url;
     });
     if (ok) { photoCache[scholarId] = url; return url; }
+  }
+  // 4) 终极兜底:ui-avatars 生成彩色 monogram(每人 deterministic 颜色)
+  const scholar = scholars.find(s => s.id === scholarId);
+  if (scholar) {
+    const colors = ['0a84ff','30d158','ff375f','ff9f0a','5e5ce6','bf5af2','64d2ff','ffd60a','ff9500','32d74b'];
+    const hash = scholarId.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+    const bg = colors[hash % colors.length];
+    const url = `https://ui-avatars.com/api/?name=${encodeURIComponent(scholar.name)}&background=${bg}&color=fff&size=200&bold=true&font-size=0.4`;
+    photoCache[scholarId] = url;
+    return url;
   }
   return null;
 }
