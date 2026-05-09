@@ -1200,6 +1200,11 @@ const scholars = [
     bio:"Born ~1989. Taught himself advanced calculus in high school after finding the standard curriculum too slow. Earned a degree in Mathematics from Southeast University (2006), then a PhD from the Institute of Automation, Chinese Academy of Sciences (2015). Conducted postdoctoral research at Tsinghua University. Spent 6+ years at SenseTime, rising to deputy head of its research institute. Became captivated by OpenAI after its bots defeated elite human teams in Dota 2 (2019), prompting a career pivot from computer vision to NLP. Founded MiniMax in December 2021. The company developed Hailuo AI (video generation) and a suite of multimodal models. MiniMax IPO'd on the Hong Kong Stock Exchange in January 2026, making Yan a billionaire at age 36 with a net worth of $3.2B.",
     papers:[]},
 
+  // ===== StepFun / 阶跃星辰 =====
+  { id:"jiangdaxin", name:"Jiang Daxin", org:"StepFun", title:"Founder & CEO of StepFun · 前微软全球副总裁",field:["nlp","vision"],
+    bio:"中科大本科,中科院软件所硕士,纽约州立布法罗 CS PhD(2005)。新加坡南洋理工助教 1 年。2007 加入微软亚洲研究院首席研究员,16 年微软生涯横跨 ML/数据挖掘/NLP/生物信息学。2008 SIGKDD 最佳应用论文奖。2011 转微软亚洲互联网工程院(STCA)。2017 升微软全球合伙人 + STCA 副院长 + 首席科学家。2023.3 升微软副总裁,负责 Bing 全球搜索 + AI School China + NLP 技术研发,管 400+ 人精英团队。2023.4 创办阶跃星辰主攻多模态 + AGI Scaling Law。2025 入选 IEEE Fellow。Step 系列模型(Step-1/Step-2/Step-3)以多模态生成著称。「AI 六小虎」之一,与上海资本系深度绑定。",
+    papers:[{y:"2008",t:"SIGKDD Best Applied Research Paper Award"},{y:"2024",t:"Step-1V Multimodal Foundation Model"},{y:"2025",t:"IEEE Fellow"}]},
+
   // ===== Moonshot AI / Kimi =====
   { id:"yangzhilin", name:"Yang Zhilin", org:"Moonshot AI", title:"Founder & CEO of Moonshot AI (Kimi)", field:["nlp"],
     bio:"Born 1992 in Shantou, Guangdong. Attended Shantou Jinshan Middle School. With no prior programming background, was selected for the informatics Olympiad training program and won first prize in the Guangdong division of the National Olympiad in Informatics, earning guaranteed admission to Tsinghua University. Initially admitted to Thermal Energy Engineering, transferred to Computer Science in his sophomore year and studied under Professor Jie Tang. Graduated top of his class with a BSc (2015). Earned a PhD from Carnegie Mellon University in just 4 years (standard is 6), completed 2019, under Ruslan Salakhutdinov (later Apple's head of AI) and William Cohen (Google DeepMind). During his PhD, interned at Meta and Google Brain. Co-developed Transformer-XL and XLNet, extending Transformers to handle much longer sequences. Founded Moonshot AI in March 2023 with Tsinghua classmates Zhou Xinyu and Wu Yuxin. Created Kimi, one of China's most popular AI assistants, known for its industry-leading long-context capability (200K+ tokens from the start). Also an assistant professor at Tsinghua and PI at Shanghai Qizhi Research Institute.",
@@ -1523,6 +1528,23 @@ const connections = [
   {source:"liuzhiyuan",target:"huangminlie",type:"colleague",label:"清华 CoAI 同事"},
   {source:"liuzhiyuan",target:"yangzhilin",type:"colleague",label:"清华校友 + LLM 创业"},
   {source:"liuzhiyuan",target:"liangwenfeng",type:"colleague",label:"开源 LLM 创业同辈"},
+  // 「AI 六小虎」cluster — 中国 LLM 一线创业 6 家(智谱/月之暗面/MiniMax/百川/01.AI/阶跃星辰)
+  // 姜大昕(阶跃星辰)— 微软 16 年 + 六小虎之一
+  {source:"jiangdaxin",target:"yudong",type:"colleague",label:"微软亚洲研究院 16 年同事(2007-2023)"},
+  {source:"jiangdaxin",target:"zhangzhengyou",type:"colleague",label:"微软亚洲研究院同事"},
+  {source:"jiangdaxin",target:"kaiminghe",type:"colleague",label:"MSRA 时期(2011-2016)"},
+  {source:"jiangdaxin",target:"yangzhilin",type:"colleague",label:"AI 六小虎之一"},
+  {source:"jiangdaxin",target:"jietang",type:"colleague",label:"AI 六小虎之一"},
+  {source:"jiangdaxin",target:"yanjunjie",type:"colleague",label:"AI 六小虎之一"},
+  {source:"jiangdaxin",target:"wangxiaochuan",type:"colleague",label:"AI 六小虎之一"},
+  {source:"jiangdaxin",target:"kaifulee",type:"colleague",label:"AI 六小虎之一"},
+  // 六小虎其他缺失的对偶连线
+  {source:"jietang",target:"kaifulee",type:"colleague",label:"中国 AI 产业代表 · 六小虎"},
+  {source:"jietang",target:"yanjunjie",type:"colleague",label:"AI 六小虎之一"},
+  {source:"jietang",target:"wangxiaochuan",type:"colleague",label:"AI 六小虎之一"},
+  {source:"yangzhilin",target:"kaifulee",type:"colleague",label:"AI 六小虎之一(月之暗面 vs 01.AI)"},
+  {source:"yanjunjie",target:"kaifulee",type:"colleague",label:"AI 六小虎之一"},
+  {source:"yanjunjie",target:"wangxiaochuan",type:"colleague",label:"AI 六小虎之一"},
   // Boris Cherny — Claude Code 创建者
   {source:"bcherny",target:"catwu",type:"cofounder",label:"Claude Code 联创团队 · 创始工程师 + 创始 PM"},
   {source:"bcherny",target:"damodei",type:"colleague",label:"Anthropic 同事"},
@@ -1942,6 +1964,7 @@ const scholarZh = {
   wangxiaochuan: { zhName: "王小川", title: "百川智能创始人兼 CEO · 前搜狗 CEO", bio: "1978 年生于成都。1996 年 NOI 全国信息学奥赛金牌保送清华计算机系。2003 年清华硕士毕业加入搜狐。2010 年主导搜狗输入法和搜狗搜索独立分拆，2013 年任搜狗 CEO，2017 年带搜狗赴美 IPO（NYSE: SOGO）。2021 年搜狗被腾讯私有化。2023 年 4 月创办百川智能，首轮 CMC、腾讯、小米、3 家美元基金参投。5 个月内连续发布 Baichuan-7B/13B/53B/Baichuan2 等系列开源大模型。2024 年转向 toC 医疗 AI 大模型 Baichuan-M3（HealthBench 全球第一）。账上现金 30 亿，2027 年计划 IPO。" },
   liuzhiyuan: { zhName: "刘知远", title: "面壁智能联创 · 清华副教授 · MiniCPM 主导者", bio: "清华 CS 本博（2011 博士，导师孙茂松），专注 NLP、知识图谱、表征学习。AAAI/IJCAI/ACL 等顶会论文 200+。2021 年 6 月「悟道 2.0」万亿参数模型发布后，与导师孙茂松、学生曾国洋等联合创办面壁智能（ModelBest），走端侧 AI 路线。2024 年 2 月发布 MiniCPM 仅 24 亿参数性能赶超百亿模型，被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications，8B 多模态综合性能超越 GPT-4V 和 Gemini Pro。2024 年斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。是中国端侧大模型代表人物。" },
   bcherny: { zhName: "Boris Cherny", title: "Claude Code 创建者兼负责人", bio: "前 Meta 5 年首席工程师（Principal Engineer），负责 Facebook 和 Instagram 内部开发者工具。《Programming TypeScript》（O'Reilly，2019）作者，是 TypeScript 社区的标准教材之一。加入 Anthropic 后构思了 Claude Code 的最初原型——最早只是一个让 Claude 知道工程师在听什么音乐的 CLI 玩具，后来给它访问文件系统权限，在公司内部「病毒式」扩散。2025 年 Claude Code 从 research preview 转为 GA。被业内视为 AI native 工程师的代表实践者（传闻每周写 100+ PR）。被 Pragmatic Engineer、Lenny 等头部技术媒体频繁深度访谈，影响了大批工程师对 agentic coding 的认知。" },
+  jiangdaxin: { zhName: "姜大昕", title: "阶跃星辰创始人兼 CEO · 前微软全球副总裁", bio: "中科大本科，中科院软件所硕士，纽约州立大学布法罗分校 CS 博士（2005）。在新加坡南洋理工大学计算机系任助理教授一年。2007 年加入微软亚洲研究院任首席研究员，开启 16 年微软生涯，横跨机器学习、数据挖掘、NLP 和生物信息学。2008 年获 SIGKDD 最佳应用论文奖。2011 年转入微软亚洲互联网工程院（STCA）。2017 年升任微软全球合伙人 + STCA 副院长 + 首席科学家。2023 年 3 月升任微软副总裁，负责 Bing 全球搜索体验、AI School China 和 NLP 技术研发，管理 400+ 人的精英团队。2023 年 4 月创办阶跃星辰，主攻多模态 + AGI Scaling Law。2025 年入选 IEEE Fellow。Step 系列模型（Step-1/Step-2/Step-3）以多模态生成著称。「AI 六小虎」之一，与上海资本系深度绑定。" },
   catwu: { zhName: "Cat Wu（Catherine Wu）", title: "Claude Code 创始 PM · 现任产品负责人", bio: "Anthropic 招牌产品经理，Claude Code 创始 PM（day 1 加入团队）。背景路径：JP Morgan（投行）→ Scale AI（数据标注独角兽）→ Dagster Labs（数据基础设施）→ Index Ventures（欧洲一线 VC）→ Anthropic（2024）。2025 年曾跳槽 Cursor 但只待了 2 周就回流 Anthropic，被业内戏称「反向猎头」事件——侧面说明 Anthropic 内部产品-工程协作密度远超同行。Lenny's Podcast 高频嘉宾，被认为是 AI 时代产品经理「速度优先 + 技术深度」结合的代表。Code with Claude 开发者大会（SF，2025.5）主讲。" },
   zhoujingren: { zhName: "周靖人", title: "阿里云 CTO · 通义实验室负责人", bio: "哥伦比亚大学计算机科学博士。曾在微软研究院工作。2015年加入阿里巴巴，历任阿里云首席科学家、达摩院副院长。现任阿里云 CTO 兼通义实验室负责人，统管通义千问（Qwen）模型家族——中国最具影响力的开源大模型系列。2026年3月林骏扬离职后直接接管 Qwen 团队。与 CEO 吴泳铭共同领导阿里基础模型特别工作组。" },
   sutton: { title: "强化学习之父", bio: "1956年生于美国。斯坦福心理学学士（1978），马萨诸塞大学计算机科学博士（1984，导师 Andrew Barto，两人共同奠基了强化学习领域）。2003年加入阿尔伯塔大学。与 Barto 合著了《强化学习导论》（1998）——训练了几乎所有在世 RL 研究者的标准教科书。发明了时间差分（TD）学习、策略梯度方法和 Dyna 架构。曾任 DeepMind Alberta 杰出研究科学家。2019年发表的《The Bitter Lesson》成为现代 AI 最常被引用的哲学文章之一。" },
@@ -2331,6 +2354,7 @@ const cityMap = {
   gregbrockman:"sf",miramurati:"sf",janleike:"sf",aravindsrinivas:"sf",
   wangxiaochuan:"beijing",liuzhiyuan:"beijing",
   bcherny:"sf",catwu:"sf",
+  jiangdaxin:"shanghai",
   sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
   kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
   robinli:"beijing",luqi:"beijing",yaoqizhi:"beijing",tangxiaoou:"hongkong",zhusongchun:"beijing",lindahua:"hongkong",wangxiaogang:"hongkong",chendanqi:"sf",matengyu:"sf",huangminlie:"beijing",luofuli:"beijing",wangbingxuan:"shenzhen",
