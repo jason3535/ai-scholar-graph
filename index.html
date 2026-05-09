@@ -2135,6 +2135,43 @@ const wikiTitles = {
   kingma: "Diederik_P._Kingma", vinyals: "Oriol_Vinyals", rombach: "Robin_Rombach",
   mensch: "Arthur_Mensch", robinli: "Robin_Li", luqi: "Qi_Lu", yaoqizhi: "Andrew_Yao", tangxiaoou: "Tang_Xiaoou", zhusongchun: "Zhu_Song-Chun",
   noambrown: "Noam_Brown_(computer_scientist)", pushmeetkohli: "Pushmeet_Kohli",
+  // 新增英文 Wikipedia 条目
+  gregbrockman: "Greg_Brockman", miramurati: "Mira_Murati", janleike: "Jan_Leike",
+  aravindsrinivas: "Aravind_Srinivas", wangxiaochuan: "Wang_Xiaochuan",
+  pachocki: "Jakub_Pachocki", jaredkaplan: "Jared_Kaplan_(physicist)",
+  chendanqi: "Danqi_Chen", matengyu: "Tengyu_Ma", markchen: "Mark_Chen_(researcher)",
+};
+
+// Twitter handles 兜底(很多 AI 大佬没 Wikipedia 但活跃在 X/Twitter)
+const twitterHandles = {
+  miramurati: "miramurati", janleike: "janleike", aravindsrinivas: "AravSrinivas",
+  yaoshunyu: "ShunyuYao12", bcherny: "bcherny",
+  pachocki: "merettmm", markchen: "markchen90", noambrown: "polynoamial",
+  jaredkaplan: "jaredkaplan", sammccandlish: "sammccandlish",
+  matengyu: "tengyuma", chendanqi: "danqi_chen",
+  liangwenfeng: "deepseek_ai", dayaguo: "dayaguoyao",
+};
+
+// 中文 Wikipedia 备用(只有中文条目的人物)
+const zhWikiTitles = {
+  jiangdaxin: "姜大昕",
+  yaoshunyu: "姚顺雨",
+  liuzhiyuan: "刘知远",
+  huangminlie: "黄民烈",
+  zhoujingren: "周靖人",
+  lindahua: "林达华",
+  wangxiaogang: "王晓刚",
+  // 已有英文条目的也加中文兜底,英文 wiki 没图时回退
+  yaoqizhi: "姚期智",
+  tangxiaoou: "汤晓鸥",
+  robinli: "李彦宏",
+  luqi: "陆奇",
+  kaifulee: "李开复",
+  liangwenfeng: "梁文锋",
+  yangzhilin: "杨植麟",
+  jietang: "唐杰_(计算机科学家)",
+  zhangzhengyou: "张正友",
+  wangxiaochuan: "王小川",
 };
 
 // Photo cache
@@ -2142,16 +2179,44 @@ const photoCache = {};
 
 async function fetchPhoto(scholarId) {
   if (photoCache[scholarId]) return photoCache[scholarId];
-  const wiki = wikiTitles[scholarId];
-  if (!wiki) return null;
-  try {
-    const resp = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wiki)}`);
-    if (!resp.ok) return null;
-    const data = await resp.json();
-    const url = data.thumbnail?.source || null;
-    if (url) photoCache[scholarId] = url;
-    return url;
-  } catch(e) { return null; }
+  // 1) 英文 Wikipedia
+  const enWiki = wikiTitles[scholarId];
+  if (enWiki) {
+    try {
+      const resp = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(enWiki)}`);
+      if (resp.ok) {
+        const data = await resp.json();
+        const url = data.thumbnail?.source;
+        if (url) { photoCache[scholarId] = url; return url; }
+      }
+    } catch(e) {}
+  }
+  // 2) 中文 Wikipedia(中国本土人物)
+  const zhWiki = zhWikiTitles[scholarId];
+  if (zhWiki) {
+    try {
+      const resp = await fetch(`https://zh.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(zhWiki)}`);
+      if (resp.ok) {
+        const data = await resp.json();
+        const url = data.thumbnail?.source;
+        if (url) { photoCache[scholarId] = url; return url; }
+      }
+    } catch(e) {}
+  }
+  // 3) Twitter avatar via unavatar.io(无 Wikipedia 但活跃在 X 的 AI 大佬)
+  const tw = twitterHandles[scholarId];
+  if (tw) {
+    const url = `https://unavatar.io/twitter/${tw}?fallback=false`;
+    // 预加载验证(404/无头像的 handle 不返回 URL,避免破图)
+    const ok = await new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
+    });
+    if (ok) { photoCache[scholarId] = url; return url; }
+  }
+  return null;
 }
 
 // openDetail with i18n support
