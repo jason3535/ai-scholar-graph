@@ -1081,7 +1081,7 @@ body.no-insights #graph-container {
 
 <!-- Insights Section (rendered by insights-widget.js) -->
 <section id="insights-section" data-graph="ai-scholar"></section>
-<script src="https://hardware.jasonlin.tech/insights-widget.js?v=45" defer></script>
+<script src="https://hardware.jasonlin.tech/insights-widget.js?v=46" defer></script>
 
 <script>
 // ===================================================================
@@ -1354,9 +1354,12 @@ const scholars = [
   {id:"catwu",name:"Cat Wu",org:"Anthropic",title:"Head of Product · Claude Code & Cowork",field:["nlp"],bio:"Catherine Wu。Anthropic 招牌产品经理,Claude Code 创始 PM(day 1 加入团队)。背景路径:JP Morgan(投行) → Scale AI(数据标注独角兽) → Dagster Labs(数据基础设施) → Index Ventures(欧洲一线 VC) → Anthropic(2024)。2025 年曾跳槽 Cursor 但只待了 2 周就回流 Anthropic,被业内戏称「反向猎头」事件——侧面说明 Anthropic 内部产品-工程协作密度远超同行。Lenny's Podcast 高频嘉宾,被认为是 AI 时代产品经理「速度优先 + 技术深度」结合的代表。Code with Claude 开发者大会(SF,2025.5)主讲。",papers:[{y:"2025",t:"Claude Code GA launch (founding PM)"},{y:"2025",t:"Code with Claude SF keynote"}]},
   // ===== Chelsea Finn (Stanford / Physical Intelligence) =====
   {id:"finn",name:"Chelsea Finn",org:"Stanford / Physical Intelligence",title:"Robot Learning & Meta-Learning Pioneer",field:["rl"],bio:"American computer scientist, assistant professor of CS and EE at Stanford, where she leads the IRIS lab on robot learning. BS in EECS from MIT, PhD from UC Berkeley co-advised by Pieter Abbeel and Sergey Levine. During her PhD she created Model-Agnostic Meta-Learning (MAML, 2017) — a foundational algorithm for fast adaptation of neural networks to new tasks from few examples, now widely used across RL, vision and beyond. Worked at Google Brain, and in 2024 co-founded Physical Intelligence with Sergey Levine, Karol Hausman and others to build general-purpose robot foundation models (π0). ACM Doctoral Dissertation Award and a leading voice in embodied AI.",papers:[{y:"2017",t:"Model-Agnostic Meta-Learning (MAML) [12K+ citations]",url:"https://arxiv.org/abs/1703.03400"},{y:"2024",t:"Co-founded Physical Intelligence (π0 robot foundation model)"}]},
+  {id:"tulloch",name:"Andrew Tulloch",org:"Meta Superintelligence Labs",title:"ML Systems Researcher · Ex-Thinking Machines Cofounder",field:["deep-learning"],bio:"Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati's Thinking Machines Lab in 2025. In October 2025 he left to join Meta Superintelligence Labs, reporting to chief AI officer Alexandr Wang, in a deal widely reported at ~$1.5 billion over six years — described as the most expensive individual hire in tech history and a symbol of the 2025-26 AI talent war. A specialist in large-scale ML systems and training infrastructure.",papers:[{y:"2025",t:"Co-founded Thinking Machines Lab"},{y:"2025",t:"Joined Meta Superintelligence Labs (~$1.5B package)"}]}
 ];
 
 const connections = [
+  {source:"tulloch",target:"miramurati",type:"cofounder",label:"Co-founded Thinking Machines Lab"},
+  {source:"tulloch",target:"barretzoph",type:"colleague",label:"OpenAI / Thinking Machines colleagues"},
   {source:"abbeel",target:"finn",type:"advisor",label:"PhD co-advisor at UC Berkeley"},
   {source:"levine",target:"finn",type:"cofounder",label:"Berkeley robot learning; co-founded Physical Intelligence"},
   {"source": "lample","target": "mensch","type": "colleague","label": "Co-founded Mistral AI"},
@@ -1991,6 +1994,7 @@ const i18n = {
 
 // Chinese scholar data
 const scholarZh = {
+  "tulloch":{"zhName": "安德鲁·塔洛克","title": "Meta 超级智能实验室 · 前 Thinking Machines 联合创始人","bio": "澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang 汇报，据多方报道其薪酬包六年约 15 亿美元——被称为科技史上最贵的个人招募，是 2025-26 年 AI 人才战的标志性事件。专长于大规模机器学习系统与训练基础设施。"},
   "lample":{"zhName": "Guillaume Lample","title": "Mistral AI 联合创始人兼首席科学家 · LLaMA 创造者","bio": "法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高被引的无监督机器翻译（EMNLP 2018 最佳论文）及跨语言预训练（XLM）研究，后主导创建了 Meta 于 2023 年 2 月发布的 LLaMA 开源大模型家族。2023 年 4 月联合创办 Mistral AI，担任首席科学家。"},
   "lacroix":{"zhName": "Timothee Lacroix","title": "Mistral AI 联合创始人兼 CTO","bio": "法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与了 Meta LLaMA 大模型家族的研发。2023 年 4 月与 Mensch、Lample 共同创办 Mistral AI，构建开放高效的基础模型。"},
   "justinjohnson":{"zhName": "Justin Johnson","title": "World Labs 联合创始人 · 视觉与图形研究者","bio": "计算机视觉研究者，在斯坦福获博士学位，导师为李飞飞，期间共同讲授了传奇课程 CS231n 深度学习。代表性工作包括用于实时风格迁移的感知损失与 CLEVR 视觉推理数据集。后任密歇根大学助理教授，同时担任 Facebook AI Research 研究科学家。2024 年与昔日导师李飞飞等人共同创办 World Labs，构建面向空间智能的「大世界模型」；该公司融资超 10 亿美元，并发布 Marble 世界生成模型。"},
@@ -2082,6 +2086,8 @@ const scholarZh = {
 
 // Chinese connection labels
 const connLabelZh = {
+  "Co-founded Thinking Machines Lab":"共同创办 Thinking Machines Lab",
+  "OpenAI / Thinking Machines colleagues":"OpenAI / Thinking Machines 同事",
   "2015 Nature paper, Turing Award trio": "2015 Nature 论文，图灵奖三巨头",
   "Turing Award trio, Deep Learning review": "图灵奖三巨头，深度学习综述",
   "Turing Award trio": "图灵奖三巨头",
