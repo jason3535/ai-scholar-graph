@@ -2266,6 +2266,9 @@ function applyLanguage(lang) {
   document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
 }
 
+// 本地头像(assets/people/<id>.jpg,部分源自 AI 播客站,可靠优先)
+const LOCAL_PHOTOS = new Set(["sutskever","hassabis","damodei","karpathy","feifei","bengio","hinton","lecun","suleyman","jensen","altman","miramurati","ng","sutton","gregbrockman","mensch","musk","kolter","sholto","awang","janleike","kaiser","lambert","bcherny","truell","steinberger","schulman","noambrown","schmidhuber","dean","abbeel"]);
+
 // Wikipedia article title mapping for avatar fetching
 const wikiTitles = {
   hinton: "Geoffrey_Hinton", lecun: "Yann_LeCun", bengio: "Yoshua_Bengio",
@@ -2337,6 +2340,8 @@ const photoCache = {};
 
 async function fetchPhoto(scholarId) {
   if (photoCache[scholarId]) return photoCache[scholarId];
+  // 0) 本地头像(可靠,优先于 Wikipedia/Twitter 运行时抓取)
+  if (LOCAL_PHOTOS.has(scholarId)) { const url = `assets/people/${scholarId}.jpg`; photoCache[scholarId] = url; return url; }
   // 1) 英文 Wikipedia
   const enWiki = wikiTitles[scholarId];
   if (enWiki) {
