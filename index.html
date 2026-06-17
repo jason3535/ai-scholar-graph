@@ -1842,7 +1842,18 @@ function closeDetail(){
   if(!id) return;
   const target=scholars.find(s=>s.id===id);
   if(!target) return;
-  setTimeout(()=>openDetail(target),700);
+  setTimeout(()=>{
+    openDetail(target);
+    try{
+      if(target.x!=null){
+        const k=1.4;
+        svg.transition().duration(900).ease(d3.easeCubicInOut).call(
+          zoomBehavior.transform,
+          d3.zoomIdentity.translate(W/2 - target.x*k, H/2 - target.y*k).scale(k)
+        );
+      }
+    }catch(_){}
+  },800);
 })();
 document.getElementById("detail-close").addEventListener("click",e=>{e.stopPropagation();closeDetail();});
 
@@ -2785,7 +2796,7 @@ applyLanguage("zh");
 <script>
 (function(){
   // graph scholar id -> AI Podcast person id (aipodcast.jasonlin.tech/#/person/<id>)
-  var PODCAST={sutskever:'ilya',hassabis:'demis',damodei:'dario',karpathy:'karpathy',feifei:'feifei',bengio:'bengio',hinton:'hinton',lecun:'lecun',janleike:'leike',suleyman:'suleyman',altman:'altman',miramurati:'murati',ng:'andrewng',sutton:'sutton',gregbrockman:'brockman',mensch:'mensch',musk:'elon',kaiser:'kaiser',bcherny:'boris',catwu:'catwu',truell:'truell',steinberger:'steinberger',jensen:'jensen',kolter:'kolter',sholto:'sholto',lambert:'lambert',awang:'awang'};
+  var PODCAST={sutskever:'ilya',hassabis:'demis',damodei:'dario',karpathy:'karpathy',feifei:'feifei',bengio:'bengio',hinton:'hinton',lecun:'lecun',janleike:'leike',suleyman:'suleyman',altman:'altman',miramurati:'murati',ng:'andrewng',sutton:'sutton',gregbrockman:'brockman',mensch:'mensch',musk:'elon',kaiser:'kaiser',bcherny:'boris',catwu:'catwu',truell:'truell',steinberger:'steinberger',jensen:'jensen',kolter:'kolter',sholto:'sholto',lambert:'lambert',awang:'awang',dean:'jeffdean',shazeer:'shazeer',schulman:'schulman',noambrown:'noambrown',jaredkaplan:'kaplan',schmidhuber:'schmidhuber',abbeel:'abbeel',aravindsrinivas:'aravind'};
   function detectLang(){var a=document.querySelector('.lang-btn.active');if(a&&a.dataset&&a.dataset.lang)return a.dataset.lang;try{return currentLang;}catch(e){return 'zh';}}
   var L={zh:'听他的 AI 播客',en:'Listen on AI Podcast'};
   function init(){
