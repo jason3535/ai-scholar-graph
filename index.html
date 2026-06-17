@@ -1354,7 +1354,14 @@ const scholars = [
   {id:"catwu",name:"Cat Wu",org:"Anthropic",title:"Head of Product · Claude Code & Cowork",field:["nlp"],bio:"Catherine Wu。Anthropic 招牌产品经理,Claude Code 创始 PM(day 1 加入团队)。背景路径:JP Morgan(投行) → Scale AI(数据标注独角兽) → Dagster Labs(数据基础设施) → Index Ventures(欧洲一线 VC) → Anthropic(2024)。2025 年曾跳槽 Cursor 但只待了 2 周就回流 Anthropic,被业内戏称「反向猎头」事件——侧面说明 Anthropic 内部产品-工程协作密度远超同行。Lenny's Podcast 高频嘉宾,被认为是 AI 时代产品经理「速度优先 + 技术深度」结合的代表。Code with Claude 开发者大会(SF,2025.5)主讲。",papers:[{y:"2025",t:"Claude Code GA launch (founding PM)"},{y:"2025",t:"Code with Claude SF keynote"}]},
   // ===== Chelsea Finn (Stanford / Physical Intelligence) =====
   {id:"finn",name:"Chelsea Finn",org:"Stanford / Physical Intelligence",title:"Robot Learning & Meta-Learning Pioneer",field:["rl"],bio:"American computer scientist, assistant professor of CS and EE at Stanford, where she leads the IRIS lab on robot learning. BS in EECS from MIT, PhD from UC Berkeley co-advised by Pieter Abbeel and Sergey Levine. During her PhD she created Model-Agnostic Meta-Learning (MAML, 2017) — a foundational algorithm for fast adaptation of neural networks to new tasks from few examples, now widely used across RL, vision and beyond. Worked at Google Brain, and in 2024 co-founded Physical Intelligence with Sergey Levine, Karol Hausman and others to build general-purpose robot foundation models (π0). ACM Doctoral Dissertation Award and a leading voice in embodied AI.",papers:[{y:"2017",t:"Model-Agnostic Meta-Learning (MAML) [12K+ citations]",url:"https://arxiv.org/abs/1703.03400"},{y:"2024",t:"Co-founded Physical Intelligence (π0 robot foundation model)"}]},
-  {id:"tulloch",name:"Andrew Tulloch",org:"Meta Superintelligence Labs",title:"ML Systems Researcher · Ex-Thinking Machines Cofounder",field:["deep-learning"],bio:"Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati's Thinking Machines Lab in 2025. In October 2025 he left to join Meta Superintelligence Labs, reporting to chief AI officer Alexandr Wang, in a deal widely reported at ~$1.5 billion over six years — described as the most expensive individual hire in tech history and a symbol of the 2025-26 AI talent war. A specialist in large-scale ML systems and training infrastructure.",papers:[{y:"2025",t:"Co-founded Thinking Machines Lab"},{y:"2025",t:"Joined Meta Superintelligence Labs (~$1.5B package)"}]}
+  {id:"tulloch",name:"Andrew Tulloch",org:"Meta Superintelligence Labs",title:"ML Systems Researcher · Ex-Thinking Machines Cofounder",field:["deep-learning"],bio:"Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati's Thinking Machines Lab in 2025. In October 2025 he left to join Meta Superintelligence Labs, reporting to chief AI officer Alexandr Wang, in a deal widely reported at ~$1.5 billion over six years — described as the most expensive individual hire in tech history and a symbol of the 2025-26 AI talent war. A specialist in large-scale ML systems and training infrastructure.",papers:[{y:"2025",t:"Co-founded Thinking Machines Lab"},{y:"2025",t:"Joined Meta Superintelligence Labs (~$1.5B package)"}]},
+  {"id":"truell","name":"Michael Truell","org":"Anysphere (Cursor)","title":"Co-founder & CEO of Anysphere · Cursor","field":["nlp","deep-learning"],"bio":"American entrepreneur and engineer who co-founded Anysphere, the company behind the AI code editor Cursor, after studying at MIT. Launched in 2023, Cursor pairs frontier LLMs with deep editor integration — multi-file edits, agentic completion, and codebase-aware chat — and became one of the fastest-growing developer tools ever, crossing hundreds of millions in ARR. The company raised at a roughly $10B valuation in 2025, making Truell, born around 1996, one of the youngest leaders of a major AI-coding company.","papers":[{"y":"2023","t":"Launched Cursor (AI-native code editor)"},{"y":"2025","t":"Anysphere raised at ~$10B valuation"}]},
+  {"id":"steinberger","name":"Peter Steinberger","org":"Independent","title":"Founder of PSPDFKit · AI-coding builder","field":["deep-learning"],"bio":"Austrian software developer best known for founding PSPDFKit in 2011, a widely used PDF/document SDK adopted across iOS and enterprise apps, which he scaled before stepping back from day-to-day leadership. After a hiatus he re-emerged as a prominent independent voice on AI-assisted software development, building and sharing experiments with agentic coding tools such as Cursor, Claude Code and Codex, and shipping open-source utilities for AI workflows. A widely followed commentator on how coding agents change the craft of software engineering.","papers":[{"y":"2011","t":"Founded PSPDFKit (document SDK)"},{"y":"2025","t":"Prominent independent voice on agentic AI coding"}]},
+  {"id":"jensen","name":"Jensen Huang","org":"NVIDIA","title":"Co-founder & CEO of NVIDIA","field":["deep-learning"],"bio":"Taiwanese-American engineer who co-founded NVIDIA in 1993 and has led it as CEO ever since. Born in Tainan in 1963, he emigrated to the US as a child and earned degrees from Oregon State and Stanford. NVIDIA's GPUs and the CUDA platform became the computational engine of the deep learning revolution — AlexNet (2012) was trained on NVIDIA GPUs, and today essentially all large AI models are trained on them. Under his leadership NVIDIA grew into one of the world's most valuable companies, surpassing a multi-trillion-dollar market capitalization on the back of the generative-AI compute boom.","papers":[{"y":"1993","t":"Co-founded NVIDIA"},{"y":"2006","t":"CUDA launch — GPUs for general-purpose computing"},{"y":"2024","t":"NVIDIA reaches multi-trillion-dollar valuation"}]},
+  {"id":"kolter","name":"Zico Kolter","org":"Carnegie Mellon / OpenAI Board","title":"Professor at CMU · OpenAI Board · AI Safety","field":["safety","deep-learning"],"bio":"American computer scientist, professor and head of the Machine Learning Department at Carnegie Mellon University. His research spans adversarial robustness, deep equilibrium models, and optimization as a layer inside neural networks (OptNet). In 2023 his group published widely cited work on universal, transferable adversarial attacks that jailbreak aligned LLMs. He joined the OpenAI board of directors in 2024 and chairs its Safety and Security Committee, and co-founded the AI-security startup Gray Swan. A leading academic voice on making frontier models robust and safe.","papers":[{"y":"2019","t":"Deep Equilibrium Models"},{"y":"2023","t":"Universal and Transferable Adversarial Attacks on Aligned LLMs"}]},
+  {"id":"sholto","name":"Sholto Douglas","org":"Anthropic","title":"Researcher at Anthropic · Scaling & RL","field":["deep-learning","rl"],"bio":"Australian AI researcher working at Anthropic on large language model reasoning, reinforcement learning, and the engineering of scaling. He previously worked at Google DeepMind on the Gemini models before joining Anthropic. Known for unusually clear public explanations — including widely discussed long-form interviews — of how RL, inference and scaling laws drive the trajectory of frontier models and progress toward more capable agents.","papers":[{"y":"2024","t":"Work on Gemini scaling & reasoning (Google DeepMind)"},{"y":"2025","t":"Anthropic research on RL and model scaling"}]},
+  {"id":"lambert","name":"Nathan Lambert","org":"Allen Institute for AI (Ai2)","title":"Research Scientist at Ai2 · RLHF & post-training","field":["rl","nlp"],"bio":"American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe families. He earned his PhD at UC Berkeley and previously worked on RLHF at Hugging Face. Through his widely read Interconnects newsletter he has become one of the clearest public explainers of reinforcement learning from human feedback, preference tuning, and the mechanics of open versus closed model development.","papers":[{"y":"2023","t":"RLHF work at Hugging Face"},{"y":"2024","t":"Tulu / OLMo open post-training recipes (Ai2)"}]},
+  {"id":"awang","name":"Alexandr Wang","org":"Meta Superintelligence Labs","title":"Chief AI Officer at Meta · Founder of Scale AI","field":["deep-learning"],"bio":"American entrepreneur who founded the data-labeling company Scale AI in 2016 at age 19 after dropping out of MIT, building it into a key supplier of human-labeled training data for leading AI labs and becoming one of the youngest self-made billionaires. In 2025 Meta invested roughly $14 billion for a large stake in Scale AI and brought Wang in to lead its new Superintelligence Labs as Chief AI Officer, with senior researchers such as Andrew Tulloch reporting to him. Born in 1997 in New Mexico to physicist parents.","papers":[{"y":"2016","t":"Founded Scale AI"},{"y":"2025","t":"Joined Meta as Chief AI Officer (Superintelligence Labs)"}]}
 ];
 
 const connections = [
@@ -1599,7 +1606,17 @@ const connections = [
   {source:"yanjunjie",target:"wangxiaogang",type:"colleague",label:"商汤 SenseTime 共事"},
   {source:"yanjunjie",target:"lindahua",type:"colleague",label:"商汤 SenseTime 共事"},
   // 李开复 1998 创办 MSRA 北京,张正友 1998 加入 MSRA,短暂同事
-  {source:"kaifulee",target:"zhangzhengyou",type:"colleague",label:"MSRA 1998 早期同事(李开复创办时)"}
+  {source:"kaifulee",target:"zhangzhengyou",type:"colleague",label:"MSRA 1998 早期同事(李开复创办时)"},
+  {source:"truell",target:"bcherny",type:"colleague",label:"AI 编程 agent 同侪 — Cursor 与 Claude Code"},
+  {source:"truell",target:"steinberger",type:"colleague",label:"AI 编程生态 — Cursor 作者与重度实践者"},
+  {source:"jensen",target:"hinton",type:"colleague",label:"AlexNet(2012)在 NVIDIA GPU 上训练"},
+  {source:"jensen",target:"altman",type:"colleague",label:"NVIDIA 为 OpenAI 供应 AI 算力"},
+  {source:"kolter",target:"altman",type:"colleague",label:"OpenAI 董事 · 安全与安保委员会主席"},
+  {source:"sholto",target:"damodei",type:"colleague",label:"Anthropic"},
+  {source:"sholto",target:"janleike",type:"colleague",label:"Anthropic"},
+  {source:"lambert",target:"schulman",type:"colleague",label:"RLHF / 后训练研究脉络"},
+  {source:"awang",target:"tulloch",type:"colleague",label:"Meta 超级智能实验室 — Tulloch 向其汇报"},
+  {source:"awang",target:"altman",type:"colleague",label:"Scale AI 为 OpenAI 供应标注数据"}
 ];
 
 // ===================================================================
@@ -1994,6 +2011,13 @@ const i18n = {
 
 // Chinese scholar data
 const scholarZh = {
+  "truell":{"zhName":"迈克尔·特鲁尔","title":"Anysphere（Cursor）联合创始人兼 CEO","bio":"美国创业者与工程师，麻省理工辍学后联合创办 Anysphere，即 AI 代码编辑器 Cursor 的母公司。Cursor 于 2023 年发布，将前沿大模型与深度编辑器集成——多文件编辑、Agent 式补全、理解整个代码库的对话——结合，成为史上增长最快的开发者工具之一，年化收入突破数亿美元。公司 2025 年以约 100 亿美元估值融资，约 1996 年出生的特鲁尔由此成为头部 AI 编程公司中最年轻的掌舵者之一。"},
+  "steinberger":{"zhName":"彼得·施泰因贝格尔","title":"PSPDFKit 创始人 · AI 编程实践者","bio":"奥地利软件开发者，2011 年创办 PSPDFKit——一款被 iOS 与企业应用广泛采用的 PDF/文档 SDK，将其做大后逐步退出日常管理。沉寂一段时间后，他以 AI 辅助软件开发的活跃声音重新出现，持续构建并分享对 Agent 式编程工具（Cursor、Claude Code、Codex）的实验，并开源多个 AI 工作流工具。他是「编程 Agent 如何改变软件工程手艺」这一话题被广泛关注的评论者。"},
+  "jensen":{"zhName":"黄仁勋","title":"NVIDIA 联合创始人兼 CEO","bio":"台裔美籍工程师，1993 年联合创办 NVIDIA 并担任 CEO 至今。1963 年生于台南，幼年移民美国，先后毕业于俄勒冈州立大学与斯坦福。NVIDIA 的 GPU 与 CUDA 平台成为深度学习革命的算力引擎——2012 年 AlexNet 即在 NVIDIA GPU 上训练，如今几乎所有大模型都依赖其芯片训练。在他带领下，NVIDIA 借生成式 AI 算力浪潮成长为全球市值最高的公司之一，市值突破数万亿美元。"},
+  "kolter":{"zhName":"齐科·科尔特","title":"CMU 教授 · OpenAI 董事 · AI 安全","bio":"美国计算机科学家，卡内基梅隆大学教授兼机器学习系主任。研究涵盖对抗鲁棒性、深度均衡模型，以及把优化作为神经网络的一层（OptNet）。2023 年其团队发表了被广泛引用的工作，展示可通用、可迁移的对抗攻击能越狱已对齐的大模型。2024 年加入 OpenAI 董事会并担任其安全与安保委员会主席，还联合创办 AI 安全创业公司 Gray Swan。是让前沿模型更稳健、更安全方向的代表性学者。"},
+  "sholto":{"zhName":"肖尔托·道格拉斯","title":"Anthropic 研究员 · 规模化与强化学习","bio":"澳大利亚 AI 研究者，在 Anthropic 从事大模型推理、强化学习与规模化工程。此前在 Google DeepMind 参与 Gemini 模型研发，后加入 Anthropic。他以异常清晰的公开讲解著称——包括被广泛讨论的长篇访谈——阐释 RL、推理与规模化法则如何决定前沿模型的走向，以及通往更强能力 Agent 的路径。"},
+  "lambert":{"zhName":"内森·兰伯特","title":"Ai2 研究科学家 · RLHF 与后训练","bio":"美国 AI 研究者，在艾伦人工智能研究院（Ai2）主导后训练工作，参与构建了开源的 Tulu 与 OLMo 模型及训练配方家族。他在 UC Berkeley 获博士学位，此前在 Hugging Face 从事 RLHF。通过广受关注的 Interconnects 通讯，他成为讲解「基于人类反馈的强化学习」、偏好微调以及开源与闭源模型开发机制最清晰的公开声音之一。"},
+  "awang":{"zhName":"亚历山大·王","title":"Meta 首席 AI 官 · Scale AI 创始人","bio":"美国创业者，2016 年 19 岁从麻省理工辍学创办数据标注公司 Scale AI，将其打造成各大 AI 实验室人工标注训练数据的关键供应商，并成为最年轻的白手起家亿万富翁之一。2025 年 Meta 斥资约 140 亿美元入股 Scale AI，并请他执掌新成立的超级智能实验室、出任首席 AI 官，多位资深研究者（如 Andrew Tulloch）向其汇报。1997 年生于新墨西哥州，父母为物理学家。"},
   "tulloch":{"zhName": "安德鲁·塔洛克","title": "Meta 超级智能实验室 · 前 Thinking Machines 联合创始人","bio": "澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang 汇报，据多方报道其薪酬包六年约 15 亿美元——被称为科技史上最贵的个人招募，是 2025-26 年 AI 人才战的标志性事件。专长于大规模机器学习系统与训练基础设施。"},
   "lample":{"zhName": "Guillaume Lample","title": "Mistral AI 联合创始人兼首席科学家 · LLaMA 创造者","bio": "法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高被引的无监督机器翻译（EMNLP 2018 最佳论文）及跨语言预训练（XLM）研究，后主导创建了 Meta 于 2023 年 2 月发布的 LLaMA 开源大模型家族。2023 年 4 月联合创办 Mistral AI，担任首席科学家。"},
   "lacroix":{"zhName": "Timothee Lacroix","title": "Mistral AI 联合创始人兼 CTO","bio": "法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与了 Meta LLaMA 大模型家族的研发。2023 年 4 月与 Mensch、Lample 共同创办 Mistral AI，构建开放高效的基础模型。"},
@@ -2745,5 +2769,46 @@ applyLanguage("zh");
 })();
 </script>
 <!-- ===== /Open Full Profile Page ===== -->
+<!-- ===== Listen on AI Podcast (cross-link to aipodcast.jasonlin.tech) ===== -->
+<style>
+.detail-podcast-btn{display:none;align-items:center;justify-content:center;gap:7px;margin:8px 20px 0;padding:11px 16px;border-radius:12px;background:rgba(124,92,255,0.14);color:#cbb9ff;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.01em;transition:background .2s,transform .08s;-webkit-tap-highlight-color:transparent;}
+.detail-podcast-btn:hover{background:rgba(124,92,255,0.24);}
+.detail-podcast-btn:active{transform:scale(0.985);}
+.detail-podcast-btn svg{opacity:.85;flex:0 0 auto;}
+@media (max-width:768px){.detail-podcast-btn{margin:8px 16px 0;}}
+</style>
+<script>
+(function(){
+  // graph scholar id -> AI Podcast person id (aipodcast.jasonlin.tech/#/person/<id>)
+  var PODCAST={sutskever:'ilya',hassabis:'demis',damodei:'dario',karpathy:'karpathy',feifei:'feifei',bengio:'bengio',hinton:'hinton',lecun:'lecun',janleike:'leike',suleyman:'suleyman',altman:'altman',miramurati:'murati',ng:'andrewng',sutton:'sutton',gregbrockman:'brockman',mensch:'mensch',musk:'elon',kaiser:'kaiser',bcherny:'boris',catwu:'catwu',truell:'truell',steinberger:'steinberger',jensen:'jensen',kolter:'kolter',sholto:'sholto',lambert:'lambert',awang:'awang'};
+  function detectLang(){var a=document.querySelector('.lang-btn.active');if(a&&a.dataset&&a.dataset.lang)return a.dataset.lang;try{return currentLang;}catch(e){return 'zh';}}
+  var L={zh:'听他的 AI 播客',en:'Listen on AI Podcast'};
+  function init(){
+    var panel=document.getElementById('detail-panel');
+    var header=panel?panel.querySelector('.detail-header'):null;
+    var nameEl=document.getElementById('detail-name');
+    if(!panel||!header||!nameEl)return;
+    var a=document.createElement('a');
+    a.className='detail-podcast-btn';
+    a.target='_blank';a.rel='noopener';
+    a.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>'+L.zh+'</span>';
+    header.insertAdjacentElement('afterend',a);
+    function set(){
+      var d=window._currentDetailScholar;
+      var pid=d&&d.id?PODCAST[d.id]:null;
+      if(!pid){a.style.display='none';return;}
+      a.href='https://aipodcast.jasonlin.tech/#/person/'+encodeURIComponent(pid);
+      a.style.display='flex';
+      var s=a.querySelector('span');if(s)s.textContent=(L[detectLang()]||L.zh);
+    }
+    new MutationObserver(set).observe(nameEl,{childList:true,characterData:true,subtree:true});
+    a.addEventListener('mousedown',set);
+    set();
+    a.addEventListener('click',function(){if(typeof umami!=='undefined'){try{umami.track('open_podcast',{id:(window._currentDetailScholar||{}).id});}catch(_){}}});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<!-- ===== /Listen on AI Podcast ===== -->
 </body>
 </html>
