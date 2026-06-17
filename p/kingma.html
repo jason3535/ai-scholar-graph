@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Diederik Kingma · Anthropic | AI 学者图谱</title>
 <meta name="description" content="荷兰计算机科学家。阿姆斯特丹大学博士（2017，导师 Max Welling，最优等毕业）。创造了现代 AI 两大基础构件：VAE（2013，连接概率建模与深度学习）和 Adam 优化器（2014，与 Jimmy Ba 合著，95000+引用）。OpenAI 创始团队成员（2015）。Google…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/kingma.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Diederik Kingma</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Diederik Kingma</span><span class="i18n-en">Diederik Kingma</span></h1>
 <p class="org">Anthropic</p>
-<p class="role">VAE 和 Adam 优化器创造者</p>
+<p class="role"><span class="i18n-zh">VAE 和 Adam 优化器创造者</span><span class="i18n-en">Creator of VAE and Adam Optimizer</span></p>
 <div class="fields"><span class="tag">deep-learning</span></div>
-<div class="bio">荷兰计算机科学家。阿姆斯特丹大学博士（2017，导师 Max Welling，最优等毕业）。创造了现代 AI 两大基础构件：VAE（2013，连接概率建模与深度学习）和 Adam 优化器（2014，与 Jimmy Ba 合著，95000+引用）。OpenAI 创始团队成员（2015）。Google Brain 研究员。2024年10月加入 Anthropic。连续获得 ICLR 时间检验奖（2024 VAE、2025 Adam）。</div>
-<div class="bio en">Dutch computer scientist. PhD cum laude from the University of Amsterdam (2017) under Max Welling. Created two of the most fundamental building blocks of modern AI: the Variational Autoencoder (VAE, 2013) -- bridging probabilistic modeling and deep learning, enabling generative models to learn latent structure -- and the Adam optimizer (2014, with Jimmy Ba) -- the most widely used optimization algorithm in deep learning with 95,000+ citations. Part of the founding team of OpenAI (2015). Worked at Google Brain on large-scale optimization and generative models. Joined Anthropic in October 2024. Won the ICLR Test of Time Award in 2024 (VAE) and 2025 (Adam) -- two consecutive years.</div>
-<a class="cta" href="/?node=kingma">在关系图谱中查看 Diederik Kingma →</a>
+<div class="bio i18n-zh">荷兰计算机科学家。阿姆斯特丹大学博士（2017，导师 Max Welling，最优等毕业）。创造了现代 AI 两大基础构件：VAE（2013，连接概率建模与深度学习）和 Adam 优化器（2014，与 Jimmy Ba 合著，95000+引用）。OpenAI 创始团队成员（2015）。Google Brain 研究员。2024年10月加入 Anthropic。连续获得 ICLR 时间检验奖（2024 VAE、2025 Adam）。</div><div class="bio i18n-en">Dutch computer scientist. PhD cum laude from the University of Amsterdam (2017) under Max Welling. Created two of the most fundamental building blocks of modern AI: the Variational Autoencoder (VAE, 2013) -- bridging probabilistic modeling and deep learning, enabling generative models to learn latent structure -- and the Adam optimizer (2014, with Jimmy Ba) -- the most widely used optimization algorithm in deep learning with 95,000+ citations. Part of the founding team of OpenAI (2015). Worked at Google Brain on large-scale optimization and generative models. Joined Anthropic in October 2024. Won the ICLR Test of Time Award in 2024 (VAE) and 2025 (Adam) -- two consecutive years.</div>
+<a class="cta" href="/?node=kingma"><span class="i18n-zh">在关系图谱中查看 Diederik Kingma →</span><span class="i18n-en">View Diederik Kingma in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2013</span> <a href="https://arxiv.org/abs/1312.6114" rel="noopener">Auto-Encoding Variational Bayes (VAE) [28K]</a></li><li><span class="y">2014</span> <a href="https://arxiv.org/abs/1412.6980" rel="noopener">Adam: A Method for Stochastic Optimization [136K]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/jimmyba.html"><b>巴吉铭 Jimmy Ba</b><span>联合发表 Adam 优化器（2014）</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>OpenAI 创始团队，现 Anthropic</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2013</span> <a href="https://arxiv.org/abs/1312.6114" rel="noopener">Auto-Encoding Variational Bayes (VAE) [28K]</a></li><li><span class="y">2014</span> <a href="https://arxiv.org/abs/1412.6980" rel="noopener">Adam: A Method for Stochastic Optimization [136K]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/jimmyba.html"><b>巴吉铭 Jimmy Ba</b><span>联合发表 Adam 优化器（2014）</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>OpenAI 创始团队，现 Anthropic</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

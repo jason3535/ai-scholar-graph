@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Niki Parmar · Essential AI | AI 学者图谱</title>
 <meta name="description" content="在 Google Brain 合著了《Attention Is All You Need》（2017）。在 Transformer 论文之后，率先将 Transformer 应用于图像生成（Image Transformer, 2018），帮助打通了 NLP 和计算机视觉架构的桥梁。与 Ashis…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/parmar.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Niki Parmar</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Niki Parmar</span><span class="i18n-en">Niki Parmar</span></h1>
 <p class="org">Essential AI</p>
-<p class="role">Transformer 联合发明人</p>
+<p class="role"><span class="i18n-zh">Transformer 联合发明人</span><span class="i18n-en">Co-inventor of the Transformer</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">vision</span></div>
-<div class="bio">在 Google Brain 合著了《Attention Is All You Need》（2017）。在 Transformer 论文之后，率先将 Transformer 应用于图像生成（Image Transformer, 2018），帮助打通了 NLP 和计算机视觉架构的桥梁。与 Ashish Vaswani 联合创办 Essential AI，构建企业 AI 系统。</div>
-<div class="bio en">Co-author of 'Attention Is All You Need' (2017) at Google Brain. After the Transformer paper, pioneered applying Transformers to image generation with the Image Transformer (2018), helping bridge the gap between NLP and computer vision architectures. Co-founded Essential AI with Ashish Vaswani to build enterprise AI systems.</div>
-<a class="cta" href="/?node=parmar">在关系图谱中查看 Niki Parmar →</a>
+<div class="bio i18n-zh">在 Google Brain 合著了《Attention Is All You Need》（2017）。在 Transformer 论文之后，率先将 Transformer 应用于图像生成（Image Transformer, 2018），帮助打通了 NLP 和计算机视觉架构的桥梁。与 Ashish Vaswani 联合创办 Essential AI，构建企业 AI 系统。</div><div class="bio i18n-en">Co-author of 'Attention Is All You Need' (2017) at Google Brain. After the Transformer paper, pioneered applying Transformers to image generation with the Image Transformer (2018), helping bridge the gap between NLP and computer vision architectures. Co-founded Essential AI with Ashish Vaswani to build enterprise AI systems.</div>
+<a class="cta" href="/?node=parmar"><span class="i18n-zh">在关系图谱中查看 Niki Parmar →</span><span class="i18n-en">View Niki Parmar in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1706.03762" rel="noopener">Attention Is All You Need [160K]</a></li><li><span class="y">2018</span> <a href="https://arxiv.org/abs/1802.05751" rel="noopener">Image Transformer [2K]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/vaswani.html"><b>Ashish Vaswani</b><span>Transformer co-authors + Essential AI co-founders</span></a><a class="nbr" href="/p/gomez.html"><b>Aidan Gomez</b><span>Attention Is All You Need (2017)</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1706.03762" rel="noopener">Attention Is All You Need [160K]</a></li><li><span class="y">2018</span> <a href="https://arxiv.org/abs/1802.05751" rel="noopener">Image Transformer [2K]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/vaswani.html"><b>Ashish Vaswani</b><span>Transformer co-authors + Essential AI co-founders</span></a><a class="nbr" href="/p/gomez.html"><b>Aidan Gomez</b><span>Attention Is All You Need (2017)</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

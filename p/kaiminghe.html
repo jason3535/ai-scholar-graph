@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>何恺明 Kaiming He · MIT / Google DeepMind | AI 学者图谱</title>
 <meta name="description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研创造 ResNet（2015）——21世纪引用最多的论文。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/kaiminghe.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>何恺明 Kaiming He</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">何恺明 Kaiming He</span><span class="i18n-en">Kaiming He</span></h1>
 <p class="org">MIT / Google DeepMind</p>
-<p class="role">ResNet 创造者 · 21世纪引用最多的论文</p>
+<p class="role"><span class="i18n-zh">ResNet 创造者 · 21世纪引用最多的论文</span><span class="i18n-en">Creator of ResNet · Most-cited 21st Century Paper</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">vision</span></div>
-<div class="bio">1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研创造 ResNet（2015）——21世纪引用最多的论文。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。</div>
-<div class="bio en">Born 1984 in Guangzhou, Guangdong, China. Attended Guangzhou Zhixin High School, where he scored first place in the entire Guangdong province on the 2003 college entrance exam. Earned a BS from Tsinghua University (2007), then a PhD in Information Engineering from the Chinese University of Hong Kong (2011, Multimedia Lab), with a thesis on image dehazing. Joined Microsoft Research Asia (MSRA) as a research scientist, where he created ResNet (Residual Networks, 2015) -- the paper 'Deep Residual Learning for Image Recognition' is the most-cited paper of the 21st century. ResNet's skip connections solved the vanishing gradient problem and enabled training of networks with 100+ layers. Also co-created Mask R-CNN for instance segmentation. Moved to Facebook AI Research (FAIR). Joined MIT as associate professor (2024), appointed Douglas Ross Career Development Professor. In 2025, also joined Google DeepMind while retaining MIT tenure, pursuing a dual academia + industry path.</div>
-<a class="cta" href="/?node=kaiminghe">在关系图谱中查看 何恺明 →</a>
+<div class="bio i18n-zh">1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研创造 ResNet（2015）——21世纪引用最多的论文。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。</div><div class="bio i18n-en">Born 1984 in Guangzhou, Guangdong, China. Attended Guangzhou Zhixin High School, where he scored first place in the entire Guangdong province on the 2003 college entrance exam. Earned a BS from Tsinghua University (2007), then a PhD in Information Engineering from the Chinese University of Hong Kong (2011, Multimedia Lab), with a thesis on image dehazing. Joined Microsoft Research Asia (MSRA) as a research scientist, where he created ResNet (Residual Networks, 2015) -- the paper 'Deep Residual Learning for Image Recognition' is the most-cited paper of the 21st century. ResNet's skip connections solved the vanishing gradient problem and enabled training of networks with 100+ layers. Also co-created Mask R-CNN for instance segmentation. Moved to Facebook AI Research (FAIR). Joined MIT as associate professor (2024), appointed Douglas Ross Career Development Professor. In 2025, also joined Google DeepMind while retaining MIT tenure, pursuing a dual academia + industry path.</div>
+<a class="cta" href="/?node=kaiminghe"><span class="i18n-zh">在关系图谱中查看 何恺明 →</span><span class="i18n-en">View Kaiming He in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1512.03385" rel="noopener">Deep Residual Learning for Image Recognition (ResNet) [152K citations]</a></li><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1703.06870" rel="noopener">Mask R-CNN [28K citations]</a></li><li><span class="y">2021</span> <a href="https://arxiv.org/abs/2111.06377" rel="noopener">Masked Autoencoders Are Scalable Vision Learners (MAE) [6K citations]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>Google DeepMind（2025年起）</span></a><a class="nbr" href="/p/zhangzhengyou.html"><b>张正友 Zhang Zhengyou</b><span>中国计算机视觉社区领袖</span></a><a class="nbr" href="/p/tangxiaoou.html"><b>Tang Xiaoou</b><span>港中文MMLab博导</span></a><a class="nbr" href="/p/sainingxie.html"><b>谢赛宁 Saining Xie</b><span>MSRA 2016 ResNeXt 共著</span></a><a class="nbr" href="/p/jiangdaxin.html"><b>姜大昕 Jiang Daxin</b><span>MSRA 时期(2011-2016)</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1512.03385" rel="noopener">Deep Residual Learning for Image Recognition (ResNet) [152K citations]</a></li><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1703.06870" rel="noopener">Mask R-CNN [28K citations]</a></li><li><span class="y">2021</span> <a href="https://arxiv.org/abs/2111.06377" rel="noopener">Masked Autoencoders Are Scalable Vision Learners (MAE) [6K citations]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>Google DeepMind（2025年起）</span></a><a class="nbr" href="/p/zhangzhengyou.html"><b>张正友 Zhang Zhengyou</b><span>中国计算机视觉社区领袖</span></a><a class="nbr" href="/p/tangxiaoou.html"><b>Tang Xiaoou</b><span>港中文MMLab博导</span></a><a class="nbr" href="/p/sainingxie.html"><b>谢赛宁 Saining Xie</b><span>MSRA 2016 ResNeXt 共著</span></a><a class="nbr" href="/p/jiangdaxin.html"><b>姜大昕 Jiang Daxin</b><span>MSRA 时期(2011-2016)</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

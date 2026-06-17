@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Oriol Vinyals · Google DeepMind | AI 学者图谱</title>
 <meta name="description" content="生于智利，在西班牙加泰罗尼亚长大。UC Berkeley 博士。加入 Google Brain 和 DeepMind。与 Sutskever 和 Quoc Le 联合发明了 Seq2Seq 模型（2014）——通往现代 LLM 的基础架构之一。领导了 AlphaStar（2019，击败星际争霸 I…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/vinyals.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Oriol Vinyals</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Oriol Vinyals</span><span class="i18n-en">Oriol Vinyals</span></h1>
 <p class="org">Google DeepMind</p>
-<p class="role">Google DeepMind 研究副总裁 · Seq2Seq 联合创造者</p>
+<p class="role"><span class="i18n-zh">Google DeepMind 研究副总裁 · Seq2Seq 联合创造者</span><span class="i18n-en">VP of Research · Seq2Seq Co-creator</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">rl</span></div>
-<div class="bio">生于智利，在西班牙加泰罗尼亚长大。UC Berkeley 博士。加入 Google Brain 和 DeepMind。与 Sutskever 和 Quoc Le 联合发明了 Seq2Seq 模型（2014）——通往现代 LLM 的基础架构之一。领导了 AlphaStar（2019，击败星际争霸 II 顶级玩家）。现任 Google DeepMind 研究副总裁，联合领导 Gemini 开发。</div>
-<div class="bio en">Born in Chile, raised in Catalonia, Spain. Earned a BS from UC Berkeley, MS from UC San Diego, and PhD from UC Berkeley (2016) under Nelson Morgan. Joined Google Brain and later DeepMind. Co-invented the sequence-to-sequence model (2014, with Sutskever and Quoc Le) -- one of the foundational architectures leading to modern LLMs. Led AlphaStar (2019), the AI that defeated top StarCraft II players. Now VP of Research at Google DeepMind, co-leading Gemini development. One of the most prolific researchers in modern AI with contributions spanning NLP, computer vision, and game AI.</div>
-<a class="cta" href="/?node=vinyals">在关系图谱中查看 Oriol Vinyals →</a>
+<div class="bio i18n-zh">生于智利，在西班牙加泰罗尼亚长大。UC Berkeley 博士。加入 Google Brain 和 DeepMind。与 Sutskever 和 Quoc Le 联合发明了 Seq2Seq 模型（2014）——通往现代 LLM 的基础架构之一。领导了 AlphaStar（2019，击败星际争霸 II 顶级玩家）。现任 Google DeepMind 研究副总裁，联合领导 Gemini 开发。</div><div class="bio i18n-en">Born in Chile, raised in Catalonia, Spain. Earned a BS from UC Berkeley, MS from UC San Diego, and PhD from UC Berkeley (2016) under Nelson Morgan. Joined Google Brain and later DeepMind. Co-invented the sequence-to-sequence model (2014, with Sutskever and Quoc Le) -- one of the foundational architectures leading to modern LLMs. Led AlphaStar (2019), the AI that defeated top StarCraft II players. Now VP of Research at Google DeepMind, co-leading Gemini development. One of the most prolific researchers in modern AI with contributions spanning NLP, computer vision, and game AI.</div>
+<a class="cta" href="/?node=vinyals"><span class="i18n-zh">在关系图谱中查看 Oriol Vinyals →</span><span class="i18n-en">View Oriol Vinyals in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2014</span> <a href="https://arxiv.org/abs/1409.3215" rel="noopener">Sequence to Sequence Learning with Neural Networks [21K]</a></li><li><span class="y">2019</span> <a href="https://www.nature.com/articles/s41586-019-1724-z" rel="noopener">Grandmaster level in StarCraft II using multi-agent RL (AlphaStar) [3K]</a></li><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1411.4555" rel="noopener">Show and Tell: A Neural Image Caption Generator [10K citations]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>联合发明 Seq2Seq（2014）</span></a><a class="nbr" href="/p/quocle.html"><b>Quoc V. Le</b><span>联合发明 Seq2Seq（2014）</span></a><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind，AlphaStar，Gemini</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2014</span> <a href="https://arxiv.org/abs/1409.3215" rel="noopener">Sequence to Sequence Learning with Neural Networks [21K]</a></li><li><span class="y">2019</span> <a href="https://www.nature.com/articles/s41586-019-1724-z" rel="noopener">Grandmaster level in StarCraft II using multi-agent RL (AlphaStar) [3K]</a></li><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1411.4555" rel="noopener">Show and Tell: A Neural Image Caption Generator [10K citations]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>联合发明 Seq2Seq（2014）</span></a><a class="nbr" href="/p/quocle.html"><b>Quoc V. Le</b><span>联合发明 Seq2Seq（2014）</span></a><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind，AlphaStar，Gemini</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

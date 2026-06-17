@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Robin Rombach · Black Forest Labs | AI 学者图谱</title>
 <meta name="description" content="德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），突破性地在压缩潜空间而非像素空间运行扩散——将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stabil…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/rombach.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Robin Rombach</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Robin Rombach</span><span class="i18n-en">Robin Rombach</span></h1>
 <p class="org">Black Forest Labs</p>
-<p class="role">Stable Diffusion / Latent Diffusion 创造者</p>
+<p class="role"><span class="i18n-zh">Stable Diffusion / Latent Diffusion 创造者</span><span class="i18n-en">Creator of Stable Diffusion / Latent Diffusion</span></p>
 <div class="fields"><span class="tag">vision</span></div>
-<div class="bio">德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），突破性地在压缩潜空间而非像素空间运行扩散——将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability AI 研究总监。2024年与原始团队联合创办 Black Forest Labs，推出 FLUX 系列模型。</div>
-<div class="bio en">German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-authored the Latent Diffusion paper (2022) which introduced the breakthrough idea of running diffusion in compressed latent space rather than pixel space -- reducing compute cost by 10-100x while maintaining quality. This became Stable Diffusion, the most widely used open-source image generation model. Joined Stability AI as research director. In 2024, left to co-found Black Forest Labs with the original latent diffusion team (Blattmann, Esser, Lorenz), creating the FLUX family of models that quickly became industry-leading image generators.</div>
-<a class="cta" href="/?node=rombach">在关系图谱中查看 Robin Rombach →</a>
+<div class="bio i18n-zh">德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），突破性地在压缩潜空间而非像素空间运行扩散——将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability AI 研究总监。2024年与原始团队联合创办 Black Forest Labs，推出 FLUX 系列模型。</div><div class="bio i18n-en">German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-authored the Latent Diffusion paper (2022) which introduced the breakthrough idea of running diffusion in compressed latent space rather than pixel space -- reducing compute cost by 10-100x while maintaining quality. This became Stable Diffusion, the most widely used open-source image generation model. Joined Stability AI as research director. In 2024, left to co-found Black Forest Labs with the original latent diffusion team (Blattmann, Esser, Lorenz), creating the FLUX family of models that quickly became industry-leading image generators.</div>
+<a class="cta" href="/?node=rombach"><span class="i18n-zh">在关系图谱中查看 Robin Rombach →</span><span class="i18n-en">View Robin Rombach in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2022</span> <a href="https://arxiv.org/abs/2112.10752" rel="noopener">High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion) [11K]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/esser.html"><b>Patrick Esser</b><span>Latent Diffusion co-authors; co-founded Black Forest Labs</span></a><a class="nbr" href="/p/ho.html"><b>Jonathan Ho</b><span>Latent Diffusion 基于 DDPM 构建</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2022</span> <a href="https://arxiv.org/abs/2112.10752" rel="noopener">High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion) [11K]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/esser.html"><b>Patrick Esser</b><span>Latent Diffusion co-authors; co-founded Black Forest Labs</span></a><a class="nbr" href="/p/ho.html"><b>Jonathan Ho</b><span>Latent Diffusion 基于 DDPM 构建</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

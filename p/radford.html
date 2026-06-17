@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Alec Radford · OpenAI | AI 学者图谱</title>
 <meta name="description" content="1993年4月生。毕业于 Olin College of Engineering（马萨诸塞州 Needham 的一所小型工程学院）。约2016年加入 OpenAI，成为 AI 史上个人影响力最大的贡献者之一。GPT-1（2018）第一作者，证明了生成式预训练能产生强大的语言理解能力。随后推出 GP…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/radford.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Alec Radford</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Alec Radford</span><span class="i18n-en">Alec Radford</span></h1>
 <p class="org">OpenAI</p>
-<p class="role">GPT 和 CLIP 的创造者</p>
+<p class="role"><span class="i18n-zh">GPT 和 CLIP 的创造者</span><span class="i18n-en">Creator of GPT and CLIP</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">vision</span></div>
-<div class="bio">1993年4月生。毕业于 Olin College of Engineering（马萨诸塞州 Needham 的一所小型工程学院）。约2016年加入 OpenAI，成为 AI 史上个人影响力最大的贡献者之一。GPT-1（2018）第一作者，证明了生成式预训练能产生强大的语言理解能力。随后推出 GPT-2（2019，因担心滥用风险曾暂缓发布）。又主导了 DALL-E（文生图）、CLIP（视觉-语言连接）和 Whisper（语音识别）。他的工作本质上创造了整个 GPT 时代的基础。2024年12月离开 OpenAI，2025年成为 Thinking Machines Lab 顾问。</div>
-<div class="bio en">Born April 1993. Graduated from Olin College of Engineering, a small engineering school in Needham, Massachusetts. Joined OpenAI around 2016 and became one of the most impactful individual contributors in the history of AI. Lead author of GPT-1 (2018), which demonstrated that generative pre-training could produce strong language understanding. Followed with GPT-2 (2019), which was initially withheld due to concerns about misuse. Went on to lead DALL-E (text-to-image generation), CLIP (connecting vision and language), and Whisper (speech recognition). His work essentially created the foundation for the entire GPT era. Left OpenAI in December 2024 and became an advisor at Thinking Machines Lab (2025).</div>
-<a class="cta" href="/?node=radford">在关系图谱中查看 Alec Radford →</a>
+<div class="bio i18n-zh">1993年4月生。毕业于 Olin College of Engineering（马萨诸塞州 Needham 的一所小型工程学院）。约2016年加入 OpenAI，成为 AI 史上个人影响力最大的贡献者之一。GPT-1（2018）第一作者，证明了生成式预训练能产生强大的语言理解能力。随后推出 GPT-2（2019，因担心滥用风险曾暂缓发布）。又主导了 DALL-E（文生图）、CLIP（视觉-语言连接）和 Whisper（语音识别）。他的工作本质上创造了整个 GPT 时代的基础。2024年12月离开 OpenAI，2025年成为 Thinking Machines Lab 顾问。</div><div class="bio i18n-en">Born April 1993. Graduated from Olin College of Engineering, a small engineering school in Needham, Massachusetts. Joined OpenAI around 2016 and became one of the most impactful individual contributors in the history of AI. Lead author of GPT-1 (2018), which demonstrated that generative pre-training could produce strong language understanding. Followed with GPT-2 (2019), which was initially withheld due to concerns about misuse. Went on to lead DALL-E (text-to-image generation), CLIP (connecting vision and language), and Whisper (speech recognition). His work essentially created the foundation for the entire GPT era. Left OpenAI in December 2024 and became an advisor at Thinking Machines Lab (2025).</div>
+<a class="cta" href="/?node=radford"><span class="i18n-zh">在关系图谱中查看 Alec Radford →</span><span class="i18n-en">View Alec Radford in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2018</span> <a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" rel="noopener">Improving Language Understanding by Generative Pre-Training (GPT-1) [8K citations]</a></li><li><span class="y">2019</span> <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf" rel="noopener">Language Models are Unsupervised Multitask Learners (GPT-2) [12K]</a></li><li><span class="y">2021</span> <a href="https://arxiv.org/abs/2103.00020" rel="noopener">Learning Transferable Visual Models (CLIP) [18K citations]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>OpenAI，GPT 架构</span></a><a class="nbr" href="/p/brown.html"><b>Tom Brown</b><span>GPT-2、GPT-3</span></a><a class="nbr" href="/p/kaiser.html"><b>Lukasz Kaiser</b><span>OpenAI 同事</span></a><a class="nbr" href="/p/goodfellow.html"><b>Ian Goodfellow</b><span>GAN / 生成模型传承</span></a><a class="nbr" href="/p/markchen.html"><b>陈麻克 Mark Chen</b><span>在 OpenAI 联合主导 DALL-E 和 GPT-4</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI - GPT/CLIP 缔造者</span></a><a class="nbr" href="/p/karpathy.html"><b>Andrej Karpathy</b><span>OpenAI 早期创始团队</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2018</span> <a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" rel="noopener">Improving Language Understanding by Generative Pre-Training (GPT-1) [8K citations]</a></li><li><span class="y">2019</span> <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf" rel="noopener">Language Models are Unsupervised Multitask Learners (GPT-2) [12K]</a></li><li><span class="y">2021</span> <a href="https://arxiv.org/abs/2103.00020" rel="noopener">Learning Transferable Visual Models (CLIP) [18K citations]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>OpenAI，GPT 架构</span></a><a class="nbr" href="/p/brown.html"><b>Tom Brown</b><span>GPT-2、GPT-3</span></a><a class="nbr" href="/p/kaiser.html"><b>Lukasz Kaiser</b><span>OpenAI 同事</span></a><a class="nbr" href="/p/goodfellow.html"><b>Ian Goodfellow</b><span>GAN / 生成模型传承</span></a><a class="nbr" href="/p/markchen.html"><b>陈麻克 Mark Chen</b><span>在 OpenAI 联合主导 DALL-E 和 GPT-4</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI - GPT/CLIP 缔造者</span></a><a class="nbr" href="/p/karpathy.html"><b>Andrej Karpathy</b><span>OpenAI 早期创始团队</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

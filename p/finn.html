@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Chelsea Finn · Stanford / Physical Intelligence | AI 学者图谱</title>
 <meta name="description" content="美国计算机科学家，斯坦福大学 CS 与 EE 助理教授，领导 IRIS 机器人学习实验室。MIT 电子工程与计算机本科，UC Berkeley 博士（导师 Pieter Abbeel 与 Sergey Levine 共同指导）。读博期间提出 Model-Agnostic Meta-Learning…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/finn.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Chelsea Finn</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Chelsea Finn</span><span class="i18n-en">Chelsea Finn</span></h1>
 <p class="org">Stanford / Physical Intelligence</p>
-<p class="role">机器人学习与元学习先驱</p>
+<p class="role"><span class="i18n-zh">机器人学习与元学习先驱</span><span class="i18n-en">Robot Learning &amp; Meta-Learning Pioneer</span></p>
 <div class="fields"><span class="tag">rl</span></div>
-<div class="bio">美国计算机科学家，斯坦福大学 CS 与 EE 助理教授，领导 IRIS 机器人学习实验室。MIT 电子工程与计算机本科，UC Berkeley 博士（导师 Pieter Abbeel 与 Sergey Levine 共同指导）。读博期间提出 Model-Agnostic Meta-Learning（MAML，2017）——让神经网络仅凭少量样本快速适应新任务的奠基性算法，被强化学习、视觉等领域广泛采用。曾任职 Google Brain，2024 年与 Sergey Levine、Karol Hausman 等共同创办 Physical Intelligence，打造通用机器人基础模型（π0）。ACM 优秀博士论文奖得主，具身智能领域的代表学者。</div>
-<div class="bio en">American computer scientist, assistant professor of CS and EE at Stanford, where she leads the IRIS lab on robot learning. BS in EECS from MIT, PhD from UC Berkeley co-advised by Pieter Abbeel and Sergey Levine. During her PhD she created Model-Agnostic Meta-Learning (MAML, 2017) — a foundational algorithm for fast adaptation of neural networks to new tasks from few examples, now widely used across RL, vision and beyond. Worked at Google Brain, and in 2024 co-founded Physical Intelligence with Sergey Levine, Karol Hausman and others to build general-purpose robot foundation models (π0). ACM Doctoral Dissertation Award and a leading voice in embodied AI.</div>
-<a class="cta" href="/?node=finn">在关系图谱中查看 Chelsea Finn →</a>
+<div class="bio i18n-zh">美国计算机科学家，斯坦福大学 CS 与 EE 助理教授，领导 IRIS 机器人学习实验室。MIT 电子工程与计算机本科，UC Berkeley 博士（导师 Pieter Abbeel 与 Sergey Levine 共同指导）。读博期间提出 Model-Agnostic Meta-Learning（MAML，2017）——让神经网络仅凭少量样本快速适应新任务的奠基性算法，被强化学习、视觉等领域广泛采用。曾任职 Google Brain，2024 年与 Sergey Levine、Karol Hausman 等共同创办 Physical Intelligence，打造通用机器人基础模型（π0）。ACM 优秀博士论文奖得主，具身智能领域的代表学者。</div><div class="bio i18n-en">American computer scientist, assistant professor of CS and EE at Stanford, where she leads the IRIS lab on robot learning. BS in EECS from MIT, PhD from UC Berkeley co-advised by Pieter Abbeel and Sergey Levine. During her PhD she created Model-Agnostic Meta-Learning (MAML, 2017) — a foundational algorithm for fast adaptation of neural networks to new tasks from few examples, now widely used across RL, vision and beyond. Worked at Google Brain, and in 2024 co-founded Physical Intelligence with Sergey Levine, Karol Hausman and others to build general-purpose robot foundation models (π0). ACM Doctoral Dissertation Award and a leading voice in embodied AI.</div>
+<a class="cta" href="/?node=finn"><span class="i18n-zh">在关系图谱中查看 Chelsea Finn →</span><span class="i18n-en">View Chelsea Finn in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1703.03400" rel="noopener">Model-Agnostic Meta-Learning (MAML) [12K+ citations]</a></li><li><span class="y">2024</span> Co-founded Physical Intelligence (π0 robot foundation model)</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/abbeel.html"><b>Pieter Abbeel</b><span>PhD co-advisor at UC Berkeley</span></a><a class="nbr" href="/p/levine.html"><b>Sergey Levine</b><span>Berkeley robot learning; co-founded Physical Intelligence</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1703.03400" rel="noopener">Model-Agnostic Meta-Learning (MAML) [12K+ citations]</a></li><li><span class="y">2024</span> Co-founded Physical Intelligence (π0 robot foundation model)</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/abbeel.html"><b>Pieter Abbeel</b><span>PhD co-advisor at UC Berkeley</span></a><a class="nbr" href="/p/levine.html"><b>Sergey Levine</b><span>Berkeley robot learning; co-founded Physical Intelligence</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

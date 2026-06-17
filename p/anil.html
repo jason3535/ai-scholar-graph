@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Rohan Anil · Google DeepMind | AI 学者图谱</title>
 <meta name="description" content="印度裔 AI 研究者，成长为 Google 最重要 AI 项目的技术负责人。领导了 PaLM 2 和 Gemini 模型家族的开发——Google 的旗舰多模态 AI 系统，旨在与 GPT-4 竞争。他的工作涵盖大规模高效训练、多语言能力和多模态推理。">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/anil.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Rohan Anil</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Rohan Anil</span><span class="i18n-en">Rohan Anil</span></h1>
 <p class="org">Google DeepMind</p>
-<p class="role">Gemini 技术负责人</p>
+<p class="role"><span class="i18n-zh">Gemini 技术负责人</span><span class="i18n-en">Technical Lead of Gemini</span></p>
 <div class="fields"><span class="tag">nlp</span></div>
-<div class="bio">印度裔 AI 研究者，成长为 Google 最重要 AI 项目的技术负责人。领导了 PaLM 2 和 Gemini 模型家族的开发——Google 的旗舰多模态 AI 系统，旨在与 GPT-4 竞争。他的工作涵盖大规模高效训练、多语言能力和多模态推理。</div>
-<div class="bio en">Indian-born AI researcher who rose to become the technical lead of Google's most important AI project. Led the development of PaLM 2 and then the Gemini model family, Google's flagship multimodal AI system designed to compete with GPT-4. His work spans efficient training at scale, multilingual capabilities, and multimodal reasoning.</div>
-<a class="cta" href="/?node=anil">在关系图谱中查看 Rohan Anil →</a>
+<div class="bio i18n-zh">印度裔 AI 研究者，成长为 Google 最重要 AI 项目的技术负责人。领导了 PaLM 2 和 Gemini 模型家族的开发——Google 的旗舰多模态 AI 系统，旨在与 GPT-4 竞争。他的工作涵盖大规模高效训练、多语言能力和多模态推理。</div><div class="bio i18n-en">Indian-born AI researcher who rose to become the technical lead of Google's most important AI project. Led the development of PaLM 2 and then the Gemini model family, Google's flagship multimodal AI system designed to compete with GPT-4. His work spans efficient training at scale, multilingual capabilities, and multimodal reasoning.</div>
+<a class="cta" href="/?node=anil"><span class="i18n-zh">在关系图谱中查看 Rohan Anil →</span><span class="i18n-en">View Rohan Anil in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2023</span> <a href="https://arxiv.org/abs/2305.10403" rel="noopener">PaLM 2 Technical Report [2K]</a></li><li><span class="y">2024</span> <a href="https://arxiv.org/abs/2312.11805" rel="noopener">Gemini: Highly Capable Multimodal Models [3K]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/shazeer.html"><b>Noam Shazeer</b><span>Google Gemini/PaLM 协作</span></a><a class="nbr" href="/p/dean.html"><b>Jeff Dean</b><span>Google DeepMind 管理层</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2023</span> <a href="https://arxiv.org/abs/2305.10403" rel="noopener">PaLM 2 Technical Report [2K]</a></li><li><span class="y">2024</span> <a href="https://arxiv.org/abs/2312.11805" rel="noopener">Gemini: Highly Capable Multimodal Models [3K]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/shazeer.html"><b>Noam Shazeer</b><span>Google Gemini/PaLM 协作</span></a><a class="nbr" href="/p/dean.html"><b>Jeff Dean</b><span>Google DeepMind 管理层</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

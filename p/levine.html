@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Sergey Levine · UC Berkeley / Physical Intelligence | AI 学者图谱</title>
 <meta name="description" content="UC Berkeley 教授，开创了从原始像素进行端到端机器人学习。他的工作证明了机器人可以直接从视觉输入学习复杂的操作任务，使用深度强化学习而无需手工设计特征。离线强化学习（从预先收集的数据集学习而非在线交互）的核心贡献者。联合创办 Physical Intelligence (pi)，构建机器…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/levine.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Sergey Levine</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Sergey Levine</span><span class="i18n-en">Sergey Levine</span></h1>
 <p class="org">UC Berkeley / Physical Intelligence</p>
-<p class="role">机器人学习先驱</p>
+<p class="role"><span class="i18n-zh">机器人学习先驱</span><span class="i18n-en">Robot Learning Pioneer</span></p>
 <div class="fields"><span class="tag">rl</span></div>
-<div class="bio">UC Berkeley 教授，开创了从原始像素进行端到端机器人学习。他的工作证明了机器人可以直接从视觉输入学习复杂的操作任务，使用深度强化学习而无需手工设计特征。离线强化学习（从预先收集的数据集学习而非在线交互）的核心贡献者。联合创办 Physical Intelligence (pi)，构建机器人基础模型。他的研究架起了大语言模型的成功与物理世界之间的桥梁。</div>
-<div class="bio en">UC Berkeley professor who pioneered end-to-end robot learning from raw pixels. His work demonstrated that robots could learn complex manipulation tasks directly from visual input using deep reinforcement learning, without hand-engineered features. Key contributor to offline RL (learning from pre-collected datasets rather than online interaction). Co-founded Physical Intelligence (pi), a company building foundation models for robotics. His research bridges the gap between the success of large language models and the physical world.</div>
-<a class="cta" href="/?node=levine">在关系图谱中查看 Sergey Levine →</a>
+<div class="bio i18n-zh">UC Berkeley 教授，开创了从原始像素进行端到端机器人学习。他的工作证明了机器人可以直接从视觉输入学习复杂的操作任务，使用深度强化学习而无需手工设计特征。离线强化学习（从预先收集的数据集学习而非在线交互）的核心贡献者。联合创办 Physical Intelligence (pi)，构建机器人基础模型。他的研究架起了大语言模型的成功与物理世界之间的桥梁。</div><div class="bio i18n-en">UC Berkeley professor who pioneered end-to-end robot learning from raw pixels. His work demonstrated that robots could learn complex manipulation tasks directly from visual input using deep reinforcement learning, without hand-engineered features. Key contributor to offline RL (learning from pre-collected datasets rather than online interaction). Co-founded Physical Intelligence (pi), a company building foundation models for robotics. His research bridges the gap between the success of large language models and the physical world.</div>
+<a class="cta" href="/?node=levine"><span class="i18n-zh">在关系图谱中查看 Sergey Levine →</span><span class="i18n-en">View Sergey Levine in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2016</span> <a href="https://arxiv.org/abs/1504.00702" rel="noopener">End-to-End Training of Deep Visuomotor Policies [4K]</a></li><li><span class="y">2020</span> <a href="https://arxiv.org/abs/2005.01643" rel="noopener">Offline Reinforcement Learning [3K]</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/finn.html"><b>Chelsea Finn</b><span>Berkeley robot learning; co-founded Physical Intelligence</span></a><a class="nbr" href="/p/abbeel.html"><b>Pieter Abbeel</b><span>UC Berkeley 机器人学习</span></a><a class="nbr" href="/p/ho.html"><b>Jonathan Ho</b><span>Berkeley，生成模型</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2016</span> <a href="https://arxiv.org/abs/1504.00702" rel="noopener">End-to-End Training of Deep Visuomotor Policies [4K]</a></li><li><span class="y">2020</span> <a href="https://arxiv.org/abs/2005.01643" rel="noopener">Offline Reinforcement Learning [3K]</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/finn.html"><b>Chelsea Finn</b><span>Berkeley robot learning; co-founded Physical Intelligence</span></a><a class="nbr" href="/p/abbeel.html"><b>Pieter Abbeel</b><span>UC Berkeley 机器人学习</span></a><a class="nbr" href="/p/ho.html"><b>Jonathan Ho</b><span>Berkeley，生成模型</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

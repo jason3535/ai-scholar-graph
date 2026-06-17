@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>黄仁勋 Jensen Huang · NVIDIA | AI 学者图谱</title>
 <meta name="description" content="台裔美籍工程师，1993 年联合创办 NVIDIA 并担任 CEO 至今。1963 年生于台南，幼年移民美国，先后毕业于俄勒冈州立大学与斯坦福。NVIDIA 的 GPU 与 CUDA 平台成为深度学习革命的算力引擎——2012 年 AlexNet 即在 NVIDIA GPU 上训练，如今几乎所有大…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/jensen.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>黄仁勋 Jensen Huang</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">黄仁勋 Jensen Huang</span><span class="i18n-en">Jensen Huang</span></h1>
 <p class="org">NVIDIA</p>
-<p class="role">NVIDIA 联合创始人兼 CEO</p>
+<p class="role"><span class="i18n-zh">NVIDIA 联合创始人兼 CEO</span><span class="i18n-en">Co-founder &amp; CEO of NVIDIA</span></p>
 <div class="fields"><span class="tag">deep-learning</span></div>
-<div class="bio">台裔美籍工程师，1993 年联合创办 NVIDIA 并担任 CEO 至今。1963 年生于台南，幼年移民美国，先后毕业于俄勒冈州立大学与斯坦福。NVIDIA 的 GPU 与 CUDA 平台成为深度学习革命的算力引擎——2012 年 AlexNet 即在 NVIDIA GPU 上训练，如今几乎所有大模型都依赖其芯片训练。在他带领下，NVIDIA 借生成式 AI 算力浪潮成长为全球市值最高的公司之一，市值突破数万亿美元。</div>
-<div class="bio en">Taiwanese-American engineer who co-founded NVIDIA in 1993 and has led it as CEO ever since. Born in Tainan in 1963, he emigrated to the US as a child and earned degrees from Oregon State and Stanford. NVIDIA's GPUs and the CUDA platform became the computational engine of the deep learning revolution — AlexNet (2012) was trained on NVIDIA GPUs, and today essentially all large AI models are trained on them. Under his leadership NVIDIA grew into one of the world's most valuable companies, surpassing a multi-trillion-dollar market capitalization on the back of the generative-AI compute boom.</div>
-<a class="cta" href="/?node=jensen">在关系图谱中查看 黄仁勋 →</a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/jensen" rel="noopener">听 黄仁勋 的 AI 播客 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">1993</span> Co-founded NVIDIA</li><li><span class="y">2006</span> CUDA launch — GPUs for general-purpose computing</li><li><span class="y">2024</span> NVIDIA reaches multi-trillion-dollar valuation</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/hinton.html"><b>Geoffrey Hinton</b><span>AlexNet(2012)在 NVIDIA GPU 上训练</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>NVIDIA 为 OpenAI 供应 AI 算力</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<div class="bio i18n-zh">台裔美籍工程师，1993 年联合创办 NVIDIA 并担任 CEO 至今。1963 年生于台南，幼年移民美国，先后毕业于俄勒冈州立大学与斯坦福。NVIDIA 的 GPU 与 CUDA 平台成为深度学习革命的算力引擎——2012 年 AlexNet 即在 NVIDIA GPU 上训练，如今几乎所有大模型都依赖其芯片训练。在他带领下，NVIDIA 借生成式 AI 算力浪潮成长为全球市值最高的公司之一，市值突破数万亿美元。</div><div class="bio i18n-en">Taiwanese-American engineer who co-founded NVIDIA in 1993 and has led it as CEO ever since. Born in Tainan in 1963, he emigrated to the US as a child and earned degrees from Oregon State and Stanford. NVIDIA's GPUs and the CUDA platform became the computational engine of the deep learning revolution — AlexNet (2012) was trained on NVIDIA GPUs, and today essentially all large AI models are trained on them. Under his leadership NVIDIA grew into one of the world's most valuable companies, surpassing a multi-trillion-dollar market capitalization on the back of the generative-AI compute boom.</div>
+<a class="cta" href="/?node=jensen"><span class="i18n-zh">在关系图谱中查看 黄仁勋 →</span><span class="i18n-en">View Jensen Huang in the graph →</span></a>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/jensen" rel="noopener"><span class="i18n-zh">听 黄仁勋 的 AI 播客 →</span><span class="i18n-en">Listen to Jensen Huang on AI Podcast →</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">1993</span> Co-founded NVIDIA</li><li><span class="y">2006</span> CUDA launch — GPUs for general-purpose computing</li><li><span class="y">2024</span> NVIDIA reaches multi-trillion-dollar valuation</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hinton.html"><b>Geoffrey Hinton</b><span>AlexNet(2012)在 NVIDIA GPU 上训练</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>NVIDIA 为 OpenAI 供应 AI 算力</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

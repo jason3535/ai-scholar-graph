@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Alex Krizhevsky · Independent | AI 学者图谱</title>
 <meta name="description" content="生于乌克兰，在加拿大长大。多伦多大学 Geoffrey Hinton 门下的博士生。2012年与 Hinton 和 Ilya Sutskever 共同构建了 AlexNet——一个深度卷积神经网络，以压倒性优势赢得 ImageNet 竞赛（错误率 15.3%，第二名 26.2%）。这一结果被普遍认…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/krizhevsky.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Alex Krizhevsky</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Alex Krizhevsky</span><span class="i18n-en">Alex Krizhevsky</span></h1>
 <p class="org">Independent</p>
-<p class="role">AlexNet 创造者</p>
+<p class="role"><span class="i18n-zh">AlexNet 创造者</span><span class="i18n-en">Creator of AlexNet</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">vision</span></div>
-<div class="bio">生于乌克兰，在加拿大长大。多伦多大学 Geoffrey Hinton 门下的博士生。2012年与 Hinton 和 Ilya Sutskever 共同构建了 AlexNet——一个深度卷积神经网络，以压倒性优势赢得 ImageNet 竞赛（错误率 15.3%，第二名 26.2%）。这一结果被普遍认为是引爆现代深度学习时代的时刻，证明了 GPU 训练的深度网络可以大幅超越传统计算机视觉方法。三人联合创办 DNNresearch，2013年被 Google 收购。此后保持相对低调。</div>
-<div class="bio en">Born in Ukraine, grew up in Canada. PhD student under Geoffrey Hinton at the University of Toronto. In 2012, built AlexNet with Hinton and Ilya Sutskever, a deep convolutional neural network that won the ImageNet competition by a massive margin (error rate of 15.3% vs. the runner-up's 26.2%). This result is widely considered the moment that ignited the modern deep learning era, proving that GPU-trained deep networks could dramatically outperform traditional computer vision. The three co-founded DNNresearch, which was acquired by Google in 2013. Has maintained a relatively low public profile since.</div>
-<a class="cta" href="/?node=krizhevsky">在关系图谱中查看 Alex Krizhevsky →</a>
+<div class="bio i18n-zh">生于乌克兰，在加拿大长大。多伦多大学 Geoffrey Hinton 门下的博士生。2012年与 Hinton 和 Ilya Sutskever 共同构建了 AlexNet——一个深度卷积神经网络，以压倒性优势赢得 ImageNet 竞赛（错误率 15.3%，第二名 26.2%）。这一结果被普遍认为是引爆现代深度学习时代的时刻，证明了 GPU 训练的深度网络可以大幅超越传统计算机视觉方法。三人联合创办 DNNresearch，2013年被 Google 收购。此后保持相对低调。</div><div class="bio i18n-en">Born in Ukraine, grew up in Canada. PhD student under Geoffrey Hinton at the University of Toronto. In 2012, built AlexNet with Hinton and Ilya Sutskever, a deep convolutional neural network that won the ImageNet competition by a massive margin (error rate of 15.3% vs. the runner-up's 26.2%). This result is widely considered the moment that ignited the modern deep learning era, proving that GPU-trained deep networks could dramatically outperform traditional computer vision. The three co-founded DNNresearch, which was acquired by Google in 2013. Has maintained a relatively low public profile since.</div>
+<a class="cta" href="/?node=krizhevsky"><span class="i18n-zh">在关系图谱中查看 Alex Krizhevsky →</span><span class="i18n-en">View Alex Krizhevsky in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2012</span> <a href="https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html" rel="noopener">ImageNet Classification with Deep CNNs (AlexNet)</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/hinton.html"><b>Geoffrey Hinton</b><span>AlexNet 合著者，博士导师</span></a><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>AlexNet (2012)</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2012</span> <a href="https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html" rel="noopener">ImageNet Classification with Deep CNNs (AlexNet)</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hinton.html"><b>Geoffrey Hinton</b><span>AlexNet 合著者，博士导师</span></a><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>AlexNet (2012)</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

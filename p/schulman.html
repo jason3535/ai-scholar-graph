@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>John Schulman · Anthropic | AI 学者图谱</title>
 <meta name="description" content="加州理工学院物理学学士（2010），后在 UC Berkeley 攻读 EECS 博士，导师 Pieter Abbeel。2015年底联合创办 OpenAI（博士尚未完成）。在 OpenAI 开发了 TRPO（2015）和 PPO（近端策略优化，2017），PPO 成为使用最广泛的强化学习算法——…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/schulman.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>John Schulman</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">John Schulman</span><span class="i18n-en">John Schulman</span></h1>
 <p class="org">Anthropic</p>
-<p class="role">PPO 算法创造者 · OpenAI 联合创始人</p>
+<p class="role"><span class="i18n-zh">PPO 算法创造者 · OpenAI 联合创始人</span><span class="i18n-en">Creator of PPO · Co-founder of OpenAI</span></p>
 <div class="fields"><span class="tag">rl</span><span class="tag">safety</span></div>
-<div class="bio">加州理工学院物理学学士（2010），后在 UC Berkeley 攻读 EECS 博士，导师 Pieter Abbeel。2015年底联合创办 OpenAI（博士尚未完成）。在 OpenAI 开发了 TRPO（2015）和 PPO（近端策略优化，2017），PPO 成为使用最广泛的强化学习算法——也是 RLHF 背后让 ChatGPT 成为可能的核心算法（引用 23000+）。2022-2024年联合领导 OpenAI 后训练团队，直接负责 ChatGPT 的开发。2024年8月加入 Anthropic 专注 AI 安全。2025年2月转任 Thinking Machines Lab 首席科学家，并透露该实验室计划 2026 年发布自研前沿模型——2026年3月与 NVIDIA 达成合作、部署 1 GW Vera Rubin 算力支撑。</div>
-<div class="bio en">Earned a BS in Physics from Caltech (2010), then pursued a PhD in EECS at UC Berkeley under Pieter Abbeel. Co-founded OpenAI in late 2015, shortly before completing his PhD. At OpenAI, he developed TRPO (2015) and PPO (Proximal Policy Optimization, 2017), which became the most widely used reinforcement learning algorithm -- and the core algorithm behind RLHF that makes ChatGPT work (23,000+ citations). Co-led OpenAI's post-training team (2022-2024), directly overseeing ChatGPT's development. Joined Anthropic in August 2024 to focus on AI safety. Later moved to Thinking Machines Lab as Chief Scientist (February 2025), where he said the lab plans to ship its own frontier models in 2026 — backed by a March 2026 NVIDIA partnership for 1 GW of Vera Rubin compute.</div>
-<a class="cta" href="/?node=schulman">在关系图谱中查看 John Schulman →</a>
+<div class="bio i18n-zh">加州理工学院物理学学士（2010），后在 UC Berkeley 攻读 EECS 博士，导师 Pieter Abbeel。2015年底联合创办 OpenAI（博士尚未完成）。在 OpenAI 开发了 TRPO（2015）和 PPO（近端策略优化，2017），PPO 成为使用最广泛的强化学习算法——也是 RLHF 背后让 ChatGPT 成为可能的核心算法（引用 23000+）。2022-2024年联合领导 OpenAI 后训练团队，直接负责 ChatGPT 的开发。2024年8月加入 Anthropic 专注 AI 安全。2025年2月转任 Thinking Machines Lab 首席科学家，并透露该实验室计划 2026 年发布自研前沿模型——2026年3月与 NVIDIA 达成合作、部署 1 GW Vera Rubin 算力支撑。</div><div class="bio i18n-en">Earned a BS in Physics from Caltech (2010), then pursued a PhD in EECS at UC Berkeley under Pieter Abbeel. Co-founded OpenAI in late 2015, shortly before completing his PhD. At OpenAI, he developed TRPO (2015) and PPO (Proximal Policy Optimization, 2017), which became the most widely used reinforcement learning algorithm -- and the core algorithm behind RLHF that makes ChatGPT work (23,000+ citations). Co-led OpenAI's post-training team (2022-2024), directly overseeing ChatGPT's development. Joined Anthropic in August 2024 to focus on AI safety. Later moved to Thinking Machines Lab as Chief Scientist (February 2025), where he said the lab plans to ship its own frontier models in 2026 — backed by a March 2026 NVIDIA partnership for 1 GW of Vera Rubin compute.</div>
+<a class="cta" href="/?node=schulman"><span class="i18n-zh">在关系图谱中查看 John Schulman →</span><span class="i18n-en">View John Schulman in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1502.05477" rel="noopener">Trust Region Policy Optimization (TRPO) [11K citations]</a></li><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1707.06347" rel="noopener">Proximal Policy Optimization (PPO) [23K citations]</a></li><li><span class="y">2026</span> TML to ship own frontier models (Chief Scientist)</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/lilianweng.html"><b>翁丽莲 Lilian Weng</b><span>OpenAI 同事</span></a><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>联合创办 OpenAI</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI 管理层</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>均为前 OpenAI，现 Anthropic</span></a><a class="nbr" href="/p/abbeel.html"><b>Pieter Abbeel</b><span>UC Berkeley 博士导师</span></a><a class="nbr" href="/p/musk.html"><b>Elon Musk</b><span>OpenAI 2015 创始成员</span></a><a class="nbr" href="/p/karpathy.html"><b>Andrej Karpathy</b><span>OpenAI 2015 创始团队</span></a><a class="nbr" href="/p/gregbrockman.html"><b>Greg Brockman</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>Schulman 2025 从 Anthropic 加入 Thinking Machines</span></a><a class="nbr" href="/p/lambert.html"><b>内森·兰伯特 Nathan Lambert</b><span>RLHF / 后训练研究脉络</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1502.05477" rel="noopener">Trust Region Policy Optimization (TRPO) [11K citations]</a></li><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1707.06347" rel="noopener">Proximal Policy Optimization (PPO) [23K citations]</a></li><li><span class="y">2026</span> TML to ship own frontier models (Chief Scientist)</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/lilianweng.html"><b>翁丽莲 Lilian Weng</b><span>OpenAI 同事</span></a><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>联合创办 OpenAI</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI 管理层</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>均为前 OpenAI，现 Anthropic</span></a><a class="nbr" href="/p/abbeel.html"><b>Pieter Abbeel</b><span>UC Berkeley 博士导师</span></a><a class="nbr" href="/p/musk.html"><b>Elon Musk</b><span>OpenAI 2015 创始成员</span></a><a class="nbr" href="/p/karpathy.html"><b>Andrej Karpathy</b><span>OpenAI 2015 创始团队</span></a><a class="nbr" href="/p/gregbrockman.html"><b>Greg Brockman</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>Schulman 2025 从 Anthropic 加入 Thinking Machines</span></a><a class="nbr" href="/p/lambert.html"><b>内森·兰伯特 Nathan Lambert</b><span>RLHF / 后训练研究脉络</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

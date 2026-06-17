@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>姜大昕 Jiang Daxin · StepFun | AI 学者图谱</title>
 <meta name="description" content="中科大本科，中科院软件所硕士，纽约州立大学布法罗分校 CS 博士（2005）。在新加坡南洋理工大学计算机系任助理教授一年。2007 年加入微软亚洲研究院任首席研究员，开启 16 年微软生涯，横跨机器学习、数据挖掘、NLP 和生物信息学。2008 年获 SIGKDD 最佳应用论文奖。2011 年转入…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/jiangdaxin.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>姜大昕 Jiang Daxin</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">姜大昕 Jiang Daxin</span><span class="i18n-en">Jiang Daxin</span></h1>
 <p class="org">StepFun</p>
-<p class="role">阶跃星辰创始人兼 CEO · 前微软全球副总裁</p>
+<p class="role"><span class="i18n-zh">阶跃星辰创始人兼 CEO · 前微软全球副总裁</span><span class="i18n-en">Founder &amp; CEO of StepFun · 前微软全球副总裁</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">vision</span></div>
-<div class="bio">中科大本科，中科院软件所硕士，纽约州立大学布法罗分校 CS 博士（2005）。在新加坡南洋理工大学计算机系任助理教授一年。2007 年加入微软亚洲研究院任首席研究员，开启 16 年微软生涯，横跨机器学习、数据挖掘、NLP 和生物信息学。2008 年获 SIGKDD 最佳应用论文奖。2011 年转入微软亚洲互联网工程院（STCA）。2017 年升任微软全球合伙人 + STCA 副院长 + 首席科学家。2023 年 3 月升任微软副总裁，负责 Bing 全球搜索体验、AI School China 和 NLP 技术研发，管理 400+ 人的精英团队。2023 年 4 月创办阶跃星辰，主攻多模态 + AGI Scaling Law。2025 年入选 IEEE Fellow。Step 系列模型（Step-1/Step-2/Step-3）以多模态生成著称。「AI 六小虎」之一，与上海资本系深度绑定。</div>
-<div class="bio en">中科大本科,中科院软件所硕士,纽约州立布法罗 CS PhD(2005)。新加坡南洋理工助教 1 年。2007 加入微软亚洲研究院首席研究员,16 年微软生涯横跨 ML/数据挖掘/NLP/生物信息学。2008 SIGKDD 最佳应用论文奖。2011 转微软亚洲互联网工程院(STCA)。2017 升微软全球合伙人 + STCA 副院长 + 首席科学家。2023.3 升微软副总裁,负责 Bing 全球搜索 + AI School China + NLP 技术研发,管 400+ 人精英团队。2023.4 创办阶跃星辰主攻多模态 + AGI Scaling Law。2025 入选 IEEE Fellow。Step 系列模型(Step-1/Step-2/Step-3)以多模态生成著称。「AI 六小虎」之一,与上海资本系深度绑定。</div>
-<a class="cta" href="/?node=jiangdaxin">在关系图谱中查看 姜大昕 →</a>
+<div class="bio i18n-zh">中科大本科，中科院软件所硕士，纽约州立大学布法罗分校 CS 博士（2005）。在新加坡南洋理工大学计算机系任助理教授一年。2007 年加入微软亚洲研究院任首席研究员，开启 16 年微软生涯，横跨机器学习、数据挖掘、NLP 和生物信息学。2008 年获 SIGKDD 最佳应用论文奖。2011 年转入微软亚洲互联网工程院（STCA）。2017 年升任微软全球合伙人 + STCA 副院长 + 首席科学家。2023 年 3 月升任微软副总裁，负责 Bing 全球搜索体验、AI School China 和 NLP 技术研发，管理 400+ 人的精英团队。2023 年 4 月创办阶跃星辰，主攻多模态 + AGI Scaling Law。2025 年入选 IEEE Fellow。Step 系列模型（Step-1/Step-2/Step-3）以多模态生成著称。「AI 六小虎」之一，与上海资本系深度绑定。</div><div class="bio i18n-en">中科大本科,中科院软件所硕士,纽约州立布法罗 CS PhD(2005)。新加坡南洋理工助教 1 年。2007 加入微软亚洲研究院首席研究员,16 年微软生涯横跨 ML/数据挖掘/NLP/生物信息学。2008 SIGKDD 最佳应用论文奖。2011 转微软亚洲互联网工程院(STCA)。2017 升微软全球合伙人 + STCA 副院长 + 首席科学家。2023.3 升微软副总裁,负责 Bing 全球搜索 + AI School China + NLP 技术研发,管 400+ 人精英团队。2023.4 创办阶跃星辰主攻多模态 + AGI Scaling Law。2025 入选 IEEE Fellow。Step 系列模型(Step-1/Step-2/Step-3)以多模态生成著称。「AI 六小虎」之一,与上海资本系深度绑定。</div>
+<a class="cta" href="/?node=jiangdaxin"><span class="i18n-zh">在关系图谱中查看 姜大昕 →</span><span class="i18n-en">View Jiang Daxin in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2008</span> SIGKDD Best Applied Research Paper Award</li><li><span class="y">2024</span> Step-1V Multimodal Foundation Model</li><li><span class="y">2025</span> IEEE Fellow</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/yudong.html"><b>俞栋 Yu Dong</b><span>微软亚洲研究院 16 年同事(2007-2023)</span></a><a class="nbr" href="/p/zhangzhengyou.html"><b>张正友 Zhang Zhengyou</b><span>微软亚洲研究院同事</span></a><a class="nbr" href="/p/kaiminghe.html"><b>何恺明 Kaiming He</b><span>MSRA 时期(2011-2016)</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2008</span> SIGKDD Best Applied Research Paper Award</li><li><span class="y">2024</span> Step-1V Multimodal Foundation Model</li><li><span class="y">2025</span> IEEE Fellow</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/yudong.html"><b>俞栋 Yu Dong</b><span>微软亚洲研究院 16 年同事(2007-2023)</span></a><a class="nbr" href="/p/zhangzhengyou.html"><b>张正友 Zhang Zhengyou</b><span>微软亚洲研究院同事</span></a><a class="nbr" href="/p/kaiminghe.html"><b>何恺明 Kaiming He</b><span>MSRA 时期(2011-2016)</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

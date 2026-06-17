@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>刘知远 Liu Zhiyuan · ModelBest / Tsinghua | AI 学者图谱</title>
 <meta name="description" content="清华 CS 本博（2011 博士，导师孙茂松），专注 NLP、知识图谱、表征学习。AAAI/IJCAI/ACL 等顶会论文 200+。2021 年 6 月「悟道 2.0」万亿参数模型发布后，与导师孙茂松、学生曾国洋等联合创办面壁智能（ModelBest），走端侧 AI 路线。2024 年 2 月发…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/liuzhiyuan.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>刘知远 Liu Zhiyuan</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">刘知远 Liu Zhiyuan</span><span class="i18n-en">Liu Zhiyuan</span></h1>
 <p class="org">ModelBest / Tsinghua</p>
-<p class="role">面壁智能联创 · 清华副教授 · MiniCPM 主导者</p>
+<p class="role"><span class="i18n-zh">面壁智能联创 · 清华副教授 · MiniCPM 主导者</span><span class="i18n-en">面壁智能联创 · 清华副教授 · MiniCPM 主导者</span></p>
 <div class="fields"><span class="tag">nlp</span></div>
-<div class="bio">清华 CS 本博（2011 博士，导师孙茂松），专注 NLP、知识图谱、表征学习。AAAI/IJCAI/ACL 等顶会论文 200+。2021 年 6 月「悟道 2.0」万亿参数模型发布后，与导师孙茂松、学生曾国洋等联合创办面壁智能（ModelBest），走端侧 AI 路线。2024 年 2 月发布 MiniCPM 仅 24 亿参数性能赶超百亿模型，被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications，8B 多模态综合性能超越 GPT-4V 和 Gemini Pro。2024 年斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。是中国端侧大模型代表人物。</div>
-<div class="bio en">清华 CS 本博(2011 PhD,导师孙茂松),专注 NLP+知识图谱+表征学习。AAAI/IJCAI/ACL 论文 200+。2021.6 「悟道 2.0」万亿模型发布后,与导师孙茂松+学生曾国洋等联创面壁智能(ModelBest),走端侧 AI 路线。2024.2 发布 MiniCPM 仅 24 亿参数性能赶超百亿模型,被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications,8B 多模态超越 GPT-4V。2024 斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。中国端侧大模型代表人物。</div>
-<a class="cta" href="/?node=liuzhiyuan">在关系图谱中查看 刘知远 →</a>
+<div class="bio i18n-zh">清华 CS 本博（2011 博士，导师孙茂松），专注 NLP、知识图谱、表征学习。AAAI/IJCAI/ACL 等顶会论文 200+。2021 年 6 月「悟道 2.0」万亿参数模型发布后，与导师孙茂松、学生曾国洋等联合创办面壁智能（ModelBest），走端侧 AI 路线。2024 年 2 月发布 MiniCPM 仅 24 亿参数性能赶超百亿模型，被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications，8B 多模态综合性能超越 GPT-4V 和 Gemini Pro。2024 年斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。是中国端侧大模型代表人物。</div><div class="bio i18n-en">清华 CS 本博(2011 PhD,导师孙茂松),专注 NLP+知识图谱+表征学习。AAAI/IJCAI/ACL 论文 200+。2021.6 「悟道 2.0」万亿模型发布后,与导师孙茂松+学生曾国洋等联创面壁智能(ModelBest),走端侧 AI 路线。2024.2 发布 MiniCPM 仅 24 亿参数性能赶超百亿模型,被誉「小钢炮」。MiniCPM-V 4.0 4B 参数登 Nature Communications,8B 多模态超越 GPT-4V。2024 斯坦福 AI 团队抄袭面壁开源模型事件让公司国际知名度暴增。中国端侧大模型代表人物。</div>
+<a class="cta" href="/?node=liuzhiyuan"><span class="i18n-zh">在关系图谱中查看 刘知远 →</span><span class="i18n-en">View Liu Zhiyuan in the graph →</span></a>
 
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2024</span> <a href="https://arxiv.org/abs/2404.06395" rel="noopener">MiniCPM: Unveiling the Potential of Small LLMs</a></li><li><span class="y">2025</span> MiniCPM-V (Nature Communications)</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/jietang.html"><b>唐杰 Jie Tang</b><span>清华 CS NLP 教师同事</span></a><a class="nbr" href="/p/huangminlie.html"><b>Huang Minlie</b><span>清华 CoAI 同事</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2024</span> <a href="https://arxiv.org/abs/2404.06395" rel="noopener">MiniCPM: Unveiling the Potential of Small LLMs</a></li><li><span class="y">2025</span> MiniCPM-V (Nature Communications)</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/jietang.html"><b>唐杰 Jie Tang</b><span>清华 CS NLP 教师同事</span></a><a class="nbr" href="/p/huangminlie.html"><b>Huang Minlie</b><span>清华 CoAI 同事</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

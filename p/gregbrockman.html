@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Greg Brockman · OpenAI | AI 学者图谱</title>
 <meta name="description" content="1987年生于北达科他州。Harvard 数学退学，转 MIT 后再退学。2010 年加入 Stripe 成为第 4 号员工，2013-2015 年任 CTO。2015 年与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任首任 CTO，后转任总…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/gregbrockman.html">
@@ -23,7 +24,10 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
@@ -34,17 +38,20 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 .cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">AI 学者图谱 · AI Scholar Graph ↗</a>
-<h1>Greg Brockman</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<h1><span class="i18n-zh">Greg Brockman</span><span class="i18n-en">Greg Brockman</span></h1>
 <p class="org">OpenAI</p>
-<p class="role">OpenAI 总裁兼联合创始人 · 第一任 CTO</p>
+<p class="role"><span class="i18n-zh">OpenAI 总裁兼联合创始人 · 第一任 CTO</span><span class="i18n-en">President &amp; Co-founder · OpenAI 第一任 CTO</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">nlp</span></div>
-<div class="bio">1987年生于北达科他州。Harvard 数学退学，转 MIT 后再退学。2010 年加入 Stripe 成为第 4 号员工，2013-2015 年任 CTO。2015 年与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任首任 CTO，后转任总裁兼董事长。2024 年 8-11 月短暂离岗 sabbatical 后回归。2026 年 4-5 月在 Musk 起诉 OpenAI 案中作证披露：个人持股价值近 $300 亿（从未投入资金），仅次于 Sam Altman。被认为是 OpenAI 把研究变成产品的核心工程负责人。</div>
-<div class="bio en">1987 年生 North Dakota。Harvard 数学退学,转 MIT 也退学。加入 Stripe 2010 任第 4 号员工,2013 升任 CTO 至 2015 离开。2015 与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任 CTO。后转任 President+董事长。2024.8-11 短暂离岗 sabbatical,11 月底回归。2026.4-5 在 Musk vs OpenAI 法庭作证披露:个人持股价值近 $30B(他从未投入资金),仅次于 Sam Altman。技术上深度参与 GPT-3/4/o1 的工程实现,被认为是 OpenAI 把研究变成产品的核心人。</div>
-<a class="cta" href="/?node=gregbrockman">在关系图谱中查看 Greg Brockman →</a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/brockman" rel="noopener">听 Greg Brockman 的 AI 播客 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2020</span> <a href="https://arxiv.org/abs/2005.14165" rel="noopener">GPT-3: Language Models are Few-Shot Learners (co-author)</a></li><li><span class="y">2023</span> <a href="https://arxiv.org/abs/2303.08774" rel="noopener">GPT-4 Technical Report</a></li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/musk.html"><b>Elon Musk</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/schulman.html"><b>John Schulman</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/karpathy.html"><b>Andrej Karpathy</b><span>OpenAI 2015 founding 团队</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>OpenAI 2016-2021</span></a><a class="nbr" href="/p/pachocki.html"><b>Jakub Pachocki</b><span>OpenAI</span></a><a class="nbr" href="/p/markchen.html"><b>陈麻克 Mark Chen</b><span>OpenAI</span></a><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>OpenAI 2018-2024</span></a>
-<a class="back" href="/">← 返回完整图谱 AI 学者图谱</a>
-</div></body></html>
+<div class="bio i18n-zh">1987年生于北达科他州。Harvard 数学退学，转 MIT 后再退学。2010 年加入 Stripe 成为第 4 号员工，2013-2015 年任 CTO。2015 年与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任首任 CTO，后转任总裁兼董事长。2024 年 8-11 月短暂离岗 sabbatical 后回归。2026 年 4-5 月在 Musk 起诉 OpenAI 案中作证披露：个人持股价值近 $300 亿（从未投入资金），仅次于 Sam Altman。被认为是 OpenAI 把研究变成产品的核心工程负责人。</div><div class="bio i18n-en">1987 年生 North Dakota。Harvard 数学退学,转 MIT 也退学。加入 Stripe 2010 任第 4 号员工,2013 升任 CTO 至 2015 离开。2015 与 Sam Altman、Elon Musk、Ilya Sutskever 等共同创办 OpenAI 任 CTO。后转任 President+董事长。2024.8-11 短暂离岗 sabbatical,11 月底回归。2026.4-5 在 Musk vs OpenAI 法庭作证披露:个人持股价值近 $30B(他从未投入资金),仅次于 Sam Altman。技术上深度参与 GPT-3/4/o1 的工程实现,被认为是 OpenAI 把研究变成产品的核心人。</div>
+<a class="cta" href="/?node=gregbrockman"><span class="i18n-zh">在关系图谱中查看 Greg Brockman →</span><span class="i18n-en">View Greg Brockman in the graph →</span></a>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/brockman" rel="noopener"><span class="i18n-zh">听 Greg Brockman 的 AI 播客 →</span><span class="i18n-en">Listen to Greg Brockman on AI Podcast →</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2020</span> <a href="https://arxiv.org/abs/2005.14165" rel="noopener">GPT-3: Language Models are Few-Shot Learners (co-author)</a></li><li><span class="y">2023</span> <a href="https://arxiv.org/abs/2303.08774" rel="noopener">GPT-4 Technical Report</a></li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/musk.html"><b>Elon Musk</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/sutskever.html"><b>Ilya Sutskever</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/schulman.html"><b>John Schulman</b><span>OpenAI 2015 联合创始人</span></a><a class="nbr" href="/p/karpathy.html"><b>Andrej Karpathy</b><span>OpenAI 2015 founding 团队</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>OpenAI 2016-2021</span></a><a class="nbr" href="/p/pachocki.html"><b>Jakub Pachocki</b><span>OpenAI</span></a><a class="nbr" href="/p/markchen.html"><b>陈麻克 Mark Chen</b><span>OpenAI</span></a><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>OpenAI 2018-2024</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>
