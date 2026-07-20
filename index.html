@@ -3013,7 +3013,7 @@ applyLanguage("zh");
 <script>
 (function(){
   // graph scholar id -> AI Podcast person id (aipodcast.jasonlin.tech/#/person/<id>)
-  var PODCAST={sutskever:'ilya',hassabis:'demis',damodei:'dario',karpathy:'karpathy',feifei:'feifei',bengio:'bengio',hinton:'hinton',lecun:'lecun',janleike:'leike',suleyman:'suleyman',altman:'altman',miramurati:'murati',ng:'andrewng',sutton:'sutton',gregbrockman:'brockman',mensch:'mensch',musk:'elon',kaiser:'kaiser',bcherny:'boris',catwu:'catwu',truell:'truell',steinberger:'steinberger',jensen:'jensen',kolter:'kolter',sholto:'sholto',lambert:'lambert',awang:'awang',dean:'jeffdean',shazeer:'shazeer',schulman:'schulman',noambrown:'noambrown',jaredkaplan:'kaplan',schmidhuber:'schmidhuber',abbeel:'abbeel',aravindsrinivas:'aravind'};
+  var PODCAST={abbeel:'abbeel',ajambrosino:'ajambrosino',albertgu:'albertgu',alexrives:'alexrives',alexwei:'alexwei',alibehrouz:'alibehrouz',altman:'altman',antonoglou:'antonoglou',aravindsrinivas:'aravind',askell:'askell',awang:'awang',batson:'batson',bcherny:'boris',bengio:'bengio',benmann:'benmann',bricken:'bricken',brown:'tombrown',bubeck:'bubeck',caitlin:'caitlin',catwu:'catwu',christiano:'christiano',damodei:'dario',danbiderman:'danbiderman',davidsp:'davidsp',dean:'jeffdean',delangue:'delangue',dylanpatel:'dylanpatel',edunov:'edunov',edwinchen:'edwinchen',ericjang:'ericjang',ethanhe:'ethanhe',fedus:'fedus',feifei:'feifei',finn:'finn',fiona:'fiona',fulford:'fulford',gomez:'gomez',grantsanderson:'grantsanderson',gregbrockman:'brockman',hafner:'hafner',hasani:'hasani',hassabis:'demis',hausman:'hausman',hendrycks:'hendrycks',hinton:'hinton',jackph:'jackph',jaderberg:'jaderberg',janleike:'leike',jaredkaplan:'kaplan',jensen:'jensen',jhoward:'jhoward',jimfan:'jimfan',jones:'llion',joonpark:'joonpark',jumper:'jumper',justinjohnson:'justinjohnson',karina:'karina',karpathy:'karpathy',kendall:'kendall',kolter:'kolter',lambert:'lambert',lample:'lample',laskin:'laskin',lecun:'lecun',legg:'shanelegg',levine:'slevine',liang:'percyliang',logankilpatrick:'logankilpatrick',malik:'malik',markchen:'markchen',mattwhite:'mattwhite',mensch:'mensch',miramurati:'murati',mjordan:'mjordan',musk:'elon',nanda:'nanda',nando:'nando',naval:'naval',ng:'andrewng',noambrown:'noambrown',olah:'olah',pachocki:'pachocki',parada:'parada',pathak:'pathak',pincus:'pincus',pushmeetkohli:'kohli',reinerpope:'reinerpope',robertlange:'robertlange',rohinshah:'rohinshah',schulman:'schulman',scottwu:'scottwu',shanahan:'shanahan',shazeer:'shazeer',sholto:'sholto',silver:'dsilver',springenberg:'springenberg',steinberger:'steinberger',suleyman:'suleyman',sutskever:'ilya',sutton:'sutton',tejal:'tejal',thomaswolf:'thomaswolf',tridao:'tridao',truell:'truell',tworek:'tworek',varun:'varun',vinyals:'oriol',waldenyan:'waldenyan',wei:'jasonwei',wiltschko:'wiltschko',yejin:'yejin'};
   function detectLang(){var a=document.querySelector('.lang-btn.active');if(a&&a.dataset&&a.dataset.lang)return a.dataset.lang;try{return currentLang;}catch(e){return 'zh';}}
   var L={zh:'听他的 AI 播客',en:'Listen on AI Podcast'};
   function init(){
@@ -3043,5 +3043,43 @@ applyLanguage("zh");
 })();
 </script>
 <!-- ===== /Listen on AI Podcast ===== -->
+
+<!-- ===== Read on AI Paper (cross-link to aipaper.jasonlin.tech) ===== -->
+<style>
+.detail-paper-btn{display:none;align-items:center;justify-content:center;gap:7px;margin:8px 20px 0;padding:11px 16px;border-radius:12px;background:rgba(41,151,255,0.14);color:#9fd0ff;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.01em;transition:background .2s,transform .08s;-webkit-tap-highlight-color:transparent;}
+.detail-paper-btn:hover{background:rgba(41,151,255,0.24);}
+.detail-paper-btn:active{transform:scale(0.985);}
+.detail-paper-btn svg{opacity:.85;flex:0 0 auto;}
+@media (max-width:768px){.detail-paper-btn{margin:8px 16px 0;}}
+</style>
+<script>
+(function(){
+  var PAPER={abbeel:'abbeel',albertgu:'albertgu',alexwei:'alexwei',altman:'sam',antonoglou:'antonoglou',askell:'askell',bengio:'bengio',brown:'tombrown',christiano:'christiano',damodei:'dario',dayaguo:'dayaguo',dean:'jeffdean',fedus:'fedus',feifei:'feifei',finn:'finn',goodfellow:'goodfellow',hafner:'dhafner',hassabis:'demis',hinton:'hinton',ho:'jonathanho',hochreiter:'shochreiter',janleike:'leike',jaredkaplan:'kaplan',jietang:'jietang',jimfan:'jimfan',justinjohnson:'justinjohnson',kaifulee:'kaifulee',kaiminghe:'kaiming',karpathy:'karpathy',kendall:'kendall',lambert:'nathanlambert',lecun:'lecun',levine:'svlevine',lilianweng:'lilianweng',olah:'chrisolah',radford:'aradford',rombach:'rrombach',schulman:'schulman',shazeer:'shazeer',sutskever:'ilya',sutton:'richsutton',szegedy:'cszegedy',tridao:'tridao',tworek:'tworek',vinyals:'oriol',wei:'jasonwei',yejin:'yejin'};
+  function detectLang(){var a=document.querySelector('.lang-btn.active');if(a&&a.dataset&&a.dataset.lang)return a.dataset.lang;try{return currentLang;}catch(e){return 'zh';}}
+  var L={zh:'读他的论文与长文',en:'Read on AI Paper'};
+  function init(){
+    var panel=document.getElementById('detail-panel');
+    var header=panel?panel.querySelector('.detail-header'):null;
+    var nameEl=document.getElementById('detail-name');
+    if(!panel||!header||!nameEl)return;
+    var a=document.createElement('a');
+    a.className='detail-paper-btn'; a.target='_blank'; a.rel='noopener';
+    a.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H14l6 6v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v6h6M8 14h8M8 17h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>'+L.zh+'</span>';
+    var pod=panel.querySelector('.detail-podcast-btn');
+    if(pod)pod.insertAdjacentElement('afterend',a); else header.insertAdjacentElement('afterend',a);
+    function set(){
+      var d=window._currentDetailScholar; var pid=d&&d.id?PAPER[d.id]:null;
+      if(!pid){a.style.display='none';return;}
+      a.href='https://aipaper.jasonlin.tech/#/person/'+encodeURIComponent(pid);
+      a.style.display='flex';
+      var s=a.querySelector('span');if(s)s.textContent=(L[detectLang()]||L.zh);
+    }
+    new MutationObserver(set).observe(nameEl,{childList:true,characterData:true,subtree:true});
+    a.addEventListener('mousedown',set); set();
+    a.addEventListener('click',function(){if(typeof umami!=='undefined'){try{umami.track('open_paper',{id:(window._currentDetailScholar||{}).id});}catch(_){}}});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </body>
 </html>
