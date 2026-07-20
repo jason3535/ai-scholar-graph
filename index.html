@@ -1081,6 +1081,25 @@ body.no-insights #graph-container {
 
 <!-- Insights Section (rendered by insights-widget.js) -->
 <section id="insights-section" data-graph="ai-scholar"></section>
+<section id="sister-sites">
+  <div class="ss-inner">
+    <div class="ss-eyebrow">延伸阅读 · Read further</div>
+    <h3 class="ss-title">图谱里的这些人，还能这样读</h3>
+    <div class="ss-cards">
+      <a class="ss-card" href="https://aipodcast.jasonlin.tech" target="_blank" rel="noopener">
+        <span class="ss-ico" style="background:rgba(124,92,255,.16);color:#cbb9ff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></span>
+        <b>AI Podcast</b>
+        <span class="ss-desc">他们的长访谈，中英对照全文 + 核心观点 + AI 问答</span>
+      </a>
+      <a class="ss-card" href="https://aipaper.jasonlin.tech" target="_blank" rel="noopener">
+        <span class="ss-ico" style="background:rgba(41,151,255,.16);color:#9fd0ff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H14l6 6v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M14 4v6h6M8 14h8M8 17h5"/></svg></span>
+        <b>AI Paper</b>
+        <span class="ss-desc">他们的论文与长文，逐段双语 + 核心贡献 + AI 问答</span>
+      </a>
+    </div>
+    <div class="ss-note">点开图谱里任一位学者，详情面板里可直接跳到 TA 的播客与论文。</div>
+  </div>
+</section>
 <script src="https://hardware.jasonlin.tech/insights-widget.js?v=50" defer></script>
 
 <script>
@@ -3051,6 +3070,21 @@ applyLanguage("zh");
 .detail-paper-btn:active{transform:scale(0.985);}
 .detail-paper-btn svg{opacity:.85;flex:0 0 auto;}
 @media (max-width:768px){.detail-paper-btn{margin:8px 16px 0;}}
+
+/* ===== Sister sites ===== */
+#sister-sites{padding:52px 24px 70px;background:#000;border-top:.5px solid rgba(255,255,255,.08)}
+.ss-inner{max-width:900px;margin:0 auto}
+.ss-eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.ss-title{font-size:26px;font-weight:600;letter-spacing:-.4px;color:#f5f5f7;margin:8px 0 22px}
+.ss-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ss-card{display:block;padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);text-decoration:none;transition:background .2s,transform .08s}
+.ss-card:hover{background:rgba(255,255,255,.08)}
+.ss-card:active{transform:scale(.99)}
+.ss-ico{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;margin-bottom:12px}
+.ss-card b{display:block;font-size:17px;font-weight:600;color:#f5f5f7;letter-spacing:-.2px}
+.ss-desc{display:block;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.55);margin-top:5px}
+.ss-note{font-size:13px;color:rgba(255,255,255,.4);margin-top:16px}
+@media (max-width:768px){#sister-sites{padding:40px 16px 56px}.ss-cards{grid-template-columns:1fr}.ss-title{font-size:21px}}
 </style>
 <script>
 (function(){
