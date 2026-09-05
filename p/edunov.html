@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>谢尔盖·叶杜诺夫 Sergey Edunov · Genesis Molecular AI | AI 学者图谱</title>
-<meta name="description" content="Genesis Molecular AI CTO，把前沿规模的机器学习用于药物发现。此前在 Meta 负责 Llama 2 与 Llama 3 的预训练。">
+<title>Sergey Edunov · Genesis Molecular AI | AI 学者图谱</title>
+<meta name="description" content="CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/edunov.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/edunov.html">
-<meta property="og:title" content="谢尔盖·叶杜诺夫 Sergey Edunov · Genesis Molecular AI CTO；曾负责 Meta Llama…">
-<meta property="og:description" content="Genesis Molecular AI CTO，把前沿规模的机器学习用于药物发现。此前在 Meta 负责 Llama 2 与 Llama 3 的预训练。">
+<meta property="og:title" content="Sergey Edunov · CTO, Genesis Molecular AI; led Llama 2/3 pretraining at Meta">
+<meta property="og:description" content="CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/edunov.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="谢尔盖·叶杜诺夫 Sergey Edunov"><meta name="twitter:description" content="Genesis Molecular AI CTO，把前沿规模的机器学习用于药物发现。此前在 Meta 负责 Llama 2 与 Llama 3 的预训练。">
+<meta name="twitter:title" content="Sergey Edunov"><meta name="twitter:description" content="CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/edunov.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"谢尔盖·叶杜诺夫 Sergey Edunov","alternateName":"Sergey Edunov","jobTitle":"Genesis Molecular AI CTO；曾负责 Meta Llama 2/3 预训练","worksFor":{"@type":"Organization","name":"Genesis Molecular AI"},"description":"Genesis Molecular AI CTO，把前沿规模的机器学习用于药物发现。此前在 Meta 负责 Llama 2 与 Llama 3 的预训练。","url":"https://ai.jasonlin.tech/p/edunov.html","image":"https://ai.jasonlin.tech/og/edunov.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Sergey Edunov", "alternateName": "Sergey Edunov", "jobTitle": "CTO, Genesis Molecular AI; led Llama 2/3 pretraining at Meta", "worksFor": {"@type": "Organization", "name": "Genesis Molecular AI"}, "description": "CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.", "url": "https://ai.jasonlin.tech/p/edunov.html", "image": "https://ai.jasonlin.tech/og/edunov.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/edunov.jpg" alt="Sergey Edunov" width="108" height="108" loading="eager">
-<h1><span class="i18n-zh">谢尔盖·叶杜诺夫 Sergey Edunov</span><span class="i18n-en">Sergey Edunov</span></h1>
+<h1><span class="i18n-zh">Sergey Edunov</span><span class="i18n-en">Sergey Edunov</span></h1>
 <p class="org">Genesis Molecular AI</p>
-<p class="role"><span class="i18n-zh">Genesis Molecular AI CTO；曾负责 Meta Llama 2/3 预训练</span><span class="i18n-en">CTO, Genesis Molecular AI; led Llama 2/3 pretraining at Meta</span></p>
+<p class="role"><span class="i18n-zh">CTO, Genesis Molecular AI; led Llama 2/3 pretraining at Meta</span><span class="i18n-en">CTO, Genesis Molecular AI; led Llama 2/3 pretraining at Meta</span></p>
 <div class="fields"><span class="tag">deep-learning</span></div>
-<div class="bio i18n-zh">Genesis Molecular AI CTO，把前沿规模的机器学习用于药物发现。此前在 Meta 负责 Llama 2 与 Llama 3 的预训练。</div><div class="bio i18n-en">CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/edunov/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=edunov"><span class="i18n-zh">在关系图谱中查看 谢尔盖·叶杜诺夫 →</span><span class="i18n-en">View Sergey Edunov in the graph →</span></a>
+<div class="bio i18n-zh">CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.</div><div class="bio i18n-en">CTO of Genesis Molecular AI, applying frontier-scale ML to drug discovery. Previously at Meta, where he led pretraining for Llama 2 and Llama 3.</div>
+<a class="cta" href="/?node=edunov"><span class="i18n-zh">在关系图谱中查看 Sergey Edunov →</span><span class="i18n-en">View Sergey Edunov in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/edunov" rel="noopener"><span class="i18n-zh">听 Sergey Edunov 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
-
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/lecun.html"><b>Yann LeCun</b><span>Genesis Molecular AI</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

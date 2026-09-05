@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>约翰·江珀 John Jumper · Anthropic | AI 学者图谱</title>
-<meta name="description" content="美国科学家，在 Google DeepMind 共同创造了 AlphaFold——预测了 2 亿多个蛋白质结构、彻底改变结构生物学的 AI 系统，并因此共享 2024 年诺贝尔化学奖。2026 年 6 月，在 DeepMind 工作近九年后宣布离职加入 Anthropic，是 2026 年 AI …">
+<title>John Jumper · Anthropic | AI 学者图谱</title>
+<meta name="description" content="American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed struc…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/jumper.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/jumper.html">
-<meta property="og:title" content="约翰·江珀 John Jumper · 诺贝尔奖得主 · AlphaFold 共同创造者">
-<meta property="og:description" content="美国科学家，在 Google DeepMind 共同创造了 AlphaFold——预测了 2 亿多个蛋白质结构、彻底改变结构生物学的 AI 系统，并因此共享 2024 年诺贝尔化学奖。2026 年 6 月，在 DeepMind 工作近九年后宣布离职加入 Anthropic，是 2026 年 AI …">
+<meta property="og:title" content="John Jumper · Nobel Laureate · AlphaFold co-creator">
+<meta property="og:description" content="American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed struc…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/jumper.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="约翰·江珀 John Jumper"><meta name="twitter:description" content="美国科学家，在 Google DeepMind 共同创造了 AlphaFold——预测了 2 亿多个蛋白质结构、彻底改变结构生物学的 AI 系统，并因此共享 2024 年诺贝尔化学奖。2026 年 6 月，在 DeepMind 工作近九年后宣布离职加入 Anthropic，是 2026 年 AI …">
+<meta name="twitter:title" content="John Jumper"><meta name="twitter:description" content="American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed struc…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/jumper.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"约翰·江珀 John Jumper","alternateName":"John Jumper","jobTitle":"诺贝尔奖得主 · AlphaFold 共同创造者","worksFor":{"@type":"Organization","name":"Anthropic"},"description":"美国科学家，在 Google DeepMind 共同创造了 AlphaFold——预测了 2 亿多个蛋白质结构、彻底改变结构生物学的 AI 系统，并因此共享 2024 年诺贝尔化学奖。2026 年 6 月，在 DeepMind 工作近九年后宣布离职加入 Anthropic，是 2026 年 AI …","url":"https://ai.jasonlin.tech/p/jumper.html","image":"https://ai.jasonlin.tech/og/jumper.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "John Jumper", "alternateName": "John Jumper", "jobTitle": "Nobel Laureate · AlphaFold co-creator", "worksFor": {"@type": "Organization", "name": "Anthropic"}, "description": "American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed struc", "url": "https://ai.jasonlin.tech/p/jumper.html", "image": "https://ai.jasonlin.tech/og/jumper.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/jumper.jpg" alt="John Jumper" width="108" height="108" loading="eager">
-<h1><span class="i18n-zh">约翰·江珀 John Jumper</span><span class="i18n-en">John Jumper</span></h1>
+<h1><span class="i18n-zh">John Jumper</span><span class="i18n-en">John Jumper</span></h1>
 <p class="org">Anthropic</p>
-<p class="role"><span class="i18n-zh">诺贝尔奖得主 · AlphaFold 共同创造者</span><span class="i18n-en">Nobel Laureate · AlphaFold co-creator</span></p>
+<p class="role"><span class="i18n-zh">Nobel Laureate · AlphaFold co-creator</span><span class="i18n-en">Nobel Laureate · AlphaFold co-creator</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">safety</span></div>
-<div class="bio i18n-zh">美国科学家，在 Google DeepMind 共同创造了 AlphaFold——预测了 2 亿多个蛋白质结构、彻底改变结构生物学的 AI 系统，并因此共享 2024 年诺贝尔化学奖。2026 年 6 月，在 DeepMind 工作近九年后宣布离职加入 Anthropic，是 2026 年 AI 人才战中最受瞩目的转会之一。</div><div class="bio i18n-en">American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed structural biology. He shared the 2024 Nobel Prize in Chemistry for the work. In June 2026, after nearly nine years at DeepMind, he announced he was leaving to join Anthropic, one of the highest-profile moves of the 2026 AI talent war.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/jumper/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=jumper"><span class="i18n-zh">在关系图谱中查看 约翰·江珀 →</span><span class="i18n-en">View John Jumper in the graph →</span></a>
+<div class="bio i18n-zh">American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed structural biology. He shared the 2024 Nobel Prize in Chemistry for the work. In June 2026, after nearly nine years at DeepMind, he announced he was leaving to join Anthropic, one of the highest-profile moves of the 2026 AI talent war.</div><div class="bio i18n-en">American scientist who co-created AlphaFold at Google DeepMind, the AI system that predicted over 200 million protein structures and transformed structural biology. He shared the 2024 Nobel Prize in Chemistry for the work. In June 2026, after nearly nine years at DeepMind, he announced he was leaving to join Anthropic, one of the highest-profile moves of the 2026 AI talent war.</div>
+<a class="cta" href="/?node=jumper"><span class="i18n-zh">在关系图谱中查看 John Jumper →</span><span class="i18n-en">View John Jumper in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/jumper" rel="noopener"><span class="i18n-zh">听 John Jumper 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2021</span> Highly accurate protein structure prediction with AlphaFold (Nature)</li><li><span class="y">2024</span> Nobel Prize in Chemistry (AlphaFold)</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind · AlphaFold</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>2026 加入 Anthropic</span></a><a class="nbr" href="/p/pushmeetkohli.html"><b>普什米特·科利 Pushmeet Kohli</b><span>DeepMind 科学方向</span></a><a class="nbr" href="/p/vikbajaj.html"><b>维克·巴贾杰 Vik Bajaj</b><span>AI for science 背景</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind · AlphaFold</span></a><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>2026 加入 Anthropic</span></a><a class="nbr" href="/p/pushmeetkohli.html"><b>普什米特·科利 Pushmeet Kohli</b><span>DeepMind 科学方向</span></a><a class="nbr" href="/p/vikbajaj.html"><b>Vik Bajaj</b><span>AI for science 背景</span></a><a class="nbr" href="/p/zhanglinfeng.html"><b>张林峰 Zhang Linfeng</b><span>AI for Science — molecular simulation vs protein folding</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

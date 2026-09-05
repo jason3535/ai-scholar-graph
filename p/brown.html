@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Tom Brown · OpenAI | AI 学者图谱</title>
-<meta name="description" content="GPT-3 论文（2020）《Language Models are Few-Shot Learners》的第一作者。该论文展示了一个 1750 亿参数的模型可以仅凭上下文中的少量示例就完成任务，无需微调。这篇论文是一个分水岭时刻，证实了 Scaling 假说，直接引发了大语言模型浪潮，催生了 C…">
+<meta name="description" content="Lead author of the GPT-3 paper (2020), &#x27;Language Models are Few-Shot Learners&#x27;, which demonstrated that a 175-billion parameter model could perform ta…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/brown.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/brown.html">
-<meta property="og:title" content="Tom Brown · GPT-3 第一作者">
-<meta property="og:description" content="GPT-3 论文（2020）《Language Models are Few-Shot Learners》的第一作者。该论文展示了一个 1750 亿参数的模型可以仅凭上下文中的少量示例就完成任务，无需微调。这篇论文是一个分水岭时刻，证实了 Scaling 假说，直接引发了大语言模型浪潮，催生了 C…">
+<meta property="og:title" content="Tom Brown · Lead author of GPT-3">
+<meta property="og:description" content="Lead author of the GPT-3 paper (2020), &#x27;Language Models are Few-Shot Learners&#x27;, which demonstrated that a 175-billion parameter model could perform ta…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/brown.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tom Brown"><meta name="twitter:description" content="GPT-3 论文（2020）《Language Models are Few-Shot Learners》的第一作者。该论文展示了一个 1750 亿参数的模型可以仅凭上下文中的少量示例就完成任务，无需微调。这篇论文是一个分水岭时刻，证实了 Scaling 假说，直接引发了大语言模型浪潮，催生了 C…">
+<meta name="twitter:title" content="Tom Brown"><meta name="twitter:description" content="Lead author of the GPT-3 paper (2020), &#x27;Language Models are Few-Shot Learners&#x27;, which demonstrated that a 175-billion parameter model could perform ta…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/brown.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Tom Brown","alternateName":"Tom Brown","jobTitle":"GPT-3 第一作者","worksFor":{"@type":"Organization","name":"OpenAI"},"description":"GPT-3 论文（2020）《Language Models are Few-Shot Learners》的第一作者。该论文展示了一个 1750 亿参数的模型可以仅凭上下文中的少量示例就完成任务，无需微调。这篇论文是一个分水岭时刻，证实了 Scaling 假说，直接引发了大语言模型浪潮，催生了 C…","url":"https://ai.jasonlin.tech/p/brown.html","image":"https://ai.jasonlin.tech/og/brown.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Tom Brown", "alternateName": "Tom Brown", "jobTitle": "Lead author of GPT-3", "worksFor": {"@type": "Organization", "name": "OpenAI"}, "description": "Lead author of the GPT-3 paper (2020), 'Language Models are Few-Shot Learners', which demonstrated that a 175-billion parameter model could perform ta", "url": "https://ai.jasonlin.tech/p/brown.html", "image": "https://ai.jasonlin.tech/og/brown.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,26 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">TB</div>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
+<img class="avatar" src="/assets/people/brown.jpg" alt="Tom Brown" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Tom Brown</span><span class="i18n-en">Tom Brown</span></h1>
 <p class="org">OpenAI</p>
-<p class="role"><span class="i18n-zh">GPT-3 第一作者</span><span class="i18n-en">Lead author of GPT-3</span></p>
+<p class="role"><span class="i18n-zh">Lead author of GPT-3</span><span class="i18n-en">Lead author of GPT-3</span></p>
 <div class="fields"><span class="tag">nlp</span></div>
-<div class="bio i18n-zh">GPT-3 论文（2020）《Language Models are Few-Shot Learners》的第一作者。该论文展示了一个 1750 亿参数的模型可以仅凭上下文中的少量示例就完成任务，无需微调。这篇论文是一个分水岭时刻，证实了 Scaling 假说，直接引发了大语言模型浪潮，催生了 ChatGPT 和整个生成式 AI 浪潮。</div><div class="bio i18n-en">Lead author of the GPT-3 paper (2020), 'Language Models are Few-Shot Learners', which demonstrated that a 175-billion parameter model could perform tasks with just a few examples in context, without fine-tuning. This paper was a watershed moment that proved the scaling hypothesis and directly sparked the large language model revolution, leading to ChatGPT and the entire generative AI wave.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/tombrown/">听 TA 的播客访谈（AI Podcast）</a> · <a href="https://aipaper.jasonlin.tech/pp/tombrown/">读 TA 的论文与长文（AI Paper）</a></p><!--XLINKS_END--><a class="cta" href="/?node=brown"><span class="i18n-zh">在关系图谱中查看 Tom Brown →</span><span class="i18n-en">View Tom Brown in the graph →</span></a>
+<div class="bio i18n-zh">Lead author of the GPT-3 paper (2020), &#x27;Language Models are Few-Shot Learners&#x27;, which demonstrated that a 175-billion parameter model could perform tasks with just a few examples in context, without fine-tuning. This paper was a watershed moment that proved the scaling hypothesis and directly sparked the large language model revolution, leading to ChatGPT and the entire generative AI wave.</div><div class="bio i18n-en">Lead author of the GPT-3 paper (2020), &#x27;Language Models are Few-Shot Learners&#x27;, which demonstrated that a 175-billion parameter model could perform tasks with just a few examples in context, without fine-tuning. This paper was a watershed moment that proved the scaling hypothesis and directly sparked the large language model revolution, leading to ChatGPT and the entire generative AI wave.</div>
+<a class="cta" href="/?node=brown"><span class="i18n-zh">在关系图谱中查看 Tom Brown →</span><span class="i18n-en">View Tom Brown in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/tombrown" rel="noopener"><span class="i18n-zh">听 Tom Brown 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+<a class="cta2" href="https://aipaper.jasonlin.tech/#/person/tombrown" rel="noopener"><span class="i18n-zh">读 Tom Brown 的论文与长文 →</span><span class="i18n-en">Read on AI Paper →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2020</span> <a href="https://arxiv.org/abs/2005.14165" rel="noopener">Language Models are Few-Shot Learners (GPT-3) [32K citations]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/radford.html"><b>Alec Radford</b><span>GPT-2、GPT-3</span></a><a class="nbr" href="/p/wei.html"><b>Jason Wei</b><span>OpenAI / 大模型 Scaling</span></a><a class="nbr" href="/p/sammccandlish.html"><b>萨姆·麦坎德利什 Sam McCandlish</b><span>Anthropic 联合创始人，均来自 OpenAI</span></a><a class="nbr" href="/p/jaredkaplan.html"><b>贾里德·卡普兰 Jared Kaplan</b><span>Anthropic 联合创始人</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI - GPT-3 主作者</span></a><a class="nbr" href="/p/fedus.html"><b>利亚姆·费杜斯 Liam Fedus</b><span>OpenAI</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/radford.html"><b>Alec Radford</b><span>GPT-2, GPT-3</span></a><a class="nbr" href="/p/wei.html"><b>Jason Wei</b><span>OpenAI / LLM scaling</span></a><a class="nbr" href="/p/sammccandlish.html"><b>萨姆·麦坎德利什 Sam McCandlish</b><span>Anthropic co-founders, both ex-OpenAI</span></a><a class="nbr" href="/p/jaredkaplan.html"><b>贾里德·卡普兰 Jared Kaplan</b><span>Anthropic co-founders</span></a><a class="nbr" href="/p/altman.html"><b>Sam Altman</b><span>OpenAI - GPT-3 主作者</span></a><a class="nbr" href="/p/fedus.html"><b>Liam Fedus</b><span>OpenAI</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

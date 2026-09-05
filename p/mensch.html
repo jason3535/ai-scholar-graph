@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Arthur Mensch · Mistral AI | AI 学者图谱</title>
-<meta name="description" content="1992年生于巴黎。父亲数学家，母亲计算机科学家。Ecole Polytechnique 应用数学和计算机科学硕士，ENS Paris-Saclay 数学视觉学习硕士。机器学习和功能性磁共振成像博士，之后做了2年数学博后。2020年底加入 DeepMind 巴黎，从事大语言模型、多模态和检索增强架…">
+<meta name="description" content="Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Ma…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/mensch.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/mensch.html">
-<meta property="og:title" content="Arthur Mensch · Mistral AI 联合创始人兼 CEO">
-<meta property="og:description" content="1992年生于巴黎。父亲数学家，母亲计算机科学家。Ecole Polytechnique 应用数学和计算机科学硕士，ENS Paris-Saclay 数学视觉学习硕士。机器学习和功能性磁共振成像博士，之后做了2年数学博后。2020年底加入 DeepMind 巴黎，从事大语言模型、多模态和检索增强架…">
+<meta property="og:title" content="Arthur Mensch · Co-founder &amp; CEO of Mistral AI">
+<meta property="og:description" content="Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Ma…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/mensch.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Arthur Mensch"><meta name="twitter:description" content="1992年生于巴黎。父亲数学家，母亲计算机科学家。Ecole Polytechnique 应用数学和计算机科学硕士，ENS Paris-Saclay 数学视觉学习硕士。机器学习和功能性磁共振成像博士，之后做了2年数学博后。2020年底加入 DeepMind 巴黎，从事大语言模型、多模态和检索增强架…">
+<meta name="twitter:title" content="Arthur Mensch"><meta name="twitter:description" content="Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Ma…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/mensch.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Arthur Mensch","alternateName":"Arthur Mensch","jobTitle":"Mistral AI 联合创始人兼 CEO","worksFor":{"@type":"Organization","name":"Mistral AI"},"description":"1992年生于巴黎。父亲数学家，母亲计算机科学家。Ecole Polytechnique 应用数学和计算机科学硕士，ENS Paris-Saclay 数学视觉学习硕士。机器学习和功能性磁共振成像博士，之后做了2年数学博后。2020年底加入 DeepMind 巴黎，从事大语言模型、多模态和检索增强架…","url":"https://ai.jasonlin.tech/p/mensch.html","image":"https://ai.jasonlin.tech/og/mensch.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Arthur Mensch", "alternateName": "Arthur Mensch", "jobTitle": "Co-founder & CEO of Mistral AI", "worksFor": {"@type": "Organization", "name": "Mistral AI"}, "description": "Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Ma", "url": "https://ai.jasonlin.tech/p/mensch.html", "image": "https://ai.jasonlin.tech/og/mensch.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/mensch.jpg" alt="Arthur Mensch" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Arthur Mensch</span><span class="i18n-en">Arthur Mensch</span></h1>
 <p class="org">Mistral AI</p>
-<p class="role"><span class="i18n-zh">Mistral AI 联合创始人兼 CEO</span><span class="i18n-en">Co-founder &amp; CEO of Mistral AI</span></p>
-<div class="fields"><span class="tag">nlp</span></div>
-<div class="bio i18n-zh">1992年生于巴黎。父亲数学家，母亲计算机科学家。Ecole Polytechnique 应用数学和计算机科学硕士，ENS Paris-Saclay 数学视觉学习硕士。机器学习和功能性磁共振成像博士，之后做了2年数学博后。2020年底加入 DeepMind 巴黎，从事大语言模型、多模态和检索增强架构。2023年5月与 Guillaume Lample 和 Timothee Lacroix（均为前 Meta FAIR）联合创办 Mistral AI。一年内达到数十亿美元估值，成为欧洲 AI 冠军。以开源权重模型（Mixtral、Mistral Large）闻名。</div><div class="bio i18n-en">Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Mathematics and Computer Science, 2011-2015), and Ecole Normale Superieure Paris-Saclay (MS Mathematics, Vision and Learning, 2015). PhD in machine learning and functional MRI, followed by a 2-year postdoc in mathematics. Joined DeepMind Paris in late 2020, working on large language models, multimodal systems, and retrieval-augmented architectures. Left in May 2023 to co-found Mistral AI with Guillaume Lample and Timothee Lacroix (both ex-Meta FAIR). Mistral became Europe's AI champion, reaching a multi-billion dollar valuation within a year. Known for open-weight models (Mixtral, Mistral Large) and strategic partnerships with Microsoft, Salesforce, and Nvidia.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/mensch/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=mensch"><span class="i18n-zh">在关系图谱中查看 Arthur Mensch →</span><span class="i18n-en">View Arthur Mensch in the graph →</span></a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/mensch" rel="noopener"><span class="i18n-zh">听 Arthur Mensch 的 AI 播客 →</span><span class="i18n-en">Listen to Arthur Mensch on AI Podcast →</span></a>
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2024</span> <a href="https://arxiv.org/abs/2401.04088" rel="noopener">Mixtral of Experts [2K]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/lample.html"><b>Guillaume Lample</b><span>Co-founded Mistral AI</span></a><a class="nbr" href="/p/lacroix.html"><b>Timothee Lacroix</b><span>Co-founded Mistral AI</span></a><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind 巴黎（2020-2023）</span></a><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind 2018-2022(Mistral 创始前)</span></a>
+<p class="role"><span class="i18n-zh">Co-founder &amp; CEO of Mistral AI</span><span class="i18n-en">Co-founder &amp; CEO of Mistral AI</span></p>
+<div class="fields"><span class="tag">nlp</span><span class="tag">multimodal</span></div>
+<div class="bio i18n-zh">Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Mathematics and Computer Science, 2011-2015), and Ecole Normale Superieure Paris-Saclay (MS Mathematics, Vision and Learning, 2015). PhD in machine learning and functional MRI, followed by a 2-year postdoc in mathematics. Joined DeepMind Paris in late 2020, working on large language models, multimodal systems, and retrieval-augmented architectures. Left in May 2023 to co-found Mistral AI with Guillaume Lample and Timothee Lacroix (both ex-Meta FAIR). Mistral became Europe&#x27;s AI champion, reaching a multi-billion dollar valuation within a year. Known for open-weight models (Mixtral, Mistral Large) and strategic partnerships with Microsoft, Salesforce, and Nvidia.</div><div class="bio i18n-en">Born 1992 in Paris. Father a mathematician, mother a computer scientist. Studied at Lycee Hoche (prep school), then Ecole Polytechnique (MS Applied Mathematics and Computer Science, 2011-2015), and Ecole Normale Superieure Paris-Saclay (MS Mathematics, Vision and Learning, 2015). PhD in machine learning and functional MRI, followed by a 2-year postdoc in mathematics. Joined DeepMind Paris in late 2020, working on large language models, multimodal systems, and retrieval-augmented architectures. Left in May 2023 to co-found Mistral AI with Guillaume Lample and Timothee Lacroix (both ex-Meta FAIR). Mistral became Europe&#x27;s AI champion, reaching a multi-billion dollar valuation within a year. Known for open-weight models (Mixtral, Mistral Large) and strategic partnerships with Microsoft, Salesforce, and Nvidia.</div>
+<a class="cta" href="/?node=mensch"><span class="i18n-zh">在关系图谱中查看 Arthur Mensch →</span><span class="i18n-en">View Arthur Mensch in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/mensch" rel="noopener"><span class="i18n-zh">听 Arthur Mensch 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind Paris (2020-2023)</span></a><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>DeepMind 2018-2022(Mistral 创始前)</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

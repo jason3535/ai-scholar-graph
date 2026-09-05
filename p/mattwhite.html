@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>马特·怀特 Matt White · Linux Foundation | AI 学者图谱</title>
-<meta name="description" content="Linux 基金会 AI CTO、PyTorch 基金会执行董事。开源 AI 的推动者，近期走访 DeepSeek、月之暗面、智谱、Qwen 与 MiniMax，一线观察中国开源模型生态。">
+<title>Matt White · Linux Foundation | AI 学者图谱</title>
+<meta name="description" content="AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recentl…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/mattwhite.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/mattwhite.html">
-<meta property="og:title" content="马特·怀特 Matt White · Linux 基金会 AI CTO；PyTorch 基金会执行董事">
-<meta property="og:description" content="Linux 基金会 AI CTO、PyTorch 基金会执行董事。开源 AI 的推动者，近期走访 DeepSeek、月之暗面、智谱、Qwen 与 MiniMax，一线观察中国开源模型生态。">
+<meta property="og:title" content="Matt White · AI CTO, Linux Foundation; ED, PyTorch Foundation">
+<meta property="og:description" content="AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recentl…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/mattwhite.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="马特·怀特 Matt White"><meta name="twitter:description" content="Linux 基金会 AI CTO、PyTorch 基金会执行董事。开源 AI 的推动者，近期走访 DeepSeek、月之暗面、智谱、Qwen 与 MiniMax，一线观察中国开源模型生态。">
+<meta name="twitter:title" content="Matt White"><meta name="twitter:description" content="AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recentl…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/mattwhite.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"马特·怀特 Matt White","alternateName":"Matt White","jobTitle":"Linux 基金会 AI CTO；PyTorch 基金会执行董事","worksFor":{"@type":"Organization","name":"Linux Foundation"},"description":"Linux 基金会 AI CTO、PyTorch 基金会执行董事。开源 AI 的推动者，近期走访 DeepSeek、月之暗面、智谱、Qwen 与 MiniMax，一线观察中国开源模型生态。","url":"https://ai.jasonlin.tech/p/mattwhite.html","image":"https://ai.jasonlin.tech/og/mattwhite.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Matt White", "alternateName": "Matt White", "jobTitle": "AI CTO, Linux Foundation; ED, PyTorch Foundation", "worksFor": {"@type": "Organization", "name": "Linux Foundation"}, "description": "AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recentl", "url": "https://ai.jasonlin.tech/p/mattwhite.html", "image": "https://ai.jasonlin.tech/og/mattwhite.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(48,209,88,.92),rgba(48,209,88,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(48,209,88,.14)">MW</div>
-<h1><span class="i18n-zh">马特·怀特 Matt White</span><span class="i18n-en">Matt White</span></h1>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
+<img class="avatar" src="/assets/people/mattwhite.jpg" alt="Matt White" width="108" height="108" loading="eager">
+<h1><span class="i18n-zh">Matt White</span><span class="i18n-en">Matt White</span></h1>
 <p class="org">Linux Foundation</p>
-<p class="role"><span class="i18n-zh">Linux 基金会 AI CTO；PyTorch 基金会执行董事</span><span class="i18n-en">AI CTO, Linux Foundation; ED, PyTorch Foundation</span></p>
+<p class="role"><span class="i18n-zh">AI CTO, Linux Foundation; ED, PyTorch Foundation</span><span class="i18n-en">AI CTO, Linux Foundation; ED, PyTorch Foundation</span></p>
 <div class="fields"><span class="tag">deep-learning</span></div>
-<div class="bio i18n-zh">Linux 基金会 AI CTO、PyTorch 基金会执行董事。开源 AI 的推动者，近期走访 DeepSeek、月之暗面、智谱、Qwen 与 MiniMax，一线观察中国开源模型生态。</div><div class="bio i18n-en">AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recently touring DeepSeek, Moonshot, Zhipu, Qwen and MiniMax to see China's open-model ecosystem firsthand.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/mattwhite/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=mattwhite"><span class="i18n-zh">在关系图谱中查看 马特·怀特 →</span><span class="i18n-en">View Matt White in the graph →</span></a>
+<div class="bio i18n-zh">AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recently touring DeepSeek, Moonshot, Zhipu, Qwen and MiniMax to see China&#x27;s open-model ecosystem firsthand.</div><div class="bio i18n-en">AI CTO at the Linux Foundation and Executive Director of the PyTorch Foundation. A champion of open-source AI who works across frontier labs — recently touring DeepSeek, Moonshot, Zhipu, Qwen and MiniMax to see China&#x27;s open-model ecosystem firsthand.</div>
+<a class="cta" href="/?node=mattwhite"><span class="i18n-zh">在关系图谱中查看 Matt White →</span><span class="i18n-en">View Matt White in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/mattwhite" rel="noopener"><span class="i18n-zh">听 Matt White 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
-
-
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

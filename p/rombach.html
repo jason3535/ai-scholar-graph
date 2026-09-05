@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Robin Rombach · Black Forest Labs | AI 学者图谱</title>
-<meta name="description" content="德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），在压缩潜空间而非像素空间运行扩散，将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability A…">
+<meta name="description" content="German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-autho…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/rombach.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/rombach.html">
-<meta property="og:title" content="Robin Rombach · Stable Diffusion / Latent Diffusion 创造者">
-<meta property="og:description" content="德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），在压缩潜空间而非像素空间运行扩散，将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability A…">
+<meta property="og:title" content="Robin Rombach · Creator of Stable Diffusion / Latent Diffusion">
+<meta property="og:description" content="German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-autho…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/rombach.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Robin Rombach"><meta name="twitter:description" content="德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），在压缩潜空间而非像素空间运行扩散，将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability A…">
+<meta name="twitter:title" content="Robin Rombach"><meta name="twitter:description" content="German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-autho…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/rombach.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Robin Rombach","alternateName":"Robin Rombach","jobTitle":"Stable Diffusion / Latent Diffusion 创造者","worksFor":{"@type":"Organization","name":"Black Forest Labs"},"description":"德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），在压缩潜空间而非像素空间运行扩散，将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability A…","url":"https://ai.jasonlin.tech/p/rombach.html","image":"https://ai.jasonlin.tech/og/rombach.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Robin Rombach", "alternateName": "Robin Rombach", "jobTitle": "Creator of Stable Diffusion / Latent Diffusion", "worksFor": {"@type": "Organization", "name": "Black Forest Labs"}, "description": "German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-autho", "url": "https://ai.jasonlin.tech/p/rombach.html", "image": "https://ai.jasonlin.tech/og/rombach.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/rombach.jpg" alt="Robin Rombach" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Robin Rombach</span><span class="i18n-en">Robin Rombach</span></h1>
 <p class="org">Black Forest Labs</p>
-<p class="role"><span class="i18n-zh">Stable Diffusion / Latent Diffusion 创造者</span><span class="i18n-en">Creator of Stable Diffusion / Latent Diffusion</span></p>
-<div class="fields"><span class="tag">vision</span></div>
-<div class="bio i18n-zh">德国 AI 研究者。海德堡大学物理学→LMU 慕尼黑计算机科学博士。合著了 Latent Diffusion 论文（2022），在压缩潜空间而非像素空间运行扩散，将计算成本降低 10-100 倍。这成为了 Stable Diffusion，最广泛使用的开源图像生成模型。曾任 Stability AI 研究总监。2024年与原始团队联合创办 Black Forest Labs，推出 FLUX 系列模型。</div><div class="bio i18n-en">German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-authored the Latent Diffusion paper (2022) which introduced the breakthrough idea of running diffusion in compressed latent space rather than pixel space -- reducing compute cost by 10-100x while maintaining quality. This became Stable Diffusion, the most widely used open-source image generation model. Joined Stability AI as research director. In 2024, left to co-found Black Forest Labs with the original latent diffusion team (Blattmann, Esser, Lorenz), creating the FLUX family of models that quickly became industry-leading image generators.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipaper.jasonlin.tech/pp/rrombach/">读 TA 的论文与长文（AI Paper）</a></p><!--XLINKS_END--><a class="cta" href="/?node=rombach"><span class="i18n-zh">在关系图谱中查看 Robin Rombach →</span><span class="i18n-en">View Robin Rombach in the graph →</span></a>
+<p class="role"><span class="i18n-zh">Creator of Stable Diffusion / Latent Diffusion</span><span class="i18n-en">Creator of Stable Diffusion / Latent Diffusion</span></p>
+<div class="fields"><span class="tag">vision</span><span class="tag">multimodal</span></div>
+<div class="bio i18n-zh">German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-authored the Latent Diffusion paper (2022) which introduced the breakthrough idea of running diffusion in compressed latent space rather than pixel space -- reducing compute cost by 10-100x while maintaining quality. This became Stable Diffusion, the most widely used open-source image generation model. Joined Stability AI as research director. In 2024, left to co-found Black Forest Labs with the original latent diffusion team (Blattmann, Esser, Lorenz), creating the FLUX family of models that quickly became industry-leading image generators.</div><div class="bio i18n-en">German AI researcher. Studied physics at Heidelberg University before transitioning to computer science. PhD at LMU Munich under Bjorn Ommer. Co-authored the Latent Diffusion paper (2022) which introduced the breakthrough idea of running diffusion in compressed latent space rather than pixel space -- reducing compute cost by 10-100x while maintaining quality. This became Stable Diffusion, the most widely used open-source image generation model. Joined Stability AI as research director. In 2024, left to co-found Black Forest Labs with the original latent diffusion team (Blattmann, Esser, Lorenz), creating the FLUX family of models that quickly became industry-leading image generators.</div>
+<a class="cta" href="/?node=rombach"><span class="i18n-zh">在关系图谱中查看 Robin Rombach →</span><span class="i18n-en">View Robin Rombach in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipaper.jasonlin.tech/#/person/rrombach" rel="noopener"><span class="i18n-zh">读 Robin Rombach 的论文与长文 →</span><span class="i18n-en">Read on AI Paper →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2022</span> <a href="https://arxiv.org/abs/2112.10752" rel="noopener">High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion) [11K]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/esser.html"><b>Patrick Esser</b><span>Latent Diffusion co-authors; co-founded Black Forest Labs</span></a><a class="nbr" href="/p/ho.html"><b>Jonathan Ho</b><span>Latent Diffusion 基于 DDPM 构建</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/ho.html"><b>Jonathan Ho</b><span>Latent Diffusion builds on DDPM</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

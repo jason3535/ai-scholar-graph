@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Mustafa Suleyman · Microsoft AI | AI 学者图谱</title>
-<meta name="description" content="1984年生于伦敦，父亲是叙利亚裔出租车司机，母亲是英国护士。19岁从牛津辍学。在进入 AI 之前，联合创办了一个电话咨询服务，还在伦敦市长办公室担任政策官员。2010年与 Hassabis 和 Legg 联合创办 DeepMind，领导应用 AI 部门。DeepMind 被 Google 收购后…">
+<meta name="description" content="Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counse…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/suleyman.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/suleyman.html">
-<meta property="og:title" content="Mustafa Suleyman · 微软 AI CEO · DeepMind 联合创始人">
-<meta property="og:description" content="1984年生于伦敦，父亲是叙利亚裔出租车司机，母亲是英国护士。19岁从牛津辍学。在进入 AI 之前，联合创办了一个电话咨询服务，还在伦敦市长办公室担任政策官员。2010年与 Hassabis 和 Legg 联合创办 DeepMind，领导应用 AI 部门。DeepMind 被 Google 收购后…">
+<meta property="og:title" content="Mustafa Suleyman · CEO of Microsoft AI · Co-founder of DeepMind">
+<meta property="og:description" content="Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counse…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/suleyman.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mustafa Suleyman"><meta name="twitter:description" content="1984年生于伦敦，父亲是叙利亚裔出租车司机，母亲是英国护士。19岁从牛津辍学。在进入 AI 之前，联合创办了一个电话咨询服务，还在伦敦市长办公室担任政策官员。2010年与 Hassabis 和 Legg 联合创办 DeepMind，领导应用 AI 部门。DeepMind 被 Google 收购后…">
+<meta name="twitter:title" content="Mustafa Suleyman"><meta name="twitter:description" content="Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counse…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/suleyman.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Mustafa Suleyman","alternateName":"Mustafa Suleyman","jobTitle":"微软 AI CEO · DeepMind 联合创始人","worksFor":{"@type":"Organization","name":"Microsoft AI"},"description":"1984年生于伦敦，父亲是叙利亚裔出租车司机，母亲是英国护士。19岁从牛津辍学。在进入 AI 之前，联合创办了一个电话咨询服务，还在伦敦市长办公室担任政策官员。2010年与 Hassabis 和 Legg 联合创办 DeepMind，领导应用 AI 部门。DeepMind 被 Google 收购后…","url":"https://ai.jasonlin.tech/p/suleyman.html","image":"https://ai.jasonlin.tech/og/suleyman.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Mustafa Suleyman", "alternateName": "Mustafa Suleyman", "jobTitle": "CEO of Microsoft AI · Co-founder of DeepMind", "worksFor": {"@type": "Organization", "name": "Microsoft AI"}, "description": "Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counse", "url": "https://ai.jasonlin.tech/p/suleyman.html", "image": "https://ai.jasonlin.tech/og/suleyman.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/suleyman.jpg" alt="Mustafa Suleyman" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Mustafa Suleyman</span><span class="i18n-en">Mustafa Suleyman</span></h1>
 <p class="org">Microsoft AI</p>
-<p class="role"><span class="i18n-zh">微软 AI CEO · DeepMind 联合创始人</span><span class="i18n-en">CEO of Microsoft AI · Co-founder of DeepMind</span></p>
+<p class="role"><span class="i18n-zh">CEO of Microsoft AI · Co-founder of DeepMind</span><span class="i18n-en">CEO of Microsoft AI · Co-founder of DeepMind</span></p>
 <div class="fields"><span class="tag">rl</span></div>
-<div class="bio i18n-zh">1984年生于伦敦，父亲是叙利亚裔出租车司机，母亲是英国护士。19岁从牛津辍学。在进入 AI 之前，联合创办了一个电话咨询服务，还在伦敦市长办公室担任政策官员。2010年与 Hassabis 和 Legg 联合创办 DeepMind，领导应用 AI 部门。DeepMind 被 Google 收购后，担任 Google 副总裁。2022年创办 Inflection AI，推出 Pi 聊天机器人。2024年微软以6.5亿美元的交易雇佣 Suleyman 和 Inflection 大部分团队，使他成为微软 AI CEO。2023年出版《即将到来的浪潮》一书，讨论 AI 风险。</div><div class="bio i18n-en">Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counseling service and worked as a policy officer at the Mayor of London's office. Co-founded DeepMind (2010) with Hassabis and Legg, leading the applied AI division. After DeepMind was acquired by Google, moved to a VP role at Google. Founded Inflection AI in 2022, creating the Pi chatbot. In 2024, Microsoft hired Suleyman and most of Inflection's team in a $650M deal, making him CEO of Microsoft AI. Published 'The Coming Wave' (2023), a book on AI risks.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/suleyman/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=suleyman"><span class="i18n-zh">在关系图谱中查看 Mustafa Suleyman →</span><span class="i18n-en">View Mustafa Suleyman in the graph →</span></a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/suleyman" rel="noopener"><span class="i18n-zh">听 Mustafa Suleyman 的 AI 播客 →</span><span class="i18n-en">Listen to Mustafa Suleyman on AI Podcast →</span></a>
+<div class="bio i18n-zh">Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counseling service and worked as a policy officer at the Mayor of London&#x27;s office. Co-founded DeepMind (2010) with Hassabis and Legg, leading the applied AI division. After DeepMind was acquired by Google, moved to a VP role at Google. Founded Inflection AI in 2022, creating the Pi chatbot. In 2024, Microsoft hired Suleyman and most of Inflection&#x27;s team in a $650M deal, making him CEO of Microsoft AI. Published &#x27;The Coming Wave&#x27; (2023), a book on AI risks.</div><div class="bio i18n-en">Born 1984 in London to a Syrian-born cab driver father and English nurse mother. Dropped out of Oxford at 19. Before AI, co-founded a telephone counseling service and worked as a policy officer at the Mayor of London&#x27;s office. Co-founded DeepMind (2010) with Hassabis and Legg, leading the applied AI division. After DeepMind was acquired by Google, moved to a VP role at Google. Founded Inflection AI in 2022, creating the Pi chatbot. In 2024, Microsoft hired Suleyman and most of Inflection&#x27;s team in a $650M deal, making him CEO of Microsoft AI. Published &#x27;The Coming Wave&#x27; (2023), a book on AI risks.</div>
+<a class="cta" href="/?node=suleyman"><span class="i18n-zh">在关系图谱中查看 Mustafa Suleyman →</span><span class="i18n-en">View Mustafa Suleyman in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/suleyman" rel="noopener"><span class="i18n-zh">听 Mustafa Suleyman 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>联合创办 DeepMind</span></a><a class="nbr" href="/p/legg.html"><b>Shane Legg</b><span>联合创办 DeepMind</span></a><a class="nbr" href="/p/nando.html"><b>南多·德弗雷塔斯 Nando de Freitas</b><span>Microsoft AI</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>Co-founded DeepMind</span></a><a class="nbr" href="/p/legg.html"><b>Shane Legg</b><span>Co-founded DeepMind</span></a><a class="nbr" href="/p/nando.html"><b>Nando de Freitas</b><span>Microsoft AI</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Barret Zoph · OpenAI | AI 学者图谱</title>
-<meta name="description" content="AI 研究者，2016 年在南加州大学获学士，随后加入 Google Brain，提出了用强化学习自动搜索神经网络结构的神经架构搜索（NAS），是 AutoML 的关键人物之一。后加入 OpenAI 任研究副总裁（后训练方向），其团队从事对齐、工具调用、评测研究，并训练了部署到 ChatGPT 的…">
+<meta name="description" content="AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learn…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/barretzoph.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/barretzoph.html">
-<meta property="og:title" content="Barret Zoph · 神经架构搜索先驱 · 前 Thinking Machines Lab CTO">
-<meta property="og:description" content="AI 研究者，2016 年在南加州大学获学士，随后加入 Google Brain，提出了用强化学习自动搜索神经网络结构的神经架构搜索（NAS），是 AutoML 的关键人物之一。后加入 OpenAI 任研究副总裁（后训练方向），其团队从事对齐、工具调用、评测研究，并训练了部署到 ChatGPT 的…">
+<meta property="og:title" content="Barret Zoph · Pioneer of Neural Architecture Search · ex-CTO of Thinking M">
+<meta property="og:description" content="AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learn…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/barretzoph.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Barret Zoph"><meta name="twitter:description" content="AI 研究者，2016 年在南加州大学获学士，随后加入 Google Brain，提出了用强化学习自动搜索神经网络结构的神经架构搜索（NAS），是 AutoML 的关键人物之一。后加入 OpenAI 任研究副总裁（后训练方向），其团队从事对齐、工具调用、评测研究，并训练了部署到 ChatGPT 的…">
+<meta name="twitter:title" content="Barret Zoph"><meta name="twitter:description" content="AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learn…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/barretzoph.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Barret Zoph","alternateName":"Barret Zoph","jobTitle":"神经架构搜索先驱 · 前 Thinking Machines Lab CTO","worksFor":{"@type":"Organization","name":"OpenAI"},"description":"AI 研究者，2016 年在南加州大学获学士，随后加入 Google Brain，提出了用强化学习自动搜索神经网络结构的神经架构搜索（NAS），是 AutoML 的关键人物之一。后加入 OpenAI 任研究副总裁（后训练方向），其团队从事对齐、工具调用、评测研究，并训练了部署到 ChatGPT 的…","url":"https://ai.jasonlin.tech/p/barretzoph.html","image":"https://ai.jasonlin.tech/og/barretzoph.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Barret Zoph", "alternateName": "Barret Zoph", "jobTitle": "Pioneer of Neural Architecture Search · ex-CTO of Thinking Machines Lab", "worksFor": {"@type": "Organization", "name": "OpenAI"}, "description": "AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learn", "url": "https://ai.jasonlin.tech/p/barretzoph.html", "image": "https://ai.jasonlin.tech/og/barretzoph.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,24 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(48,209,88,.92),rgba(48,209,88,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(48,209,88,.14)">BZ</div>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
+<img class="avatar" src="/assets/people/barretzoph.jpg" alt="Barret Zoph" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Barret Zoph</span><span class="i18n-en">Barret Zoph</span></h1>
 <p class="org">OpenAI</p>
-<p class="role"><span class="i18n-zh">神经架构搜索先驱 · 前 Thinking Machines Lab CTO</span><span class="i18n-en">Pioneer of Neural Architecture Search · ex-CTO of Thinking Machines Lab</span></p>
-<div class="fields"><span class="tag">deep-learning</span><span class="tag">rl</span><span class="tag">nlp</span></div>
-<div class="bio i18n-zh">AI 研究者，2016 年在南加州大学获学士，随后加入 Google Brain，提出了用强化学习自动搜索神经网络结构的神经架构搜索（NAS），是 AutoML 的关键人物之一。后加入 OpenAI 任研究副总裁（后训练方向），其团队从事对齐、工具调用、评测研究，并训练了部署到 ChatGPT 的模型。2025 年 2 月与 Mira Murati 共同创办 Thinking Machines Lab 并任 CTO，后于 2025 年底回归 OpenAI。</div><div class="bio i18n-en">AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learning to automate neural network design. He later joined OpenAI as VP of Research (Post-Training),where his team worked on alignment,tool use,evaluations and trained the models shipped into ChatGPT. In February 2025 he co-founded Thinking Machines Lab with Mira Murati and served as its CTO,before returning to OpenAI in late 2025.</div>
-<a class="cta" href="/?node=barretzoph"><span class="i18n-zh">在关系图谱中查看 Barret Zoph →</span><span class="i18n-en">View Barret Zoph in the graph →</span></a>
+<p class="role"><span class="i18n-zh">Pioneer of Neural Architecture Search · ex-CTO of Thinking Machines Lab</span><span class="i18n-en">Pioneer of Neural Architecture Search · ex-CTO of Thinking Machines Lab</span></p>
+<div class="fields"><span class="tag">deep-learning</span><span class="tag">rl</span><span class="tag">nlp</span><span class="tag">agents</span></div>
+<div class="bio i18n-zh">AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learning to automate neural network design. He later joined OpenAI as VP of Research (Post-Training),where his team worked on alignment,tool use,evaluations and trained the models shipped into ChatGPT. In February 2025 he co-founded Thinking Machines Lab with Mira Murati and served as its CTO,before returning to OpenAI in late 2025.</div><div class="bio i18n-en">AI researcher who earned his BS from USC in 2016 and joined Google Brain,where he developed Neural Architecture Search (NAS) using reinforcement learning to automate neural network design. He later joined OpenAI as VP of Research (Post-Training),where his team worked on alignment,tool use,evaluations and trained the models shipped into ChatGPT. In February 2025 he co-founded Thinking Machines Lab with Mira Murati and served as its CTO,before returning to OpenAI in late 2025.</div>
+<a class="cta" href="/?node=barretzoph"><span class="i18n-zh">在关系图谱中查看 Barret Zoph →</span><span class="i18n-en">View Barret Zoph in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2016</span> Neural Architecture Search with Reinforcement Learning</li><li><span class="y">2018</span> NASNet</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/tulloch.html"><b>安德鲁·塔洛克 Andrew Tulloch</b><span>OpenAI / Thinking Machines 同事</span></a><a class="nbr" href="/p/quocle.html"><b>Quoc V. Le</b><span>Neural Architecture Search papers at Google Brain</span></a><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>共同创办 Thinking Machines Lab</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/tulloch.html"><b>Andrew Tulloch</b><span>OpenAI / Thinking Machines colleagues</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Chris Olah · Anthropic | AI 学者图谱</title>
-<meta name="description" content="约1991年生于多伦多。毕业于 The Abelard School（2010年获 National AP Scholar）。18岁时从大学辍学，获得 Thiel Fellowship（Peter Thiel 设立、给年轻人 10 万美元跳过大学去创造的项目）。没有学位的他在 Google 做了一…">
+<meta name="description" content="Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel F…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/olah.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/olah.html">
-<meta property="og:title" content="Chris Olah · 神经网络可解释性先驱">
-<meta property="og:description" content="约1991年生于多伦多。毕业于 The Abelard School（2010年获 National AP Scholar）。18岁时从大学辍学，获得 Thiel Fellowship（Peter Thiel 设立、给年轻人 10 万美元跳过大学去创造的项目）。没有学位的他在 Google 做了一…">
+<meta property="og:title" content="Chris Olah · Pioneer of Neural Network Interpretability">
+<meta property="og:description" content="Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel F…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/olah.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Chris Olah"><meta name="twitter:description" content="约1991年生于多伦多。毕业于 The Abelard School（2010年获 National AP Scholar）。18岁时从大学辍学，获得 Thiel Fellowship（Peter Thiel 设立、给年轻人 10 万美元跳过大学去创造的项目）。没有学位的他在 Google 做了一…">
+<meta name="twitter:title" content="Chris Olah"><meta name="twitter:description" content="Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel F…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/olah.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Chris Olah","alternateName":"Chris Olah","jobTitle":"神经网络可解释性先驱","worksFor":{"@type":"Organization","name":"Anthropic"},"description":"约1991年生于多伦多。毕业于 The Abelard School（2010年获 National AP Scholar）。18岁时从大学辍学，获得 Thiel Fellowship（Peter Thiel 设立、给年轻人 10 万美元跳过大学去创造的项目）。没有学位的他在 Google 做了一…","url":"https://ai.jasonlin.tech/p/olah.html","image":"https://ai.jasonlin.tech/og/olah.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Chris Olah", "alternateName": "Chris Olah", "jobTitle": "Pioneer of Neural Network Interpretability", "worksFor": {"@type": "Organization", "name": "Anthropic"}, "description": "Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel F", "url": "https://ai.jasonlin.tech/p/olah.html", "image": "https://ai.jasonlin.tech/og/olah.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,26 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/olah.jpg" alt="Chris Olah" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Chris Olah</span><span class="i18n-en">Chris Olah</span></h1>
 <p class="org">Anthropic</p>
-<p class="role"><span class="i18n-zh">神经网络可解释性先驱</span><span class="i18n-en">Pioneer of Neural Network Interpretability</span></p>
+<p class="role"><span class="i18n-zh">Pioneer of Neural Network Interpretability</span><span class="i18n-en">Pioneer of Neural Network Interpretability</span></p>
 <div class="fields"><span class="tag">safety</span><span class="tag">deep-learning</span></div>
-<div class="bio i18n-zh">约1991年生于多伦多。毕业于 The Abelard School（2010年获 National AP Scholar）。18岁时从大学辍学，获得 Thiel Fellowship（Peter Thiel 设立、给年轻人 10 万美元跳过大学去创造的项目）。没有学位的他在 Google 做了一次演讲，Jeff Dean 印象深刻，给了他实习机会。在 Google Brain 实习2年，后共工作4年。因其在 colah.github.io 上发表的关于神经网络可视化的极其清晰的博客文章而闻名，被学术界广泛引用。后在 OpenAI 领导可解释性团队。2021年联合创办 Anthropic，现领导可解释性研究，在机械可解释性方面做出重要工作，绘制大语言模型内部的特征与电路图谱。AI 领域最知名的自学成才研究者之一。</div><div class="bio i18n-en">Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel Fellowship -- Peter Thiel's program paying young people $100K to skip college and build things. With no degree, gave a talk at Google that impressed Jeff Dean, who offered him an internship. Interned at Google Brain for 2 years, then stayed for 4 years total. Became known for his clear blog posts on neural network visualization (colah.github.io). Led the interpretability team at OpenAI. Co-founded Anthropic (2021) where he now leads interpretability research, producing work on mechanistic interpretability, mapping the internal features and circuits inside large language models. One of the most prominent self-taught researchers in AI.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/olah/">听 TA 的播客访谈（AI Podcast）</a> · <a href="https://aipaper.jasonlin.tech/pp/chrisolah/">读 TA 的论文与长文（AI Paper）</a></p><!--XLINKS_END--><a class="cta" href="/?node=olah"><span class="i18n-zh">在关系图谱中查看 Chris Olah →</span><span class="i18n-en">View Chris Olah in the graph →</span></a>
+<div class="bio i18n-zh">Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel Fellowship -- Peter Thiel&#x27;s program paying young people $100K to skip college and build things. With no degree, gave a talk at Google that impressed Jeff Dean, who offered him an internship. Interned at Google Brain for 2 years, then stayed for 4 years total. Became known for his clear blog posts on neural network visualization (colah.github.io). Led the interpretability team at OpenAI. Co-founded Anthropic (2021) where he now leads interpretability research, producing work on mechanistic interpretability, mapping the internal features and circuits inside large language models. One of the most prominent self-taught researchers in AI.</div><div class="bio i18n-en">Born around 1991 in Toronto. Graduated from The Abelard School (National AP Scholar, 2010). Dropped out of university at age 18 and received a Thiel Fellowship -- Peter Thiel&#x27;s program paying young people $100K to skip college and build things. With no degree, gave a talk at Google that impressed Jeff Dean, who offered him an internship. Interned at Google Brain for 2 years, then stayed for 4 years total. Became known for his clear blog posts on neural network visualization (colah.github.io). Led the interpretability team at OpenAI. Co-founded Anthropic (2021) where he now leads interpretability research, producing work on mechanistic interpretability, mapping the internal features and circuits inside large language models. One of the most prominent self-taught researchers in AI.</div>
+<a class="cta" href="/?node=olah"><span class="i18n-zh">在关系图谱中查看 Chris Olah →</span><span class="i18n-en">View Chris Olah in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/olah" rel="noopener"><span class="i18n-zh">听 Chris Olah 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+<a class="cta2" href="https://aipaper.jasonlin.tech/#/person/chrisolah" rel="noopener"><span class="i18n-zh">读 Chris Olah 的论文与长文 →</span><span class="i18n-en">Read on AI Paper →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2017</span> <a href="https://distill.pub/2017/feature-visualization/" rel="noopener">Feature Visualization [2K citations]</a></li><li><span class="y">2020</span> <a href="https://distill.pub/2020/circuits/zoom-in/" rel="noopener">Zoom In: An Introduction to Circuits [1K citations]</a></li><li><span class="y">2024</span> <a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html" rel="noopener">Scaling Monosemanticity [500+ citations]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>联合创办 Anthropic</span></a><a class="nbr" href="/p/clark.html"><b>Jack Clark</b><span>联合创办 Anthropic</span></a><a class="nbr" href="/p/sammccandlish.html"><b>萨姆·麦坎德利什 Sam McCandlish</b><span>Anthropic 联合创始人</span></a><a class="nbr" href="/p/bcherny.html"><b>Boris Cherny</b><span>Anthropic 同事</span></a><a class="nbr" href="/p/nanda.html"><b>尼尔·南达 Neel Nanda</b><span>机械可解释性</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>Co-founded Anthropic</span></a><a class="nbr" href="/p/clark.html"><b>Jack Clark</b><span>Co-founded Anthropic</span></a><a class="nbr" href="/p/sammccandlish.html"><b>萨姆·麦坎德利什 Sam McCandlish</b><span>Anthropic co-founders</span></a><a class="nbr" href="/p/bcherny.html"><b>Boris Cherny</b><span>Anthropic 同事</span></a><a class="nbr" href="/p/nanda.html"><b>Neel Nanda</b><span>机械可解释性</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

@@ -54,13 +54,17 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">深势科技联合创始人兼首席科学家 · 戈登·贝尔奖得主</span><span class="i18n-en">Co-founder &amp; Chief Scientist of DP Technology · Gordon Bell Prize</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">systems</span></div>
 <div class="bio i18n-zh">1993 年生,北大元培学院,普林斯顿师从鄂维南读博并做博士后。2018 年 11 月与孙伟杰联合创办深势科技。Deep Potential(DeePMD/DPA)方法提出者,凭机器学习分子动力学获超算领域最高荣誉戈登·贝尔奖。深势构建了「科学大模型树」:DPA(分子模拟)、Uni-Mol(构象)、Uni-RNA、Uni-Fold(蛋白折叠),把 DPA 称作「微观世界的 Sora」。中国 AI for Science 的旗舰独角兽,落地生物医药、新材料与新能源。</div><div class="bio i18n-en">Born 1993, Peking University Yuanpei College, PhD at Princeton under Weinan E, then postdoc there. Co-founded DP Technology in Nov 2018 with CEO Sun Weijie. Proposer of the Deep Potential (DeePMD/DPA) method and a Gordon Bell Prize winner — supercomputing&#x27;s highest honour — for machine-learning molecular dynamics at unprecedented scale. DP Technology built a \&quot;tree\&quot; of science foundation models: DPA (molecular simulation), Uni-Mol (conformation), Uni-RNA and Uni-Fold (protein folding), positioning DPA as \&quot;Sora for the microscopic world.\&quot; China&#x27;s flagship AI-for-Science unicorn, applied to biopharma, new materials and new energy.</div>
-<a class="cta" href="/?node=zhanglinfeng"><span class="i18n-zh">在关系图谱中查看 Zhang Linfeng →</span><span class="i18n-en">View Zhang Linfeng in the graph →</span></a>
+<a class="cta" href="/?node=zhanglinfeng"><span class="i18n-zh">在关系图谱中查看 Zhang Linfeng →</span><span class="i18n-en">View Zhang Linfeng in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/weinane.html"><b>鄂维南 Weinan E</b><span>Princeton PhD advisor; co-created Deep Potential</span></a><a class="nbr" href="/p/jumper.html"><b>John Jumper</b><span>AI for Science — molecular simulation vs protein folding</span></a><a class="nbr" href="/p/alexrives.html"><b>Alex Rives</b><span>Science foundation models: Uni-Mol vs ESM</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

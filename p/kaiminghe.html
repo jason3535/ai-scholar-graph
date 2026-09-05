@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>何恺明 Kaiming He · MIT / Google DeepMind | AI 学者图谱</title>
-<meta name="description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。">
+<title>Kaiming He · MIT / Google DeepMind | AI 学者图谱</title>
+<meta name="description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/kaiminghe.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/kaiminghe.html">
-<meta property="og:title" content="何恺明 Kaiming He · ResNet 创造者 · 21世纪引用最多的论文">
-<meta property="og:description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。">
+<meta property="og:title" content="Kaiming He · Creator of ResNet · Most-cited 21st Century Paper">
+<meta property="og:description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/kaiminghe.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="何恺明 Kaiming He"><meta name="twitter:description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。">
+<meta name="twitter:title" content="Kaiming He"><meta name="twitter:description" content="1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/kaiminghe.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"何恺明 Kaiming He","alternateName":"Kaiming He","jobTitle":"ResNet 创造者 · 21世纪引用最多的论文","worksFor":{"@type":"Organization","name":"MIT / Google DeepMind"},"description":"1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。","url":"https://ai.jasonlin.tech/p/kaiminghe.html","image":"https://ai.jasonlin.tech/og/kaiminghe.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Kaiming He", "alternateName": "何恺明", "jobTitle": "Creator of ResNet · Most-cited 21st Century Paper", "worksFor": {"@type": "Organization", "name": "MIT / Google DeepMind"}, "description": "1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。", "url": "https://ai.jasonlin.tech/p/kaiminghe.html", "image": "https://ai.jasonlin.tech/og/kaiminghe.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/kaiminghe.jpg" alt="Kaiming He" width="108" height="108" loading="eager">
-<h1><span class="i18n-zh">何恺明 Kaiming He</span><span class="i18n-en">Kaiming He</span></h1>
+<h1><span class="i18n-zh">何恺明</span><span class="i18n-en">Kaiming He</span></h1>
 <p class="org">MIT / Google DeepMind</p>
 <p class="role"><span class="i18n-zh">ResNet 创造者 · 21世纪引用最多的论文</span><span class="i18n-en">Creator of ResNet · Most-cited 21st Century Paper</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">vision</span></div>
-<div class="bio i18n-zh">1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。</div><div class="bio i18n-en">Born 1984 in Guangzhou, Guangdong, China. Attended Guangzhou Zhixin High School, where he scored first place in the entire Guangdong province on the 2003 college entrance exam. Earned a BS from Tsinghua University (2007), then a PhD in Information Engineering from the Chinese University of Hong Kong (2011, Multimedia Lab), with a thesis on image dehazing. Joined Microsoft Research Asia (MSRA) as a research scientist, where he created ResNet (Residual Networks, 2015) -- the paper 'Deep Residual Learning for Image Recognition' is the most-cited paper of the 21st century. ResNet's skip connections solved the vanishing gradient problem and enabled training of networks with 100+ layers. Also co-created Mask R-CNN for instance segmentation. Moved to Facebook AI Research (FAIR). Joined MIT as associate professor (2024), appointed Douglas Ross Career Development Professor. In 2025, also joined Google DeepMind while retaining MIT tenure, pursuing a dual academia + industry path.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipaper.jasonlin.tech/pp/kaiming/">读 TA 的论文与长文（AI Paper）</a></p><!--XLINKS_END--><a class="cta" href="/?node=kaiminghe"><span class="i18n-zh">在关系图谱中查看 何恺明 →</span><span class="i18n-en">View Kaiming He in the graph →</span></a>
+<div class="bio i18n-zh">1984年生于广州。执信中学，2003年广东高考总分第一。清华学士，港中文博士。在微软亚研提出 ResNet（2015），21 世纪引用最多的论文之一。还创造了 Mask R-CNN。2024年加入 MIT 副教授，2025年同时加入 Google DeepMind。</div><div class="bio i18n-en">Born 1984 in Guangzhou, Guangdong, China. Attended Guangzhou Zhixin High School, where he scored first place in the entire Guangdong province on the 2003 college entrance exam. Earned a BS from Tsinghua University (2007), then a PhD in Information Engineering from the Chinese University of Hong Kong (2011, Multimedia Lab), with a thesis on image dehazing. Joined Microsoft Research Asia (MSRA) as a research scientist, where he created ResNet (Residual Networks, 2015) -- the paper &#x27;Deep Residual Learning for Image Recognition&#x27; is the most-cited paper of the 21st century. ResNet&#x27;s skip connections solved the vanishing gradient problem and enabled training of networks with 100+ layers. Also co-created Mask R-CNN for instance segmentation. Moved to Facebook AI Research (FAIR). Joined MIT as associate professor (2024), appointed Douglas Ross Career Development Professor. In 2025, also joined Google DeepMind while retaining MIT tenure, pursuing a dual academia + industry path.</div>
+<a class="cta" href="/?node=kaiminghe"><span class="i18n-zh">在关系图谱中查看 Kaiming He →</span><span class="i18n-en">View Kaiming He in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipaper.jasonlin.tech/#/person/kaiming" rel="noopener"><span class="i18n-zh">读 Kaiming He 的论文与长文 →</span><span class="i18n-en">Read on AI Paper →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2015</span> <a href="https://arxiv.org/abs/1512.03385" rel="noopener">Deep Residual Learning for Image Recognition (ResNet) [152K citations]</a></li><li><span class="y">2017</span> <a href="https://arxiv.org/abs/1703.06870" rel="noopener">Mask R-CNN [28K citations]</a></li><li><span class="y">2021</span> <a href="https://arxiv.org/abs/2111.06377" rel="noopener">Masked Autoencoders Are Scalable Vision Learners (MAE) [6K citations]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>Google DeepMind（2025年起）</span></a><a class="nbr" href="/p/zhangzhengyou.html"><b>张正友 Zhang Zhengyou</b><span>中国计算机视觉社区领袖</span></a><a class="nbr" href="/p/tangxiaoou.html"><b>Tang Xiaoou</b><span>港中文MMLab博导</span></a><a class="nbr" href="/p/sainingxie.html"><b>谢赛宁 Saining Xie</b><span>MSRA 2016 ResNeXt 共著</span></a><a class="nbr" href="/p/jiangdaxin.html"><b>姜大昕 Jiang Daxin</b><span>MSRA 时期(2011-2016)</span></a><a class="nbr" href="/p/hasani.html"><b>拉明·哈萨尼 Ramin Hasani</b><span>Liquid AI</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/hassabis.html"><b>Demis Hassabis</b><span>Google DeepMind (2025-)</span></a><a class="nbr" href="/p/zhangzhengyou.html"><b>张正友 Zhang Zhengyou</b><span>Chinese CV community leaders</span></a><a class="nbr" href="/p/tangxiaoou.html"><b>Tang Xiaoou</b><span>PhD advisor CUHK MMLab</span></a><a class="nbr" href="/p/sainingxie.html"><b>谢赛宁 Saining Xie</b><span>MSRA 2016 ResNeXt 共著</span></a><a class="nbr" href="/p/jiangdaxin.html"><b>姜大昕 Jiang Daxin</b><span>MSRA 时期(2011-2016)</span></a><a class="nbr" href="/p/hasani.html"><b>Ramin Hasani</b><span>Liquid AI</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

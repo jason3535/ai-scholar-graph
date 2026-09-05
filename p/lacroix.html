@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Timothee Lacroix · Mistral AI | AI 学者图谱</title>
-<meta name="description" content="法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与…">
+<meta name="description" content="French engineer and co-founder and CTO of Mistral AI,leading the company&#x27;s technical direction. He met co-founders Arthur Mensch and Guillaume Lample …">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/lacroix.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/lacroix.html">
-<meta property="og:title" content="Timothee Lacroix · Mistral AI 联合创始人兼 CTO">
-<meta property="og:description" content="法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与…">
+<meta property="og:title" content="Timothee Lacroix · Co-founder &amp; CTO of Mistral AI">
+<meta property="og:description" content="French engineer and co-founder and CTO of Mistral AI,leading the company&#x27;s technical direction. He met co-founders Arthur Mensch and Guillaume Lample …">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/lacroix.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Timothee Lacroix"><meta name="twitter:description" content="法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与…">
+<meta name="twitter:title" content="Timothee Lacroix"><meta name="twitter:description" content="French engineer and co-founder and CTO of Mistral AI,leading the company&#x27;s technical direction. He met co-founders Arthur Mensch and Guillaume Lample …">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/lacroix.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Timothee Lacroix","alternateName":"Timothee Lacroix","jobTitle":"Mistral AI 联合创始人兼 CTO","worksFor":{"@type":"Organization","name":"Mistral AI"},"description":"法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与…","url":"https://ai.jasonlin.tech/p/lacroix.html","image":"https://ai.jasonlin.tech/og/lacroix.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Timothee Lacroix", "alternateName": "Timothee Lacroix", "jobTitle": "Co-founder & CTO of Mistral AI", "worksFor": {"@type": "Organization", "name": "Mistral AI"}, "description": "French engineer and co-founder and CTO of Mistral AI,leading the company's technical direction. He met co-founders Arthur Mensch and Guillaume Lample ", "url": "https://ai.jasonlin.tech/p/lacroix.html", "image": "https://ai.jasonlin.tech/og/lacroix.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,24 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">TL</div>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
+<img class="avatar" src="/assets/people/lacroix.jpg" alt="Timothee Lacroix" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Timothee Lacroix</span><span class="i18n-en">Timothee Lacroix</span></h1>
 <p class="org">Mistral AI</p>
-<p class="role"><span class="i18n-zh">Mistral AI 联合创始人兼 CTO</span><span class="i18n-en">Co-founder &amp; CTO of Mistral AI</span></p>
+<p class="role"><span class="i18n-zh">Co-founder &amp; CTO of Mistral AI</span><span class="i18n-en">Co-founder &amp; CTO of Mistral AI</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">deep-learning</span></div>
-<div class="bio i18n-zh">法国工程师，Mistral AI 联合创始人兼 CTO，主导公司技术方向。他在巴黎综合理工学院结识联合创始人 Arthur Mensch 和 Guillaume Lample，并在 Facebook AI Research 巴黎实验室工作约八年（2015-2023），先后任博士生和研究工程师，参与了 Meta LLaMA 大模型家族的研发。2023 年 4 月与 Mensch、Lample 共同创办 Mistral AI，构建开放高效的基础模型。</div><div class="bio i18n-en">French engineer and co-founder and CTO of Mistral AI,leading the company's technical direction. He met co-founders Arthur Mensch and Guillaume Lample at Ecole Polytechnique,and spent roughly eight years (2015-2023) at Facebook AI Research Paris,first as a PhD student and later as a research engineer,where he contributed to Meta's LLaMA family and published research on large-scale model training. In April 2023 he co-founded Mistral AI alongside Mensch and Lample to build open and efficient foundation models.</div>
-<a class="cta" href="/?node=lacroix"><span class="i18n-zh">在关系图谱中查看 Timothee Lacroix →</span><span class="i18n-en">View Timothee Lacroix in the graph →</span></a>
+<div class="bio i18n-zh">French engineer and co-founder and CTO of Mistral AI,leading the company&#x27;s technical direction. He met co-founders Arthur Mensch and Guillaume Lample at Ecole Polytechnique,and spent roughly eight years (2015-2023) at Facebook AI Research Paris,first as a PhD student and later as a research engineer,where he contributed to Meta&#x27;s LLaMA family and published research on large-scale model training. In April 2023 he co-founded Mistral AI alongside Mensch and Lample to build open and efficient foundation models.</div><div class="bio i18n-en">French engineer and co-founder and CTO of Mistral AI,leading the company&#x27;s technical direction. He met co-founders Arthur Mensch and Guillaume Lample at Ecole Polytechnique,and spent roughly eight years (2015-2023) at Facebook AI Research Paris,first as a PhD student and later as a research engineer,where he contributed to Meta&#x27;s LLaMA family and published research on large-scale model training. In April 2023 he co-founded Mistral AI alongside Mensch and Lample to build open and efficient foundation models.</div>
+<a class="cta" href="/?node=lacroix"><span class="i18n-zh">在关系图谱中查看 Timothee Lacroix →</span><span class="i18n-en">View Timothee Lacroix in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2023</span> LLaMA: Open and Efficient Foundation Language Models</li><li><span class="y">2023</span> Mistral 7B</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/mensch.html"><b>Arthur Mensch</b><span>Co-founded Mistral AI</span></a><a class="nbr" href="/p/lample.html"><b>Guillaume Lample</b><span>Co-founded Mistral AI; FAIR colleagues</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

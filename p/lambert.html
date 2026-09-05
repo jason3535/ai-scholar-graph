@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>内森·兰伯特 Nathan Lambert · Allen Institute for AI (Ai2) | AI 学者图谱</title>
-<meta name="description" content="美国 AI 研究者，在艾伦人工智能研究院（Ai2）主导后训练工作，参与构建了开源的 Tulu 与 OLMo 模型及训练配方家族。他在 UC Berkeley 获博士学位，此前在 Hugging Face 从事 RLHF。通过广受关注的 Interconnects 通讯，他成为讲解「基于人类反馈的强…">
+<title>Nathan Lambert · Allen Institute for AI (Ai2) | AI 学者图谱</title>
+<meta name="description" content="American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/lambert.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/lambert.html">
-<meta property="og:title" content="内森·兰伯特 Nathan Lambert · Ai2 研究科学家 · RLHF 与后训练">
-<meta property="og:description" content="美国 AI 研究者，在艾伦人工智能研究院（Ai2）主导后训练工作，参与构建了开源的 Tulu 与 OLMo 模型及训练配方家族。他在 UC Berkeley 获博士学位，此前在 Hugging Face 从事 RLHF。通过广受关注的 Interconnects 通讯，他成为讲解「基于人类反馈的强…">
+<meta property="og:title" content="Nathan Lambert · Research Scientist at Ai2 · RLHF &amp; post-training">
+<meta property="og:description" content="American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/lambert.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="内森·兰伯特 Nathan Lambert"><meta name="twitter:description" content="美国 AI 研究者，在艾伦人工智能研究院（Ai2）主导后训练工作，参与构建了开源的 Tulu 与 OLMo 模型及训练配方家族。他在 UC Berkeley 获博士学位，此前在 Hugging Face 从事 RLHF。通过广受关注的 Interconnects 通讯，他成为讲解「基于人类反馈的强…">
+<meta name="twitter:title" content="Nathan Lambert"><meta name="twitter:description" content="American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/lambert.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"内森·兰伯特 Nathan Lambert","alternateName":"Nathan Lambert","jobTitle":"Ai2 研究科学家 · RLHF 与后训练","worksFor":{"@type":"Organization","name":"Allen Institute for AI (Ai2)"},"description":"美国 AI 研究者，在艾伦人工智能研究院（Ai2）主导后训练工作，参与构建了开源的 Tulu 与 OLMo 模型及训练配方家族。他在 UC Berkeley 获博士学位，此前在 Hugging Face 从事 RLHF。通过广受关注的 Interconnects 通讯，他成为讲解「基于人类反馈的强…","url":"https://ai.jasonlin.tech/p/lambert.html","image":"https://ai.jasonlin.tech/og/lambert.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Nathan Lambert", "alternateName": "Nathan Lambert", "jobTitle": "Research Scientist at Ai2 · RLHF & post-training", "worksFor": {"@type": "Organization", "name": "Allen Institute for AI (Ai2)"}, "description": "American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe", "url": "https://ai.jasonlin.tech/p/lambert.html", "image": "https://ai.jasonlin.tech/og/lambert.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,26 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/lambert.jpg" alt="Nathan Lambert" width="108" height="108" loading="eager">
-<h1><span class="i18n-zh">内森·兰伯特 Nathan Lambert</span><span class="i18n-en">Nathan Lambert</span></h1>
+<h1><span class="i18n-zh">Nathan Lambert</span><span class="i18n-en">Nathan Lambert</span></h1>
 <p class="org">Allen Institute for AI (Ai2)</p>
-<p class="role"><span class="i18n-zh">Ai2 研究科学家 · RLHF 与后训练</span><span class="i18n-en">Research Scientist at Ai2 · RLHF &amp; post-training</span></p>
+<p class="role"><span class="i18n-zh">Research Scientist at Ai2 · RLHF &amp; post-training</span><span class="i18n-en">Research Scientist at Ai2 · RLHF &amp; post-training</span></p>
 <div class="fields"><span class="tag">rl</span><span class="tag">nlp</span></div>
-<div class="bio i18n-zh">美国 AI 研究者，在艾伦人工智能研究院（Ai2）主导后训练工作，参与构建了开源的 Tulu 与 OLMo 模型及训练配方家族。他在 UC Berkeley 获博士学位，此前在 Hugging Face 从事 RLHF。通过广受关注的 Interconnects 通讯，他成为讲解「基于人类反馈的强化学习」、偏好微调以及开源与闭源模型开发机制最清晰的公开声音之一。</div><div class="bio i18n-en">American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe families. He earned his PhD at UC Berkeley and previously worked on RLHF at Hugging Face. Through his widely read Interconnects newsletter he has become one of the clearest public explainers of reinforcement learning from human feedback, preference tuning, and the mechanics of open versus closed model development.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/lambert/">听 TA 的播客访谈（AI Podcast）</a> · <a href="https://aipaper.jasonlin.tech/pp/nathanlambert/">读 TA 的论文与长文（AI Paper）</a></p><!--XLINKS_END--><a class="cta" href="/?node=lambert"><span class="i18n-zh">在关系图谱中查看 内森·兰伯特 →</span><span class="i18n-en">View Nathan Lambert in the graph →</span></a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/lambert" rel="noopener"><span class="i18n-zh">听 内森·兰伯特 的 AI 播客 →</span><span class="i18n-en">Listen to Nathan Lambert on AI Podcast →</span></a>
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2023</span> RLHF work at Hugging Face</li><li><span class="y">2024</span> Tulu / OLMo open post-training recipes (Ai2)</li></ul>
+<div class="bio i18n-zh">American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe families. He earned his PhD at UC Berkeley and previously worked on RLHF at Hugging Face. Through his widely read Interconnects newsletter he has become one of the clearest public explainers of reinforcement learning from human feedback, preference tuning, and the mechanics of open versus closed model development.</div><div class="bio i18n-en">American AI researcher who leads post-training work at the Allen Institute for AI (Ai2), where he helped build the open Tulu and OLMo model and recipe families. He earned his PhD at UC Berkeley and previously worked on RLHF at Hugging Face. Through his widely read Interconnects newsletter he has become one of the clearest public explainers of reinforcement learning from human feedback, preference tuning, and the mechanics of open versus closed model development.</div>
+<a class="cta" href="/?node=lambert"><span class="i18n-zh">在关系图谱中查看 Nathan Lambert →</span><span class="i18n-en">View Nathan Lambert in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/lambert" rel="noopener"><span class="i18n-zh">听 Nathan Lambert 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+<a class="cta2" href="https://aipaper.jasonlin.tech/#/person/nathanlambert" rel="noopener"><span class="i18n-zh">读 Nathan Lambert 的论文与长文 →</span><span class="i18n-en">Read on AI Paper →</span></a>
+
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/schulman.html"><b>John Schulman</b><span>RLHF / 后训练研究脉络</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

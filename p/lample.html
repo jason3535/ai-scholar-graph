@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Guillaume Lample · Mistral AI | AI 学者图谱</title>
-<meta name="description" content="法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高…">
+<meta name="description" content="French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research …">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/lample.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/lample.html">
-<meta property="og:title" content="Guillaume Lample · Mistral AI 联合创始人兼首席科学家 · LLaMA 创造者">
-<meta property="og:description" content="法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高…">
+<meta property="og:title" content="Guillaume Lample · Co-founder &amp; Chief Scientist of Mistral AI · LLaMA creator">
+<meta property="og:description" content="French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research …">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/lample.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Guillaume Lample"><meta name="twitter:description" content="法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高…">
+<meta name="twitter:title" content="Guillaume Lample"><meta name="twitter:description" content="French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research …">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/lample.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Guillaume Lample","alternateName":"Guillaume Lample","jobTitle":"Mistral AI 联合创始人兼首席科学家 · LLaMA 创造者","worksFor":{"@type":"Organization","name":"Mistral AI"},"description":"法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高…","url":"https://ai.jasonlin.tech/p/lample.html","image":"https://ai.jasonlin.tech/og/lample.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Guillaume Lample", "alternateName": "Guillaume Lample", "jobTitle": "Co-founder & Chief Scientist of Mistral AI · LLaMA creator", "worksFor": {"@type": "Organization", "name": "Mistral AI"}, "description": "French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research ", "url": "https://ai.jasonlin.tech/p/lample.html", "image": "https://ai.jasonlin.tech/og/lample.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">GL</div>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
+<img class="avatar" src="/assets/people/lample.jpg" alt="Guillaume Lample" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Guillaume Lample</span><span class="i18n-en">Guillaume Lample</span></h1>
 <p class="org">Mistral AI</p>
-<p class="role"><span class="i18n-zh">Mistral AI 联合创始人兼首席科学家 · LLaMA 创造者</span><span class="i18n-en">Co-founder &amp; Chief Scientist of Mistral AI · LLaMA creator</span></p>
+<p class="role"><span class="i18n-zh">Co-founder &amp; Chief Scientist of Mistral AI · LLaMA creator</span><span class="i18n-en">Co-founder &amp; Chief Scientist of Mistral AI · LLaMA creator</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">deep-learning</span></div>
-<div class="bio i18n-zh">法国 AI 研究者，在巴黎综合理工学院求学期间结识联合创始人 Arthur Mensch 和 Timothee Lacroix。2016 至 2023 年在 Facebook AI Research（FAIR）巴黎实验室任研究员，2019 年完成《无监督机器翻译》博士论文。在 FAIR 期间产出高被引的无监督机器翻译（EMNLP 2018 最佳论文）及跨语言预训练（XLM）研究，后主导创建了 Meta 于 2023 年 2 月发布的 LLaMA 开源大模型家族。2023 年 4 月联合创办 Mistral AI，担任首席科学家。</div><div class="bio i18n-en">French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research (FAIR) Paris from 2016 to 2023,defending a thesis on Unsupervised Machine Translation in 2019. At FAIR he produced work on unsupervised machine translation (EMNLP 2018 Best Paper) and cross-lingual pretraining (XLM),then led the creation of Meta's LLaMA family of open large language models unveiled in February 2023. In April 2023 he co-founded Mistral AI,where he serves as Chief Scientist.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/lample/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=lample"><span class="i18n-zh">在关系图谱中查看 Guillaume Lample →</span><span class="i18n-en">View Guillaume Lample in the graph →</span></a>
+<div class="bio i18n-zh">French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research (FAIR) Paris from 2016 to 2023,defending a thesis on Unsupervised Machine Translation in 2019. At FAIR he produced work on unsupervised machine translation (EMNLP 2018 Best Paper) and cross-lingual pretraining (XLM),then led the creation of Meta&#x27;s LLaMA family of open large language models unveiled in February 2023. In April 2023 he co-founded Mistral AI,where he serves as Chief Scientist.</div><div class="bio i18n-en">French AI researcher who met co-founders Arthur Mensch and Timothee Lacroix while studying at Ecole Polytechnique. Researcher at Facebook AI Research (FAIR) Paris from 2016 to 2023,defending a thesis on Unsupervised Machine Translation in 2019. At FAIR he produced work on unsupervised machine translation (EMNLP 2018 Best Paper) and cross-lingual pretraining (XLM),then led the creation of Meta&#x27;s LLaMA family of open large language models unveiled in February 2023. In April 2023 he co-founded Mistral AI,where he serves as Chief Scientist.</div>
+<a class="cta" href="/?node=lample"><span class="i18n-zh">在关系图谱中查看 Guillaume Lample →</span><span class="i18n-en">View Guillaume Lample in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/lample" rel="noopener"><span class="i18n-zh">听 Guillaume Lample 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2018</span> Phrase-Based &amp; Neural Unsupervised Machine Translation (EMNLP Best Paper)</li><li><span class="y">2023</span> LLaMA: Open and Efficient Foundation Language Models</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/mensch.html"><b>Arthur Mensch</b><span>Co-founded Mistral AI</span></a><a class="nbr" href="/p/lecun.html"><b>Yann LeCun</b><span>Both at Meta FAIR</span></a><a class="nbr" href="/p/lacroix.html"><b>Timothee Lacroix</b><span>Co-founded Mistral AI; FAIR colleagues</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

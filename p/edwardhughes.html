@@ -54,13 +54,17 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">Inherent 联合创始人兼首席科学家 · 前 Google DeepMind</span><span class="i18n-en">Co-founder &amp; Chief Scientist of Inherent · ex-Google DeepMind</span></p>
 <div class="fields"><span class="tag">rl</span><span class="tag">agents</span></div>
 <div class="bio i18n-zh">伦敦 AI 实验室 Inherent 联合创始人兼首席科学家，目标是让 AI 发现新知识；其智能体 Faraday 以 270 亿参数的 Qwen 3.6 为底座，在不预知答案的前提下独立复现已发表论文的结论，得分超过 Claude Opus 4.8 与 GPT-5.5（2026 年 8 月）。此前在 Google DeepMind 共同领导 AI Scientist 团队，写下了 Genie 1 世界模型的最终实现，并参与 AlphaProof。《Open-Endedness is Essential for Artificial Superhuman Intelligence》（2024）一作，合作式 AI 与强化学习快速适应方向的先行者之一。伦敦政经学院访问研究员。Inherent 于 2026 年 5 月带着 5000 万美元种子轮走出隐身，团队约 12 人。</div><div class="bio i18n-en">Co-founder and Chief Scientist of Inherent, a London lab building AI that discovers new knowledge. Its agent Faraday, built on a 27B Qwen 3.6 base, independently reproduced published paper results and outscored Claude Opus 4.8 and GPT-5.5 (August 2026). Previously co-led the AI Scientist team at Google DeepMind, wrote the final implementation of the Genie 1 world model and contributed to AlphaProof. Lead author of Open-Endedness is Essential for Artificial Superhuman Intelligence (2024); a pioneer of cooperative AI and fast adaptation in reinforcement learning. Visiting Fellow at LSE. Inherent emerged from stealth in May 2026 with a $50M seed round and a team of about 12.</div>
-<a class="cta" href="/?node=edwardhughes"><span class="i18n-zh">在关系图谱中查看 Edward Hughes →</span><span class="i18n-en">View Edward Hughes in the graph →</span></a>
+<a class="cta" href="/?node=edwardhughes"><span class="i18n-zh">在关系图谱中查看 Edward Hughes →</span><span class="i18n-en">View Edward Hughes in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/jackph.html"><b>Jack Parker-Holder</b><span>Open-endedness paper co-authors; Genie at DeepMind</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

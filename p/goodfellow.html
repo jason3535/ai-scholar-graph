@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Ian Goodfellow · Google DeepMind | AI 学者图谱</title>
-<meta name="description" content="1987年生，在旧金山湾区长大。斯坦福大学计算机科学学士和硕士（在 Andrew Ng 的组里），蒙特利尔大学机器学习博士（2015，导师 Yoshua Bengio 和 Aaron Courville）。博士期间发明了生成对抗网络（GAN，2014）；据说这个想法是在酒吧聊天时产生的，他回家当晚…">
+<meta name="description" content="Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng&#x27;s group), then a PhD in Machine Le…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/goodfellow.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/goodfellow.html">
-<meta property="og:title" content="Ian Goodfellow · GAN 发明人">
-<meta property="og:description" content="1987年生，在旧金山湾区长大。斯坦福大学计算机科学学士和硕士（在 Andrew Ng 的组里），蒙特利尔大学机器学习博士（2015，导师 Yoshua Bengio 和 Aaron Courville）。博士期间发明了生成对抗网络（GAN，2014）；据说这个想法是在酒吧聊天时产生的，他回家当晚…">
+<meta property="og:title" content="Ian Goodfellow · Inventor of GANs">
+<meta property="og:description" content="Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng&#x27;s group), then a PhD in Machine Le…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/goodfellow.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ian Goodfellow"><meta name="twitter:description" content="1987年生，在旧金山湾区长大。斯坦福大学计算机科学学士和硕士（在 Andrew Ng 的组里），蒙特利尔大学机器学习博士（2015，导师 Yoshua Bengio 和 Aaron Courville）。博士期间发明了生成对抗网络（GAN，2014）；据说这个想法是在酒吧聊天时产生的，他回家当晚…">
+<meta name="twitter:title" content="Ian Goodfellow"><meta name="twitter:description" content="Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng&#x27;s group), then a PhD in Machine Le…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/goodfellow.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Ian Goodfellow","alternateName":"Ian Goodfellow","jobTitle":"GAN 发明人","worksFor":{"@type":"Organization","name":"Google DeepMind"},"description":"1987年生，在旧金山湾区长大。斯坦福大学计算机科学学士和硕士（在 Andrew Ng 的组里），蒙特利尔大学机器学习博士（2015，导师 Yoshua Bengio 和 Aaron Courville）。博士期间发明了生成对抗网络（GAN，2014）；据说这个想法是在酒吧聊天时产生的，他回家当晚…","url":"https://ai.jasonlin.tech/p/goodfellow.html","image":"https://ai.jasonlin.tech/og/goodfellow.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Ian Goodfellow", "alternateName": "Ian Goodfellow", "jobTitle": "Inventor of GANs", "worksFor": {"@type": "Organization", "name": "Google DeepMind"}, "description": "Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng's group), then a PhD in Machine Le", "url": "https://ai.jasonlin.tech/p/goodfellow.html", "image": "https://ai.jasonlin.tech/og/goodfellow.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/goodfellow.jpg" alt="Ian Goodfellow" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Ian Goodfellow</span><span class="i18n-en">Ian Goodfellow</span></h1>
 <p class="org">Google DeepMind</p>
-<p class="role"><span class="i18n-zh">GAN 发明人</span><span class="i18n-en">Inventor of GANs</span></p>
+<p class="role"><span class="i18n-zh">Inventor of GANs</span><span class="i18n-en">Inventor of GANs</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">vision</span></div>
-<div class="bio i18n-zh">1987年生，在旧金山湾区长大。斯坦福大学计算机科学学士和硕士（在 Andrew Ng 的组里），蒙特利尔大学机器学习博士（2015，导师 Yoshua Bengio 和 Aaron Courville）。博士期间发明了生成对抗网络（GAN，2014）；据说这个想法是在酒吧聊天时产生的，他回家当晚就写出了第一个版本。与 Bengio 和 Courville 合著了权威教科书《深度学习》（2016）。职业轨迹：Google Brain（博士后）、OpenAI（2016-2017）、Google Research（2017-2019）、Apple 特别项目组 ML 总监（2019-2022，因返回办公室政策辞职）、Google DeepMind（2022至今）。入选 MIT 科技评论 35 岁以下创新者（2017）���</div><div class="bio i18n-en">Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng's group), then a PhD in Machine Learning from the Universite de Montreal (2015) under Yoshua Bengio and Aaron Courville. During his PhD, famously invented Generative Adversarial Networks (GANs) in 2014 -- the idea allegedly came to him during a conversation at a bar and he went home and coded the first version that night. Co-authored the definitive 'Deep Learning' textbook (2016) with Bengio and Courville. Career: Google Brain (post-PhD), OpenAI (2016-2017), Google Research (2017-2019), Apple Director of ML in Special Projects (2019-2022, resigned over return-to-office policy), then Google DeepMind (2022-present). Named MIT Tech Review 35 Under 35 (2017).</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipaper.jasonlin.tech/pp/goodfellow/">读 TA 的论文与长文（AI Paper）</a></p><!--XLINKS_END--><a class="cta" href="/?node=goodfellow"><span class="i18n-zh">在关系图谱中查看 Ian Goodfellow →</span><span class="i18n-en">View Ian Goodfellow in the graph →</span></a>
+<div class="bio i18n-zh">Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng&#x27;s group), then a PhD in Machine Learning from the Universite de Montreal (2015) under Yoshua Bengio and Aaron Courville. During his PhD, famously invented Generative Adversarial Networks (GANs) in 2014 -- the idea allegedly came to him during a conversation at a bar and he went home and coded the first version that night. Co-authored the definitive &#x27;Deep Learning&#x27; textbook (2016) with Bengio and Courville. Career: Google Brain (post-PhD), OpenAI (2016-2017), Google Research (2017-2019), Apple Director of ML in Special Projects (2019-2022, resigned over return-to-office policy), then Google DeepMind (2022-present). Named MIT Tech Review 35 Under 35 (2017).</div><div class="bio i18n-en">Born 1987, grew up in the San Francisco area. Earned a BS and MS in Computer Science from Stanford (under Andrew Ng&#x27;s group), then a PhD in Machine Learning from the Universite de Montreal (2015) under Yoshua Bengio and Aaron Courville. During his PhD, famously invented Generative Adversarial Networks (GANs) in 2014 -- the idea allegedly came to him during a conversation at a bar and he went home and coded the first version that night. Co-authored the definitive &#x27;Deep Learning&#x27; textbook (2016) with Bengio and Courville. Career: Google Brain (post-PhD), OpenAI (2016-2017), Google Research (2017-2019), Apple Director of ML in Special Projects (2019-2022, resigned over return-to-office policy), then Google DeepMind (2022-present). Named MIT Tech Review 35 Under 35 (2017).</div>
+<a class="cta" href="/?node=goodfellow"><span class="i18n-zh">在关系图谱中查看 Ian Goodfellow →</span><span class="i18n-en">View Ian Goodfellow in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipaper.jasonlin.tech/#/person/goodfellow" rel="noopener"><span class="i18n-zh">读 Ian Goodfellow 的论文与长文 →</span><span class="i18n-en">Read on AI Paper →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2014</span> <a href="https://arxiv.org/abs/1406.2661" rel="noopener">Generative Adversarial Nets [55K citations]</a></li><li><span class="y">2016</span> <a href="https://www.deeplearningbook.org/" rel="noopener">Deep Learning (textbook) [60K]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/bengio.html"><b>Yoshua Bengio</b><span>博士导师，指导 GAN 研究</span></a><a class="nbr" href="/p/radford.html"><b>Alec Radford</b><span>GAN / 生成模型传承</span></a><a class="nbr" href="/p/szegedy.html"><b>Christian Szegedy</b><span>对抗样本研究（2013），Google 同事</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/bengio.html"><b>Yoshua Bengio</b><span>PhD advisor, supervised GANs</span></a><a class="nbr" href="/p/radford.html"><b>Alec Radford</b><span>GAN / generative lineage</span></a><a class="nbr" href="/p/szegedy.html"><b>Christian Szegedy</b><span>Adversarial examples (2013), Google colleagues</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

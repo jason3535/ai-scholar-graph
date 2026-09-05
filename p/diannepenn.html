@@ -54,7 +54,7 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">Head of Research Product Management</span><span class="i18n-en">Head of Research Product Management</span></p>
 <div class="fields"><span class="tag">nlp</span><span class="tag">safety</span></div>
 <div class="bio i18n-zh">Runs research product management at Anthropic, sitting between the model teams and what ships — deciding which capabilities become features and how safety constraints survive contact with product deadlines. Previously at Google. One of the few people whose job is explicitly translating research progress into user-visible behavior.</div><div class="bio i18n-en">Runs research product management at Anthropic, sitting between the model teams and what ships — deciding which capabilities become features and how safety constraints survive contact with product deadlines. Previously at Google. One of the few people whose job is explicitly translating research progress into user-visible behavior.</div>
-<a class="cta" href="/?node=diannepenn"><span class="i18n-zh">在关系图谱中查看 Dianne Na Penn →</span><span class="i18n-en">View Dianne Na Penn in the graph →</span></a>
+<a class="cta" href="/?node=diannepenn"><span class="i18n-zh">在关系图谱中查看 Dianne Na Penn →</span><span class="i18n-en">View Dianne Na Penn in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 <a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/diannepenn" rel="noopener"><span class="i18n-zh">听 Dianne Na Penn 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2023</span> 加入 Anthropic</li><li><span class="y">2024</span> 负责研究产品管理</li><li><span class="y">2025</span> Claude 能力产品化</li></ul>
@@ -62,6 +62,10 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

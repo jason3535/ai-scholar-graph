@@ -54,7 +54,7 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">Professor of CS · Co-founder of Semantic Machines</span><span class="i18n-en">Professor of CS · Co-founder of Semantic Machines</span></p>
 <div class="fields"><span class="tag">nlp</span></div>
 <div class="bio i18n-zh">Berkeley NLP professor whose lab trained a generation of researchers now leading industry teams. Co-founded Semantic Machines (acquired by Microsoft in 2018), bringing conversational AI into Microsoft&#x27;s assistant stack. Known for unsupervised parsing and structured prediction work that predates the transformer era.</div><div class="bio i18n-en">Berkeley NLP professor whose lab trained a generation of researchers now leading industry teams. Co-founded Semantic Machines (acquired by Microsoft in 2018), bringing conversational AI into Microsoft&#x27;s assistant stack. Known for unsupervised parsing and structured prediction work that predates the transformer era.</div>
-<a class="cta" href="/?node=danklein"><span class="i18n-zh">在关系图谱中查看 Dan Klein →</span><span class="i18n-en">View Dan Klein in the graph →</span></a>
+<a class="cta" href="/?node=danklein"><span class="i18n-zh">在关系图谱中查看 Dan Klein →</span><span class="i18n-en">View Dan Klein in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 <a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/danklein" rel="noopener"><span class="i18n-zh">听 Dan Klein 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2004</span> 无监督句法分析奠基工作</li><li><span class="y">2014</span> 创办 Semantic Machines</li><li><span class="y">2018</span> Semantic Machines → 微软</li></ul>
@@ -62,6 +62,10 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

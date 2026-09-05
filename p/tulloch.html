@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>安德鲁·塔洛克 Andrew Tulloch · Meta Superintelligence Labs | AI 学者图谱</title>
-<meta name="description" content="澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang …">
+<title>Andrew Tulloch · Meta Superintelligence Labs | AI 学者图谱</title>
+<meta name="description" content="Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati&#x27;s Thinking Machines Lab in 20…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/tulloch.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/tulloch.html">
-<meta property="og:title" content="安德鲁·塔洛克 Andrew Tulloch · Meta 超级智能实验室 · 前 Thinking Machines 联合创始人">
-<meta property="og:description" content="澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang …">
+<meta property="og:title" content="Andrew Tulloch · ML Systems Researcher · Ex-Thinking Machines Cofounder">
+<meta property="og:description" content="Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati&#x27;s Thinking Machines Lab in 20…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/tulloch.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="安德鲁·塔洛克 Andrew Tulloch"><meta name="twitter:description" content="澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang …">
+<meta name="twitter:title" content="Andrew Tulloch"><meta name="twitter:description" content="Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati&#x27;s Thinking Machines Lab in 20…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/tulloch.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"安德鲁·塔洛克 Andrew Tulloch","alternateName":"Andrew Tulloch","jobTitle":"Meta 超级智能实验室 · 前 Thinking Machines 联合创始人","worksFor":{"@type":"Organization","name":"Meta Superintelligence Labs"},"description":"澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang …","url":"https://ai.jasonlin.tech/p/tulloch.html","image":"https://ai.jasonlin.tech/og/tulloch.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Andrew Tulloch", "alternateName": "Andrew Tulloch", "jobTitle": "ML Systems Researcher · Ex-Thinking Machines Cofounder", "worksFor": {"@type": "Organization", "name": "Meta Superintelligence Labs"}, "description": "Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati's Thinking Machines Lab in 20", "url": "https://ai.jasonlin.tech/p/tulloch.html", "image": "https://ai.jasonlin.tech/og/tulloch.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,24 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/tulloch.jpg" alt="Andrew Tulloch" width="108" height="108" loading="eager">
-<h1><span class="i18n-zh">安德鲁·塔洛克 Andrew Tulloch</span><span class="i18n-en">Andrew Tulloch</span></h1>
+<h1><span class="i18n-zh">Andrew Tulloch</span><span class="i18n-en">Andrew Tulloch</span></h1>
 <p class="org">Meta Superintelligence Labs</p>
-<p class="role"><span class="i18n-zh">Meta 超级智能实验室 · 前 Thinking Machines 联合创始人</span><span class="i18n-en">ML Systems Researcher · Ex-Thinking Machines Cofounder</span></p>
-<div class="fields"><span class="tag">deep-learning</span></div>
-<div class="bio i18n-zh">澳大利亚机器学习研究者，曾长期任职于 Facebook AI Research 与 OpenAI，2025 年与 Mira Murati 共同创办 Thinking Machines Lab。2025 年 10 月离开，加入 Meta 超级智能实验室，向首席 AI 官 Alexandr Wang 汇报，据多方报道其薪酬包六年约 15 亿美元，是科技业最贵的个人招募之一，也是 2025-26 年 AI 人才战的一个注脚。专长于大规模机器学习系统与训练基础设施。</div><div class="bio i18n-en">Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati's Thinking Machines Lab in 2025. In October 2025 he left to join Meta Superintelligence Labs, reporting to chief AI officer Alexandr Wang, in a deal widely reported at ~$1.5 billion over six years, one of the most expensive individual hires in tech and a marker of the 2025-26 AI talent war. A specialist in large-scale ML systems and training infrastructure.</div>
-<a class="cta" href="/?node=tulloch"><span class="i18n-zh">在关系图谱中查看 安德鲁·塔洛克 →</span><span class="i18n-en">View Andrew Tulloch in the graph →</span></a>
+<p class="role"><span class="i18n-zh">ML Systems Researcher · Ex-Thinking Machines Cofounder</span><span class="i18n-en">ML Systems Researcher · Ex-Thinking Machines Cofounder</span></p>
+<div class="fields"><span class="tag">deep-learning</span><span class="tag">systems</span></div>
+<div class="bio i18n-zh">Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati&#x27;s Thinking Machines Lab in 2025. In October 2025 he left to join Meta Superintelligence Labs, reporting to chief AI officer Alexandr Wang, in a deal widely reported at ~$1.5 billion over six years, one of the most expensive individual hires in tech and a marker of the 2025-26 AI talent war. A specialist in large-scale ML systems and training infrastructure.</div><div class="bio i18n-en">Australian machine-learning researcher who spent years at Facebook AI Research and OpenAI before co-founding Mira Murati&#x27;s Thinking Machines Lab in 2025. In October 2025 he left to join Meta Superintelligence Labs, reporting to chief AI officer Alexandr Wang, in a deal widely reported at ~$1.5 billion over six years, one of the most expensive individual hires in tech and a marker of the 2025-26 AI talent war. A specialist in large-scale ML systems and training infrastructure.</div>
+<a class="cta" href="/?node=tulloch"><span class="i18n-zh">在关系图谱中查看 Andrew Tulloch →</span><span class="i18n-en">View Andrew Tulloch in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2025</span> Co-founded Thinking Machines Lab</li><li><span class="y">2025</span> Joined Meta Superintelligence Labs (~$1.5B package)</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>共同创办 Thinking Machines Lab</span></a><a class="nbr" href="/p/barretzoph.html"><b>Barret Zoph</b><span>OpenAI / Thinking Machines 同事</span></a><a class="nbr" href="/p/awang.html"><b>亚历山大·王 Alexandr Wang</b><span>Meta 超级智能实验室 — Tulloch 向其汇报</span></a>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/miramurati.html"><b>Mira Murati</b><span>Co-founded Thinking Machines Lab</span></a><a class="nbr" href="/p/barretzoph.html"><b>Barret Zoph</b><span>OpenAI / Thinking Machines colleagues</span></a><a class="nbr" href="/p/awang.html"><b>Alexandr Wang</b><span>Meta 超级智能实验室 — Tulloch 向其汇报</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Jack Clark · Anthropic | AI 学者图谱</title>
-<meta name="description" content="曾是覆盖 AI 领域的记者，在 Bloomberg 和 The Register 工作，后转入行业。加入 OpenAI 担任政策总监，帮助塑造了该组织的 AI 治理和公共沟通方式。创办了极具影响力的 Import AI 周报，是最广泛阅读的 AI 资讯之一。2021年联合创办 Anthropic，…">
+<meta name="description" content="Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he hel…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/clark.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/clark.html">
-<meta property="og:title" content="Jack Clark · Anthropic 联合创始人">
-<meta property="og:description" content="曾是覆盖 AI 领域的记者，在 Bloomberg 和 The Register 工作，后转入行业。加入 OpenAI 担任政策总监，帮助塑造了该组织的 AI 治理和公共沟通方式。创办了极具影响力的 Import AI 周报，是最广泛阅读的 AI 资讯之一。2021年联合创办 Anthropic，…">
+<meta property="og:title" content="Jack Clark · Co-founder of Anthropic">
+<meta property="og:description" content="Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he hel…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/clark.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jack Clark"><meta name="twitter:description" content="曾是覆盖 AI 领域的记者，在 Bloomberg 和 The Register 工作，后转入行业。加入 OpenAI 担任政策总监，帮助塑造了该组织的 AI 治理和公共沟通方式。创办了极具影响力的 Import AI 周报，是最广泛阅读的 AI 资讯之一。2021年联合创办 Anthropic，…">
+<meta name="twitter:title" content="Jack Clark"><meta name="twitter:description" content="Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he hel…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/clark.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Jack Clark","alternateName":"Jack Clark","jobTitle":"Anthropic 联合创始人","worksFor":{"@type":"Organization","name":"Anthropic"},"description":"曾是覆盖 AI 领域的记者，在 Bloomberg 和 The Register 工作，后转入行业。加入 OpenAI 担任政策总监，帮助塑造了该组织的 AI 治理和公共沟通方式。创办了极具影响力的 Import AI 周报，是最广泛阅读的 AI 资讯之一。2021年联合创办 Anthropic，…","url":"https://ai.jasonlin.tech/p/clark.html","image":"https://ai.jasonlin.tech/og/clark.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Jack Clark", "alternateName": "Jack Clark", "jobTitle": "Co-founder of Anthropic", "worksFor": {"@type": "Organization", "name": "Anthropic"}, "description": "Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he hel", "url": "https://ai.jasonlin.tech/p/clark.html", "image": "https://ai.jasonlin.tech/og/clark.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,24 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(255,100,130,.92),rgba(255,100,130,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(255,100,130,.14)">JC</div>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
+<img class="avatar" src="/assets/people/clark.jpg" alt="Jack Clark" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Jack Clark</span><span class="i18n-en">Jack Clark</span></h1>
 <p class="org">Anthropic</p>
-<p class="role"><span class="i18n-zh">Anthropic 联合创始人</span><span class="i18n-en">Co-founder of Anthropic</span></p>
+<p class="role"><span class="i18n-zh">Co-founder of Anthropic</span><span class="i18n-en">Co-founder of Anthropic</span></p>
 <div class="fields"><span class="tag">safety</span></div>
-<div class="bio i18n-zh">曾是覆盖 AI 领域的记者，在 Bloomberg 和 The Register 工作，后转入行业。加入 OpenAI 担任政策总监，帮助塑造了该组织的 AI 治理和公共沟通方式。创办了极具影响力的 Import AI 周报，是最广泛阅读的 AI 资讯之一。2021年联合创办 Anthropic，专注 AI 政策、安全研究和负责任部署。</div><div class="bio i18n-en">Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he helped shape the organization's approach to AI governance and public communication. Created the 'Import AI' newsletter, one of the most widely read weekly AI digests. Co-founded Anthropic in 2021, focusing on AI policy, safety research, and responsible deployment.</div>
-<a class="cta" href="/?node=clark"><span class="i18n-zh">在关系图谱中查看 Jack Clark →</span><span class="i18n-en">View Jack Clark in the graph →</span></a>
+<div class="bio i18n-zh">Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he helped shape the organization&#x27;s approach to AI governance and public communication. Created the &#x27;Import AI&#x27; newsletter, one of the most widely read weekly AI digests. Co-founded Anthropic in 2021, focusing on AI policy, safety research, and responsible deployment.</div><div class="bio i18n-en">Former journalist covering AI for Bloomberg and The Register before transitioning to the industry side. Joined OpenAI as Policy Director, where he helped shape the organization&#x27;s approach to AI governance and public communication. Created the &#x27;Import AI&#x27; newsletter, one of the most widely read weekly AI digests. Co-founded Anthropic in 2021, focusing on AI policy, safety research, and responsible deployment.</div>
+<a class="cta" href="/?node=clark"><span class="i18n-zh">在关系图谱中查看 Jack Clark →</span><span class="i18n-en">View Jack Clark in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
-
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>联合创办 Anthropic</span></a><a class="nbr" href="/p/olah.html"><b>Chris Olah</b><span>联合创办 Anthropic</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/damodei.html"><b>Dario Amodei</b><span>Co-founded Anthropic</span></a><a class="nbr" href="/p/olah.html"><b>Chris Olah</b><span>Co-founded Anthropic</span></a><a class="nbr" href="/p/yangyaodong.html"><b>杨耀东 Yang Yaodong</b><span>AI safety/policy — China vs US frameworks</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

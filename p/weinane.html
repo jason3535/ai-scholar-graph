@@ -54,13 +54,17 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">中国科学院院士 · 中国 AI for Science 奠基者</span><span class="i18n-en">Academician CAS · Father of AI for Science in China</span></p>
 <div class="fields"><span class="tag">deep-learning</span><span class="tag">systems</span></div>
 <div class="bio i18n-zh">北京大学与普林斯顿数学家,中科院院士。他把机器学习确立为求解高维偏微分方程与多体物理的工具,共同创立 Deep Potential 方法与 Deep Ritz/深度 BSDE 求解器,并培养了如今把该领域产业化的一代人(深势科技张林峰等)。2021 年的文章为「AI for Science」在中国定名。</div><div class="bio i18n-en">Mathematician at Peking University and Princeton, member of the Chinese Academy of Sciences. A founding figure of AI for Science: he framed machine learning as a tool for solving high-dimensional PDEs and many-body physics, co-created the Deep Potential method and Deep Ritz/BSDE solvers, and mentored the generation now commercialising the field (Zhang Linfeng at DP Technology, Tang Linpeng at Moqi). His 2021 essay on \&quot;AI for Science\&quot; gave the movement its name in China.</div>
-<a class="cta" href="/?node=weinane"><span class="i18n-zh">在关系图谱中查看 Weinan E →</span><span class="i18n-en">View Weinan E in the graph →</span></a>
+<a class="cta" href="/?node=weinane"><span class="i18n-zh">在关系图谱中查看 Weinan E →</span><span class="i18n-en">View Weinan E in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/zhanglinfeng.html"><b>张林峰 Zhang Linfeng</b><span>Princeton PhD advisor; co-created Deep Potential</span></a><a class="nbr" href="/p/yaoqizhi.html"><b>Andrew Yao</b><span>Chinese academy figures bridging math/CS into AI</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

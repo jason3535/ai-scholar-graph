@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Percy Liang · Stanford | AI 学者图谱</title>
-<meta name="description" content="斯坦福教授，在大语言模型评估和问责方面成为最重要的声音之一。创建了 HELM（大语言模型整体评估，2022），这是评估大语言模型最全面、最标准化的基准，涵盖准确性、鲁棒性、公平性和毒性等多个维度。领导了斯坦福 Alpaca 项目（2023），证明了用 GPT 生成的数据微调的小模型可以匹敌更大的模…">
+<meta name="description" content="Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Mod…">
 <link rel="canonical" href="https://ai.jasonlin.tech/p/liang.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://ai.jasonlin.tech/p/liang.html">
-<meta property="og:title" content="Percy Liang · HELM 基准创造者 · Together AI 创始人">
-<meta property="og:description" content="斯坦福教授，在大语言模型评估和问责方面成为最重要的声音之一。创建了 HELM（大语言模型整体评估，2022），这是评估大语言模型最全面、最标准化的基准，涵盖准确性、鲁棒性、公平性和毒性等多个维度。领导了斯坦福 Alpaca 项目（2023），证明了用 GPT 生成的数据微调的小模型可以匹敌更大的模…">
+<meta property="og:title" content="Percy Liang · Creator of HELM benchmark · Founded Together AI">
+<meta property="og:description" content="Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Mod…">
 <meta property="og:site_name" content="AI 学者图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai.jasonlin.tech/og/liang.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Percy Liang"><meta name="twitter:description" content="斯坦福教授，在大语言模型评估和问责方面成为最重要的声音之一。创建了 HELM（大语言模型整体评估，2022），这是评估大语言模型最全面、最标准化的基准，涵盖准确性、鲁棒性、公平性和毒性等多个维度。领导了斯坦福 Alpaca 项目（2023），证明了用 GPT 生成的数据微调的小模型可以匹敌更大的模…">
+<meta name="twitter:title" content="Percy Liang"><meta name="twitter:description" content="Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Mod…">
 <meta name="twitter:image" content="https://ai.jasonlin.tech/og/liang.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Percy Liang","alternateName":"Percy Liang","jobTitle":"HELM 基准创造者 · Together AI 创始人","worksFor":{"@type":"Organization","name":"Stanford"},"description":"斯坦福教授，在大语言模型评估和问责方面成为最重要的声音之一。创建了 HELM（大语言模型整体评估，2022），这是评估大语言模型最全面、最标准化的基准，涵盖准确性、鲁棒性、公平性和毒性等多个维度。领导了斯坦福 Alpaca 项目（2023），证明了用 GPT 生成的数据微调的小模型可以匹敌更大的模…","url":"https://ai.jasonlin.tech/p/liang.html","image":"https://ai.jasonlin.tech/og/liang.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Percy Liang", "alternateName": "Percy Liang", "jobTitle": "Creator of HELM benchmark · Founded Together AI", "worksFor": {"@type": "Organization", "name": "Stanford"}, "description": "Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Mod", "url": "https://ai.jasonlin.tech/p/liang.html", "image": "https://ai.jasonlin.tech/og/liang.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,20 +47,25 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 </style></head><body>
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
-<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">AI Scholar Graph</span> ↗</a>
+<a class="eyebrow" href="/"><span class="i18n-zh">AI 学者图谱</span><span class="i18n-en">Ai Scholar Graph</span> ↗</a>
 <img class="avatar" src="/assets/people/liang.jpg" alt="Percy Liang" width="108" height="108" loading="eager">
 <h1><span class="i18n-zh">Percy Liang</span><span class="i18n-en">Percy Liang</span></h1>
 <p class="org">Stanford</p>
-<p class="role"><span class="i18n-zh">HELM 基准创造者 · Together AI 创始人</span><span class="i18n-en">Creator of HELM benchmark · Founded Together AI</span></p>
-<div class="fields"><span class="tag">nlp</span><span class="tag">safety</span></div>
-<div class="bio i18n-zh">斯坦福教授，在大语言模型评估和问责方面成为最重要的声音之一。创建了 HELM（大语言模型整体评估，2022），这是评估大语言模型最全面、最标准化的基准，涵盖准确性、鲁棒性、公平性和毒性等多个维度。领导了斯坦福 Alpaca 项目（2023），证明了用 GPT 生成的数据微调的小模型可以匹敌更大的模型。联合创办 Together AI，致力于开源 AI 基础设施的民主化。</div><div class="bio i18n-en">Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Models, 2022), the most comprehensive and standardized benchmark for evaluating large language models across multiple dimensions including accuracy, robustness, fairness, and toxicity. Led the Stanford Alpaca project (2023), demonstrating that a small model fine-tuned on GPT-generated data could match larger models. Co-founded Together AI to democratize access to open-source AI infrastructure.</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/percyliang/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=liang"><span class="i18n-zh">在关系图谱中查看 Percy Liang →</span><span class="i18n-en">View Percy Liang in the graph →</span></a>
+<p class="role"><span class="i18n-zh">Creator of HELM benchmark · Founded Together AI</span><span class="i18n-en">Creator of HELM benchmark · Founded Together AI</span></p>
+<div class="fields"><span class="tag">nlp</span><span class="tag">safety</span><span class="tag">systems</span></div>
+<div class="bio i18n-zh">Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Models, 2022), the most comprehensive and standardized benchmark for evaluating large language models across multiple dimensions including accuracy, robustness, fairness, and toxicity. Led the Stanford Alpaca project (2023), demonstrating that a small model fine-tuned on GPT-generated data could match larger models. Co-founded Together AI to democratize access to open-source AI infrastructure.</div><div class="bio i18n-en">Stanford professor who became one of the most important voices in LLM evaluation and accountability. Created HELM (Holistic Evaluation of Language Models, 2022), the most comprehensive and standardized benchmark for evaluating large language models across multiple dimensions including accuracy, robustness, fairness, and toxicity. Led the Stanford Alpaca project (2023), demonstrating that a small model fine-tuned on GPT-generated data could match larger models. Co-founded Together AI to democratize access to open-source AI infrastructure.</div>
+<a class="cta" href="/?node=liang"><span class="i18n-zh">在关系图谱中查看 Percy Liang →</span><span class="i18n-en">View Percy Liang in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/percyliang" rel="noopener"><span class="i18n-zh">听 Percy Liang 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2022</span> <a href="https://arxiv.org/abs/2211.09110" rel="noopener">Holistic Evaluation of Language Models (HELM) [2K]</a></li><li><span class="y">2023</span> <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" rel="noopener">Alpaca: A Strong Open-Source Instruction-Following Model [3K]</a></li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/manning.html"><b>Christopher Manning</b><span>斯坦福 NLP 组</span></a><a class="nbr" href="/p/yejin.html"><b>崔艺珍 Yejin Choi</b><span>斯坦福 NLP</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/manning.html"><b>Christopher Manning</b><span>Stanford NLP group</span></a><a class="nbr" href="/p/yejin.html"><b>Yejin Choi</b><span>斯坦福 NLP</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;
